@@ -1,7 +1,7 @@
 <?php
 
     $servername="localhost";
-    $database="store_cel"; //solo se quitó para conexión remota
+    $database="tenis"; //solo se quitó para conexión remota
     $username="root";
     $password="";
 
