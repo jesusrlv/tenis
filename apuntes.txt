@@ -1,0 +1,7 @@
+- agregar carpeta de segundo perfil
+- agregar parte de entrega
+- crear filtro de consulta
+- cálculo de productos vendidos
+- envio de correo con pedido
+- agregar sección al admin donde pueda configurar
+- mostrar elementos de compra en el buscador de rastreo de envíos
