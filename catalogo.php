@@ -49,7 +49,7 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><i class="bi bi-phone"></i> Tienda en línea</a>
+    <a class="navbar-brand" href="#"><i class="bi bi-cart-check-fill"></i> Tenis en línea</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -59,7 +59,7 @@
               <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="catalogo.php?id=1"><i class="bi bi-shield-fill-check"></i> Carcazas</a>
+              <a class="nav-link active" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
@@ -78,18 +78,18 @@
   </nav>
 </header>
 
-<main>
+<main class="bg-light">
 
-<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-phone"></i> Catálogo <span class="text-muted">Protectores de celular</span></h2>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Catálogo <span class="text-muted">de tenis</span></h2>
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container marketing">
+  <div class="container marketing" style="background-color:#f7f7f7;">
 
     <!-- Three columns of text below the carousel -->
     <!-- consultas productos -->
-    <div class="row">
+    <div class="row row-cols-2 g-2">
       <?php
         require('query/query_catalogo.php');
       ?>

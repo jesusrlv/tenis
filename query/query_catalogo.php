@@ -15,13 +15,13 @@ include('qconn/qc.php');
       // echo $x1;
       // echo $x2;
         echo '<div class="col-lg-4">
-        <div class="card text-center text-dark bg-warning" style="width: 100%;">
-          <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 100%; max-height: 375px; object-fit: cover; object-position:right; background-repeat: no-repeat;" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">'.$row_sql_catalogo['nombre'].'</h5>
-            <p class="card-text">'.$row_sql_catalogo['descripcion'].'</p>
+        <div class="card text-center text-dark" style="width: 100%;">
+          <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 100%; max-height: 150px; object-fit: cover; object-position:right; background-repeat: no-repeat;" alt="...">
+          <div class="card-body text-start">
+            <span class="card-title"><small>'.$row_sql_catalogo['nombre'].'</small></span><br>
+            <span class="card-title text-secondary"><small>$'.$row_sql_catalogo['precio'].'</small></span>
             <hr>
-            <button href="#" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
+            <button href="#" class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'"><i class="bi bi-cart-plus"></i> Carrito</button>
           </div>
         </div>
       </div><!-- /.col-lg-4 -->';
@@ -38,7 +38,6 @@ include('qconn/qc.php');
             <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="img-fluid" alt="...">
             <hr>
               <p class="mt-2"><strong>Nombre:</strong> '.$row_sql_catalogo['nombre'].'</p>
-              <p class="mt-1"><strong>Descripción:</strong> '.$row_sql_catalogo['descripcion'].'</p>
               <p class="mt-1"><strong>Precio:</strong> $'.$row_sql_catalogo['precio'].'</p>
             </div>
             <div class="modal-footer">
