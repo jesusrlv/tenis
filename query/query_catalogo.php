@@ -37,8 +37,11 @@ include('qconn/qc.php');
             <div class="modal-body">
             <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="img-fluid" alt="...">
             <hr>
-              <p class="mt-2"><strong>Nombre:</strong> '.$row_sql_catalogo['nombre'].'</p>
-              <p class="mt-1"><strong>Precio:</strong> $'.$row_sql_catalogo['precio'].'</p>
+              <p class="mt-2 text-center">'.$row_sql_catalogo['nombre'].'</p>
+              <p class="mt-1 text-center">$'.$row_sql_catalogo['precio'].'</p>
+              <p class="mt-1 text-secondary"><small>Talla:</small></p>
+              <p class="mt-1 text-secondary"><small>Descripción:</small></p>
+              <p class="mt-1 text-center">'.$row_sql_catalogo['descripcion'].'</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>';

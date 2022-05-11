@@ -143,6 +143,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Precio</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-123"></i> Total vendido</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i> Tallas</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-activity"></i> Acción</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i> Dar de baja</small></th>
           
@@ -162,6 +163,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">$'.$row_sql['precio'].'</td>';
             echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
             echo'<td class="text-center">'.$row_sql['total_vendido'].'</td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Tallas  </span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-warning text-dark"><i class="bi bi-trash-fill"></i> Dar de baja</span></a></td>';
             echo'</tr>';
@@ -196,17 +198,25 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Cantidad</span>
-                      <input type="text" name="cantidad" class="form-control" value="'.$row_sql['cantidad'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <input type="text" name="cantidad" class="form-control" value="'.$row_sql['cantidad'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Total vendido</span>
                       <input type="text" class="form-control" value="'.$row_sql['total_vendido'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
                     </div>
+                    <div class="mb-3">
+                      <hr>
+                      <span class="text-secondary">Tallas disponibles:</span>
+                    </div>
                   </div>
+
+                 
+
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
                     <button type="submit" class="btn btn-primary"><i class="bi bi-save-fill"></i> Actualizar</button>
                   </div>
+                 
                   </form>
                 </div>
               </div>
