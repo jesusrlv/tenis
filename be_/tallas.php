@@ -138,92 +138,22 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Descripción</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Precio</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Total vendido</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i> Tallas</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-activity"></i> Acción</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i> Dar de baja</small></th>
-          
-        
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
         
         <?php
+        $id_talla =$_REQUEST['id'];
+        include('../query/query_talla.php');
         $x = 0;
-          while($row_sql = $resultado_sql_catalogo->fetch_assoc()){
+        while($row_sql = $resultado_sqlTalla->fetch_assoc()){
             $x++;
-            $id_talla =$row_sql['id'];
+            
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
-            echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
-            echo'<td class="text-center">'.$row_sql['descripcion'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['precio'].'</td>';
-            echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center">'.$row_sql['total_vendido'].'</td>';
-            echo'<td class="text-center"><a href="tallas.php?id='.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Tallas</span></a></td>';
-            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
-            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-warning text-dark"><i class="bi bi-trash-fill"></i> Dar de baja</span></a></td>';
+            echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'</tr>';
-
-            echo'<!-- Modal Actualizar-->
-            <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar artículo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  
-                  <form action="prcd/editar_categoria.php" method="post">
-                  <div class="modal-body">
-                    <input name="id" value="'.$row_sql['id'].'" hidden>
-
-                    <div class="text-center mb-3">
-                      <img src="../assets/brand/img/catalogo/'.$row_sql['imagen'].'" class="rounded" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Nombre</span>
-                      <input type="text" name="nombre" class="form-control" value="'.$row_sql['nombre'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Descripción</span>
-                      <input type="text" name="descripcion" class="form-control" value="'.$row_sql['descripcion'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Precio</span>
-                      <input type="text" name="precio" class="form-control" value="'.$row_sql['precio'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Cantidad</span>
-                      <input type="text" name="cantidad" class="form-control" value="'.$row_sql['cantidad'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Total vendido</span>
-                      <input type="text" class="form-control" value="'.$row_sql['total_vendido'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
-                    </div>
-                    <div class="mb-3">
-                      <hr>
-                      <span class="text-secondary">Tallas disponibles:</span>
-                       
-
-                    </div>
-                  </div>
-
-                 
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-save-fill"></i> Actualizar</button>
-                  </div>
-                 
-                  </form>
-                </div>
-              </div>
-            </div>';
             
             echo'<!-- Modal Actualizar-->
             <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -280,26 +210,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
               </div>
             </div>';
 
-            echo '<!-- Modal Eliminar-->
-            <div class="modal fade bg-info" id="deleteArticulo'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-trash-fill"></i> Baja de artículo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center">
-                    <strong>¿Desea dar de baja este artículo?</strong>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
-                    <a href="prcd/editar_activo.php?id='.$row_sql['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> DAR DE BAJA</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            ';
-          }
+        }
         ?>
       </tbody>
     </table>
