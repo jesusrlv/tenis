@@ -12,6 +12,7 @@ include('qconn/qc.php');
       // $x1 = $row_sql_catalogo['nombre'];
       $x1 = 1;
       $x2 = $row_sql_catalogo['nombre'];
+      $idConsultaTalla = $row_sql_catalogo['id'];
       // echo $x1;
       // echo $x2;
         echo '<div class="col-lg-4">
@@ -40,6 +41,11 @@ include('qconn/qc.php');
               <p class="mt-2 text-center">'.$row_sql_catalogo['nombre'].'</p>
               <p class="mt-1 text-center">$'.$row_sql_catalogo['precio'].'</p>
               <p class="mt-1 text-secondary"><small>Talla:</small></p>
+              <div class="container">';
+
+              echo consultaTalla($idConsultaTalla);
+            
+              echo '</div>
               <p class="mt-1 text-secondary"><small>Descripción:</small></p>
               <p class="mt-1 text-center">'.$row_sql_catalogo['descripcion'].'</p>
             </div>
@@ -55,5 +61,19 @@ include('qconn/qc.php');
       </div>
       <!-- modal de descripción del producto -->';
     }
-
+  
+  function consultaTalla($idConsultaTalla){
+    include('qconn/qc.php');
+    $sqlMedida = "SELECT * FROM talla WHERE id_ext = '$idConsultaTalla'";
+    $resultadoMedida = $conn->query($sqlMedida);
+    echo '
+    <select class="form-select" multiple aria-label="multiple select example">
+    <option selected>Seleccionar talla ...</option>';
+      while ($rowMedida = $resultadoMedida->fetch_assoc()){
+      echo '
+      <option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].'</option>';
+    }
+    echo '</select>';
+  }
 ?>
+
