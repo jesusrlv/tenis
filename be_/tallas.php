@@ -93,10 +93,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-phone"></i> Catálogo <span class="text-muted">Productos</span></h2>
+  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-sort-numeric-up"></i> Tallas <span class="text-muted">Disponibles</span></h2>
 
   <div class="container">
-    <ul class="nav nav-tabs">
+    <!-- <ul class="nav nav-tabs">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bag-check-fill"></i> <strong>Productos activos</strong></a>
       </li>
@@ -104,7 +104,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <a class="nav-link" href="catalogo_baja.php"><i class="bi bi-bag-x-fill"></i> Productos dados de baja</a>
       </li>
       
-    </ul>
+    </ul> -->
   </div>
 
   <!-- Marketing messaging and featurettes
@@ -124,7 +124,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     </div>
     <div class="col">
         <div class="input-group mb-4 justify-content-end">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar producto</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar talla</button>
         </div>
     </div>
   </div>
@@ -138,7 +138,9 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up"></i> Talla</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-pencil-square"></i> Editar</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -153,62 +155,11 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql['talla'].'</td>';
+            echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
+            echo'<td class="text-center"><a href="editar_talla.php?id='.$row_sql['id'].'"><i class="bi bi-pencil-square"></i></a></td>';
             echo'</tr>';
             
-            echo'<!-- Modal Actualizar-->
-            <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar artículo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  
-                  <form action="prcd/editar_categoria.php" method="post">
-                  <div class="modal-body">
-                    <input name="id" value="'.$row_sql['id'].'" hidden>
-
-                    <div class="text-center mb-3">
-                      <img src="../assets/brand/img/catalogo/'.$row_sql['imagen'].'" class="rounded" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Nombre</span>
-                      <input type="text" name="nombre" class="form-control" value="'.$row_sql['nombre'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Descripción</span>
-                      <input type="text" name="descripcion" class="form-control" value="'.$row_sql['descripcion'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Precio</span>
-                      <input type="text" name="precio" class="form-control" value="'.$row_sql['precio'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Cantidad</span>
-                      <input type="text" name="cantidad" class="form-control" value="'.$row_sql['cantidad'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Total vendido</span>
-                      <input type="text" class="form-control" value="'.$row_sql['total_vendido'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
-                    </div>
-                    <div class="mb-3">
-                      <hr>
-                      <span class="text-secondary">Tallas disponibles:</span>
-
-                    </div>
-                  </div>
-
-                 
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-save-fill"></i> Actualizar</button>
-                  </div>
-                 
-                  </form>
-                </div>
-              </div>
-            </div>';
+            
 
         }
         ?>
@@ -237,48 +188,22 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar producto</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar talla</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="prcd/agregar_categoria.php" method="post" enctype="multipart/form-data">
+      <form action="prcd/agregar_talla.php" method="post">
+      <input name="id" value="<?php echo $id_talla ?>" hidden>
       <div class="modal-body">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nombre</span>
-            <input type="text" name="nombre" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1">Talla</span>
+            <input type="text" name="talla" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Descripción</span>
-            <input type="text" name="descripcion" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Precio</span>
-            <input type="text" name="precio" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <!-- <span class="input-group-text" id="basic-addon1">Imagen</span>
-            <input type="text" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1"> -->
-            <div class="input-group mb-1">
-              <label class="input-group-text" for="inputGroupFile01"><i class="bi bi-image"></i></label>
-              <input type="file" name="foto" class="form-control" id="inputGroupFile01">
-            </div>
-        </div>
+      
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Cantidad</span>
-            <input type="text" name="cantidad" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <input type="number" name="cantidad" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Tipo catálogo</span>
-              <select class="form-select" name="tipo_catalogo" aria-label="Default select example">
-                <option selected>Selecciona la categoría del producto</option>
-                <? 
-                $sqlCategoria = "SELECT * FROM catalogo";
-                $resultado_categoria_sql = $conn->query($sqlCategoria);
-                while($rowCategoria = $resultado_categoria_sql->fetch_assoc()){
-                  echo '<option value="'.$rowCategoria['id'].'">'.$rowCategoria['nombre_catalogo'].'</option>';
-                }
-                ?>
-              </select>
-        </div>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-cloud-upload-fill"></i> Cerrar</button>
