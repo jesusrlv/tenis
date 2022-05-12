@@ -72,22 +72,22 @@
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
               <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email">
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-credit-card-2-back"></i> Tarjeta para pago</small></label>
               
-              <input type="text" id="tarjeta2" READONLY HIDDEN>
+              <input type="text" id="tarjeta2" READONLY HIDDEN> -->
               
-              <div class="input-group">
+              <!-- <div class="input-group">
                 <input type="text" class="form-control" style="width:57%" id="tarjetaNum" maxlength ="16" name="tarjeta" placeholder="XXXX-XXXX-XXXX-XXXX" onkeypress="ValidaSoloNumeros()">
                 <input type="text" class="form-control" style="width:43%" width="28" id="tipoTarjeta" readonly>
-              </div>
-              <input type="text" class="form-control w-100" id="formGroupExampleInput" placeholder="Nombre en tarjeta..." name="nombre_tarjeta">
+              </div> -->
+              <!-- <input type="text" class="form-control w-100" id="formGroupExampleInput" placeholder="Nombre en tarjeta..." name="nombre_tarjeta"> -->
               
-              <div class="input-group">
+              <!-- <div class="input-group">
               <input type="text" class="form-control w-40" id="formGroupExampleInput" placeholder="Expira Mes..." name="expira_mes" maxlength="2" onkeypress="ValidaSoloNumeros()">
               <input type="text" class="form-control w-40" id="formGroupExampleInput" placeholder="Expira Año..." name="expira_annio" maxlength="2" onkeypress="ValidaSoloNumeros()">
               <input type="password" class="form-control w-20" id="formGroupExampleInput" placeholder="NIP..." maxlength="3" name="ccc" onkeypress="ValidaSoloNumeros()">
-              </div>
+              </div> -->
             </div>
           </div>
           <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cart-plus"></i> Realizar pago</button>  

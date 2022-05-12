@@ -29,14 +29,15 @@ $nombre_completo = $_POST['nombre'];
 $direccion = $_POST['direccion'];
 $telefono = $_POST['tel'];
 $email = $_POST['email'];
-$tarjeta = $_POST['tarjeta'];
+// $tarjeta = $_POST['tarjeta'];
+$talla = $_POST['talla'];
 
 // datos para token
-$nip = $_POST['ccc'];
-$tarjeta2 = $_POST['tarjeta2'];
-$nombre_tarjeta = $_POST['nombre_tarjeta'];
-$expira_mes = $_POST['expira_mes'];
-$expira_annio = $_POST['expira_annio'];
+// $nip = $_POST['ccc'];
+// $tarjeta2 = $_POST['tarjeta2'];
+// $nombre_tarjeta = $_POST['nombre_tarjeta'];
+// $expira_mes = $_POST['expira_mes'];
+// $expira_annio = $_POST['expira_annio'];
 $total_precio = $_POST['total_precio']; // para ambos datos
 
 $nombreproducto = $_POST['nombreproducto'];
@@ -46,14 +47,16 @@ $valor = $_POST['valor'];
 
 // venta individual
 foreach ($nombreproducto as $arreglo) {
+    foreach ($talla as $talla1) {
     // echo $arreglo;
 
-    $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral) VALUES('$arreglo','$fecha_sistema','$codigo')";
+    $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1')";
     $resultado= $conn->query($sql);
 
+    } 
 } 
 
-$sql_general = "INSERT INTO venta_gral(cantidad,precio,fecha_venta,nombre,direccion,telefono,email,tarjeta,nombre_tarjeta,expira_mes,expira_annio,clave_rastreo_int) VALUES('$cantidad','$total_precio','$fecha_sistema','$nombre_completo','$direccion','$telefono','$email','$tarjeta','$nombre_tarjeta','$expira_mes','$expira_annio','$codigo')";
+$sql_general = "INSERT INTO venta_gral(cantidad,precio,fecha_venta,nombre,direccion,telefono,email,clave_rastreo_int) VALUES('$cantidad','$total_precio','$fecha_sistema','$nombre_completo','$direccion','$telefono','$email','$codigo')";
 $resultado_general= $conn->query($sql_general);
 
 if($resultado_general){
