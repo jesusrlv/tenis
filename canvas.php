@@ -160,8 +160,6 @@ $('input[id="tarjetaNum"]').on('change', function() {
 });
 </script>
 
-<!-- 4915663435988911 -->
-<!-- 5579100275123121 -->
 
 <!-- ejemplos de cards -->
 <!-- https://bbbootstrap.com/snippets/bootstrap-5-simple-information-card-85881560 -->
