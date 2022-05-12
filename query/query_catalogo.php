@@ -52,7 +52,7 @@ include('qconn/qc.php');
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>';
               ?>
-              <button type="button" class="btn btn-primary" onclick="mensajeAgregado(); agregarCarrito(<?php echo $row_sql_catalogo['id']?>,'<?php echo $x2?>',<?php echo $row_sql_catalogo['precio']?>);" data-bs-dismiss="modal"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
+              <button type="button" class="btn btn-primary" onclick="mensajeAgregado(); agregarCarrito(<?php echo $row_sql_catalogo['id']?>,'<?php echo $x2?>',<?php echo $row_sql_catalogo['precio']?>, window.marks);" data-bs-dismiss="modal"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
             <?
               echo'
             </div>
@@ -67,13 +67,21 @@ include('qconn/qc.php');
     $sqlMedida = "SELECT * FROM talla WHERE id_ext = '$idConsultaTalla'";
     $resultadoMedida = $conn->query($sqlMedida);
     echo '
-    <select class="form-select" multiple aria-label="multiple select example">
+    <select class="form-select" multiple aria-label="multiple select example" id="valor'.$idConsultaTalla.'" onchange="valorID(this.value)">
     <option selected>Seleccionar talla ...</option>';
       while ($rowMedida = $resultadoMedida->fetch_assoc()){
-      echo '
-      <option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].'</option>';
-    }
-    echo '</select>';
+        echo '
+        <option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].'</option>';
+      }
+        echo '</select>';
+        echo'
+        <script>
+          function valorID(val){
+            window.marks= val;
+         
+          }
+        </script>
+        ';
   }
 ?>
 

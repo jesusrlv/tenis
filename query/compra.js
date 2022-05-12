@@ -1,6 +1,6 @@
 var contador = 0;
 
-function agregarCarrito(x1,nombre,costo){
+function agregarCarrito(x1,nombre,costo,valorTalla){
     
     // var inputs = document.getElementById('contadorInputs').value;
     // var precioTotal = document.getElementById('total_precio').value;
@@ -8,6 +8,7 @@ function agregarCarrito(x1,nombre,costo){
 
     contador++;
     
+    // alert (valorTalla);
     let x = x1;
     let y = nombre; 
     let precio = costo;
@@ -17,7 +18,7 @@ function agregarCarrito(x1,nombre,costo){
     // console.log('x1');
 
     // modificación en contador name="nombreproducto'+contador+' por name="nombreproducto[]"
-    document.getElementById('compracarrito').innerHTML+='<div id="limpiarcompra'+contador+'" class="input-group mb-1"><input name="nombreproducto[]" type="text" class="form-control w-50" placeholder="" aria-label="Username" aria-describedby="basic-addon1" value="'+y+'" READONLY><input name="valor[]" id="producto" type="text" class="form-control text-center" placeholder="" aria-label="Username" aria-describedby="basic-addon1" value="$'+precio+'" READONLY><input name="id[]" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" value="'+x+'" id="contadorId" hidden><button type="button" class="btn btn-danger input-group-text" onclick="borrarCompras('+contador+')"><i class="bi bi-x-circle-fill"></i></button></div>';
+    document.getElementById('compracarrito').innerHTML+='<div id="limpiarcompra'+contador+'" class="input-group input-group-sm mb-1"><input name="nombreproducto[]" type="text" class="h6 form-control w-50" placeholder="" aria-label="Username" aria-describedby="basic-addon1" value="'+y+'" READONLY><input name="valor[]" id="producto" type="text" class="h6 form-control text-center" placeholder="" aria-label="Username" aria-describedby="basic-addon1" value="$'+precio+'" READONLY><input name="talla[]" id="talla" type="text" class="h6 form-control text-center" placeholder="" aria-label="Username" aria-describedby="basic-addon1" value="'+valorTalla+'" READONLY><input name="id[]" type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" value="'+x+'" id="contadorId" hidden><button type="button" class="h6 btn btn-danger input-group-text" onclick="borrarCompras('+contador+')"><i class="bi bi-x-circle-fill"></i></button></div>';
 
     var divs = document.querySelectorAll('input[id="producto"]');
     var valor = divs.length;
