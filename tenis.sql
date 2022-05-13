@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-05-2022 a las 02:34:24
--- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 5.5.38
+-- Tiempo de generación: 13-05-2022 a las 23:29:49
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -110,7 +111,6 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `cant
 (2, 'Protector iPhone XS Max', 'Descripción del producto 02', 300, 'producto_02.jpg', 10, 2, 0, 'protector2', 1, 1),
 (3, 'iPhone 11 (6.1)', 'Descripción del producto 03', 450, 'producto_03.jpg', 36, 1, 0, 'protector3', 1, 1),
 (4, 'Mate 20 Lite', 'Descripción del producto 04', 150, 'producto_04.jpg', 10, 1, 0, 'protector4', 1, 1),
-(5, 'P40 Lite Nova 6 SE', 'Descripción del producto 05', 200, 'producto_05.jpg', 60, 1, 0, 'protector4', 1, 1),
 (6, 'Huawei Y9S', 'Descripción del producto 06', 300, 'producto_06.jpg', 10, 1, 0, 'protector5', 1, 1),
 (7, 'A51', 'Descripción del producto 07', 350, 'producto_07.jpg', 10, 1, 0, 'protector6', 1, 1),
 (8, 'iPhone 7/8 Plus', 'Descripción del producto 08', 600, 'producto_08.jpg', 10, 1, 0, 'protector7', 1, 1),
@@ -130,28 +130,19 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `cant
 
 CREATE TABLE `talla` (
   `id` int(11) NOT NULL,
-  `talla` varchar(20) NOT NULL,
+  `talla` varchar(4) NOT NULL,
   `id_ext` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `talla`
 --
 
 INSERT INTO `talla` (`id`, `talla`, `id_ext`, `cantidad`) VALUES
-(1, '24', 1, 9),
-(2, '24', 1, 9),
-(3, '25', 1, 14),
-(4, '27', 1, 18),
-(5, '27', 1, 18),
-(6, '25', 1, 18),
-(7, '25', 1, 18),
-(8, '24', 1, 90),
-(9, '24', 1, 90),
-(10, '25', 1, 54),
-(11, '25', 4, 18),
-(12, '27', 4, 90);
+(1, '29', 1, 9),
+(2, '27', 1, 12),
+(3, '12', 4, 30);
 
 -- --------------------------------------------------------
 
@@ -188,11 +179,11 @@ CREATE TABLE `venta_gral` (
   `direccion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `telefono` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `tarjeta` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
-  `nombre_tarjeta` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `expira_mes` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
-  `expira_annio` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
-  `clave_rastreo_int` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `tarjeta` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `nombre_tarjeta` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `expira_mes` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `expira_annio` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `clave_rastreo_int` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `clave_rastreo_ext` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -210,7 +201,12 @@ INSERT INTO `venta_gral` (`id`, `cantidad`, `precio`, `fecha_venta`, `nombre`, `
 (7, 5, 800, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '7', ''),
 (8, 3, 1100, '2022-03-15', '0', 'Direccion conocida', '99999999', 'dskjdsjs@fjfjf.net', 'XXXXXXXXXXX3434', 'Geranios', '02', '03', '8', '336td-zac-MX-1'),
 (9, 3, 1100, '2022-03-15', 'JESÃšS RODOLFO LEAÃ‘OS VILLEGAS', 'Direccion conocida', '99999999', 'dskjdsjs@fjfjf.net', 'XXXXXXXXXXX3434', 'Geranios', '02', '03', '9', ''),
-(10, 3, 850, '2022-03-30', 'RODOLFO DE JESÃšS LEAÃ‘OS V', 'AND TULIPANES 12 A COL EL CARMEN GUADALUPE, ZAC', '4927951930', 'jesusrlvrojo@gmail.com', 'XXXXXXXXXXX2223', 'Jesus R', '09', '21', 'v7q58lmqg', 'EST-34455-90-ZMX');
+(10, 3, 850, '2022-03-30', 'RODOLFO DE JESÃšS LEAÃ‘OS V', 'AND TULIPANES 12 A COL EL CARMEN GUADALUPE, ZAC', '4927951930', 'jesusrlvrojo@gmail.com', 'XXXXXXXXXXX2223', 'Jesus R', '09', '21', 'v7q58lmqg', 'EST-34455-90-ZMX'),
+(11, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', '', '', '', '', 'jw7nizkvp', NULL),
+(12, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, '5mj5w2cui', NULL),
+(13, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'a5kv3ujdw', NULL),
+(14, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'c240kzw9t', NULL),
+(15, 1, 120, '2022-05-13', '', '', '', '', NULL, NULL, NULL, NULL, 'yue7pfnqp', NULL);
 
 -- --------------------------------------------------------
 
@@ -222,76 +218,93 @@ CREATE TABLE `venta_individual` (
   `id` int(11) NOT NULL,
   `producto` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `fecha_venta` date NOT NULL,
-  `venta_gral` varchar(9) COLLATE utf8_unicode_ci NOT NULL
+  `venta_gral` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
+  `talla` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `cantidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `venta_individual`
 --
 
-INSERT INTO `venta_individual` (`id`, `producto`, `fecha_venta`, `venta_gral`) VALUES
-(1, '0', '0000-00-00', '0'),
-(2, '0', '0000-00-00', '0'),
-(3, '0', '0000-00-00', '0'),
-(4, '0', '2022-03-02', '0'),
-(5, '0', '2022-03-02', '0'),
-(6, '0', '2022-03-02', '0'),
-(7, '0', '2022-03-02', '0'),
-(8, '0', '2022-03-02', '0'),
-(9, '0', '2022-03-02', '0'),
-(10, '0', '2022-03-02', '0'),
-(11, '0', '2022-03-02', '0'),
-(12, '0', '2022-03-02', '0'),
-(13, '0', '2022-03-02', '0'),
-(14, '0', '2022-03-02', '0'),
-(15, '0', '2022-03-02', '0'),
-(16, '0', '2022-03-02', '1'),
-(17, '0', '2022-03-02', '0'),
-(18, 'Protector iPhone XS Max', '2022-03-02', '0'),
-(19, 'Protector iPhone XS Max', '2022-03-02', '0'),
-(20, 'Protector iPhone XS Max', '2022-03-02', 'g9vz8mhh3'),
-(21, 'Protector iPhone XS Max', '2022-03-02', 'b2mqoil4w'),
-(22, 'Protector iPhone XS Max', '2022-03-02', 'b2mqoil4w'),
-(23, 'Mate 20 Lite', '2022-03-02', 'b2mqoil4w'),
-(24, 'Samsung A10S', '2022-03-02', 'b2mqoil4w'),
-(25, 'Protector iPhone XS Max', '2022-03-02', '8f3ak2ug8'),
-(26, 'Protector iPhone XS Max', '2022-03-02', '8f3ak2ug8'),
-(27, 'Mate 20 Lite', '2022-03-02', '8f3ak2ug8'),
-(28, 'Samsung A10S', '2022-03-02', '8f3ak2ug8'),
-(29, 'Protector iPhone XS Max', '2022-03-02', '99x8t9pvr'),
-(30, 'Protector iPhone XS Max', '2022-03-02', '99x8t9pvr'),
-(31, 'Mate 20 Lite', '2022-03-02', '99x8t9pvr'),
-(32, 'Samsung A10S', '2022-03-02', '99x8t9pvr'),
-(33, 'Protector iPhone XS Max', '2022-03-02', 'v5b9wrogc'),
-(34, 'Protector iPhone XS Max', '2022-03-02', 'v5b9wrogc'),
-(35, 'Mate 20 Lite', '2022-03-02', 'v5b9wrogc'),
-(36, 'Samsung A10S', '2022-03-02', 'v5b9wrogc'),
-(37, 'Mate 20 Lite', '2022-03-02', 'vudtv03fq'),
-(38, 'Mate 20 Lite', '2022-03-02', 'vudtv03fq'),
-(39, 'Protector Samsung S30/S21', '2022-03-02', 'vudtv03fq'),
-(40, 'Protector iPhone XS Max', '2022-03-02', 'vudtv03fq'),
-(41, 'Mate 20 Lite', '2022-03-02', '5cew07b0n'),
-(42, 'Mate 20 Lite', '2022-03-02', '5cew07b0n'),
-(43, 'Protector Samsung S30/S21', '2022-03-02', '5cew07b0n'),
-(44, 'Protector iPhone XS Max', '2022-03-02', '5cew07b0n'),
-(45, 'Mate 20 Lite', '2022-03-02', '77lz5ocv5'),
-(46, 'Mate 20 Lite', '2022-03-02', '77lz5ocv5'),
-(47, 'Protector Samsung S30/S21', '2022-03-02', '77lz5ocv5'),
-(48, 'Protector iPhone XS Max', '2022-03-02', '77lz5ocv5'),
-(49, 'Mate 20 Lite', '2022-03-02', 't3jxopyg7'),
-(50, 'Mate 20 Lite', '2022-03-02', 't3jxopyg7'),
-(51, 'Protector Samsung S30/S21', '2022-03-02', 't3jxopyg7'),
-(52, 'Protector iPhone XS Max', '2022-03-02', 't3jxopyg7'),
-(53, 'Protector Samsung S30/S21', '2022-03-02', 't3jxopyg7'),
-(54, 'iPhone 11 (6.1)', '2022-03-15', '8moue73zq'),
-(55, 'Protector Samsung S30/S21', '2022-03-15', '8moue73zq'),
-(56, 'iPhone 7/8 Plus', '2022-03-15', '8moue73zq'),
-(57, 'iPhone 11 (6.1)', '2022-03-15', '3myeslnks'),
-(58, 'Protector Samsung S30/S21', '2022-03-15', '3myeslnks'),
-(59, 'iPhone 7/8 Plus', '2022-03-15', '3myeslnks'),
-(60, 'Protector Samsung S30/S21', '2022-03-30', 'v7q58lmqg'),
-(61, 'iPhone 11 (6.1)', '2022-03-30', 'v7q58lmqg'),
-(62, 'A51', '2022-03-30', 'v7q58lmqg');
+INSERT INTO `venta_individual` (`id`, `producto`, `fecha_venta`, `venta_gral`, `talla`, `cantidad`) VALUES
+(1, '0', '0000-00-00', '0', '', NULL),
+(2, '0', '0000-00-00', '0', '', NULL),
+(3, '0', '0000-00-00', '0', '', NULL),
+(4, '0', '2022-03-02', '0', '', NULL),
+(5, '0', '2022-03-02', '0', '', NULL),
+(6, '0', '2022-03-02', '0', '', NULL),
+(7, '0', '2022-03-02', '0', '', NULL),
+(8, '0', '2022-03-02', '0', '', NULL),
+(9, '0', '2022-03-02', '0', '', NULL),
+(10, '0', '2022-03-02', '0', '', NULL),
+(11, '0', '2022-03-02', '0', '', NULL),
+(12, '0', '2022-03-02', '0', '', NULL),
+(13, '0', '2022-03-02', '0', '', NULL),
+(14, '0', '2022-03-02', '0', '', NULL),
+(15, '0', '2022-03-02', '0', '', NULL),
+(16, '0', '2022-03-02', '1', '', NULL),
+(17, '0', '2022-03-02', '0', '', NULL),
+(18, 'Protector iPhone XS Max', '2022-03-02', '0', '', NULL),
+(19, 'Protector iPhone XS Max', '2022-03-02', '0', '', NULL),
+(20, 'Protector iPhone XS Max', '2022-03-02', 'g9vz8mhh3', '', NULL),
+(21, 'Protector iPhone XS Max', '2022-03-02', 'b2mqoil4w', '', NULL),
+(22, 'Protector iPhone XS Max', '2022-03-02', 'b2mqoil4w', '', NULL),
+(23, 'Mate 20 Lite', '2022-03-02', 'b2mqoil4w', '', NULL),
+(24, 'Samsung A10S', '2022-03-02', 'b2mqoil4w', '', NULL),
+(25, 'Protector iPhone XS Max', '2022-03-02', '8f3ak2ug8', '', NULL),
+(26, 'Protector iPhone XS Max', '2022-03-02', '8f3ak2ug8', '', NULL),
+(27, 'Mate 20 Lite', '2022-03-02', '8f3ak2ug8', '', NULL),
+(28, 'Samsung A10S', '2022-03-02', '8f3ak2ug8', '', NULL),
+(29, 'Protector iPhone XS Max', '2022-03-02', '99x8t9pvr', '', NULL),
+(30, 'Protector iPhone XS Max', '2022-03-02', '99x8t9pvr', '', NULL),
+(31, 'Mate 20 Lite', '2022-03-02', '99x8t9pvr', '', NULL),
+(32, 'Samsung A10S', '2022-03-02', '99x8t9pvr', '', NULL),
+(33, 'Protector iPhone XS Max', '2022-03-02', 'v5b9wrogc', '', NULL),
+(34, 'Protector iPhone XS Max', '2022-03-02', 'v5b9wrogc', '', NULL),
+(35, 'Mate 20 Lite', '2022-03-02', 'v5b9wrogc', '', NULL),
+(36, 'Samsung A10S', '2022-03-02', 'v5b9wrogc', '', NULL),
+(37, 'Mate 20 Lite', '2022-03-02', 'vudtv03fq', '', NULL),
+(38, 'Mate 20 Lite', '2022-03-02', 'vudtv03fq', '', NULL),
+(39, 'Protector Samsung S30/S21', '2022-03-02', 'vudtv03fq', '', NULL),
+(40, 'Protector iPhone XS Max', '2022-03-02', 'vudtv03fq', '', NULL),
+(41, 'Mate 20 Lite', '2022-03-02', '5cew07b0n', '', NULL),
+(42, 'Mate 20 Lite', '2022-03-02', '5cew07b0n', '', NULL),
+(43, 'Protector Samsung S30/S21', '2022-03-02', '5cew07b0n', '', NULL),
+(44, 'Protector iPhone XS Max', '2022-03-02', '5cew07b0n', '', NULL),
+(45, 'Mate 20 Lite', '2022-03-02', '77lz5ocv5', '', NULL),
+(46, 'Mate 20 Lite', '2022-03-02', '77lz5ocv5', '', NULL),
+(47, 'Protector Samsung S30/S21', '2022-03-02', '77lz5ocv5', '', NULL),
+(48, 'Protector iPhone XS Max', '2022-03-02', '77lz5ocv5', '', NULL),
+(49, 'Mate 20 Lite', '2022-03-02', 't3jxopyg7', '', NULL),
+(50, 'Mate 20 Lite', '2022-03-02', 't3jxopyg7', '', NULL),
+(51, 'Protector Samsung S30/S21', '2022-03-02', 't3jxopyg7', '', NULL),
+(52, 'Protector iPhone XS Max', '2022-03-02', 't3jxopyg7', '', NULL),
+(53, 'Protector Samsung S30/S21', '2022-03-02', 't3jxopyg7', '', NULL),
+(54, 'iPhone 11 (6.1)', '2022-03-15', '8moue73zq', '', NULL),
+(55, 'Protector Samsung S30/S21', '2022-03-15', '8moue73zq', '', NULL),
+(56, 'iPhone 7/8 Plus', '2022-03-15', '8moue73zq', '', NULL),
+(57, 'iPhone 11 (6.1)', '2022-03-15', '3myeslnks', '', NULL),
+(58, 'Protector Samsung S30/S21', '2022-03-15', '3myeslnks', '', NULL),
+(59, 'iPhone 7/8 Plus', '2022-03-15', '3myeslnks', '', NULL),
+(60, 'Protector Samsung S30/S21', '2022-03-30', 'v7q58lmqg', '', NULL),
+(61, 'iPhone 11 (6.1)', '2022-03-30', 'v7q58lmqg', '', NULL),
+(62, 'A51', '2022-03-30', 'v7q58lmqg', '', NULL),
+(63, 'Protector Samsung S30/S21', '2022-05-12', 'jw7nizkvp', '', NULL),
+(64, 'Mate 20 Lite', '2022-05-12', 'jw7nizkvp', '', NULL),
+(65, 'Protector Samsung S30/S21', '2022-05-12', 'emeeoygi2', '', NULL),
+(66, 'Mate 20 Lite', '2022-05-12', 'emeeoygi2', '', NULL),
+(67, 'Protector Samsung S30/S21', '2022-05-12', '17o2h8nkp', '', NULL),
+(68, 'Mate 20 Lite', '2022-05-12', '17o2h8nkp', '', NULL),
+(69, 'Protector Samsung S30/S21', '2022-05-12', '5mj5w2cui', 'Array', NULL),
+(70, 'Mate 20 Lite', '2022-05-12', '5mj5w2cui', 'Array', NULL),
+(71, 'Protector Samsung S30/S21', '2022-05-12', 'a5kv3ujdw', 'Array', NULL),
+(72, 'Mate 20 Lite', '2022-05-12', 'a5kv3ujdw', 'Array', NULL),
+(73, 'Protector Samsung S30/S21', '2022-05-12', 'c240kzw9t', '29', NULL),
+(74, 'Protector Samsung S30/S21', '2022-05-12', 'c240kzw9t', '29', NULL),
+(75, 'Mate 20 Lite', '2022-05-12', 'c240kzw9t', '29', NULL),
+(76, 'Mate 20 Lite', '2022-05-12', 'c240kzw9t', '29', NULL),
+(77, 'Protector Samsung S30/S21', '2022-05-13', 'yue7pfnqp', '29', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -353,42 +366,51 @@ ALTER TABLE `venta_individual`
 -- AUTO_INCREMENT de la tabla `catalogo`
 --
 ALTER TABLE `catalogo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT de la tabla `modelo`
 --
 ALTER TABLE `modelo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
 ALTER TABLE `talla`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `usr`
 --
 ALTER TABLE `usr`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT de la tabla `venta_gral`
 --
 ALTER TABLE `venta_gral`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- AUTO_INCREMENT de la tabla `venta_individual`
 --
 ALTER TABLE `venta_individual`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
