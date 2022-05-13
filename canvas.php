@@ -89,9 +89,10 @@
               <input type="password" class="form-control w-20" id="formGroupExampleInput" placeholder="NIP..." maxlength="3" name="ccc" onkeypress="ValidaSoloNumeros()">
               </div> -->
             </div>
-          </div>
-          <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cart-plus"></i> Realizar pago</button>  
+            <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cart-plus"></i> Realizar pago</button>  
           </form>
+          </div>
+          
         </div>
     
   </div>

@@ -68,14 +68,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><i class="bi bi-phone"></i> Sistema |</a>
+      <a class="navbar-brand" href="#"><i class="bi bi-box-seam"></i> Sistema |</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-           <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+           <a class="nav-link" aria-current="page" href="dashboard.php"><i class="bi bi-house-fill"></i> Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="venta_gral.php"><i class="bi bi-receipt-cutoff"></i> Ventas</a>
@@ -94,7 +94,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-phone"></i> Sistema <span class="text-muted">de Ventas</span></h2>
+  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Sistema <span class="text-muted">de Ventas</span></h2>
 
   <!-- Marketing messaging and featurettes
   ================================================== -->

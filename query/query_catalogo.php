@@ -46,7 +46,7 @@ include('qconn/qc.php');
               echo consultaTalla($idConsultaTalla);
             
               echo '</div>
-              <p class="mt-1 text-secondary"><small>Descripción:</small></p>
+              <p class="mt-3 text-secondary"><small>Descripción:</small></p>
               <p class="mt-1 text-center">'.$row_sql_catalogo['descripcion'].'</p>
             </div>
             <div class="modal-footer">
@@ -64,11 +64,11 @@ include('qconn/qc.php');
   
   function consultaTalla($idConsultaTalla){
     include('qconn/qc.php');
-    $sqlMedida = "SELECT * FROM talla WHERE id_ext = '$idConsultaTalla'";
+    $sqlMedida = "SELECT * FROM talla WHERE id_ext = '$idConsultaTalla' ORDER BY talla ASC";
     $resultadoMedida = $conn->query($sqlMedida);
     echo '
     <select class="form-select" multiple aria-label="multiple select example" id="valor'.$idConsultaTalla.'" onchange="valorID(this.value)">
-    <option selected>Seleccionar talla ...</option>';
+    ';
       while ($rowMedida = $resultadoMedida->fetch_assoc()){
         echo '
         <option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].'</option>';

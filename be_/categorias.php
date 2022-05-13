@@ -93,7 +93,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-sort-numeric-up"></i> Tallas <span class="text-muted">Disponibles</span></h2>
+  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Categorías <span class="text-muted">Productos</span></h2>
 
   <div class="container">
     <!-- <ul class="nav nav-tabs">
@@ -111,7 +111,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<? include('../query/query_catalogo_backend.php'); ?>
+<? include('../query/query_categorias_backend.php'); ?>
   
   <div class="container marketing mt-5 border-bottom">
 
@@ -124,7 +124,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     </div>
     <div class="col">
         <div class="input-group mb-4 justify-content-end">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar talla</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar categoría</button>
         </div>
     </div>
   </div>
@@ -138,30 +138,74 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up"></i> Talla</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-pencil-square"></i> Editar</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Nombre</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Editar</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Eliminar</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
         
         <?php
-        $id_talla =$_REQUEST['id'];
-        include('../query/query_talla.php');
         $x = 0;
-        while($row_sql = $resultado_sqlTalla->fetch_assoc()){
+          while($row_sql = $resultado_sql_catalogo->fetch_assoc()){
             $x++;
-            
+            $id_talla =$row_sql['id'];
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
-            echo'<td class="text-center">'.$row_sql['talla'].'</td>';
-            echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center"><a href="editar_talla.php?id='.$row_sql['id'].'"><i class="bi bi-pencil-square"></i></a></td>';
+            echo'<td class="text-center">'.$row_sql['nombre_catalogo'].'</td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-trash-fill"></i> Eliminar</span></a></td>';
             echo'</tr>';
-            
-            
 
-        }
+            echo'<!-- Modal Actualizar-->
+            <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  
+                  <form action="prcd/editar_catalogo.php" method="post">
+                  <div class="modal-body">
+                    <input name="id" value="'.$row_sql['id'].'" hidden>
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Nombre</span>
+                      <input type="text" name="catalogo" class="form-control" value="'.$row_sql['nombre_catalogo'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+            
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-save-fill"></i> Actualizar</button>
+                  </div>
+                 
+                  </form>
+                </div>
+              </div>
+            </div>';
+
+            echo '<!-- Modal Eliminar-->
+            <div class="modal fade bg-danger" id="deleteArticulo'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-trash-fill"></i> Eliminar categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <strong>¿Desea eliminar esta categoría?</strong>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
+                    <a href="prcd/eliminar_catalogo.php?id='.$row_sql['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ';
+          }
         ?>
       </tbody>
     </table>
@@ -185,23 +229,17 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 <!-- Agregar producto -->
 <!-- Modal -->
 <div class="modal fade" id="agregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar talla</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar categoría</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="prcd/agregar_talla.php" method="post">
-      <input name="id" value="<?php echo $id_talla ?>" hidden>
+      <form action="prcd/agregar_catalogo.php" method="post">
       <div class="modal-body">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Talla</span>
-            <input type="text" name="talla" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
-        </div>
-      
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Cantidad</span>
-            <input type="number" name="cantidad" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1">Nombre</span>
+            <input type="text" name="categoria" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
         </div>
         
       </div>
