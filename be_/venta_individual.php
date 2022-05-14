@@ -115,7 +115,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small>#</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i> Fecha venta</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-list"></i> Producto</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i> Detalles</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-list"></i> Talla</small></th>
         </tr>
       </thead>
       <tbody class="text-center" id="myTable">
@@ -128,7 +128,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td>'.$x.'</td>';
             echo'<td>'.$row_sql['fecha_venta'].'</td>';
             echo'<td class="text-center">'.$row_sql['producto'].'</td>';
-            echo'<td class="text-center"><a href="" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
+            echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'</tr>';
           }
         ?>
