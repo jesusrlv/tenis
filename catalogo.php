@@ -96,8 +96,9 @@
 <?php
     include('query/query_categorias.php');
     while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
+      // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
       echo'
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" id="boton'.$row_sqlCategorias['id'].'" onclick="cambio('.$row_sqlCategorias['nombre_catalogo'].')">
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
       <label class="btn btn-outline-primary" for="btnradio2">'.$row_sqlCategorias['nombre_catalogo'].'</label>
       ';
     }
@@ -188,7 +189,7 @@
 
 <script>
   function cambio(x){
-    documemt.getElementById()
+    documemt.getElementById('x').style.visibility = 'hidden';
   }
 </script>
 
