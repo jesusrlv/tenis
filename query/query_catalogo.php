@@ -4,7 +4,8 @@ include('qconn/qc.php');
 
     $id_catalogo = $_REQUEST['id'];
 
-    $sql_catalogo = "SELECT * FROM producto WHERE catalogo ='$id_catalogo' AND activo = 1";
+    // $sql_catalogo = "SELECT * FROM producto WHERE catalogo ='$id_catalogo' AND activo = 1";
+    $sql_catalogo = "SELECT * FROM producto WHERE activo = 1";
     $resultado_sql_catalogo= $conn->query($sql_catalogo);
     // $row_sql_catalogo = $resultado_sql_catalogo->fetch_assoc();
 

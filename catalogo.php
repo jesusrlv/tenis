@@ -53,15 +53,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     <a class="navbar-brand" href="#"><i class="bi bi-cart-check-fill"></i> Tenis en línea</a>
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-
-      <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> 
-          <span class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger" id="notificacionBadge">
-    0
-          <span class="visually-hidden">unread messages</span>
-        </span></button>
+      <
         
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -75,15 +67,13 @@
               <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
             </li>
           </ul>
-        <!-- <form class="d-flex"> -->
-          <!-- <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search"> -->
-          <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart-plus"></i> Carrito de compras
-          <span class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger" id="notificacionBadge">
-    
-          <span class="visually-hidden">unread messages</span>
-        </span></button>
-        <!-- </form> -->
       </div>
+      <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> <span id="esconder">Carrito de compras</span>
+          <span class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger" id="notificacionBadge">
+    0
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
     </div>
   </nav>
 </header>
@@ -103,15 +93,15 @@
     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
       <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
       <label class="btn btn-outline-primary" for="btnradio1">Todos</label>
-
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btnradio2">Tenis</label>
-
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btnradio3">Bota</label>
-
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btnradio4">Bota industrial</label>
+<?php
+    include('query/query_categorias.php');
+    while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
+      echo'
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" id="boton'.$row_sqlCategorias['id'].'" onclick="cambio('.$row_sqlCategorias['nombre_catalogo'].')">
+      <label class="btn btn-outline-primary" for="btnradio2">'.$row_sqlCategorias['nombre_catalogo'].'</label>
+      ';
+    }
+?>
     </div>
   </div>
 
@@ -195,4 +185,29 @@
   }
    
 </script>
+
+<script>
+  function cambio(x){
+    documemt.getElementById()
+  }
+</script>
+
+<style>
+  /* normal web */
+  
+  
+  /* On screens that are 992px wide or less, go from four columns to two columns */
+  /* tablets, celular horizontal y otros dispositivos */
+  @media screen and (max-width: 992px) {
+    
+  }
+  /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+  /* CELULAR */
+  @media screen and (max-width: 600px) {
+    #esconder {
+        display: none;
+        }
+    }
+     
+</style>
 
