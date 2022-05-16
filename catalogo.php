@@ -91,7 +91,7 @@
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
     <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="mostrarTodo()" checked>
       <label class="btn btn-outline-primary" for="btnradio1">Todos</label>
 <?php
     $sum = 1;
@@ -229,9 +229,13 @@
 
   }
 
-  function mostarTodo(){
-
-  }
+  function mostrarTodo(){
+    const div2=document.querySelectorAll('#hidden');
+      for(let i=0;i<div2.length;i++){
+        const styles = window.getComputedStyle(div2[i]);
+        div2[i].style.visibility='visible';
+      }
+    } 
 </script>
 
 <style>
