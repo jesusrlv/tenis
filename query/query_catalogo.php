@@ -16,7 +16,7 @@ include('qconn/qc.php');
       $idConsultaTalla = $row_sql_catalogo['id'];
       // echo $x1;
       // echo $x2;
-        echo '<div class="col-lg-4" id="'.$row_sql_catalogo['catalogo'].'">
+        echo '<div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
         <div class="card text-center text-dark" style="width: 100%;">
           <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 100%; max-height: 150px; object-fit: cover; object-position:right; background-repeat: no-repeat;" alt="...">
           <div class="card-body text-start">

@@ -90,16 +90,18 @@
   <div class="container marketing" style="background-color:#f7f7f7;">
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
-    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
       <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
       <label class="btn btn-outline-primary" for="btnradio1">Todos</label>
 <?php
+    $sum = 1;
     include('query/query_categorias.php');
     while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
+      $sum++;
       // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
       echo'
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
-      <label class="btn btn-outline-primary" for="btnradio2">'.$row_sqlCategorias['nombre_catalogo'].'</label>
+      <input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
+      <label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
       ';
     }
 ?>
@@ -187,9 +189,48 @@
    
 </script>
 
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
 <script>
+  x=0;
   function cambio(x){
-    documemt.getElementById('x').style.visibility = 'hidden';
+    // alert(x);
+    // document.getElementById('hidden'+x).style.visibility = 'hidden';
+    
+    // z = document.getElementById('hidden'+x);
+    //  z.style.visibility = 'hidden';
+
+//     var divsToHide = document.getElementsById('hidden'+x); 
+//       for(var i = 0; i < divsToHide.length; i++){
+//           if(document.getElementById('q'+i).style.display!='none')
+//             {
+//             document.getElementById('q'+i).style.display='none'
+//             }
+//         }
+// }
+  const div=document.querySelectorAll('#hidden');
+  for(let i=0;i<div.length;i++){
+    const styles = window.getComputedStyle(div[i]);
+      var xyz = (div[i]).getAttribute('value');
+      // alert(xyz)
+        if(xyz == x){
+          div[i].style.visibility='visible';
+        }
+        else{
+          div[i].style.visibility='collapse'; 
+        }
+        // if(styles.visibility=='visible'){
+        // div[i].style.visibility='collapse';
+        // }
+        // else{
+        // div[i].style.visibility='visible';
+        // }
+        
+  }
+
+  }
+
+  function mostarTodo(){
+
   }
 </script>
 
