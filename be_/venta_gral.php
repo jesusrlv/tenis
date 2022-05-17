@@ -141,54 +141,38 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$row_sql['email'].'</td>';
             echo'<td class="text-center">'.$row_sql['clave_rastreo_int'].'</td>';
             if(!$row_sql['clave_rastreo_ext']){
-              echo'<td class="text-center"><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
+              echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
               echo'<div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle-dotted"></i> Agregar envio</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-check-circle-fill"></i> Marcar entrega</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <form action="../query/clave_rastreo.php" method="post">
                   <div class="modal-body">
                       
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-truck"></i></span>
-                      <input type="text" name="compania" class="form-control" placeholder="Ingrese compañía" aria-label="Ingrese compañía" aria-describedby="basic-addon1" required>
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-check-fill"></i></span>
-                      <input type="date" name="fecha_envio" class="form-control" placeholder="Ingrese compañía" aria-label="Ingrese compañía" aria-describedby="basic-addon1" required>
-                    </div>
-                    <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                      <input type="text" name="persona_envia" class="form-control" placeholder="Nombre persona que envía" aria-label="Nombre persona que envía" aria-describedby="basic-addon1" required>
+                      <input type="text" name="persona_envia" class="form-control" placeholder="Nombre persona que envía" aria-label="Nombre persona que envía" aria-describedby="basic-addon1" readonly>
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text bg-warning" id="basic-addon1"><i class="bi bi-send-fill"></i></span>
                       <input type="text" name="clave_rastreo_int" value="'.$row_sql['clave_rastreo_int'].'" class="form-control" placeholder="Costro de envío" aria-label="Costro de envío" aria-describedby="basic-addon1" READONLY>
                     </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-coin"></i></span>
-                      <input type="text" name="costo_envio" class="form-control" placeholder="Costo de envío" aria-label="Costo de envío" aria-describedby="basic-addon1" required>
-                    </div>
                     
-                    <div class="input-group mb-3">
-                        <span class="input-group-text bg-primary" id="basic-addon1"><i class="bi bi-journal-code text-light"></i></span>
-                        <input type="text" name="clave_rastreo_ext" class="form-control" placeholder="Clave de rastreo envío" aria-label="Clave de rastreo envío" aria-describedby="button-addon2" required>
-                        <button class="btn btn-primary" type="submit" id="button-addon2"><i class="bi bi-plus-circle-dotted"></i> Agregar</button>
-                    </div>
                   </div>
                   </form>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+                    <button class="btn btn-primary" type="submit" id="button-addon2"><i class="bi bi-check-circle-fill"></i> Entregar</button>
                   </div>
                 </div>
               </div>
             </div>';
             }
             else{
-              echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_ext'].'" style="text-decoration: none;"><i class="bi bi-eye-fill"></i> '.$row_sql['clave_rastreo_ext'].'</a></td>';
+              echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_ext'].'" style="text-decoration: none;"><i class="bi bi-check-circle-fill text-success"></i> '.$row_sql['clave_rastreo_ext'].'</a></td>';
             }
             // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
