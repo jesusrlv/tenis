@@ -117,12 +117,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <tr  class="text-center">
           <th scope="col" class="h6"><small>#</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i> Fecha registro</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-building"></i> Compañía</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Fecha llegada</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-person-check-fill"></i> Nombre envío</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-coin"></i> Costo</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Código interno</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-journal-code"></i> Código externo</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-activity"></i> Acción</small></th>
         </tr>
       </thead>
@@ -135,12 +131,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql['fecha_registro'].'</td>';
-            echo'<td class="text-center">'.$row_sql['compania'].'</td>';
-            echo'<td class="text-center">'.$row_sql['fecha_llegada'].'</td>';
             echo'<td class="text-center">'.$row_sql['id_envio'].'</td>';
-            echo'<td class="text-center">'.$row_sql['costo_envio'].'</td>';
             echo'<td class="text-center">'.$row_sql['codigo_envio_interno'].'</td>';
-            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#editCode" style="text-decoration: none;"><i class="bi bi-pencil-square"></i> '.$row_sql['codigo_envio_externo'].'</a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
             echo'</tr>';
 
@@ -156,42 +148,20 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                   <form action="prcd/editar_rastreo.php" method="post">
                   <input value="'.$row_sql['id'].'" name="id" hidden>
                   <div class="modal-body">
-                    <div class="input-group mb-3">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Compañía de paquetería">
-                        <i class="bi bi-building"></i>
-                      </button>
-                      <input type="text" class="form-control" placeholder="Compañía" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['compania'].'" name="compania">
-                    </div>
-                    <div class="input-group mb-3">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Fecha de entrega de paquete">
-                        <i class="bi bi-tag"></i>
-                      </button>
-                      <input type="date" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['fecha_llegada'].'" name="fecha_entrega">
-                    </div>
+                    
                     <div class="input-group mb-3">
                       <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Persona que envía">
                       <i class="bi bi-person-check-fill"></i>
                       </button>
                       <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['id_envio'].'" name="persona_envia">
                     </div>
-                    <div class="input-group mb-3">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Costo de paquetería">
-                        <i class="bi bi-coin"></i>
-                      </button>
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['costo_envio'].'" name="costo">
-                    </div>
-                    <div class="input-group mb-3">
-                      <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Código rastreo interno">
-                        <i class="bi bi-card-text"></i>
-                      </button>
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['codigo_envio_interno'].'" name="codigo_interno">
-                    </div>
+                    
                     <div class="input-group mb-3">
                       <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Código rastreo paquetería">
                         <i class="bi bi-journal-code"></i>
                       </button>
                       
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['codigo_envio_externo'].'" name="codigo_externo" READONLY>
+                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['codigo_envio_interno'].'" name="codigo_interno" READONLY>
                     </div>
                   </div>
                   

@@ -158,7 +158,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text bg-warning" id="basic-addon1"><i class="bi bi-send-fill"></i></span>
-                      <input type="text" name="clave_rastreo_int" value="'.$row_sql['clave_rastreo_int'].'" class="form-control" placeholder="Costro de envío" aria-label="Costro de envío" aria-describedby="basic-addon1" READONLY>
+                      <input type="text" name="clave_rastreo_int" value="'.$row_sql['clave_rastreo_int'].'" class="form-control" placeholder="Costo de envío" aria-label="Costro de envío" aria-describedby="basic-addon1" READONLY>
                     </div>
                     
                   </div>
@@ -172,7 +172,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             </div>';
             }
             else{
-              echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_ext'].'" style="text-decoration: none;"><i class="bi bi-check-circle-fill text-success"></i> '.$row_sql['clave_rastreo_ext'].'</a></td>';
+              echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_int'].'" style="text-decoration: none;"><i class="bi bi-check-circle-fill text-success"></i> '.$row_sql['clave_rastreo_int'].'</a></td>';
             }
             // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';

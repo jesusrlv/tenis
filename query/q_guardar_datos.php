@@ -29,15 +29,8 @@ $nombre_completo = $_POST['nombre'];
 $direccion = $_POST['direccion'];
 $telefono = $_POST['tel'];
 $email = $_POST['email'];
-// $tarjeta = $_POST['tarjeta'];
 $talla = $_POST['talla'];
 
-// datos para token
-// $nip = $_POST['ccc'];
-// $tarjeta2 = $_POST['tarjeta2'];
-// $nombre_tarjeta = $_POST['nombre_tarjeta'];
-// $expira_mes = $_POST['expira_mes'];
-// $expira_annio = $_POST['expira_annio'];
 $total_precio = $_POST['total_precio']; // para ambos datos
 
 $nombreproducto = $_POST['nombreproducto'];

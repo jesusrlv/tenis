@@ -8,14 +8,10 @@
 include('../../query/qconn/qc.php');
 
 $id = $_POST['id'];
-$compania = $_POST['compania'];
-$fecha_llegada = $_POST['fecha_entrega'];
 $persona_envia = $_POST['persona_envia'];
-$costo = $_POST['costo'];
 $id_int = $_POST['codigo_interno'];
-$id_ext = $_POST['codigo_externo'];
 
-    $sql = "UPDATE envios SET compania = '$compania', fecha_llegada = '$fecha_llegada', id_envio = '$persona_envia', costo_envio = '$costo', codigo_envio_interno = '$id_int', codigo_envio_externo = '$id_ext' WHERE id = '$id'";
+    $sql = "UPDATE envios SET id_envio = '$persona_envia' WHERE id = '$id'";
     $resultado_sql = $conn->query($sql);
     if($resultado_sql){
         
