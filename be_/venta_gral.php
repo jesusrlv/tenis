@@ -120,7 +120,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small><i class="bi bi-telephone"></i> Teléfono</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-envelope"></i> Email</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-upc-scan"></i> Clave interna de rastreo</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-truck"></i> Rastreo paquetería</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-truck"></i> Marcar entrega</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i> Detalles</small></th>
         </tr>
       </thead>
@@ -141,7 +141,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$row_sql['email'].'</td>';
             echo'<td class="text-center">'.$row_sql['clave_rastreo_int'].'</td>';
             if(!$row_sql['clave_rastreo_ext']){
-              echo'<td class="text-center"><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-plus-circle-dotted"></i> Paquetería</button></td>';
+              echo'<td class="text-center"><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
               echo'<div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
