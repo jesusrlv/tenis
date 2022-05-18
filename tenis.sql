@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-05-2022 a las 22:57:28
+-- Tiempo de generación: 18-05-2022 a las 23:13:35
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -50,12 +50,12 @@ INSERT INTO `catalogo` (`id`, `nombre_catalogo`) VALUES
 CREATE TABLE `envios` (
   `id` int(11) NOT NULL,
   `fecha_registro` date NOT NULL,
-  `compania` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `fecha_llegada` date NOT NULL,
+  `compania` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_llegada` date DEFAULT NULL,
   `id_envio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'id de la persona que envio',
-  `costo_envio` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `costo_envio` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
   `codigo_envio_interno` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `codigo_envio_externo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `codigo_envio_externo` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `entrega` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -66,7 +66,10 @@ CREATE TABLE `envios` (
 INSERT INTO `envios` (`id`, `fecha_registro`, `compania`, `fecha_llegada`, `id_envio`, `costo_envio`, `codigo_envio_interno`, `codigo_envio_externo`, `entrega`) VALUES
 (8, '2022-03-29', 'DHL2', '2022-04-09', 'Jesus Rodolfo', '360', '2', '33-999008-009-ZM', NULL),
 (9, '2022-03-30', 'Estafeta', '2022-04-04', 'JesusR L', '450.18', '8', '336td-zac-MX-1', NULL),
-(10, '2022-03-30', 'Estafeta', '2022-03-24', 'Jesus Rodolfo Lea', '800', 'v7q58lmqg', 'EST-34455-90-ZMX', NULL);
+(10, '2022-03-30', 'Estafeta', '2022-03-24', 'Jesus Rodolfo Lea', '800', 'v7q58lmqg', 'EST-34455-90-ZMX', NULL),
+(11, '2022-05-18', NULL, NULL, 'usr', NULL, '21a0uhkkf', NULL, 1),
+(12, '2022-05-18', NULL, NULL, 'usr', NULL, 'jw7nizkvp', NULL, 1),
+(13, '2022-05-18', NULL, NULL, 'usr', NULL, 'a5kv3ujdw', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -162,7 +165,8 @@ CREATE TABLE `usr` (
 --
 
 INSERT INTO `usr` (`id`, `usr`, `pwd`, `perfil`) VALUES
-(1, 'admin', '123456789', 1);
+(1, 'admin', '123456789', 1),
+(2, 'usr', '123456789', 2);
 
 -- --------------------------------------------------------
 
@@ -203,13 +207,13 @@ INSERT INTO `venta_gral` (`id`, `cantidad`, `precio`, `fecha_venta`, `nombre`, `
 (8, 3, 1100, '2022-03-15', '0', 'Direccion conocida', '99999999', 'dskjdsjs@fjfjf.net', 'XXXXXXXXXXX3434', 'Geranios', '02', '03', '8', '336td-zac-MX-1', 0),
 (9, 3, 1100, '2022-03-15', 'JESÃšS RODOLFO LEAÃ‘OS VILLEGAS', 'Direccion conocida', '99999999', 'dskjdsjs@fjfjf.net', 'XXXXXXXXXXX3434', 'Geranios', '02', '03', '9', '', 0),
 (10, 3, 850, '2022-03-30', 'RODOLFO DE JESÃšS LEAÃ‘OS V', 'AND TULIPANES 12 A COL EL CARMEN GUADALUPE, ZAC', '4927951930', 'jesusrlvrojo@gmail.com', 'XXXXXXXXXXX2223', 'Jesus R', '09', '21', 'v7q58lmqg', 'EST-34455-90-ZMX', 0),
-(11, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', '', '', '', '', 'jw7nizkvp', NULL, 0),
+(11, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', '', '', '', '', 'jw7nizkvp', 'jw7nizkvp', 1),
 (12, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, '5mj5w2cui', NULL, 0),
-(13, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'a5kv3ujdw', NULL, 0),
+(13, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'a5kv3ujdw', 'a5kv3ujdw', 1),
 (14, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'c240kzw9t', NULL, 0),
 (15, 1, 120, '2022-05-13', '', '', '', '', NULL, NULL, NULL, NULL, 'yue7pfnqp', NULL, 0),
-(16, 3, 390, '2022-05-17', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, '21a0uhkkf', NULL, NULL),
-(17, 2, 270, '2022-05-17', 'RODOLFO L', 'Andador tulipanes 12 a', '9236222', 'superUser@gmail.com', NULL, NULL, NULL, NULL, 'w0wh8n0ul', NULL, NULL);
+(16, 3, 390, '2022-05-17', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, '21a0uhkkf', '21a0uhkkf', 1),
+(17, 2, 270, '2022-05-17', 'RODOLFO L', 'Andador tulipanes 12 a', '9236222', 'superUser@gmail.com', NULL, NULL, NULL, NULL, 'w0wh8n0ul', '', 1);
 
 -- --------------------------------------------------------
 
@@ -397,7 +401,7 @@ ALTER TABLE `catalogo`
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `modelo`
@@ -421,7 +425,7 @@ ALTER TABLE `talla`
 -- AUTO_INCREMENT de la tabla `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `venta_gral`
