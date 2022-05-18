@@ -16,7 +16,12 @@ if (isset($_POST['usr']) && isset($_POST['pwd'])) {
         $_SESSION['pwd']=$row_sql['pwd'];
         $_SESSION['perfil']=$row_sql['perfil'];
 
+        if($row_sql['perfil']==1){
         echo json_encode(array('success' => 1));
+        }
+        if($row_sql['perfil']==2){
+        echo json_encode(array('success' => 2));
+        }
     }
     else{
         echo json_encode(array('success' => 0));

@@ -78,10 +78,20 @@ $(document).ready(function() {
                     // location.href = 'my_profile.php';
                     Swal.fire({
                         icon: 'success',
-                        title: 'Usuario correcto',
+                        title: 'Usuario administrador',
                         text: 'Credenciales correctas',
                         footer: 'VENTAS</a>'
                     }).then(function(){window.location='dashboard.php';});
+                }
+                else if (jsonData.success == "2")
+                {
+                    // location.href = 'my_profile.php';
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Usuario entregads',
+                        text: 'Credenciales correctas',
+                        footer: 'VENTAS</a>'
+                    }).then(function(){window.location='perfil_entrega/venta_gral.php';});
                 }
                 else
                 {

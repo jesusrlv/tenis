@@ -2,18 +2,17 @@
 session_start();
 
 if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
-  // if($_SESSION['perfil']==2){
+  if($_SESSION['perfil']==2){
 
-  // }
-  // else{
-  //   header('Location: prcd/sort.php');
-  //   die();
-  // }
+  }
+  else{
+    header('Location: ../prcd/sort.php');
+    die();
+  }
   
 } else {
   // En caso contrario redirigimos el visitante a otra página
-
-  header('Location: prcd/sort.php');
+  header('Location:  ../prcd/sort.php');
   die();
 }
 
@@ -33,14 +32,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Tienda en línea · Inicio</title>
-    <link rel="icon" type="image/png" href="../assets/brand/img/cel.ico">
+    <link rel="icon" type="image/png" href="../../assets/brand/img/cel.ico">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -60,20 +59,20 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
     
     <!-- Custom styles for this template -->
-    <link href="../carousel.css" rel="stylesheet">
+    <link href="../../carousel.css" rel="stylesheet">
   </head>
   <body>
     
 <header>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-warning">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><i class="bi bi-box-seam"></i> Sistema |</a>
+      <a class="navbar-brand text-black" href="#"><i class="bi bi-box-seam"></i> Sistema |</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
            <a class="nav-link" aria-current="page" href="dashboard.php"><i class="bi bi-house-fill"></i> Inicio</a>
           </li>
           <li class="nav-item">
@@ -82,10 +81,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           
           <li class="nav-item">
             <a class="nav-link" href="catalogo.php"><i class="bi bi-cloud-plus-fill"></i> Catálogo</a>
-          </li>
+          </li> -->
         </ul>
         <form class="d-flex">
-          <a href="prcd/sort.php" class="btn btn-outline-light" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
+          <a href="../prcd/sort.php" class="btn btn-outline-dark" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
         </form>
       </div>
     </div>
@@ -93,12 +92,12 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Venta <span class="text-muted">Individual</span></h2>
+  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Perfil <span class="text-muted">Entregas</span></h2>
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
-<? include('../query/query_individual.php'); ?>
+<? include('../../query/query_individual.php'); ?>
   <div class="container marketing mt-5 border-bottom">
 
   <div class="input-group mb-4 w-50">
@@ -147,7 +146,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </main>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
 
       
   </body>
