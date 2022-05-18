@@ -6,14 +6,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
   }
   else{
-    header('Location:  ../prcd/sort.php');
+    header('Location: ../prcd/sort.php');
     die();
   }
   
 } else {
   // En caso contrario redirigimos el visitante a otra página
 
-  header('Location:  ../prcd/sort.php');
+  header('Location: ../prcd/sort.php');
   die();
 }
 
@@ -58,21 +58,25 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       }
     </style>
 
+    <?php
+        $id_envio = $_REQUEST['id'];
+    ?>
+
     <!-- Custom styles for this template -->
     <link href="../../carousel.css" rel="stylesheet">
   </head>
   <body>
     
 <header>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-warning">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand text-black" href="#"><i class="bi bi-box-seam"></i> Sistema |</a>
+      <a class="navbar-brand" href="#"><i class="bi bi-box-seam"></i> Sistema |</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <!-- <li class="nav-item">
+          <li class="nav-item">
            <a class="nav-link" aria-current="page" href="dashboard.php"><i class="bi bi-house-fill"></i> Inicio</a>
           </li>
           <li class="nav-item">
@@ -81,10 +85,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           
           <li class="nav-item">
             <a class="nav-link" href="catalogo.php"><i class="bi bi-cloud-plus-fill"></i> Catálogo</a>
-          </li> -->
+          </li>
         </ul>
         <form class="d-flex">
-          <a href="../prcd/sort.php" class="btn btn-outline-dark" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
+          <a href="prcd/sort.php" class="btn btn-outline-light" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
         </form>
       </div>
     </div>
@@ -92,12 +96,12 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Perfil <span class="text-muted">Entregas</span></h2>
+  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Rastreo <span class="text-muted">Envíos</span></h2>
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
-<? include('../../query/query_ventas.php'); ?>
+<? include('../../query/query_envios.php'); ?>
   <div class="container marketing mt-5 border-bottom">
 
   <div class="input-group mb-4 w-50">
@@ -110,18 +114,12 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <!-- table ventas -->
     <table class="table  table-light table-striped mb-3 table-hover align-middle">
       <thead class="text-center table-dark align-middle">
-        <tr>
+        <tr  class="text-center">
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i> Fecha venta</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Precio</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-person-circle"></i> Nombre</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Dirección</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-telephone"></i> Teléfono</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-envelope"></i> Email</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-upc-scan"></i> Clave interna de rastreo</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-truck"></i> Marcar entrega</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i> Detalles</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i> Fecha registro</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-person-check-fill"></i> Nombre envío</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Código interno</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-activity"></i> Acción</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -131,53 +129,80 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           while($row_sql = $resultado_sql->fetch_assoc()){
             $x++;
             echo'<tr>';
-            echo'<td>'.$x.'</td>';
-            echo'<td>'.$row_sql['fecha_venta'].'</td>';
-            echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['precio'].'</td>';
-            echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
-            echo'<td>'.$row_sql['direccion'].'</td>';
-            echo'<td class="text-center">'.$row_sql['telefono'].'</td>';
-            echo'<td class="text-center">'.$row_sql['email'].'</td>';
-            echo'<td class="text-center">'.$row_sql['clave_rastreo_int'].'</td>';
-            if(!$row_sql['clave_rastreo_ext']){
-              echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
-              echo'<div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
+            echo'<td class="text-center">'.$x.'</td>';
+            echo'<td class="text-center">'.$row_sql['fecha_registro'].'</td>';
+            echo'<td class="text-center">'.$row_sql['id_envio'].'</td>';
+            echo'<td class="text-center">'.$row_sql['codigo_envio_interno'].'</td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
+            echo'</tr>';
+
+            echo '<!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-check-circle-fill"></i> Marcar entrega</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Editar datos de rastreo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <form action="../../query/clave_rastreo.php" method="post">
+
+                  <form action="prcd/editar_rastreo.php" method="post">
+                  <input value="'.$row_sql['id'].'" name="id" hidden>
                   <div class="modal-body">
-                      
+                    
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                      <input type="text" name="persona_envia" class="form-control" placeholder="Nombre persona que envía" value="'.$nombre_sess.'" aria-label="Nombre persona que envía" aria-describedby="basic-addon1" readonly>
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text bg-warning" id="basic-addon1"><i class="bi bi-send-fill"></i></span>
-                      <input type="text" name="clave_rastreo_int" value="'.$row_sql['clave_rastreo_int'].'" class="form-control" placeholder="Costo de envío" aria-label="Costro de envío" aria-describedby="basic-addon1" READONLY>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Persona que envía">
+                      <i class="bi bi-person-check-fill"></i>
+                      </button>
+                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['id_envio'].'" name="persona_envia">
                     </div>
                     
+                    <div class="input-group mb-3">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Código rastreo paquetería">
+                        <i class="bi bi-journal-code"></i>
+                      </button>
+                      
+                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['codigo_envio_interno'].'" name="codigo_interno" READONLY>
+                    </div>
                   </div>
                   
+
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-                    <button class="btn btn-primary" type="submit" id="button-addon2"><i class="bi bi-check-circle-fill"></i> Entregar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Actualizar datos</button>
+                  </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>';
+
+            echo'<!-- Modal -->
+            <div class="modal fade" id="editCode" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> Editar código de rastreo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  <form action="prcd/editar_codigo_rastreo.php" method="post">
+                    <div class="input-group mb-3">
+                      <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Código rastreo paquetería">
+                        <i class="bi bi-journal-code"></i>
+                      </button>
+                      
+                      <input type="text" class="form-control" placeholder="Código" aria-label="Código" aria-describedby="basic-addon1" value="'.$row_sql['codigo_envio_externo'].'" name="codigo_externo">
+                      <input type="text" class="form-control" placeholder="Código" aria-label="Código" aria-describedby="basic-addon1" value="'.$row_sql['codigo_envio_externo'].'" name="codigo_externo2" hidden>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                   </div>
                   </form>
                 </div>
               </div>
             </div>';
-            }
-            else{
-              echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_int'].'" style="text-decoration: none;"><i class="bi bi-check-circle-fill text-success"></i> '.$row_sql['clave_rastreo_int'].'</a></td>';
-            }
-            // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
-            echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
-            echo'</tr>';
           }
         ?>
       </tbody>

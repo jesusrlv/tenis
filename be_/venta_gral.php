@@ -154,7 +154,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
-                      <input type="text" name="persona_envia" class="form-control" placeholder="Nombre persona que envía" aria-label="Nombre persona que envía" aria-describedby="basic-addon1" readonly>
+                      <input type="text" name="persona_envia" class="form-control" placeholder="Nombre persona que envía" value="'.$nombre_sess.'" aria-label="Nombre persona que envía" aria-describedby="basic-addon1" readonly>
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text bg-warning" id="basic-addon1"><i class="bi bi-send-fill"></i></span>
@@ -162,11 +162,12 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     </div>
                     
                   </div>
-                  </form>
+                  
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
                     <button class="btn btn-primary" type="submit" id="button-addon2"><i class="bi bi-check-circle-fill"></i> Entregar</button>
                   </div>
+                  </form>
                 </div>
               </div>
             </div>';
