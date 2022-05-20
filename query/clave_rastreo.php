@@ -31,7 +31,7 @@ $id_int = $_POST['clave_rastreo_int'];
             title: 'Actualización realizada',
             text: 'La clave de rastreo ha sido actualizada',
             footer: 'Ventas en línea</a>'
-        }).then(function(){window.location='../be_/venta_gral.php';});</script>";
+        }).then(function(){window.location='../be_/perfil_entrega/venta_gral.php';});</script>";
         }
         else{
         echo 'No se registró la actividad';
