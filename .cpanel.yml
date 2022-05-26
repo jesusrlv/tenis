@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home1/shoessto/public_html/
-    - /bin/rsync -av public/ $DEPLOYPATH
+    - /repositories/tenis/rsync -av public/ $DEPLOYPATH
