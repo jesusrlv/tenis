@@ -5,6 +5,3 @@
 - envio de correo con pedido
 - agregar sección al admin donde pueda configurar
 - mostrar elementos de compra en el buscador de rastreo de envíos
-
-
-
