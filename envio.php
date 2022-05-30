@@ -225,7 +225,3 @@
       swal("Error!", "No se encuentra el envío en el registro", "error");
     }
 </script>
-
-<?php
-  require('canvas.php');
-?>
