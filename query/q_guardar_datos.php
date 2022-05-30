@@ -40,13 +40,6 @@ $valor = $_POST['valor'];
 
 // venta individual
 
-// foreach (array_combine($nombreproducto, $talla) as $arreglo => $talla1) {
-
-//     $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1')";
-//     $resultado= $conn->query($sql);
-
-// } 
-
 foreach($nombreproducto as $key => $arreglo)
 {
     $talla1 = $talla[$key];
@@ -54,27 +47,6 @@ foreach($nombreproducto as $key => $arreglo)
     $resultado= $conn->query($sql);
     
 }
-
-//2
-// venta individual
-
-// foreach (array_combine($nombreproducto, $talla) as $arreglo => $talla1) {
-
-//     $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1')";
-//     $resultado= $conn->query($sql);
-
-// } 
-
-//3
-// foreach ($nombreproducto as $arreglo) {
-//     foreach ($talla as $talla1) {
-//     // echo $arreglo;
-
-//     $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1')";
-//     $resultado= $conn->query($sql);
-
-//     } 
-// } 
 
 $sql_general = "INSERT INTO venta_gral(cantidad,precio,fecha_venta,nombre,direccion,telefono,email,clave_rastreo_int) VALUES('$cantidad','$total_precio','$fecha_sistema','$nombre_completo','$direccion','$telefono','$email','$codigo')";
 $resultado_general= $conn->query($sql_general);
