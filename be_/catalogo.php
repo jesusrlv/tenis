@@ -308,10 +308,13 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   </div><!-- /.container -->
 
   <!-- FOOTER -->
-  <footer class="container mt-5">
-    <p class="float-end"><a href="#">Regresar arriba</a></p>
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <hr class="featurette-divider">
+      <p class="float-end"><a href="#">Regresar arriba</a></p>
     <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
-    <p>&copy; 2022 RedDeploy</p>
+    <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
+    </div>
   </footer>
 </main>
 

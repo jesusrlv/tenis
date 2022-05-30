@@ -55,7 +55,9 @@
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    <p class="mt-5 mb-1 text-muted"><strong>DEV:</strong> © 2022 </p>
+    <p class="mt-1 mb-3 text-muted"><a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
+
   </form>
 </main>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
