@@ -52,6 +52,9 @@ $sql_general = "INSERT INTO venta_gral(cantidad,precio,fecha_venta,nombre,direcc
 $resultado_general= $conn->query($sql_general);
 
 if($resultado_general){
+
+    //código email
+    
     echo "<script type=\"text/javascript\">
     Swal.fire({
         icon: 'success',
