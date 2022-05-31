@@ -71,12 +71,12 @@ if($resultado_general){
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
         $mail->Username   = 'tienda@shoesstoremxa.com';                     // SMTP username
         $mail->Password   = 'qy7hJGSyhz3hiJe';                               // SMTP password
-        $mail->SMTPSecure = 'SSL';                                  // Enable TLS encryption, `ssl` also accepted
-        $mail->Port       = 465;                                    // TCP port to connect to
+        $mail->SMTPSecure = 'TLS';                                  // Enable TLS encryption, `ssl` also accepted
+        $mail->Port       = 587;                                    // TCP port to connect to
     
         //Recipients
         $mail->setFrom('tienda@shoesstoremxa.com', 'Tienda ShoesStoreMXA');
-        $mail->addAddress($email, $nombre);     // Add a recipient
+        $mail->addAddress($email, $nombre_completo);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('tecnologias.injuventud@gmail.com');
