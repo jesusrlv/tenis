@@ -7,6 +7,13 @@
 <?php
 include('qconn/qc.php');
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require 'email/Exception.php';
+    require 'email/PHPMailer.php';
+    require 'email/SMTP.php';
+
 // if
 
 function generarCodigo($longitud) {
@@ -53,6 +60,49 @@ $resultado_general= $conn->query($sql_general);
 
 if($resultado_general){
 
+    //código email
+    $mail = new PHPMailer(true);
+    
+    try {
+        //Server settings
+        $mail->SMTPDebug = 0;                                       // Enable verbose debug output
+        $mail->isSMTP();                                            // Set mailer to use SMTP
+        $mail->Host       = 'smtp.titan.email ';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+        $mail->Username   = 'tienda@shoesstoremxa.com';                     // SMTP username
+        $mail->Password   = 'qy7hJGSyhz3hiJe';                               // SMTP password
+        $mail->SMTPSecure = 'SSL';                                  // Enable TLS encryption, `ssl` also accepted
+        $mail->Port       = 465;                                    // TCP port to connect to
+    
+        //Recipients
+        $mail->setFrom('tienda@shoesstoremxa.com', 'Tienda ShoesStoreMXA');
+        $mail->addAddress($email, $nombre);     // Add a recipient
+        // $mail->addAddress('ellen@example.com');               // Name is optional
+        // $mail->addReplyTo('info@example.com', 'Information');
+        // $mail->addCC('tecnologias.injuventud@gmail.com');
+        // $mail->addBCC('bcc@example.com');
+    
+        // Attachments
+        // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+    
+        // Content
+        $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';                                  // Set email format to HTML
+        $mail->Subject = 'Pedido realizado';
+        $mail->Body    = 'Tu pedido ha sido realizado
+        <p> El pedido a través de shoesstoremxa.com fue completado exitosamente.</p>
+        Tu código de rastreo es el siguiente:'.$codigo.' lo puedes consultar en http://www.shoesstoremxa.com/tenis/envio.php' ;
+        $mail->AltBody = 'Mensaje expediente completo';
+    
+        $mail->send();
+        // echo 'Message has been sent';
+    
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+
+        
     //código email
     
     echo "<script type=\"text/javascript\">
