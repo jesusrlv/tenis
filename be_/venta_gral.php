@@ -6,13 +6,17 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
   }
   else{
+    echo '<script>
+    alert "1";<script>';
     header('Location: prcd/sort.php');
     die();
   }
   
-} else {
+} 
+else {
   // En caso contrario redirigimos el visitante a otra página
-
+  echo '<script>
+  alert "2";<script>';
   header('Location: prcd/sort.php');
   die();
 }

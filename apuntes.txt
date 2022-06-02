@@ -1,7 +1,7 @@
-- agregar carpeta de segundo perfil
+- agregar carpeta de segundo perfil (check)
 - agregar parte de entrega
 - crear filtro de consulta
 - cálculo de productos vendidos
-- envio de correo con pedido
+- envio de correo con pedido (check)
 - agregar sección al admin donde pueda configurar
 - mostrar elementos de compra en el buscador de rastreo de envíos

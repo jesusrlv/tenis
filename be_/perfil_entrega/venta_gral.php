@@ -149,7 +149,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-check-circle-fill"></i> Marcar entrega</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <form action="../../query/clave_rastreo.php" method="post">
+                  <form action="../../query/clave_rastreo_entrega.php" method="post">
                   <div class="modal-body">
                       
                     <div class="input-group mb-3">
