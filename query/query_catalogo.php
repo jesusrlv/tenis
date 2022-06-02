@@ -68,7 +68,7 @@ include('qconn/qc.php');
     $sqlMedida = "SELECT * FROM talla WHERE id_ext = '$idConsultaTalla' ORDER BY talla ASC";
     $resultadoMedida = $conn->query($sqlMedida);
     echo '
-    <select class="form-select" multiple aria-label="multiple select example" id="valor'.$idConsultaTalla.'" onchange="valorID(this.value)">
+    <select class="form-select" id="valor'.$idConsultaTalla.'" onchange="valorID(this.value)">
     ';
       while ($rowMedida = $resultadoMedida->fetch_assoc()){
         echo '
