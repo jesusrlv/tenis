@@ -220,7 +220,8 @@
           div[i].style.visibility='visible';
         }
         else{
-          div[i].style.visibility='hidden'; 
+          // div[i].style.visibility='hidden'; 
+          div[i].style.display = "none"; 
         }
         // if(styles.visibility=='visible'){
         // div[i].style.visibility='collapse';
