@@ -217,7 +217,8 @@
       var xyz = (div[i]).getAttribute('value');
       // alert(xyz)
         if(xyz == x){
-          div[i].style.visibility='visible';
+          // div[i].style.visibility='visible';
+          div[i].style.display = 'initial';
         }
         else{
           // div[i].style.visibility='hidden'; 
