@@ -94,19 +94,28 @@
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
     <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="mostrarTodo()" checked>
-      <label class="btn btn-outline-primary" for="btnradio1">Todos</label>
+      <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="mostrarTodo()" checked>
+      <label class="btn btn-outline-primary" for="btnradio1">Todos</label> -->
 <?php
     $sum = 1;
     include('query/query_categorias.php');
+    echo '
+    <select class="form-select" aria-label="Seleccion">
+      <option selected>Selecciona categoría</option>
+      <option value="0" onclick="mostrarTodo()">Todo</option>';
     while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
       $sum++;
       // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
+      //<input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
+      //<label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
       echo'
-      <input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
-      <label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
+      
+        <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
+      
+      
       ';
     }
+    echo '</select>';
 ?>
     </div>
   </div>
