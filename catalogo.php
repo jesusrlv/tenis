@@ -220,7 +220,7 @@
           div[i].style.visibility='visible';
         }
         else{
-          div[i].style.visibility='collapse'; 
+          div[i].style.visibility='hidden'; 
         }
         // if(styles.visibility=='visible'){
         // div[i].style.visibility='collapse';
