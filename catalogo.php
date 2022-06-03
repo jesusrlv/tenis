@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Tienda en línea · Catálogo</title>
+    <title>Shoes Store MX · Catálogo</title>
     <link rel="icon" type="image/png" href="assets/brand/img/cel.ico">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
@@ -55,7 +55,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    <a class="navbar-brand" href="#"><i class="bi bi-cart-check-fill"></i> Tenis en línea</a>
+    <a class="navbar-brand" href="#"><i class="bi bi-cart-check-fill"></i> Shoes Store MX</a>
       
         
       <div class="collapse navbar-collapse" id="navbarCollapse">
