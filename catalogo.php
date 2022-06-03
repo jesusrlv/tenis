@@ -102,7 +102,7 @@
     echo '
     <select class="form-select" aria-label="Seleccion">
       <option selected>Selecciona categoría</option>
-      <option value="0" onselect="mostrarTodo()">Todo</option>';
+      <option value="0" onblur="mostrarTodo()">Todo</option>';
     while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
       $sum++;
       // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
@@ -110,7 +110,7 @@
       //<label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
       echo'
       
-        <option value="'.$sum.'" onselect="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
+        <option value="'.$sum.'" onblur="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
       
       
       ';
