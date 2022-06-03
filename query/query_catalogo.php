@@ -69,6 +69,7 @@ include('qconn/qc.php');
     $resultadoMedida = $conn->query($sqlMedida);
     echo '
     <select class="form-select" id="valor'.$idConsultaTalla.'" onchange="valorID(this.value)">
+      <option selected>Selecciona una talla</option>
     ';
       while ($rowMedida = $resultadoMedida->fetch_assoc()){
         echo '<option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].'</option>';
