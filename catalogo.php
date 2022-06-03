@@ -239,7 +239,8 @@
     const div2=document.querySelectorAll('#hidden');
       for(let i=0;i<div2.length;i++){
         const styles = window.getComputedStyle(div2[i]);
-        div2[i].style.visibility='visible';
+        // div2[i].style.visibility='visible';
+        div2[i].style.display = 'initial';
       }
     } 
 </script>
