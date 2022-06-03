@@ -71,8 +71,7 @@ include('qconn/qc.php');
     <select class="form-select" id="valor'.$idConsultaTalla.'" onchange="valorID(this.value)">
     ';
       while ($rowMedida = $resultadoMedida->fetch_assoc()){
-        echo '
-        <option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].'</option>';
+        echo '<option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].'</option>';
       }
         echo '</select>';
         echo'
@@ -86,3 +85,5 @@ include('qconn/qc.php');
   }
 ?>
 
+<!-- trabajar con iframe y js -->
+<!-- https://www.codegrepper.com/code-examples/javascript/frameworks/ionic/script+to+iframe -->
