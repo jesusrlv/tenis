@@ -221,7 +221,7 @@
         }
         else{
           // div[i].style.visibility='hidden'; 
-          div[i].style.display = 'hidden'; 
+          div[i].style.visibility = 'hidden'; 
         }
         // if(styles.visibility=='visible'){
         // div[i].style.visibility='collapse';
