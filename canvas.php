@@ -58,19 +58,19 @@
           <div class="col mt-2">
             <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-person-circle"></i> Nombre completo</small></label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre..." name="nombre">
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre..." name="nombre" REQUIRED>
             </div>
             <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-card-heading"></i> Dirección</small></label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Dirección..." name="direccion">
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Dirección..." name="direccion" REQUIRED>
             </div>
             <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-phone"></i> Teléfono</small></label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Teléfono..." name="tel" onkeypress="ValidaSoloNumeros()">
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Teléfono..." name="tel" onkeypress="ValidaSoloNumeros()" REQUIRED>
             </div>
             <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
-              <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email">
+              <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email" REQUIRED>
             </div>
             <!-- <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-credit-card-2-back"></i> Tarjeta para pago</small></label>
