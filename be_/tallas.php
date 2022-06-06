@@ -189,7 +189,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                 </div>
               </div>
             </div>
-
             ';
             
 
