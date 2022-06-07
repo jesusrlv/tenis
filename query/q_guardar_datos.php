@@ -43,12 +43,11 @@ $total_precio = $_POST['total_precio']; // para ambos datos
 $nombreproducto = $_POST['nombreproducto'];
 $valor = $_POST['valor'];
 
-
-
 // venta individual
 
 foreach($nombreproducto as $key => $arreglo)
 {
+    $resta = $resta - 1;
     $talla1 = $talla[$key];
     $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1')";
     $resultado= $conn->query($sql);
