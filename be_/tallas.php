@@ -156,42 +156,40 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center"><a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-pencil-square"></i></a></td>';
+            echo'<td class="text-center"><a data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i></a></td>';
             echo'</tr>';
             
             echo'
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> Actualizar talla</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                  
-                  <form action="prcd/editar_talla.php" method="POST">
-                    <input value="'.$row_sql['id'].'" name="id" hidden>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Talla</span>
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['talla'].'" name="talla">
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Talla</span>
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['cantidad'].'" name="cantidad">
-                    </div>
-                  </form>
-                  
+                    <form action="prcd/editar_talla.php" method="POST">
+                      <input value="'.$row_sql['id'].'" name="id" hidden>
+                      <input value="'.$row_sql['id_ext'].'" name="id_ext" hidden>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Talla</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['talla'].'" name="talla">
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Cantidad</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['cantidad'].'" name="cantidad">
+                      </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
             ';
-            
-
         }
         ?>
       </tbody>

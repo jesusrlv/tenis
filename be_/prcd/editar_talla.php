@@ -10,11 +10,11 @@ include('../../query/qconn/qc.php');
 $talla = $_POST['talla'];
 $cantidad = $_POST['cantidad'];
 $id = $_POST['id'];
+$id_ext = $_POST['id_ext'];
 
-    // $sqlinsert= "UPDATE documentos SET link4='$ruta_pptx' WHERE id_usr='$curp'";
-    $sqlinsert= "INSERT INTO talla(talla,cantidad,id_ext) VALUES('$talla','$cantidad','$id')";
-    $resultado= $conn->query($sqlinsert);
+    $sqlUpdate = "UPDATE talla SET talla='$talla',cantidad='$cantidad' WHERE id='$id'";
 
+    $resultado= $conn->query($sqlUpdate);
 
     if($resultado){
         
@@ -24,7 +24,7 @@ $id = $_POST['id'];
             title: 'Producto registrado',
             text: 'Catálogo actualizado',
             footer: 'Ventas en línea</a>'
-        }).then(function(){window.location='../tallas.php?id=".$id."';});</script>";
+        }).then(function(){window.location='../tallas.php?id=".$id_ext."';});</script>";
         }
         else{
         echo 'No se registró producto';
