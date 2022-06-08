@@ -139,7 +139,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <div class="card text-center text-light bg-dark" style="width: 100%;" id="hOver">
           <!-- <img src="assets/brand/img/cel5.jpg" class="card-img-top" alt="..."> -->
           <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-door-open-fill"></i> Inventario</h5>
+            <h5 class="card-title"><i class="bi bi-card-heading"></i> Inventario</h5>
             <p class="card-text">Revisar inventario.</p>
             <a href="inventario.php" class="btn btn-outline-light"><i class="bi bi-box-arrow-right"></i> Acceder a la sección</a>
           </div>
