@@ -73,10 +73,7 @@
             <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
+        
       </div>
     </div>
   </nav>
@@ -133,16 +130,17 @@
     
 
     <hr class="featurette-divider">
-    <h2 class="mb-5 bg-light p-5 text-center featurette-heading">Nuevos <span class="text-muted">Productos</span></h2>
+    <h2 class="mb-5 bg-light p-5 text-center featurette-heading">Como hacer pedidos <span class="text-muted">por medio de la app.
+    </span></h2>
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">Primera sección de productos. <span class="text-muted">Diseños novedosos.</span></h2>
-        <p class="lead">Conoce la gama de productos que nuestra empresa tiene para ti.</p>
+        <h2 class="featurette-heading">Selecciona el calzado<span class="text-muted"> y agregalo al carrito.</span></h2>
+        <p class="lead">Shoes Store MX</p>
       </div>
       <div class="col-md-5">
         <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
-        <img src="assets/brand/img/cel7.jpg" style="width: 500px; height: 375px; object-fit: cover; object-position:right; background-repeat: no-repeat;" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="">
+        <img src="assets/brand/img/portada_shoes_07.jpg" style="width: 500px; height: 375px; object-fit: cover; object-position:right; background-repeat: no-repeat;" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="">
       </div>
     </div>
 
@@ -150,11 +148,11 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Busca tu envío. <span class="text-muted">En la paquetería.</span></h2>
-        <p class="lead">Puedes rastrear tu paquete en el sistema de envíos asociado con la empresa.</p>
+        <h2 class="featurette-heading">Revisa el resumen <span class="text-muted">del calzado que pediste.</span></h2>
+        <p class="lead">Shoes Store MX</p>
       </div>
       <div class="col-md-5 order-md-1">
-        <img src="assets/brand/img/cel8.jpg" style="width: 500px; height: 375px; object-fit: cover; object-position:center; background-repeat: no-repeat;" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="">
+        <img src="assets/brand/img/portada_shoes_08.jpg" style="width: 500px; height: 375px; object-fit: cover; object-position:center; background-repeat: no-repeat;" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="">
 
       </div>
     </div>
@@ -163,12 +161,12 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">Revisa nuestro outlet. <span class="text-muted">Sobre la mercancía con rebajas.</span></h2>
-        <p class="lead">Revisa nuestas rebajas en los productos de outlet que la empresa tiene para ti.</p>
+        <h2 class="featurette-heading">Pasa a recoger <span class="text-muted">tu pedido a nuestro local. </span></h2>
+        <p class="lead">Shoes Store MX</p>
       </div>
       <div class="col-md-5">
         <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
-        <img src="assets/brand/img/cel9.jpg" style="width: 500px; height: 375px; object-fit: cover; object-position:right; background-repeat: no-repeat;" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="">
+        <img src="assets/brand/img/portada_shoes_09.jpg" style="width: 500px; height: 375px; object-fit: cover; object-position:right; background-repeat: no-repeat;" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="">
 
       </div>
     </div>
