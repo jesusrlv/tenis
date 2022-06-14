@@ -110,7 +110,7 @@
       //<label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
       echo'
       
-        <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
+        <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')" style="cursor:pointer;">'.$row_sqlCategorias['nombre_catalogo'].'</option>
       
       
       ';
