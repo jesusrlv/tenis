@@ -81,7 +81,7 @@
 
 <main>
 
-<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;">Rastreo <span class="text-muted">tu pedido</span></h2>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;">Rastrea <span class="text-muted">tu pedido</span></h2>
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
