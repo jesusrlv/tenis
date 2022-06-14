@@ -84,7 +84,7 @@
 
 <main class="bg-light">
 
-<img src="assets/brand/img/letras_verdes.png" alt="" width="80">
+<img src="assets/brand/img/letras_verdes.png" alt="" width="360">
 <h2 class="mb-3 bg-light p-5 text-center featurette-heading" style="margin:18px;">Calzado para <span class="text-muted">toda la familia</span></h2>
   <!-- Marketing messaging and featurettes
   ================================================== -->
