@@ -52,30 +52,31 @@
   <body>
     
 <header>
-  <nav class="navbar navbar-expand-md navbar-primary fixed-top bg-primary">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#">Shoes Store MX</a>
+      <a class="navbar-brand" href="#">Shoes Store MX</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="be_/"><i class="bi bi-geo-fill"></i> Be_</a>
-            </li>
-          </ul>
-          <!-- <a href="catalogo.php" class="btn btn-outline-light" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart-plus"></i> Carrito de compras</a> -->
-          <a href="catalogo.php?id=1" class="btn btn-outline-light" type="buton" ><i class="bi bi-cart-plus"></i> Ir a Carrito de compras</a>
-
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="be_/"><i class="bi bi-geo-fill"></i> Be_</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
       </div>
     </div>
   </nav>
