@@ -42,7 +42,8 @@
     
 <main class="form-signin">
   <form action="login.php" method="POST" id="pwdForm">
-  <i class="bi bi-box-seam" style="font-size:81px"></i><!-- <img class="mb-4" src="../assets/brand/img/cel.png" alt="" width="72" height="72"> -->
+  <!-- <i class="bi bi-box-seam" style="font-size:81px"></i> -->
+  <img class="mb-4" src="../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 fw-normal"><i class="bi bi-key-fill"></i> Acceso</h1>
 
     <div class="form-floating">
