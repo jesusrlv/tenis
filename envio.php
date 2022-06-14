@@ -70,7 +70,7 @@
             <a class="nav-link active" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="be_/"><i class="bi bi-geo-fill"></i> Be_</a>
+            <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
           </li>
         </ul>
         <form class="d-flex">
