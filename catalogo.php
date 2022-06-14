@@ -69,6 +69,9 @@
             <li class="nav-item">
               <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="be_/"><i class="bi bi-geo-fill"></i> Be_</a>
+          </li>
           </ul>
       </div>
       <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> <span id="esconder">Carrito de compras</span>

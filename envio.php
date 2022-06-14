@@ -69,6 +69,9 @@
             <li class="nav-item">
               <a class="nav-link active" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="be_/"><i class="bi bi-geo-fill"></i> Be_</a>
+          </li>
           </ul>
           <!-- <a href="catalogo.php" class="btn btn-outline-light" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart-plus"></i> Carrito de compras</a> -->
           <a href="catalogo.php?id=1" class="btn btn-outline-light" type="buton" ><i class="bi bi-cart-plus"></i> Ir a Carrito de compras</a>
