@@ -52,7 +52,7 @@
   <body>
     
 <header>
-  <nav class="navbar navbar-expand-md navbar-primary fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-primary fixed-top bg-primary">
     <div class="container-fluid">
     <a class="navbar-brand" href="#">Shoes Store MX</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
