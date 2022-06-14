@@ -73,10 +73,7 @@
             <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
+       
       </div>
     </div>
   </nav>
