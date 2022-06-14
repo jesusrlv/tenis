@@ -67,7 +67,7 @@
             <a class="nav-link active" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
+            <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Tu pedido</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>

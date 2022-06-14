@@ -67,7 +67,7 @@
             <a class="nav-link" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
+            <a class="nav-link active" href="envio.php"><i class="bi bi-geo-fill"></i> Tu pedido</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
@@ -81,7 +81,7 @@
 
 <main>
 
-<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;">Rastreo <span class="text-muted">de envíos</span></h2>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;">Rastreo <span class="text-muted">tu pedido</span></h2>
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
