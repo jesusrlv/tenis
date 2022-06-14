@@ -39,7 +39,36 @@
     <link href="signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
-    
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Shoes Store MX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+    </header>
 <main class="form-signin">
   <form action="login.php" method="POST" id="pwdForm">
   <!-- <i class="bi bi-box-seam" style="font-size:81px"></i> -->
