@@ -54,7 +54,7 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-primary fixed-top bg-dark">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#"><i class="bi bi-cart-check-fill"></i> Shoes Store MX</a>
+    <a class="navbar-brand" href="#">Shoes Store MX</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -83,7 +83,7 @@
 
 <main>
 
-<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-geo-fill"></i> Rastreo <span class="text-muted">de envíos</span></h2>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;">Rastreo <span class="text-muted">de envíos</span></h2>
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->

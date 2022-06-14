@@ -57,7 +57,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    <a class="navbar-brand" href="#"><i class="bi bi-cart-check-fill"></i> Shoes Store MX</a>
+    <a class="navbar-brand" href="#">Shoes Store MX</a>
       
         
       <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -88,7 +88,7 @@
 
 <main class="bg-light">
 
-<h2 class="mb-3 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Catálogo <span class="text-muted">de tenis</span></h2>
+<h2 class="mb-3 bg-light p-5 text-center featurette-heading" style="margin:18px;">Calzado para <span class="text-muted">toda la familia</span></h2>
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
