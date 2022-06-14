@@ -101,7 +101,7 @@
     include('query/query_categorias.php');
     echo '
     <form action="#" method="get">
-    <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
+    <select class="form-control" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
       <option selected>Selecciona categoría</option>
       <option value="0" onclick="mostrarTodo()">Todo</option>';
     while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
