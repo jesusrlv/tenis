@@ -100,7 +100,7 @@
     $sum = 1;
     include('query/query_categorias.php');
     echo '
-    <select class="form-select" aria-label="Seleccion">
+    <select class="form-select" aria-label="Seleccion" style="cursor:pointer;">
       <option selected>Selecciona categoría</option>
       <option value="0" onclick="mostrarTodo()">Todo</option>';
     while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
@@ -110,7 +110,7 @@
       //<label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
       echo'
       
-        <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')" style="cursor:pointer;">'.$row_sqlCategorias['nombre_catalogo'].'</option>
+        <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
       
       
       ';
