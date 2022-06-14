@@ -49,16 +49,16 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+            <a class="nav-link" aria-current="page" href="../index.html"><i class="bi bi-house-fill"></i> Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
+            <a class="nav-link" href="../catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
+            <a class="nav-link" href="../envio.php"><i class="bi bi-geo-fill"></i> Rastreo de envíos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
+            <a class="nav-link active" href="#"><i class="bi bi-journal-code"></i> Be_</a>
           </li>
         </ul>
         <form class="d-flex">
