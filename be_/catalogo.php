@@ -129,8 +129,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     </div>
   </div>
 
-  
-
   <hr>
 
     <!-- table ventas -->
@@ -146,8 +144,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i> Tallas</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-activity"></i> Acción</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i> Dar de baja</small></th>
-          
-        
         </tr>
       </thead>
       <tbody id="myTable">
