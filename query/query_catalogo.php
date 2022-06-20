@@ -16,17 +16,27 @@ include('qconn/qc.php');
       $idConsultaTalla = $row_sql_catalogo['id'];
       // echo $x1;
       // echo $x2;
-        echo '<div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
-        <div class="card text-center text-dark" style="width: 100%;">
-          <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 100%; max-height: 150px; object-fit: cover; object-position:right; background-repeat: no-repeat;" alt="...">
-          <div class="card-body text-start">
-            <span class="card-title"><small>'.$row_sql_catalogo['nombre'].'</small></span><br>
-            <span class="card-title text-secondary"><small>$'.$row_sql_catalogo['precio'].'</small></span>
-            <hr>
-            <button href="#" class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'"><i class="bi bi-cart-plus"></i> Carrito</button>
-          </div>
-        </div>
-      </div><!-- /.col-lg-4 -->';
+      //<button href="#" class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'"><i class="bi bi-cart-plus"></i> Carrito</button>
+        echo '
+        
+          <div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'" onclick="escala()">
+            <div class="card text-center text-dark" style="width: 100%;">
+              <div class="card-header bg-primary text-light">
+                  <small><i class="bi bi-cart-plus"></i></small>
+                </div>
+                <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 100%; max-height: 150px; object-fit: cover; object-position:right; background-repeat: no-repeat;" alt="...">
+            
+                <div class="card-body text-start bg-primary text-light">
+                  <span class="card-title"><small>'.$row_sql_catalogo['nombre'].'</small></span><br>
+                  <span class="card-title text-light"><small>$'.$row_sql_catalogo['precio'].'</small></span>
+                  <hr>
+                  
+                </div>
+              </div>
+              </a>
+          </div><!-- /.col-lg-4 -->
+        ';
       
       echo '<!-- modal de descripción del producto -->
       <div class="modal fade" id="exampleModal'.$row_sql_catalogo['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -37,6 +37,28 @@
       body{
         background-color:#f7f7f7;
       }
+
+      #hidden:active {
+        /* border: 1px solid #ffc107; */
+        /* border-color:#ffc107; */
+        box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
+        transform: scale(1.03);
+        transition: width 0.8s, height 0.8s, transform 0.3s;
+        
+      }
+      #hidden:hover {
+        /* border: 1px solid #ffc107; */
+        /* border-color:#ffc107; */
+        box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
+        transform: scale(1.03);
+        transition: width 0.8s, height 0.8s, transform 0.3s;
+        
+      }
+      #hidden:visited {
+        /* border: 1px solid #ffc107; */
+        /* border-color:#ffc107; */
+        background-color: yellow;
+      }
     </style>
 
     <?php
