@@ -25,7 +25,7 @@ include('qconn/qc.php');
               <div class="card-header bg-primary text-light">
                   <small><i class="bi bi-cart-plus"></i></small>
                 </div>
-                <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 100%; max-height: 150px; object-fit: cover; object-position:right; background-repeat: no-repeat;" alt="...">
+                <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 500px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
                 <div class="card-body text-start bg-primary text-light">
                   <span class="card-title"><small>'.$row_sql_catalogo['nombre'].'</small></span><br>
