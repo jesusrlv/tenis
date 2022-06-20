@@ -126,6 +126,47 @@
     $sum = 1;
     include('query/query_categorias.php');
     echo '
+    <p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Por marca
+      </label>
+    </div>
+    </p>
+    <p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Por modelo
+      </label>
+    </div>
+    </p>
+    <p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Color predominante
+      </label>
+    </div>
+    </p>
+    <p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Material
+      </label>
+    </div>
+    </p>
+    <p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Tallas
+      </label>
+    </div>
+    </p>
+
     <form action="#" method="get">
     <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
       <option selected>Selecciona categoría</option>
@@ -136,10 +177,7 @@
       //<input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
       //<label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
       echo'
-      
         <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
-      
-      
       ';
     }
     echo '</select>
