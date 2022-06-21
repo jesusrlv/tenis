@@ -7,7 +7,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Shoes Store MX · Catálogo</title>
-    <link rel="icon" type="image/png" href="assets/brand/img/cel.ico">
+    <link rel="icon" type="image/png" href="../../assets/brand/img/cel.ico">
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -76,7 +76,7 @@
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX</a>
+    <a class="navbar-brand" href="#"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -103,11 +103,10 @@
 
 <main class="bg-light">
 
-<!-- <img src="assets/brand/img/letras_verdes.png" alt="" width="360"> -->
-<div class="mt-5 mb-3">
+<div class="mt-5 pt-2 mb-3">
   <h1 class="text-center">
-    <p class="m-0 p-0"><img src="assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
-    <p class="m-0 p-0"><img src="assets/brand/img/letras_verdes.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"></p>
   </h1>
 </div>
   <!-- Marketing messaging and featurettes
@@ -194,46 +193,7 @@
     $sum = 1;
     include('query/query_categorias.php');
     echo '
-    <p>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Por marca
-      </label>
-    </div>
-    </p>
-    <p>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Por modelo
-      </label>
-    </div>
-    </p>
-    <p>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Color predominante
-      </label>
-    </div>
-    </p>
-    <p>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Material
-      </label>
-    </div>
-    </p>
-    <p>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Tallas
-      </label>
-    </div>
-    </p>
+    
 
     <form action="#" method="get">
     <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
@@ -336,6 +296,58 @@
    
 </script>
 
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+<script>
+  x=0;
+  function cambio(x){
+    // alert(x);
+    // document.getElementById('hidden'+x).style.visibility = 'hidden';
+    
+    // z = document.getElementById('hidden'+x);
+    //  z.style.visibility = 'hidden';
+
+//     var divsToHide = document.getElementsById('hidden'+x); 
+//       for(var i = 0; i < divsToHide.length; i++){
+//           if(document.getElementById('q'+i).style.display!='none')
+//             {
+//             document.getElementById('q'+i).style.display='none'
+//             }
+//         }
+// }
+  const div=document.querySelectorAll('#hidden');
+  for(let i=0;i<div.length;i++){
+    const styles = window.getComputedStyle(div[i]);
+      var xyz = (div[i]).getAttribute('value');
+      // alert(xyz)
+        if(xyz == x){
+          // div[i].style.visibility='visible';
+          div[i].style.display = 'initial';
+        }
+        else{
+          // div[i].style.visibility='hidden'; 
+          div[i].style.display = 'none'; 
+        }
+        // if(styles.visibility=='visible'){
+        // div[i].style.visibility='collapse';
+        // }
+        // else{
+        // div[i].style.visibility='visible';
+        // }
+        
+  }
+// https://codepen.io/letstacle/pen/qBmoZoB
+  }
+
+  function mostrarTodo(){
+    const div2=document.querySelectorAll('#hidden');
+      for(let i=0;i<div2.length;i++){
+        const styles = window.getComputedStyle(div2[i]);
+        // div2[i].style.visibility='visible';
+        div2[i].style.display = 'initial';
+      }
+    } 
+</script>
+
 <script>
   var x = document.getElementById('checkbox1');
   // if (checked = x.checked){
@@ -397,58 +409,6 @@
   function habilitar5(){
     document.getElementById("talla").disabled=false;
   }
-</script>
-
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
-<script>
-  x=0;
-  function cambio(x){
-    // alert(x);
-    // document.getElementById('hidden'+x).style.visibility = 'hidden';
-    
-    // z = document.getElementById('hidden'+x);
-    //  z.style.visibility = 'hidden';
-
-//     var divsToHide = document.getElementsById('hidden'+x); 
-//       for(var i = 0; i < divsToHide.length; i++){
-//           if(document.getElementById('q'+i).style.display!='none')
-//             {
-//             document.getElementById('q'+i).style.display='none'
-//             }
-//         }
-// }
-  const div=document.querySelectorAll('#hidden');
-  for(let i=0;i<div.length;i++){
-    const styles = window.getComputedStyle(div[i]);
-      var xyz = (div[i]).getAttribute('value');
-      // alert(xyz)
-        if(xyz == x){
-          // div[i].style.visibility='visible';
-          div[i].style.display = 'initial';
-        }
-        else{
-          // div[i].style.visibility='hidden'; 
-          div[i].style.display = 'none'; 
-        }
-        // if(styles.visibility=='visible'){
-        // div[i].style.visibility='collapse';
-        // }
-        // else{
-        // div[i].style.visibility='visible';
-        // }
-        
-  }
-// https://codepen.io/letstacle/pen/qBmoZoB
-  }
-
-  function mostrarTodo(){
-    const div2=document.querySelectorAll('#hidden');
-      for(let i=0;i<div2.length;i++){
-        const styles = window.getComputedStyle(div2[i]);
-        // div2[i].style.visibility='visible';
-        div2[i].style.display = 'initial';
-      }
-    } 
 </script>
 
 <style>
