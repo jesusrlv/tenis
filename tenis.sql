@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-05-2022 a las 23:13:35
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Tiempo de generación: 22-06-2022 a las 06:52:28
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -38,8 +37,31 @@ CREATE TABLE `catalogo` (
 
 INSERT INTO `catalogo` (`id`, `nombre_catalogo`) VALUES
 (1, 'Tenis'),
-(2, 'Botas'),
-(3, 'Botas industriales');
+(2, 'Bota'),
+(3, 'Bota industrial');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `color`
+--
+
+CREATE TABLE `color` (
+  `id` int(11) NOT NULL,
+  `color` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `color`
+--
+
+INSERT INTO `color` (`id`, `color`) VALUES
+(1, 'Azul'),
+(2, 'Rojo'),
+(3, 'Verde'),
+(4, 'Amarillo'),
+(5, 'Negro'),
+(6, 'Blanco');
 
 -- --------------------------------------------------------
 
@@ -50,26 +72,65 @@ INSERT INTO `catalogo` (`id`, `nombre_catalogo`) VALUES
 CREATE TABLE `envios` (
   `id` int(11) NOT NULL,
   `fecha_registro` date NOT NULL,
-  `compania` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fecha_llegada` date DEFAULT NULL,
+  `compania` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_llegada` date NOT NULL,
   `id_envio` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'id de la persona que envio',
-  `costo_envio` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `costo_envio` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `codigo_envio_interno` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `codigo_envio_externo` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `entrega` int(11) DEFAULT NULL
+  `codigo_envio_externo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `entregado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `envios`
 --
 
-INSERT INTO `envios` (`id`, `fecha_registro`, `compania`, `fecha_llegada`, `id_envio`, `costo_envio`, `codigo_envio_interno`, `codigo_envio_externo`, `entrega`) VALUES
-(8, '2022-03-29', 'DHL2', '2022-04-09', 'Jesus Rodolfo', '360', '2', '33-999008-009-ZM', NULL),
-(9, '2022-03-30', 'Estafeta', '2022-04-04', 'JesusR L', '450.18', '8', '336td-zac-MX-1', NULL),
-(10, '2022-03-30', 'Estafeta', '2022-03-24', 'Jesus Rodolfo Lea', '800', 'v7q58lmqg', 'EST-34455-90-ZMX', NULL),
-(11, '2022-05-18', NULL, NULL, 'usr', NULL, '21a0uhkkf', NULL, 1),
-(12, '2022-05-18', NULL, NULL, 'usr', NULL, 'jw7nizkvp', NULL, 1),
-(13, '2022-05-18', NULL, NULL, 'usr', NULL, 'a5kv3ujdw', NULL, 1);
+INSERT INTO `envios` (`id`, `fecha_registro`, `compania`, `fecha_llegada`, `id_envio`, `costo_envio`, `codigo_envio_interno`, `codigo_envio_externo`, `entregado`) VALUES
+(8, '2022-03-29', 'DHL2', '2022-04-09', 'Jesus Rodolfo', '360', '2', '33-999008-009-ZM', 0),
+(9, '2022-03-30', 'Estafeta', '2022-04-04', 'JesusR L', '450.18', '8', '336td-zac-MX-1', 0),
+(10, '2022-03-30', 'Estafeta', '2022-03-24', 'Jesus Rodolfo L', '800', 'v7q58lmqg', 'EST-34455-90-ZMX', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `marca`
+--
+
+CREATE TABLE `marca` (
+  `id` int(11) NOT NULL,
+  `marca` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `marca`
+--
+
+INSERT INTO `marca` (`id`, `marca`) VALUES
+(1, 'Nike'),
+(2, 'Adidas'),
+(3, 'Rebook'),
+(4, 'Puma');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `material`
+--
+
+CREATE TABLE `material` (
+  `id` int(11) NOT NULL,
+  `material` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `material`
+--
+
+INSERT INTO `material` (`id`, `material`) VALUES
+(1, 'Piel'),
+(2, 'Choclo'),
+(3, 'Gamusa'),
+(4, 'Plástico');
 
 -- --------------------------------------------------------
 
@@ -79,10 +140,7 @@ INSERT INTO `envios` (`id`, `fecha_registro`, `compania`, `fecha_llegada`, `id_e
 
 CREATE TABLE `modelo` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
-  `marca` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `modelo` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
-  `catalogo` int(11) NOT NULL
+  `modelo` varchar(70) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -96,9 +154,14 @@ CREATE TABLE `producto` (
   `nombre` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `descripcion` varchar(170) COLLATE utf8_unicode_ci NOT NULL,
   `precio` int(11) NOT NULL,
+  `precio_prov` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `imagen` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
   `modelo` int(11) DEFAULT NULL,
+  `marca` int(11) DEFAULT NULL,
+  `color` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `material` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `talla` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `total_vendido` int(11) DEFAULT NULL,
   `codigo` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `catalogo` int(11) DEFAULT NULL,
@@ -109,21 +172,22 @@ CREATE TABLE `producto` (
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `cantidad`, `modelo`, `total_vendido`, `codigo`, `catalogo`, `activo`) VALUES
-(1, 'Protector Samsung S30/S21', 'Descripción del producto 01', 120, 'producto_01.jpg', 18, 1, 0, 'protector1', 1, 1),
-(2, 'Protector iPhone XS Max', 'Descripción del producto 02', 300, 'producto_02.jpg', 10, 2, 0, 'protector2', 1, 1),
-(3, 'iPhone 11 (6.1)', 'Descripción del producto 03', 450, 'producto_03.jpg', 36, 1, 0, 'protector3', 2, 1),
-(4, 'Mate 20 Lite', 'Descripción del producto 04', 150, 'producto_04.jpg', 10, 1, 0, 'protector4', 1, 1),
-(6, 'Huawei Y9S', 'Descripción del producto 06', 300, 'producto_06.jpg', 10, 1, 0, 'protector5', 2, 1),
-(7, 'A51', 'Descripción del producto 07', 350, 'producto_07.jpg', 10, 1, 0, 'protector6', 1, 1),
-(8, 'iPhone 7/8 Plus', 'Descripción del producto 08', 600, 'producto_08.jpg', 10, 1, 0, 'protector7', 1, 1),
-(9, 'producto_09.jpg', 'Descripción del producto 09', 100, 'producto_09.jpg', 10, 1, 0, 'protector8', 3, 1),
-(10, 'iPhone XS Max', 'Descripción del producto 010', 500, 'producto_010.jpg', 10, 1, 0, 'protector9', 3, 1),
-(11, 'Samsung A10S', 'Descripción del producto 011', 100, 'producto_011.jpg', 10, 1, 0, 'protector10', 3, 1),
-(12, 'iPhone 13', 'iPhone 13', 4000, 'foto_9vhjhhlxd_1.jpg', 90, NULL, NULL, NULL, 3, 1),
-(13, 'iPhone 13 (2)', 'Descripción de iPhone 13', 10000, 'foto_cu2qasj1r_1.jpg', 90, NULL, NULL, NULL, 1, 0),
-(14, 'iPhone 13 (4)', 'Descripción de iPhone 13 4', 4000, 'foto_kz6zwvjvj_1.jpg', 54, NULL, NULL, NULL, 2, 0),
-(15, 'iPhone 13 (9)', 'iPhone 13 9', 21000, 'foto_i1uc2m96w_1.jpg', 90, NULL, NULL, NULL, 2, 1);
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `precio_prov`, `imagen`, `cantidad`, `modelo`, `marca`, `color`, `material`, `talla`, `total_vendido`, `codigo`, `catalogo`, `activo`) VALUES
+(1, 'Protector Samsung S30/S21', 'Descripción del producto 01', 120, '', 'producto_01.jpg', 18, 1, 0, NULL, '', '', 0, 'protector1', 1, 1),
+(2, 'Protector iPhone XS Max', 'Descripción del producto 02', 300, '', 'producto_02.jpg', 10, 2, 0, NULL, '', '', 0, 'protector2', 1, 1),
+(3, 'iPhone 11 (6.1)', 'Descripción del producto 03', 450, '', 'producto_03.jpg', 36, 1, 0, NULL, '', '', 0, 'protector3', 1, 1),
+(4, 'Mate 20 Lite', 'Descripción del producto 04', 150, '', 'producto_04.jpg', 10, 1, 0, NULL, '', '', 0, 'protector4', 1, 1),
+(6, 'Huawei Y9S', 'Descripción del producto 06', 300, '', 'producto_06.jpg', 10, 1, 0, NULL, '', '', 0, 'protector5', 1, 1),
+(7, 'A51', 'Descripción del producto 07', 350, '', 'producto_07.jpg', 10, 1, 0, NULL, '', '', 0, 'protector6', 1, 1),
+(8, 'iPhone 7/8 Plus', 'Descripción del producto 08', 600, '', 'producto_08.jpg', 10, 1, 0, NULL, '', '', 0, 'protector7', 1, 1),
+(9, 'producto_09.jpg', 'Descripción del producto 09', 100, '', 'producto_09.jpg', 10, 1, 0, NULL, '', '', 0, 'protector8', 1, 1),
+(10, 'iPhone XS Max', 'Descripción del producto 010', 500, '', 'producto_010.jpg', 10, 1, 0, NULL, '', '', 0, 'protector9', 1, 1),
+(11, 'Samsung A10S', 'Descripción del producto 011', 100, '', 'producto_011.jpg', 10, 1, 0, NULL, '', '', 0, 'protector10', 1, 1),
+(12, 'iPhone 13', 'iPhone 13', 4000, '', 'foto_9vhjhhlxd_1.jpg', 90, NULL, 0, NULL, '', '', NULL, NULL, 1, 1),
+(13, 'iPhone 13 (2)', 'Descripción de iPhone 13', 10000, '', 'foto_cu2qasj1r_1.jpg', 90, NULL, 0, NULL, '', '', NULL, NULL, 1, 0),
+(14, 'iPhone 13 (4)', 'Descripción de iPhone 13 4', 4000, '', 'foto_kz6zwvjvj_1.jpg', 54, NULL, 0, NULL, '', '', NULL, NULL, 1, 0),
+(15, 'iPhone 13 (9)', 'iPhone 13 9', 21000, '', 'foto_i1uc2m96w_1.jpg', 90, NULL, 0, NULL, '', '', NULL, NULL, 1, 1),
+(16, 'Botas', 'iPhone 13', 3000, '', 'foto_af81s5kuy_2.jpg', 54, NULL, 0, NULL, '', '', NULL, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -143,9 +207,46 @@ CREATE TABLE `talla` (
 --
 
 INSERT INTO `talla` (`id`, `talla`, `id_ext`, `cantidad`) VALUES
-(1, '29', 1, 9),
-(2, '27', 1, 12),
-(3, '12', 4, 30);
+(1, '27', 1, 180),
+(2, '27', 1, 18),
+(3, '12', 4, 30),
+(4, '26', 1, 36);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `talla_catalogo`
+--
+
+CREATE TABLE `talla_catalogo` (
+  `id` int(11) NOT NULL,
+  `talla` int(11) NOT NULL,
+  `tipo` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `talla_catalogo`
+--
+
+INSERT INTO `talla_catalogo` (`id`, `talla`, `tipo`) VALUES
+(1, 12, 'infantil'),
+(2, 13, 'infantil'),
+(3, 14, 'infantil'),
+(4, 15, 'infantil'),
+(5, 16, 'infantil'),
+(6, 17, 'infantil'),
+(7, 18, 'infantil'),
+(8, 19, 'infantil'),
+(9, 20, 'adulto'),
+(10, 21, 'adulto'),
+(11, 22, 'adulto'),
+(12, 23, 'adulto'),
+(13, 24, 'adulto'),
+(14, 25, 'adulto'),
+(15, 26, 'adulto'),
+(16, 27, 'adulto'),
+(17, 28, 'adulto'),
+(18, 29, 'adulto');
 
 -- --------------------------------------------------------
 
@@ -165,8 +266,7 @@ CREATE TABLE `usr` (
 --
 
 INSERT INTO `usr` (`id`, `usr`, `pwd`, `perfil`) VALUES
-(1, 'admin', '123456789', 1),
-(2, 'usr', '123456789', 2);
+(1, 'admin', '123456789', 1);
 
 -- --------------------------------------------------------
 
@@ -188,32 +288,41 @@ CREATE TABLE `venta_gral` (
   `expira_mes` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   `expira_annio` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
   `clave_rastreo_int` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `clave_rastreo_ext` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `entrega` int(11) DEFAULT NULL
+  `clave_rastreo_ext` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `venta_gral`
 --
 
-INSERT INTO `venta_gral` (`id`, `cantidad`, `precio`, `fecha_venta`, `nombre`, `direccion`, `telefono`, `email`, `tarjeta`, `nombre_tarjeta`, `expira_mes`, `expira_annio`, `clave_rastreo_int`, `clave_rastreo_ext`, `entrega`) VALUES
-(1, 850, 4, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'sdfasdf@fdsafd.net', '0', 'Jesus R', '24', '09', '1', '', 0),
-(2, 850, 4, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'sdfasdf@fdsafd.net', 'XXXXXXXXXXX3844', 'Jesus R', '24', '09', '2', '33-999008-009-ZMX', 0),
-(3, 850, 4, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'sdfasdf@fdsafd.net', 'XXXXXXXXXXX3844', 'Jesus R', '24', '09', '3', '', 0),
-(4, 4, 700, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '4', '', 0),
-(5, 4, 700, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '5', '', 0),
-(6, 4, 700, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '6', '', 0),
-(7, 5, 800, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '7', '', 0),
-(8, 3, 1100, '2022-03-15', '0', 'Direccion conocida', '99999999', 'dskjdsjs@fjfjf.net', 'XXXXXXXXXXX3434', 'Geranios', '02', '03', '8', '336td-zac-MX-1', 0),
-(9, 3, 1100, '2022-03-15', 'JESÃšS RODOLFO LEAÃ‘OS VILLEGAS', 'Direccion conocida', '99999999', 'dskjdsjs@fjfjf.net', 'XXXXXXXXXXX3434', 'Geranios', '02', '03', '9', '', 0),
-(10, 3, 850, '2022-03-30', 'RODOLFO DE JESÃšS LEAÃ‘OS V', 'AND TULIPANES 12 A COL EL CARMEN GUADALUPE, ZAC', '4927951930', 'jesusrlvrojo@gmail.com', 'XXXXXXXXXXX2223', 'Jesus R', '09', '21', 'v7q58lmqg', 'EST-34455-90-ZMX', 0),
-(11, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', '', '', '', '', 'jw7nizkvp', 'jw7nizkvp', 1),
-(12, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, '5mj5w2cui', NULL, 0),
-(13, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'a5kv3ujdw', 'a5kv3ujdw', 1),
-(14, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'c240kzw9t', NULL, 0),
-(15, 1, 120, '2022-05-13', '', '', '', '', NULL, NULL, NULL, NULL, 'yue7pfnqp', NULL, 0),
-(16, 3, 390, '2022-05-17', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, '21a0uhkkf', '21a0uhkkf', 1),
-(17, 2, 270, '2022-05-17', 'RODOLFO L', 'Andador tulipanes 12 a', '9236222', 'superUser@gmail.com', NULL, NULL, NULL, NULL, 'w0wh8n0ul', '', 1);
+INSERT INTO `venta_gral` (`id`, `cantidad`, `precio`, `fecha_venta`, `nombre`, `direccion`, `telefono`, `email`, `tarjeta`, `nombre_tarjeta`, `expira_mes`, `expira_annio`, `clave_rastreo_int`, `clave_rastreo_ext`) VALUES
+(1, 850, 4, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'sdfasdf@fdsafd.net', '0', 'Jesus R', '24', '09', '1', ''),
+(2, 850, 4, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'sdfasdf@fdsafd.net', 'XXXXXXXXXXX3844', 'Jesus R', '24', '09', '2', '33-999008-009-ZMX'),
+(3, 850, 4, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'sdfasdf@fdsafd.net', 'XXXXXXXXXXX3844', 'Jesus R', '24', '09', '3', ''),
+(4, 4, 700, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '4', ''),
+(5, 4, 700, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '5', ''),
+(6, 4, 700, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '6', ''),
+(7, 5, 800, '2022-03-02', '0', 'CALLE CERRO DE LA ARAÃ‘A 143 FRACC COLINAS DEL PADRE 98085', '4924921515', 'dsddsd@dsdfs.net', 'XXXXXXXXXXX3444', 'Jesus R', '24', '09', '7', ''),
+(8, 3, 1100, '2022-03-15', '0', 'Direccion conocida', '99999999', 'dskjdsjs@fjfjf.net', 'XXXXXXXXXXX3434', 'Geranios', '02', '03', '8', '336td-zac-MX-1'),
+(9, 3, 1100, '2022-03-15', 'JESÃšS RODOLFO LEAÃ‘OS VILLEGAS', 'Direccion conocida', '99999999', 'dskjdsjs@fjfjf.net', 'XXXXXXXXXXX3434', 'Geranios', '02', '03', '9', ''),
+(10, 3, 850, '2022-03-30', 'RODOLFO DE JESÃšS LEAÃ‘OS V', 'AND TULIPANES 12 A COL EL CARMEN GUADALUPE, ZAC', '4927951930', 'jesusrlvrojo@gmail.com', 'XXXXXXXXXXX2223', 'Jesus R', '09', '21', 'v7q58lmqg', 'EST-34455-90-ZMX'),
+(11, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', '', '', '', '', 'jw7nizkvp', NULL),
+(12, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, '5mj5w2cui', NULL),
+(13, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'a5kv3ujdw', NULL),
+(14, 2, 270, '2022-05-12', 'JESUS R', 'Andador tulipanes 12 a', '9236222', 'jesusrlv_rojo@hotmail.com', NULL, NULL, NULL, NULL, 'c240kzw9t', NULL),
+(15, 1, 120, '2022-05-13', '', '', '', '', NULL, NULL, NULL, NULL, 'yue7pfnqp', NULL),
+(16, 1, 120, '2022-05-13', 'iPhone 13', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com.net', NULL, NULL, NULL, NULL, 'bbuqqdhcw', NULL),
+(17, 3, 360, '2022-05-13', 'iPhone 13', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com.net', NULL, NULL, NULL, NULL, 'vgkpw3djo', NULL),
+(18, 2, 270, '2022-05-13', 'iPhone 13', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com.net', NULL, NULL, NULL, NULL, 'ga0p2ps24', NULL),
+(19, 4, 540, '2022-05-30', 'JesusRLV', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com.net', NULL, NULL, NULL, NULL, 'nyihsi6hc', NULL),
+(20, 3, 390, '2022-05-30', 'Ana Elisa', 'XXXXX', '999999', 'aepbarbanosequemas@gmail.com', NULL, NULL, NULL, NULL, '5bh921427', NULL),
+(21, 4, 510, '2022-05-30', 'Botas', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com.net', NULL, NULL, NULL, NULL, 'w3vyxbqb9', NULL),
+(22, 4, 540, '2022-05-30', 'Ana Elisa', 'XXXXX', '999999', 'aepbarbanosequemas@outlook.com', NULL, NULL, NULL, NULL, 'djhtst4sq', NULL),
+(23, 7, 930, '2022-05-30', 'Ana Elisa', 'XXXXX', '999999', 'aepbarbanosequemas@outlook.com', NULL, NULL, NULL, NULL, '9xd7i9m2m', NULL),
+(24, 2, 270, '2022-05-31', 'JesusRLV', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com.net', NULL, NULL, NULL, NULL, '8x6tij7up', NULL),
+(25, 3, 390, '2022-05-31', 'JesusRLV', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com', NULL, NULL, NULL, NULL, 'xg0ut7v78', NULL),
+(26, 2, 270, '2022-05-31', 'JesusRLV', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com', NULL, NULL, NULL, NULL, '8ypfbadsk', NULL),
+(27, 1, 120, '2022-05-31', 'JesusRLV', 'XXXXX', '999999', 'jesusrlvrojo@gmail.com', NULL, NULL, NULL, NULL, 'iwjfjobld', NULL);
 
 -- --------------------------------------------------------
 
@@ -312,28 +421,49 @@ INSERT INTO `venta_individual` (`id`, `producto`, `fecha_venta`, `venta_gral`, `
 (75, 'Mate 20 Lite', '2022-05-12', 'c240kzw9t', '29', NULL),
 (76, 'Mate 20 Lite', '2022-05-12', 'c240kzw9t', '29', NULL),
 (77, 'Protector Samsung S30/S21', '2022-05-13', 'yue7pfnqp', '29', NULL),
-(78, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '29', NULL),
-(79, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '27', NULL),
-(80, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '12', NULL),
-(81, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '29', NULL),
-(82, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '27', NULL),
-(83, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '12', NULL),
-(84, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '29', NULL),
-(85, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '27', NULL),
-(86, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '12', NULL),
-(87, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '29', NULL),
-(88, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '27', NULL),
-(89, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '12', NULL),
-(90, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '29', NULL),
-(91, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '27', NULL),
-(92, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '12', NULL),
-(93, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '29', NULL),
-(94, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '27', NULL),
-(95, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '12', NULL),
-(96, 'Protector Samsung S30/S21', '2022-05-17', 'w0wh8n0ul', '27', NULL),
-(97, 'Protector Samsung S30/S21', '2022-05-17', 'w0wh8n0ul', '12', NULL),
-(98, 'Mate 20 Lite', '2022-05-17', 'w0wh8n0ul', '27', NULL),
-(99, 'Mate 20 Lite', '2022-05-17', 'w0wh8n0ul', '12', NULL);
+(78, 'Protector Samsung S30/S21', '2022-05-13', 'ga0p2ps24', '27', NULL),
+(79, 'Protector Samsung S30/S21', '2022-05-13', 'ga0p2ps24', '12', NULL),
+(80, 'Mate 20 Lite', '2022-05-13', 'ga0p2ps24', '27', NULL),
+(81, 'Mate 20 Lite', '2022-05-13', 'ga0p2ps24', '12', NULL),
+(82, 'Protector Samsung S30/S21', '2022-05-30', 'nyihsi6hc', '29', NULL),
+(83, 'Mate 20 Lite', '2022-05-30', 'nyihsi6hc', '12', NULL),
+(84, 'Protector Samsung S30/S21', '2022-05-30', '5bh921427', '29', NULL),
+(85, 'Mate 20 Lite', '2022-05-30', '5bh921427', '12', NULL),
+(86, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '27', NULL),
+(87, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '12', NULL),
+(88, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '12', NULL),
+(89, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '29', NULL),
+(90, 'Mate 20 Lite', '2022-05-30', 'w3vyxbqb9', '27', NULL),
+(91, 'Mate 20 Lite', '2022-05-30', 'w3vyxbqb9', '12', NULL),
+(92, 'Mate 20 Lite', '2022-05-30', 'w3vyxbqb9', '12', NULL),
+(93, 'Mate 20 Lite', '2022-05-30', 'w3vyxbqb9', '29', NULL),
+(94, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '27', NULL),
+(95, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '12', NULL),
+(96, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '12', NULL),
+(97, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '29', NULL),
+(98, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '27', NULL),
+(99, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '12', NULL),
+(100, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '12', NULL),
+(101, 'Protector Samsung S30/S21', '2022-05-30', 'w3vyxbqb9', '29', NULL),
+(102, 'Protector Samsung S30/S21', '2022-05-30', 'djhtst4sq', '27', NULL),
+(103, 'Protector Samsung S30/S21', '2022-05-30', 'djhtst4sq', '29', NULL),
+(104, 'Mate 20 Lite', '2022-05-30', 'djhtst4sq', '12', NULL),
+(105, 'Mate 20 Lite', '2022-05-30', 'djhtst4sq', '12', NULL),
+(106, 'Protector Samsung S30/S21', '2022-05-30', '9xd7i9m2m', '27', NULL),
+(107, 'Protector Samsung S30/S21', '2022-05-30', '9xd7i9m2m', '27', NULL),
+(108, 'Protector Samsung S30/S21', '2022-05-30', '9xd7i9m2m', '29', NULL),
+(109, 'Protector Samsung S30/S21', '2022-05-30', '9xd7i9m2m', '29', NULL),
+(110, 'Mate 20 Lite', '2022-05-30', '9xd7i9m2m', '12', NULL),
+(111, 'Mate 20 Lite', '2022-05-30', '9xd7i9m2m', '12', NULL),
+(112, 'Mate 20 Lite', '2022-05-30', '9xd7i9m2m', '12', NULL),
+(113, 'Protector Samsung S30/S21', '2022-05-31', '8x6tij7up', '27', NULL),
+(114, 'Mate 20 Lite', '2022-05-31', '8x6tij7up', '12', NULL),
+(115, 'Protector Samsung S30/S21', '2022-05-31', 'xg0ut7v78', '27', NULL),
+(116, 'Protector Samsung S30/S21', '2022-05-31', 'xg0ut7v78', '29', NULL),
+(117, 'Mate 20 Lite', '2022-05-31', 'xg0ut7v78', '12', NULL),
+(118, 'Protector Samsung S30/S21', '2022-05-31', '8ypfbadsk', '27', NULL),
+(119, 'Mate 20 Lite', '2022-05-31', '8ypfbadsk', '27', NULL),
+(120, 'Protector Samsung S30/S21', '2022-05-31', 'iwjfjobld', 'undefined', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -346,9 +476,27 @@ ALTER TABLE `catalogo`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `color`
+--
+ALTER TABLE `color`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `envios`
 --
 ALTER TABLE `envios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `marca`
+--
+ALTER TABLE `marca`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `material`
+--
+ALTER TABLE `material`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -367,6 +515,12 @@ ALTER TABLE `producto`
 -- Indices de la tabla `talla`
 --
 ALTER TABLE `talla`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `talla_catalogo`
+--
+ALTER TABLE `talla_catalogo`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -395,51 +549,62 @@ ALTER TABLE `venta_individual`
 -- AUTO_INCREMENT de la tabla `catalogo`
 --
 ALTER TABLE `catalogo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `color`
+--
+ALTER TABLE `color`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT de la tabla `marca`
+--
+ALTER TABLE `marca`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `material`
+--
+ALTER TABLE `material`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `modelo`
 --
 ALTER TABLE `modelo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
 ALTER TABLE `talla`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `talla_catalogo`
+--
+ALTER TABLE `talla_catalogo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `venta_gral`
 --
 ALTER TABLE `venta_gral`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT de la tabla `venta_individual`
 --
 ALTER TABLE `venta_individual`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
