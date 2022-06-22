@@ -126,9 +126,14 @@
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="marca" disabled="disabled">
             <option selected>Marca</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <?php
+              $sqlMarca ="SELECT * FROM marca";
+              $resultado_sqlMarca = $conn->query($sqlMarca);
+              while($row_sqlMarca = $resultado_sqlMarca->fetch_assoc()){
+                echo '<option value="'.$row_sqlMarca['marca'].'">'.$row_sqlMarca['marca'].'</option>';
+              }
+            ?>
+            
           </select>
         </div>
       <!-- divisor -->
@@ -138,9 +143,13 @@
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="modelo" disabled="disabled">
             <option selected>Modelo</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <?php
+              $sqlModelo ="SELECT * FROM modelo";
+              $resultado_sqlModelo = $conn->query($sqlModelo);
+              while($row_sqlModelo = $resultado_sqlModelo->fetch_assoc()){
+                echo '<option value="'.$row_sqlModelo['modelo'].'">'.$row_sqlModelo['modelo'].'</option>';
+              }
+            ?>
           </select>
         </div>
       <!-- divisor -->
@@ -150,9 +159,13 @@
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="color" disabled="disabled">
             <option selected>Color predominante</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <?php
+              $sqlColor ="SELECT * FROM color";
+              $resultado_sqlColor = $conn->query($sqlColor);
+              while($row_sqlColor = $resultado_sqlColor->fetch_assoc()){
+                echo '<option value="'.$row_sqlColor['color'].'">'.$row_sqlColor['color'].'</option>';
+              }
+            ?>
           </select>
         </div>
       <!-- divisor -->
@@ -162,9 +175,13 @@
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="material" disabled="disabled">
             <option selected>Material</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <?php
+              $sqlMaterial ="SELECT * FROM material";
+              $resultado_sqlMaterial = $conn->query($sqlMaterial);
+              while($row_sqlMaterial = $resultado_sqlMaterial->fetch_assoc()){
+                echo '<option value="'.$row_sqlMaterial['material'].'">'.$row_sqlMaterial['material'].'</option>';
+              }
+            ?>
           </select>
         </div>
       <!-- divisor -->
@@ -174,9 +191,13 @@
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="talla" disabled="disabled">
             <option selected>Talla</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <?php
+              $sqlTalla ="SELECT * FROM talla_catalogo";
+              $resultado_sqlTalla = $conn->query($sqlTalla);
+              while($row_sqlTalla = $resultado_sqlTalla->fetch_assoc()){
+                echo '<option value="'.$row_sqlTalla['talla'].'">'.$row_sqlTalla['talla'].' | '.$row_sqlTalla['tipo'].'</option>';
+              }
+            ?>
           </select>
         </div>
         <button class="btn btn-primary" type="submit"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
