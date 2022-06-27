@@ -119,7 +119,7 @@
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
   <p class="">
-    <form action="">
+    <form action="" name="form">
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" id="checkbox1" value="" aria-label="Checkbox for following text input" onclick="habilitar1()">
@@ -200,7 +200,28 @@
             ?>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
+        <button class="btn btn-primary" type="submit" name="filtro"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script>
+          $(function () {
+
+            $('form').on('submit', function (e) {
+
+              e.preventDefault();
+
+              $.ajax({
+                type: 'post',
+                url: 'post.php',
+                data: $('form').serialize(),
+                success: function () {
+                  alert('form was submitted');
+                }
+              });
+
+            });
+
+          });
+        </script>
     </form>
   </p>
     <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
@@ -212,7 +233,8 @@
      
 <?php
     $sum = 1;
-    include('query/query_categorias.php');
+    // include('query/query_categorias.php');
+    // include('prcd/filtros.php');
     echo '
     
 
@@ -220,7 +242,7 @@
     <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
       <option selected>Selecciona categoría</option>
       <option value="0" onclick="mostrarTodo()">Todo</option>';
-    while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
+    while($row_sqlCategorias = $resultado_Query->fetch_assoc()){
       $sum++;
       // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
       //<input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
