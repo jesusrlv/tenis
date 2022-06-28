@@ -189,7 +189,7 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar5()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="talla" disabled="disabled">
+          <select class="form-select" aria-label="Example select with button addon" id="talla" disabled="disabled" onchange="showUser(this.value)">
             <option selected>Talla</option>
             <?php
               $sqlTalla ="SELECT * FROM talla_catalogo";
@@ -209,7 +209,39 @@
       <label class="btn btn-outline-primary" for="btnradio1">Todos</label> -->
 
       
+<!-- codigo -->
+<script>
+function showUser(str) {
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","prcd/filtro.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
+</script>
+</head>
+<body>
 
+<!-- <form>
+<select name="users" onchange="showUser(this.value)">
+  <option value="">Select a person:</option>
+  <option value="1">Peter Griffin</option>
+  <option value="2">Lois Griffin</option>
+  <option value="3">Joseph Swanson</option>
+  <option value="4">Glenn Quagmire</option>
+  </select>
+</form> -->
+<br>
+<div id="txtHint"><b>Person info will be listed here...</b></div>
+<!-- codigo -->
      
 <?php
     $sum = 1;
