@@ -201,27 +201,7 @@
           </select>
         </div>
         <button class="btn btn-primary" type="submit" name="filtro"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
-        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-        <script>
-          $(function () {
-
-            $('form').on('submit', function (e) {
-
-              e.preventDefault();
-
-              $.ajax({
-                type: 'post',
-                url: 'post.php',
-                data: $('form').serialize(),
-                success: function () {
-                  alert('form was submitted');
-                }
-              });
-
-            });
-
-          });
-        </script>
+        
     </form>
   </p>
     <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
@@ -233,7 +213,7 @@
      
 <?php
     $sum = 1;
-    // include('query/query_categorias.php');
+    include('query/query_categorias.php');
     // include('prcd/filtros.php');
     echo '
     
@@ -242,7 +222,7 @@
     <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
       <option selected>Selecciona categoría</option>
       <option value="0" onclick="mostrarTodo()">Todo</option>';
-    while($row_sqlCategorias = $resultado_Query->fetch_assoc()){
+    while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
       $sum++;
       // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
       //<input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
@@ -473,3 +453,38 @@
      
 </style>
 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script>
+          $(function() {
+
+            // Asigno un evento a un botón de mi formulario
+            $("[name='filtro']").click(function(e){
+
+                e.preventDefault();
+
+                var datos_enviados = {
+                    'buscar_cli' : $("[name='filtro']")
+                }
+
+            var request = $.ajax({
+              url: "prcd/filtro.php",
+              method: "POST",
+              data: datos_enviados,
+              dataType: "json"
+            });
+
+            // request.done(function( data ) {
+            //     alert("Todo bien");
+            //     console.log(data);
+                 //Si pones el content-type en PHP no necesitas parse         
+            // });
+
+            // request.fail(function( jqXHR, textStatus ) {
+            //   alert( "Hubo un error: " + textStatus );
+            // });
+
+
+            })
+
+            });
+        </script>
