@@ -157,7 +157,7 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar3()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="color" disabled="disabled">
+          <select class="form-select" aria-label="Example select with button addon" id="color" disabled="disabled" onchange="showUser(this.value)">
             <option selected>Color predominante</option>
             <?php
               $sqlColor ="SELECT * FROM color";
@@ -189,7 +189,7 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar5()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="talla" disabled="disabled" onchange="showUser(this.value)">
+          <select class="form-select" aria-label="Example select with button addon" id="talla" disabled="disabled">
             <option selected>Talla</option>
             <?php
               $sqlTalla ="SELECT * FROM talla_catalogo";
