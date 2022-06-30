@@ -19,16 +19,21 @@ th {text-align: left;}
 <body>
 
 <?php
-$q = intval($_GET['q']);
+// $q = intval($_GET['q']);
+$q = $_GET['q'];
 
-$con = mysqli_connect('localhost','root','','tenis');
-if (!$con) {
-  die('Could not connect: ' . mysqli_error($con));
-}
+// $con = mysqli_connect('localhost','root','','tenis');
+// if (!$con) {
+//   die('Could not connect: ' . mysqli_error($con));
+// }
 
-mysqli_select_db($con,"ajax_demo");
-$sql="SELECT * FROM producto WHERE color = '".$q."'";
-$result = mysqli_query($con,$sql);
+// mysqli_select_db($con,"tenis");
+
+include('../../query/qconn/qc.php');
+echo $q;
+$sql="SELECT * FROM producto WHERE color = '$q'";
+// $result = mysqli_query($conn,$sql);
+$result= $conn->query($sql);
 
 echo "<table>
 <tr>
@@ -38,7 +43,8 @@ echo "<table>
 <th>Hometown</th>
 <th>Job</th>
 </tr>";
-while($row = mysqli_fetch_array($result)) {
+// while($row = mysqli_fetch_assoc($result)) {
+while($row = $result->fetch_array()){
   echo "<tr>";
   echo "<td>" . $row['nombre'] . "</td>";
   echo "<td>" . $row['color'] . "</td>";
@@ -48,7 +54,7 @@ while($row = mysqli_fetch_array($result)) {
   echo "</tr>";
 }
 echo "</table>";
-mysqli_close($con);
+mysqli_close($conn);
 ?>
 </body>
 </html> 

@@ -15,6 +15,10 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     
+    <!-- ajax -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!-- ajax -->
     <script src="query/compra.js"></script>
 
     <!-- Bootstrap core CSS -->
@@ -119,7 +123,29 @@
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
   <p class="">
-    <form action="" name="form">
+    <form>
+
+      <!-- datalist -->
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-filter-circle-fill"></i></span>
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Filtro de búsqueda de producto">
+        <datalist id="datalistOptions">
+          <!-- <option value="San Francisco">
+          <option value="New York">
+          <option value="Seattle">
+          <option value="Los Angeles">
+          <option value="Chicago"> -->
+          <?php
+          $sqlSearch = "SELECT * FROM producto";
+          $resultSearch= $conn->query($sqlSearch);
+          while($rowSearch = $resultSearch->fetch_array()){
+            echo '<option value="'.$rowSearch['nombre'].'">';
+          }
+          ?>
+        </datalist>
+      </div>
+      <!-- datalist -->
+
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" id="checkbox1" value="" aria-label="Checkbox for following text input" onclick="habilitar1()">
@@ -157,8 +183,9 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar3()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="color" disabled="disabled" onchange="showUser(this.value)">
-            <option selected>Color predominante</option>
+          <select class="form-select" aria-label="Example select with button addon" id="color" disabled="disabled" name="users" onchange="showUser(this.value)">
+            <!-- <option selected>Color predominante</option> -->
+            <option value="">Color predominante</option>
             <?php
               $sqlColor ="SELECT * FROM color";
               $resultado_sqlColor = $conn->query($sqlColor);
@@ -216,13 +243,15 @@ function showUser(str) {
     document.getElementById("txtHint").innerHTML = "";
     return;
   } else {
+    alert(str);
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET","prcd/filtro.php?q="+str,true);
+    // xmlhttp.open("GET","../prcd/filtro.php?q="+str,true);
+    xmlhttp.open("GET","../prcd/filtro.php?q="+str);
     xmlhttp.send();
   }
 }
@@ -485,7 +514,7 @@ function showUser(str) {
      
 </style>
 
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
         <script>
           $(function() {
 
