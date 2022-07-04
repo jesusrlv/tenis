@@ -60,10 +60,10 @@ echo "Cargando...";
 // $talla = $_POST['talla'];
 include('../../query/qconn/qc.php');
 // if(isset($_POST['queryFilter'])){
-  
+  $queryMarca = "Nike";
     if (isset($_POST['marca'])){
         $marca = $_POST['marca'];
-        $queryMarca = .$marca."= marca";
+        $queryMarca = "Nike";
     }
     else{
         $marca = "";
@@ -104,7 +104,7 @@ include('../../query/qconn/qc.php');
         $queryTalla = "";
     }
     // $Query = "SELECT * FROM producto WHERE ".$queryMarca." ". $queryModelo." ". $queryColor." ". $queryMaterial." ".$queryTalla." ORDER BY id";
-    $Query = "SELECT * FROM producto WHERE $queryTalla ORDER BY id";
+    $Query = "SELECT * FROM producto WHERE marca = $queryMarca ORDER BY id";
     $resultado_Query = $conn->query($Query);
         echo'
         <table>
