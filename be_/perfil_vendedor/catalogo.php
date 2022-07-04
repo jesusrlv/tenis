@@ -17,7 +17,8 @@
     
     <!-- ajax -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- ajax -->
     <script src="query/compra.js"></script>
 
@@ -123,7 +124,7 @@
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
   <p class="">
-    <form>
+    <form action="../prcd/filtro.php" method="POST" id="queryFilter">
 
       <!-- datalist -->
       <div class="input-group mb-3">
@@ -150,7 +151,7 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" id="checkbox1" value="" aria-label="Checkbox for following text input" onclick="habilitar1()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="marca" disabled="disabled">
+          <select class="form-select" aria-label="Example select with button addon" id="marca" name="marca" disabled="disabled" required>
             <option selected>Marca</option>
             <?php
               $sqlMarca ="SELECT * FROM marca";
@@ -167,7 +168,7 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar2()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="modelo" disabled="disabled">
+          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo" disabled="disabled">
             <option selected>Modelo</option>
             <?php
               $sqlModelo ="SELECT * FROM modelo";
@@ -183,7 +184,8 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar3()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="color" disabled="disabled" name="users" onchange="showUser(this.value)">
+          <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" >
+          <!-- <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" onchange="showUser(this.value)"> -->
             <!-- <option selected>Color predominante</option> -->
             <option value="">Color predominante</option>
             <?php
@@ -200,7 +202,7 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar4()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="material" disabled="disabled">
+          <select class="form-select" aria-label="Example select with button addon" id="material" name="material" disabled="disabled">
             <option selected>Material</option>
             <?php
               $sqlMaterial ="SELECT * FROM material";
@@ -216,7 +218,7 @@
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar5()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="talla" disabled="disabled">
+          <select class="form-select" aria-label="Example select with button addon" id="talla" name="talla" disabled="disabled">
             <option selected>Talla</option>
             <?php
               $sqlTalla ="SELECT * FROM talla_catalogo";
@@ -227,16 +229,37 @@
             ?>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit" name="filtro"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
+        <button class="btn btn-primary" type="submit" name="filtro" onclick="submit()"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
         
     </form>
   </p>
+  
     <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
+
       <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="mostrarTodo()" checked>
       <label class="btn btn-outline-primary" for="btnradio1">Todos</label> -->
 
-      
-<!-- codigo -->
+
+<!-- código consulta -->
+<script type="text/javascript">
+// this is the id of the form
+// $("#queryFilter").submit(function() {
+function submit() {
+
+   var consulta = $.ajax({
+    url:'../prcd/filtro.php',
+    dataType:'text',
+    async:false,
+
+   }).responseText;
+
+   document.getElementById("txtHint").innerHTML = consulta;
+    
+});
+</script>
+<!-- código consulta -->
+
+<!-- codigo prueba -->
 <script>
 function showUser(str) {
   if (str == "") {
@@ -269,7 +292,7 @@ function showUser(str) {
   </select>
 </form> -->
 <br>
-<div id="txtHint"><b>Person info will be listed here...</b></div>
+<div id="txtHint"><b>Aquí debe aparecer la información...</b></div>
 <!-- codigo -->
      
 <?php
