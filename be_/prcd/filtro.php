@@ -61,14 +61,14 @@ echo "Cargando...";
 include('../../query/qconn/qc.php');
 // if(isset($_POST['queryFilter'])){
   $queryMarca = "Nike";
-    if (isset($_POST['marca'])){
-        $marca = $_POST['marca'];
-        $queryMarca = "Nike";
-    }
-    else{
-        $marca = "";
-        $queryMarca = "";
-    }
+    // if (isset($_POST['marca'])){
+    //     $marca = $_POST['marca'];
+    //     $queryMarca = "Nike";
+    // }
+    // else{
+    //     $marca = "";
+    //     $queryMarca = "";
+    // }
 
     if (isset($_POST['modelo'])){
         $modelo = $_POST['modelo'];

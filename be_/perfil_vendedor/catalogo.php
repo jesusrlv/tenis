@@ -124,7 +124,7 @@
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
   <p class="">
-    <form action="../prcd/filtro.php" method="POST" id="queryFilter">
+    <form action="../prcd/filtro.php" method="POST" name="filtro" onsubmit="enviar_ajax();" id="form1">
 
       <!-- datalist -->
       <div class="input-group mb-3">
@@ -229,7 +229,7 @@
             ?>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit" name="filtro" onclick="submit()"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
+        <button class="btn btn-primary" type="submit"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
         
     </form>
   </p>
@@ -466,7 +466,7 @@ function showUser(str) {
   }
 
   var x2 = document.getElementById('checkbox2');
-  if (checked != x.checked){
+  if (x2.checked == true){
   // if (x2.checked == true){
     document.getElementById("modelo").disabled=false;
   }
@@ -539,36 +539,30 @@ function showUser(str) {
 
 <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
         <script>
-          $(function() {
-
-            // Asigno un evento a un botón de mi formulario
-            $("[name='filtro']").click(function(e){
-
-                e.preventDefault();
-
-                var datos_enviados = {
-                    'buscar_cli' : $("[name='filtro']")
+         $.ajax({
+              type: 'POST',
+              url: 'proccess.php',
+              data: $('#form1').serialize(),
+              success: function(respuesta) {
+                if(respuesta=='ok'){
+                alert('enviado');
                 }
-
-            var request = $.ajax({
-              url: "prcd/filtro.php",
-              method: "POST",
-              data: datos_enviados,
-              dataType: "json"
-            });
-
-            // request.done(function( data ) {
-            //     alert("Todo bien");
-            //     console.log(data);
-                 //Si pones el content-type en PHP no necesitas parse         
-            // });
-
-            // request.fail(function( jqXHR, textStatus ) {
-            //   alert( "Hubo un error: " + textStatus );
-            // });
-
-
-            })
-
-            });
+                else {
+                alert('error');
+                }
+              }
+          });
         </script>
+
+        <!-- valida -->
+  <script type="text/javascript">
+    function submit(){
+      let strMarca = document.getElementById('marca').value;
+      let strModelo = document.getElementById('modelo').value;
+      let strColor = document.getElementById('color').value;
+      let strMaterial = document.getElementById('material').value;
+      let strTalla = document.getElementById('talla').value;
+
+      alert (strMarca, strModelo, strColor, strMaterial, strTalla);
+    }
+  </script>
