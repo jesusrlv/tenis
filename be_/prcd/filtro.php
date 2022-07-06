@@ -60,7 +60,7 @@ echo "Cargando...";
 // $talla = $_POST['talla'];
 include('../../query/qconn/qc.php');
 // if(isset($_POST['queryFilter'])){
-  $queryMarca = "Nike";
+//   $queryMarca = "Nike";
     // if (isset($_POST['marca'])){
     //     $marca = $_POST['marca'];
     //     $queryMarca = "Nike";
@@ -70,42 +70,56 @@ include('../../query/qconn/qc.php');
     //     $queryMarca = "";
     // }
 
-    if (isset($_POST['modelo'])){
-        $modelo = $_POST['modelo'];
-        $queryModelo= "AND ".$modelo."= modelo";
-    }
-    else{
-        $modelo = "";
-        $queryModelo = "";
-    }
+    // if (isset($_POST['modelo'])){
+    //     $modelo = $_POST['modelo'];
+    //     $queryModelo= "AND ".$modelo."= modelo";
+    // }
+    // else{
+    //     $modelo = "";
+    //     $queryModelo = "";
+    // }
 
-    if (isset($_POST['color'])){
-        $color = $_POST['color']; 
-        $queryColor= "AND ".$color."= color";
-    }
-    else{
-        $color = "";
-        $queryColor = "";
-    }
-    if (isset($_POST['material'])){
-        $material = $_POST['material'];
-        $queryMaterial= "AND ".$material."= material";
-    }
-    else{
-        $material = "";
-        $queryMaterial = "";
-    }
-    if (isset($_POST['talla'])){
-        $talla = $_POST['talla'];
-        $queryTalla= "AND ".$talla."= talla";
-    }
-    else{
-        $talla = "";
-        $queryTalla = "";
-    }
+    // if (isset($_POST['color'])){
+    //     $color = $_POST['color']; 
+    //     $queryColor= "AND ".$color."= color";
+    // }
+    // else{
+    //     $color = "";
+    //     $queryColor = "";
+    // }
+    // if (isset($_POST['material'])){
+    //     $material = $_POST['material'];
+    //     $queryMaterial= "AND ".$material."= material";
+    // }
+    // else{
+    //     $material = "";
+    //     $queryMaterial = "";
+    // }
+    // if (isset($_POST['talla'])){
+    //     $talla = $_POST['talla'];
+    //     $queryTalla= "AND ".$talla."= talla";
+    // }
+    // else{
+    //     $talla = "";
+    //     $queryTalla = "";
+    // }
     // $Query = "SELECT * FROM producto WHERE ".$queryMarca." ". $queryModelo." ". $queryColor." ". $queryMaterial." ".$queryTalla." ORDER BY id";
-    $Query = "SELECT * FROM producto WHERE marca = $queryMarca ORDER BY id";
+    
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $color = $_POST['color']; 
+    $material = $_POST['material'];
+    $talla = $_POST['talla'];
+    
+    $Query = "SELECT * FROM producto WHERE modelo = '$modelo' OR marca = '$marca' OR color = '$color' OR material ='$material' OR talla = '$talla' ORDER BY id";
     $resultado_Query = $conn->query($Query);
+
+    // if($resultado_Query = $conn->query($Query)){
+    //     echo $resultado_Query;
+    //     $row = $resultado_Query->fetch_assoc();
+    // } else {
+    //    printf("Error: %s\n", $conn->error);
+    // }
         echo'
         <table>
             <tr>
@@ -134,5 +148,7 @@ include('../../query/qconn/qc.php');
 
 
 ?>
+
+</html>
 
 <!-- https://www.w3schools.com/php/php_ajax_database.asp -->

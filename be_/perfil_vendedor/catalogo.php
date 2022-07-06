@@ -124,7 +124,7 @@
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
   <p class="">
-    <form action="../prcd/filtro.php" method="POST" name="filtro" onsubmit="enviar_ajax();" id="form1">
+    <form action="../prcd/filtro.php" method="POST" name="form1" id="form1">
 
       <!-- datalist -->
       <div class="input-group mb-3">
@@ -229,7 +229,7 @@
             ?>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
+        <button class="btn btn-primary" type="submit" id="smt"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
         
     </form>
   </p>
@@ -241,44 +241,7 @@
 
 
 <!-- código consulta -->
-<script type="text/javascript">
-// this is the id of the form
-// $("#queryFilter").submit(function() {
-function submit() {
 
-   var consulta = $.ajax({
-    url:'../prcd/filtro.php',
-    dataType:'text',
-    async:false,
-
-   }).responseText;
-
-   document.getElementById("txtHint").innerHTML = consulta;
-    
-});
-</script>
-<!-- código consulta -->
-
-<!-- codigo prueba -->
-<script>
-function showUser(str) {
-  if (str == "") {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  } else {
-    alert(str);
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("txtHint").innerHTML = this.responseText;
-      }
-    };
-    // xmlhttp.open("GET","../prcd/filtro.php?q="+str,true);
-    xmlhttp.open("GET","../prcd/filtro.php?q="+str);
-    xmlhttp.send();
-  }
-}
-</script>
 </head>
 <body>
 
@@ -539,19 +502,19 @@ function showUser(str) {
 
 <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
         <script>
-         $.ajax({
-              type: 'POST',
-              url: 'proccess.php',
-              data: $('#form1').serialize(),
-              success: function(respuesta) {
-                if(respuesta=='ok'){
-                alert('enviado');
-                }
-                else {
-                alert('error');
-                }
-              }
+          $(document).ready(function(){
+          var form=$("#form1");
+          $("#smt").click(function(){
+          $.ajax({
+                  type:"POST",
+                  url:form.attr("action"),
+                  data:form.serialize(),
+                  success: function(data) {
+      return data; 
+              });
           });
+          });
+
         </script>
 
         <!-- valida -->
