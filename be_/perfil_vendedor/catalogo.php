@@ -125,7 +125,7 @@
   <div class="container mb-4">
   <p class="">
     <!-- <form action="../prcd/filtro.php" method="POST" name="form1" id="form1"> -->
-    <form name="form1" id="form1">
+    <form id="form1">
 
       <!-- datalist -->
       <div class="input-group mb-3">
@@ -505,24 +505,26 @@
         <script>
           $(document).ready(function(){
           var form=$("#form1");
-          $("#smt").click(function(){
-          var consulta = $.ajax({
+          $("#form1").submit(function(event){
+          $.ajax({
                   type:"POST",
                   url:"../prcd/filtro.php",
                   data:form.serialize(),
+                  dataType: "html",
                   async:false,
-                  success: function(data) {
-                    $("#txtHint").html(data);                  }               
-                  }
-                  );
+                  cache: false,
+                    success: function(data) {
+                      $("#txtHint").html(data);                  
+                    }               
+                  });
                   
-
+                  event.preventDefault();
           });
           });
 
         </script>
         <!-- valida -->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     function submit(){
       let strMarca = document.getElementById('marca').value;
       let strModelo = document.getElementById('modelo').value;
@@ -531,5 +533,5 @@
       let strTalla = document.getElementById('talla').value;
 
       alert (strMarca, strModelo, strColor, strMaterial, strTalla);
-    }
+    } -->
   </script>

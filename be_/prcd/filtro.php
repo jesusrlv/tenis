@@ -1,36 +1,5 @@
-
 <?php
-// $q = $_GET['q'];
-
-// include('../../query/qconn/qc.php');
-// echo $q;
-// $sql="SELECT * FROM producto WHERE color = '$q'";
-// $result= $conn->query($sql);
-
-// echo "<table>
-// <tr>
-// <th>Firstname</th>
-// <th>Lastname</th>
-// <th>Age</th>
-// <th>Hometown</th>
-// <th>Job</th>
-// </tr>";
-// while($row = $result->fetch_array()){
-//   echo "<tr>";
-//   echo "<td>" . $row['nombre'] . "</td>";
-//   echo "<td>" . $row['color'] . "</td>";
-//   echo "<td>" . $row['precio'] . "</td>";
-//   echo "<td>" . $row['descripcion'] . "</td>";
-//   echo "<td>" . $row['cantidad'] . "</td>";
-//   echo "</tr>";
-// }
-// echo "</table>";
-// mysqli_close($conn);
-?>
-
-
-<?php
-if(isset($_POST['form1'])):
+if(isset($_POST)){
 echo "Cargando...";
 // $id = $_GET[''];
 // $marca = $_POST['marca'];
@@ -123,8 +92,8 @@ include('../../query/qconn/qc.php');
 // elseif{
 //     echo "No ya parámetros";
 // }
-
-else: Echo "No hay datos";
+}
+else{ Echo "No hay datos";}
 
 
 ?>
