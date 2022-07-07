@@ -124,7 +124,8 @@
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
   <p class="">
-    <form action="../prcd/filtro.php" method="POST" name="form1" id="form1">
+    <!-- <form action="../prcd/filtro.php" method="POST" name="form1" id="form1"> -->
+    <form name="form1" id="form1">
 
       <!-- datalist -->
       <div class="input-group mb-3">
@@ -259,27 +260,27 @@
 <!-- codigo -->
      
 <?php
-    $sum = 1;
-    include('query/query_categorias.php');
+    // $sum = 1;
+    // include('query/query_categorias.php');
     // include('prcd/filtros.php');
-    echo '
+    // echo '
     
 
-    <form action="#" method="get">
-    <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
-      <option selected>Selecciona categoría</option>
-      <option value="0" onclick="mostrarTodo()">Todo</option>';
-    while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
-      $sum++;
+    // <form action="#" method="get">
+    // <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
+    //   <option selected>Selecciona categoría</option>
+    //   <option value="0" onclick="mostrarTodo()">Todo</option>';
+    // while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
+    //   $sum++;
       // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
       //<input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
       //<label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
-      echo'
-        <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
-      ';
-    }
-    echo '</select>
-    </form>';
+    //   echo'
+    //     <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
+    //   ';
+    // }
+    // echo '</select>
+    // </form>';
 ?>
     </div>
   </div>
@@ -289,7 +290,7 @@
     <!-- consultas productos -->
     <div class="row row-cols-2 g-2">
       <?php
-        require('query/query_catalogo.php');
+        // require('query/query_catalogo.php');
       ?>
     </div><!--row-->
     <!-- consultas productos -->
@@ -505,18 +506,21 @@
           $(document).ready(function(){
           var form=$("#form1");
           $("#smt").click(function(){
-          $.ajax({
+          var consulta = $.ajax({
                   type:"POST",
-                  url:form.attr("action"),
+                  url:"../prcd/filtro.php",
                   data:form.serialize(),
+                  async:false,
                   success: function(data) {
-      return data; 
-              });
+                    $("#txtHint").html(data);                  }               
+                  }
+                  );
+                  
+
           });
           });
 
         </script>
-
         <!-- valida -->
   <script type="text/javascript">
     function submit(){

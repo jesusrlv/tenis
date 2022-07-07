@@ -2,7 +2,7 @@
 
 include('../../query/qconn/qc.php');
 
-    $id_catalogo = $_REQUEST['id'];
+    // $id_catalogo = $_REQUEST['id'];
 
     // $sql_catalogo = "SELECT * FROM producto WHERE catalogo ='$id_catalogo' AND activo = 1";
     $sql_catalogo = "SELECT * FROM producto WHERE activo = 1";

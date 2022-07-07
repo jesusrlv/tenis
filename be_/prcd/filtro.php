@@ -1,23 +1,4 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table, td, th {
-  border: 1px solid black;
-  padding: 5px;
-}
-
-th {text-align: left;}
-</style>
-</head>
-<body>
-
 <?php
 // $q = $_GET['q'];
 
@@ -47,10 +28,9 @@ th {text-align: left;}
 // mysqli_close($conn);
 ?>
 
-</body>
-</html> 
 
 <?php
+if(isset($_POST['form1'])):
 echo "Cargando...";
 // $id = $_GET[''];
 // $marca = $_POST['marca'];
@@ -144,11 +124,10 @@ include('../../query/qconn/qc.php');
 //     echo "No ya parámetros";
 // }
 
-    
+else: Echo "No hay datos";
 
 
 ?>
 
-</html>
 
 <!-- https://www.w3schools.com/php/php_ajax_database.asp -->
