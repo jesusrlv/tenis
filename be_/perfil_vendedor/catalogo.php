@@ -155,12 +155,19 @@
           <select class="form-select" aria-label="Example select with button addon" id="marca" name="marca" disabled="disabled" required>
             <option selected>Marca</option>
             <?php
-              $sqlMarca ="SELECT * FROM marca";
-              $resultado_sqlMarca = $conn->query($sqlMarca);
-              while($row_sqlMarca = $resultado_sqlMarca->fetch_assoc()){
-                echo '<option value="'.$row_sqlMarca['marca'].'">'.$row_sqlMarca['marca'].'</option>';
-              }
+              // $sqlMarca ="SELECT * FROM marca";
+              // $resultado_sqlMarca = $conn->query($sqlMarca);
+              // while($row_sqlMarca = $resultado_sqlMarca->fetch_assoc()){
+              //   echo '<option value="'.$row_sqlMarca['marca'].'">'.$row_sqlMarca['marca'].'</option>';
+              // }
             ?>
+            <?php
+          $sqlSearch = "SELECT DISTINCT nombre FROM producto";
+          $resultSearch= $conn->query($sqlSearch);
+          while($rowSearch = $resultSearch->fetch_array()){
+            echo '<option value="'.$rowSearch['nombre'].'">'.$rowSearch['nombre'].'</option>';
+          }
+          ?>
             
           </select>
         </div>
