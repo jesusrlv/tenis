@@ -60,7 +60,7 @@ include('../../query/qconn/qc.php');
     $material = $_POST['material'];
     $talla = $_POST['talla'];
     
-    $Query = "SELECT * FROM producto WHERE modelo = '$modelo' OR marca = '$marca' OR color LIKE '$color' OR material ='$material' OR talla = '$talla' ORDER BY id";
+    $Query = "SELECT * FROM producto WHERE modelo LIKE '$modelo' OR marca LIKE '$marca' OR color LIKE '$color' OR material = '$material' OR talla LIKE '$talla'";
     $resultado_Query = $conn->query($Query);
 
     // if($resultado_Query = $conn->query($Query)){
@@ -79,7 +79,6 @@ include('../../query/qconn/qc.php');
       // echo $x2;
       //<button href="#" class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'"><i class="bi bi-cart-plus"></i> Carrito</button>
         echo '
-        
           <div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
           <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'" onclick="escala()">
             <div class="card text-center text-dark" style="width: 100%;">
@@ -114,8 +113,28 @@ include('../../query/qconn/qc.php');
               <p class="mt-1 text-center">$'.$row_sql_catalogo['precio'].'</p>
               <p class="mt-1 text-secondary"><small>Talla:</small></p>
               <div class="container">';
-
-              echo consultaTalla($idConsultaTalla);
+              $sqlMedida = "SELECT * FROM talla_catalogo ORDER BY id ASC";
+              $resultadoMedida = $conn->query($sqlMedida);
+              echo '
+              
+              <select class="form-select" id="valor" onchange="valorID(this.value)">
+                <option selected>Selecciona una talla</option>
+              ';
+                while ($rowMedida = $resultadoMedida->fetch_assoc()){
+                  echo '<option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].' '.$rowMedida['tipo'].'</option>';
+                }
+                  echo '</select>';
+                  echo'
+                  <script>
+                    function valorID(val){
+                      window.marks= val;
+                   
+                    }
+                  </script>
+                  ';
+            
+            //   echo consultaTalla($idConsultaTalla);
+            //   echo consultaTalla();
             
               echo '</div>
               <p class="mt-3 text-secondary"><small>Descripción:</small></p>
@@ -134,16 +153,18 @@ include('../../query/qconn/qc.php');
       <!-- modal de descripción del producto -->';
     }
   
-  function consultaTalla($idConsultaTalla){
+  function consultaTalla(){
     include('../../query/qconn/qc.php');
-    $sqlMedida = "SELECT * FROM talla WHERE id_ext = '$idConsultaTalla' ORDER BY talla ASC";
+    // $sqlMedida = "SELECT * FROM talla_catalogo WHERE id_ext = '$idConsultaTalla' ORDER BY talla ASC";
+    $sqlMedida = "SELECT * FROM talla_catalogo ORDER BY id ASC";
     $resultadoMedida = $conn->query($sqlMedida);
     echo '
-    <select class="form-select" id="valor'.$idConsultaTalla.'" onchange="valorID(this.value)">
+    
+    <select class="form-select" id="valor" onchange="valorID(this.value)">
       <option selected>Selecciona una talla</option>
     ';
       while ($rowMedida = $resultadoMedida->fetch_assoc()){
-        echo '<option value="'.$rowMedida['talla'].'">'.$rowMedida['talla'].'</option>';
+        echo '<option value="'.$rowMedida['talla'].'"> '.$rowMedida['tipo'].'</option>';
       }
         echo '</select>';
         echo'
@@ -155,6 +176,7 @@ include('../../query/qconn/qc.php');
         </script>
         ';
   }
+
 }
 ?>
 
