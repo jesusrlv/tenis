@@ -138,11 +138,11 @@
           <option value="Los Angeles">
           <option value="Chicago"> -->
           <?php
-          $sqlSearch = "SELECT DISTINCT nombre FROM producto";
-          $resultSearch= $conn->query($sqlSearch);
-          while($rowSearch = $resultSearch->fetch_array()){
-            echo '<option value="'.$rowSearch['nombre'].'">';
-          }
+          // $sqlSearch = "SELECT DISTINCT nombre FROM producto";
+          // $resultSearch= $conn->query($sqlSearch);
+          // while($rowSearch = $resultSearch->fetch_array()){
+          //   echo '<option value="'.$rowSearch['nombre'].'">';
+          // }
           ?>
         </datalist>
       </div>
