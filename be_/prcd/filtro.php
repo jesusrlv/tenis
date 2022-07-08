@@ -60,7 +60,8 @@ include('../../query/qconn/qc.php');
     $material = $_POST['material'];
     $talla = $_POST['talla'];
     
-    $Query = "SELECT * FROM producto WHERE modelo LIKE '$modelo' OR marca LIKE '$marca' OR color LIKE '$color' OR material = '$material' OR talla LIKE '$talla'";
+    // $Query = "SELECT * FROM producto WHERE modelo == '$modelo' OR marca == '$marca' OR color LIKE '$color' OR material == '$material' OR talla LIKE '$talla'";
+    $Query = "SELECT * FROM producto WHERE modelo = '$modelo' ;
     $resultado_Query = $conn->query($Query);
 
     // if($resultado_Query = $conn->query($Query)){
