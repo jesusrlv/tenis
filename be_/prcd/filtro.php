@@ -69,12 +69,6 @@ include('../../query/qconn/qc.php');
     // } else {
     //    printf("Error: %s\n", $conn->error);
     // }
-        echo'
-        <table>
-            <tr>
-                <th>Nombre</th>
-                <th>Precio</th>
-            </tr>';
     while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
         
           // $x1 = $row_sql_catalogo['nombre'];
