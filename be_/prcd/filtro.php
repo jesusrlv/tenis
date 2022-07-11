@@ -55,21 +55,23 @@ include('../../query/qconn/qc.php');
     // $Query = "SELECT * FROM producto WHERE ".$queryMarca." ". $queryModelo." ". $queryColor." ". $queryMaterial." ".$queryTalla." ORDER BY id";
     
     $marca = $_POST['marca'];
+    echo $marca;
     $modelo = $_POST['modelo'];
     $color = $_POST['color']; 
     $material = $_POST['material'];
     $talla = $_POST['talla'];
     
     // $Query = "SELECT * FROM producto WHERE modelo == '$modelo' OR marca == '$marca' OR color LIKE '$color' OR material == '$material' OR talla LIKE '$talla'";
-    $Query = "SELECT * FROM producto WHERE modelo = '$modelo' ;
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo') " ;
     $resultado_Query = $conn->query($Query);
 
-    // if($resultado_Query = $conn->query($Query)){
-    //     echo $resultado_Query;
-    //     $row = $resultado_Query->fetch_assoc();
-    // } else {
-    //    printf("Error: %s\n", $conn->error);
-    // }
+    if($resultado_Query = $conn->query($Query)){
+  // echo $resultado_Query;
+   $row = $resultado_Query->fetch_assoc();
+   echo $Query;
+  } else {
+     printf("Error: %s\n", $conn->error);
+ }
     while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
         
           // $x1 = $row_sql_catalogo['nombre'];
