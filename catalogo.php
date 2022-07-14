@@ -282,7 +282,7 @@
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      
+      <a href="perfil_vendedor/catalogo.php?id=1"></a>
   </body>
 </html>
 
