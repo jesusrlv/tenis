@@ -8,6 +8,7 @@ include('qconn/qc.php');
     $sql_catalogo = "SELECT * FROM producto WHERE activo = 1";
     $resultado_sql_catalogo= $conn->query($sql_catalogo);
     // $row_sql_catalogo = $resultado_sql_catalogo->fetch_assoc();
+   
 
     while($row_sql_catalogo = $resultado_sql_catalogo->fetch_assoc()){
       // $x1 = $row_sql_catalogo['nombre'];
@@ -72,7 +73,7 @@ include('qconn/qc.php');
       </div>
       <!-- modal de descripción del producto -->';
     }
-  
+   
   function consultaTalla($idConsultaTalla){
     include('qconn/qc.php');
     $sqlMedida = "SELECT * FROM talla WHERE id_ext = '$idConsultaTalla' ORDER BY talla ASC";

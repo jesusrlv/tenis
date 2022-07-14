@@ -23,7 +23,7 @@
     <script src="query/compra.js"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -263,7 +263,7 @@
   </select>
 </form> -->
 <br>
-<div id="txtHint"><b>Aquí debe aparecer la información...</b></div>
+
 <!-- codigo -->
      
 <?php
@@ -290,7 +290,13 @@
     // </form>';
 ?>
     </div>
+    
   </div>
+  
+  
+    <span id="txtHint"><b>Aquí debe aparecer la información...</b></span>
+    <!-- <div id="txtHint"><b>Aquí debe aparecer la información...</b></div> -->
+
 
 
     <!-- Three columns of text below the carousel -->

@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST)){
-echo "Cargando...";
+
 // $id = $_GET[''];
 // $marca = $_POST['marca'];
 // $modelo = $_POST['modelo'];
@@ -55,32 +55,30 @@ include('../../query/qconn/qc.php');
     // $Query = "SELECT * FROM producto WHERE ".$queryMarca." ". $queryModelo." ". $queryColor." ". $queryMaterial." ".$queryTalla." ORDER BY id";
     
     $marca = $_POST['marca'];
-    echo $marca;
+    // echo $marca;
     $modelo = $_POST['modelo'];
     $color = $_POST['color']; 
     $material = $_POST['material'];
     $talla = $_POST['talla'];
     
     // $Query = "SELECT * FROM producto WHERE modelo == '$modelo' OR marca == '$marca' OR color LIKE '$color' OR material == '$material' OR talla LIKE '$talla'";
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo') " ;
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material = '$material' OR talla LIKE '$talla') " ;
     $resultado_Query = $conn->query($Query);
 
     if($resultado_Query = $conn->query($Query)){
   // echo $resultado_Query;
    $row = $resultado_Query->fetch_assoc();
-   echo $Query;
+  //  echo $Query;
   } else {
      printf("Error: %s\n", $conn->error);
  }
+ echo '<div class="row row-cols-2 g-2">';
     while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
         
-          // $x1 = $row_sql_catalogo['nombre'];
       $x1 = 1;
       $x2 = $row_sql_catalogo['nombre'];
       $idConsultaTalla = $row_sql_catalogo['id'];
-      // echo $x1;
-      // echo $x2;
-      //<button href="#" class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'"><i class="bi bi-cart-plus"></i> Carrito</button>
+     
         echo '
           <div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
           <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'" onclick="escala()">
@@ -155,30 +153,32 @@ include('../../query/qconn/qc.php');
       </div>
       <!-- modal de descripción del producto -->';
     }
+
+    echo '</div>';
   
-  function consultaTalla(){
-    include('../../query/qconn/qc.php');
-    // $sqlMedida = "SELECT * FROM talla_catalogo WHERE id_ext = '$idConsultaTalla' ORDER BY talla ASC";
-    $sqlMedida = "SELECT * FROM talla_catalogo ORDER BY id ASC";
-    $resultadoMedida = $conn->query($sqlMedida);
-    echo '
+  // function consultaTalla(){
+  //   include('../../query/qconn/qc.php');
     
-    <select class="form-select" id="valor" onchange="valorID(this.value)">
-      <option selected>Selecciona una talla</option>
-    ';
-      while ($rowMedida = $resultadoMedida->fetch_assoc()){
-        echo '<option value="'.$rowMedida['talla'].'"> '.$rowMedida['tipo'].'</option>';
-      }
-        echo '</select>';
-        echo'
-        <script>
-          function valorID(val){
-            window.marks= val;
+  //   $sqlMedida = "SELECT * FROM talla_catalogo ORDER BY id ASC";
+  //   $resultadoMedida = $conn->query($sqlMedida);
+  //   echo '
+    
+  //   <select class="form-select" id="valor" onchange="valorID(this.value)">
+  //     <option selected>Selecciona una talla</option>
+  //   ';
+  //     while ($rowMedida = $resultadoMedida->fetch_assoc()){
+  //       echo '<option value="'.$rowMedida['talla'].'"> '.$rowMedida['tipo'].'</option>';
+  //     }
+  //       echo '</select>';
+  //       echo'
+  //       <script>
+  //         function valorID(val){
+  //           window.marks= val;
          
-          }
-        </script>
-        ';
-  }
+  //         }
+  //       </script>
+  //       ';
+  // }
 
 }
 ?>
