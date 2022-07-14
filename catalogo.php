@@ -72,7 +72,8 @@
     <link href="carousel.css" rel="stylesheet">
   </head>
   <body>
-    
+  <a href="perfil_vendedor/catalogo.php?id=1">X</a>
+
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
@@ -282,7 +283,6 @@
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      <a href="perfil_vendedor/catalogo.php?id=1"></a>
   </body>
 </html>
 
