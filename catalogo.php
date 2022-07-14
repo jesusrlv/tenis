@@ -72,7 +72,7 @@
     <link href="carousel.css" rel="stylesheet">
   </head>
   <body>
-  <a href="perfil_vendedor/catalogo.php?id=1">X</a>
+  <a href="be_/perfil_vendedor/catalogo.php?id=1">X</a>
 
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
