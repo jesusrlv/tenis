@@ -81,13 +81,13 @@
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX</a>
+    <a class="navbar-brand" href="#"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX | Perfil Vendedor</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
           </li>
           <li class="nav-item">
@@ -98,8 +98,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
-          </li>
+          </li> -->
         </ul>
+        <form class="d-flex">
+          <!-- <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search"> -->
+          <a href="../prcd/sort.php" class="btn btn-outline-light" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
+        </form>
        
       </div>
     </div>
@@ -127,26 +131,7 @@
     <!-- <form action="../prcd/filtro.php" method="POST" name="form1" id="form1"> -->
     <form id="form1">
 
-      <!-- datalist -->
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"><i class="bi bi-filter-circle-fill"></i></span>
-        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Filtro de búsqueda de producto">
-        <datalist id="datalistOptions">
-          <!-- <option value="San Francisco">
-          <option value="New York">
-          <option value="Seattle">
-          <option value="Los Angeles">
-          <option value="Chicago"> -->
-          <?php
-          // $sqlSearch = "SELECT DISTINCT nombre FROM producto";
-          // $resultSearch= $conn->query($sqlSearch);
-          // while($rowSearch = $resultSearch->fetch_array()){
-          //   echo '<option value="'.$rowSearch['nombre'].'">';
-          // }
-          ?>
-        </datalist>
-      </div>
-      <!-- datalist -->
+     
 
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
