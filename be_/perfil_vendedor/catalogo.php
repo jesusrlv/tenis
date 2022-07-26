@@ -197,12 +197,41 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo" disabled="disabled">
             <option selected>Modelo</option>
             <?php
-              $sqlModelo ="SELECT * FROM modelo";
-              $resultado_sqlModelo = $conn->query($sqlModelo);
-              while($row_sqlModelo = $resultado_sqlModelo->fetch_assoc()){
-                echo '<option value="'.$row_sqlModelo['modelo'].'">'.$row_sqlModelo['modelo'].'</option>';
+              // $sqlModelo ="SELECT * FROM modelo";
+              // $resultado_sqlModelo = $conn->query($sqlModelo);
+              // while($row_sqlModelo = $resultado_sqlModelo->fetch_assoc()){
+              //   echo '<option value="'.$row_sqlModelo['modelo'].'">'.$row_sqlModelo['modelo'].'</option>';
+              // }
+              $sqlModelo = "SELECT DISTINCT descripcion FROM producto";
+              $resultado_sqlModelo= $conn->query($sqlModelo);
+              while($row_sqlModelo = $resultado_sqlModelo->fetch_array()){
+                echo '<option value="'.$row_sqlModelo['descripcion'].'">'.$row_sqlModelo['descripcion'].'</option>';
               }
             ?>
+
+<script>
+    $(document).ready(function(){
+    $('#marca').on('change',function(){
+    var marcaID = $(this).val();
+    if(provinciaID){
+    $.ajax({
+    type:'POST',
+    url:'ajaxData.php',
+    data:'id_provincia='+provinciaID,
+    success:function(html){
+    $('#municipio').html(html);
+    }
+    });
+
+    }else{
+    $('#municipio').html('<option value=””>Selecciona una provincia primero</option>');
+    }
+
+    });
+
+    });
+  </script>
+
           </select>
         </div>
       <!-- divisor -->

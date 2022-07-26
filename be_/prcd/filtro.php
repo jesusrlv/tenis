@@ -90,7 +90,7 @@ include('../../query/qconn/qc.php');
             
                 <div class="card-body text-start bg-primary text-light">
                   <span class="card-title"><small>'.$row_sql_catalogo['nombre'].'</small></span><br>
-                  <span class="card-title text-light"><small>$'.$row_sql_catalogo['precio'].'</small></span>
+                  <span class="card-title text-light"><small>$__.__</small></span>
                   <hr>
                   
                 </div>
@@ -112,12 +112,19 @@ include('../../query/qconn/qc.php');
             <hr>
               <div class="alert alert-primary">
                 <p class="mt-2 text-center">'.$row_sql_catalogo['nombre'].'</p>
-                <p class="mt-1 text-center">$'.$row_sql_catalogo['precio'].'</p>
+                <p class="mt-1 text-center"><a onclick="valor'.$row_sql_catalogo['id'].'()"><i class="bi bi-exclamation-circle-fill"></i></a></p>
              
               <p class="mt-1 text-secondary"><small>Talla:</small></p>
               <div class="container">';
               $sqlMedida = "SELECT * FROM talla_catalogo ORDER BY id ASC";
               $resultadoMedida = $conn->query($sqlMedida);
+              echo '
+              <script>
+                function valor'.$row_sql_catalogo['id'].'(){
+                  alert('.$row_sql_catalogo['precio_prov'].');
+                }
+              </script>
+              ';
               echo '
               
               <select class="form-select" id="valor" onchange="valorID(this.value)">

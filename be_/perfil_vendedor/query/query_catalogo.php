@@ -29,7 +29,7 @@ include('../../query/qconn/qc.php');
             
                 <div class="card-body text-start bg-primary text-light">
                   <span class="card-title"><small>'.$row_sql_catalogo['nombre'].'</small></span><br>
-                  <span class="card-title text-light"><small>$'.$row_sql_catalogo['precio'].'</small></span>
+                  <span class="card-title text-light"><small>$'.$row_sql_catalogo['nombre'].'</small></span>
                   <hr>
                   
                 </div>

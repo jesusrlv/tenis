@@ -6,17 +6,13 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
   }
   else{
-    echo '<script>
-    alert "1";<script>';
     header('Location: prcd/sort.php');
     die();
   }
   
-} 
-else {
+} else {
   // En caso contrario redirigimos el visitante a otra página
-  echo '<script>
-  alert "2";<script>';
+
   header('Location: prcd/sort.php');
   die();
 }
@@ -62,6 +58,7 @@ else {
       }
     </style>
 
+    
     <!-- Custom styles for this template -->
     <link href="../../carousel.css" rel="stylesheet">
   </head>
@@ -103,16 +100,15 @@ else {
       </div>
     </div>
   </nav>
-  </nav>
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Venta <span class="text-muted">General</span></h2>
+  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Venta <span class="text-muted">Individual</span></h2>
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
-<? include('query/query_ventas.php'); ?>
+<? include('query/query_individual.php'); ?>
   <div class="container marketing mt-5 border-bottom">
 
   <div class="input-group mb-4 w-50">
@@ -123,61 +119,26 @@ else {
   <hr>
 
     <!-- table ventas -->
-    <table class="table table-light table-striped mb-3 table-hover align-middle">
+    <table class="table  table-light table-striped mb-3 table-hover align-middle">
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i><br>Fecha<br>venta</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i><br>Precio</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-person-circle"></i><br>Nombre</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Dirección</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-telephone"></i><br>Teléfono</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-envelope"></i><br>Email</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-upc-scan"></i><br>Clave<br>interna<br>de rastreo</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-box-seam"></i><br>Estatus<br>apartado</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-truck"></i><br>Estatus<br>entrega</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i><br>Detalles</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i> Fecha venta</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-list"></i> Producto</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-list"></i> Talla</small></th>
         </tr>
       </thead>
-      <tbody id="myTable">
+      <tbody class="text-center" id="myTable">
         
         <?php
         $x = 0;
           while($row_sql = $resultado_sql->fetch_assoc()){
             $x++;
             echo'<tr>';
-            echo'<td class="text-center"><small>'.$x.'</small></td>';
-            echo'<td class="text-center"><small>'.$row_sql['fecha_venta'].'</small></td>';
-            echo'<td class="text-center"><small>'.$row_sql['cantidad'].'</small></td>';
-            echo'<td class="text-center"><small>$'.$row_sql['precio'].'</small></td>';
-            echo'<td class="text-center"><small>'.$row_sql['nombre'].'</small></td>';
-            echo'<td><small>'.$row_sql['direccion'].'</td>';
-            echo'<td class="text-center"><small>'.$row_sql['telefono'].'</small></td>';
-            echo'<td class="text-center"><small>'.$row_sql['email'].'</small></td>';
-            echo'<td class="text-center"><small>'.$row_sql['clave_rastreo_int'].'</small></td>';
-              
-              if($row_sql['apartado']==1){
-                echo'<td class="text-center"><small><button type="button" class="btn btn-warning btn-sm"><i class="bi bi-exclamation-circle-fill"></i> Apartado</button>
-                </small></td>';
-              }
-              elseif($row_sql['apartado']==2){
-                echo'<td class="text-center"><small><button type="button" class="btn btn-success btn-sm"><i class="bi bi-check-circle-fill"></i> Aprobado</button></small></td>';
-              }
-              else{
-                echo'<td class="text-center"><small><button type="button" class="btn btn-danger btn-sm"><i class="bi bi-x-circle-fill"></i> No aprobado</button></small></td>';
-              }
-
-              
-              if(!$row_sql['clave_rastreo_ext']){
-              echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-exclamation-circle-fill"></i> Pendiente</button></td>';
-              
-            }
-            else{
-              echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_int'].'" style="text-decoration: none;"><i class="bi bi-check-circle-fill text-success"></i> '.$row_sql['clave_rastreo_int'].'</a></td>';
-            }
-            // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
-            echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
+            echo'<td>'.$x.'</td>';
+            echo'<td>'.$row_sql['fecha_venta'].'</td>';
+            echo'<td class="text-center">'.$row_sql['producto'].'</td>';
+            echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'</tr>';
           }
         ?>
@@ -198,8 +159,10 @@ else {
   </footer>
 </main>
 
+
     <script src="../../assets/dist/js/bootstrap.bundle.min.js"></script>
 
+      
   </body>
 </html>
 
