@@ -128,7 +128,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         
         <?php
         $x = 0;
-          while($row_sql = $resultado_sql->fetch_assoc()){
+          while($row_sql = $resultado_sql_entregas->fetch_assoc()){
             $x++;
             echo'<tr>';
             echo'<td>'.$x.'</td>';

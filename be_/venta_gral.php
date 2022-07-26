@@ -147,15 +147,45 @@ else {
             echo'<td class="text-center"><small>'.$row_sql['clave_rastreo_int'].'</small></td>';
               
               if($row_sql['apartado']==1){
-                echo'<td class="text-center"><small><button type="button" class="btn btn-warning btn-sm"><i class="bi bi-exclamation-circle-fill"></i> Apartado</button>
+                echo'<td class="text-center"><small><button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-exclamation-circle-fill"></i> Apartado</button>
                 </small></td>';
               }
               elseif($row_sql['apartado']==2){
-                echo'<td class="text-center"><small><button type="button" class="btn btn-success btn-sm"><i class="bi bi-check-circle-fill"></i> Aprobado</button></small></td>';
+                echo'<td class="text-center"><small><button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-check-circle-fill"></i> Aprobado</button></small></td>';
               }
               else{
-                echo'<td class="text-center"><small><button type="button" class="btn btn-danger btn-sm"><i class="bi bi-x-circle-fill"></i> No aprobado</button></small></td>';
+                echo'<td class="text-center"><small><button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-x-circle-fill"></i> No aprobado</button></small></td>';
               }
+
+              echo '
+              <!-- Modal cambio de estatus apartado-->
+              <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Cambiar estatus de apartado</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form action="prcd/status_apartado.php" method="POST">
+                      <input name="id" value="'.$row_sql['id'].'" hidden>
+                      <select class="form-select" name="status_apartado" aria-label="Default select example" required>
+                        <option value="">Selecciona...</option>
+                        <option value="0">No aprobado</option>
+                        <option value="1">Apartado</option>
+                        <option value="2">Aprobado</option>
+                      </select>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+                      <button type="submit" class="btn btn-primary">Cambiar estatus</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              ';
 
               if(!$row_sql['clave_rastreo_ext']){
               echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
