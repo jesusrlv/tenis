@@ -37,6 +37,7 @@ $direccion = $_POST['direccion'];
 $telefono = $_POST['tel'];
 $email = $_POST['email'];
 $talla = $_POST['talla'];
+$apartado = 1;
 
 $total_precio = $_POST['total_precio']; // para ambos datos
 
@@ -54,7 +55,7 @@ foreach($nombreproducto as $key => $arreglo)
     
 }
 
-$sql_general = "INSERT INTO venta_gral(cantidad,precio,fecha_venta,nombre,direccion,telefono,email,clave_rastreo_int) VALUES('$cantidad','$total_precio','$fecha_sistema','$nombre_completo','$direccion','$telefono','$email','$codigo')";
+$sql_general = "INSERT INTO venta_gral(cantidad,precio,fecha_venta,nombre,direccion,telefono,email,clave_rastreo_int,apartado) VALUES('$cantidad','$total_precio','$fecha_sistema','$nombre_completo','$direccion','$telefono','$email','$codigo','$apartado')";
 $resultado_general= $conn->query($sql_general);
 
 if($resultado_general){

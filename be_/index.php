@@ -61,6 +61,7 @@
       <input type="password" class="form-control" name="pwd" id="pwd" placeholder="">
       <label for="floatingPassword">Contraseña</label>
     </div>
+    <p class="mt-1 mb-3 text-muted"><a href="../index.html" target="_self"><i class="bi bi-arrow-left-circle-fill"></i> Regresar al inicio</a></p>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
     <p class="mt-5 mb-1 text-muted"><strong>DEV:</strong> © 2022 </p>

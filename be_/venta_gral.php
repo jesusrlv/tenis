@@ -112,20 +112,21 @@ else {
   <hr>
 
     <!-- table ventas -->
-    <table class="table  table-light table-striped mb-3 table-hover align-middle">
+    <table class="table table-light table-striped mb-3 table-hover align-middle">
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i> Fecha venta</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Precio</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-person-circle"></i> Nombre</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Dirección</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-telephone"></i> Teléfono</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-envelope"></i> Email</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-upc-scan"></i> Clave interna de rastreo</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-truck"></i> Marcar entrega</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i> Detalles</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i><br>Fecha<br>venta</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Cantidad</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-tag"></i><br>Precio</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-person-circle"></i><br>Nombre</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Dirección</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-telephone"></i><br>Teléfono</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-envelope"></i><br>Email</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-upc-scan"></i><br>Clave<br>interna<br>de rastreo</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-box-seam"></i><br>Estatus<br>apartado</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-truck"></i><br>Marcar<br>entrega</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i><br>Detalles</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -135,16 +136,28 @@ else {
           while($row_sql = $resultado_sql->fetch_assoc()){
             $x++;
             echo'<tr>';
-            echo'<td>'.$x.'</td>';
-            echo'<td>'.$row_sql['fecha_venta'].'</td>';
-            echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['precio'].'</td>';
-            echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
-            echo'<td>'.$row_sql['direccion'].'</td>';
-            echo'<td class="text-center">'.$row_sql['telefono'].'</td>';
-            echo'<td class="text-center">'.$row_sql['email'].'</td>';
-            echo'<td class="text-center">'.$row_sql['clave_rastreo_int'].'</td>';
-            if(!$row_sql['clave_rastreo_ext']){
+            echo'<td class="text-center"><small>'.$x.'</small></td>';
+            echo'<td class="text-center"><small>'.$row_sql['fecha_venta'].'</small></td>';
+            echo'<td class="text-center"><small>'.$row_sql['cantidad'].'</small></td>';
+            echo'<td class="text-center"><small>$'.$row_sql['precio'].'</small></td>';
+            echo'<td class="text-center"><small>'.$row_sql['nombre'].'</small></td>';
+            echo'<td><small>'.$row_sql['direccion'].'</td>';
+            echo'<td class="text-center"><small>'.$row_sql['telefono'].'</small></td>';
+            echo'<td class="text-center"><small>'.$row_sql['email'].'</small></td>';
+            echo'<td class="text-center"><small>'.$row_sql['clave_rastreo_int'].'</small></td>';
+              
+              if($row_sql['apartado']==1){
+                echo'<td class="text-center"><small><button type="button" class="btn btn-warning btn-sm"><i class="bi bi-exclamation-circle-fill"></i> Apartado</button>
+                </small></td>';
+              }
+              elseif($row_sql['apartado']==2){
+                echo'<td class="text-center"><small><button type="button" class="btn btn-success btn-sm"><i class="bi bi-check-circle-fill"></i> Aprobado</button></small></td>';
+              }
+              else{
+                echo'<td class="text-center"><small><button type="button" class="btn btn-danger btn-sm"><i class="bi bi-x-circle-fill"></i> No aprobado</button></small></td>';
+              }
+
+              if(!$row_sql['clave_rastreo_ext']){
               echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
               echo'<div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
               <div class="modal-dialog">

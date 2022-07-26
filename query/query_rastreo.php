@@ -18,6 +18,9 @@ include('qconn/qc.php');
                 <td class="table-primary"><a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-card-list h4"></i></a></td>
                 <td class="table-primary">'.$row_sql_envio['codigo_envio_interno'].'</td>';
                 if($row_sql_envio['codigo_envio_interno']==1){
+                    echo '<td class="table-primary"><i class="bi bi-check-circle-fill text-success"></i> En ruta</td>';
+                }
+                if($row_sql_envio['codigo_envio_interno']==2){
                     echo '<td class="table-primary"><i class="bi bi-check-circle-fill text-success"></i> Entregado</td>';
                 }
                 else{
