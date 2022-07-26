@@ -1,3 +1,30 @@
+<?php
+session_start();
+
+if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
+  if($_SESSION['perfil']==3){
+
+  }
+  else{
+    header('Location: prcd/sort.php');
+    die();
+  }
+  
+} else {
+  // En caso contrario redirigimos el visitante a otra página
+
+  header('Location: prcd/sort.php');
+  die();
+}
+
+// variables de sesión
+
+    $id_sess = $_SESSION['id'];
+    $nombre_sess = $_SESSION['usr'];
+    $perfil_sess = $_SESSION['perfil'];
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -81,29 +108,35 @@
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX | Perfil Vendedor</a>
+    <a class="navbar-brand" href="#"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX | <?php echo $nombre_sess ?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <!-- <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="catalogo.php?id=1"><i class="bi bi-house-fill"></i> Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
+            <a class="nav-link" href="venta_gral.php"><i class="bi bi-box-seam"></i> Mis pedidos</a>
           </li>
           <li class="nav-item">
+          <a href="../prcd/sort.php" class="nav-link active" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
+          </li>
+          <!--<li class="nav-item">
             <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Tu pedido</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
           </li> -->
         </ul>
-        <form class="d-flex">
-          <!-- <input class="form-control me-2" type="search" placeholder="Búsqueda" aria-label="Search"> -->
-          <a href="../prcd/sort.php" class="btn btn-outline-light" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
-        </form>
+        
+        <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> <span id="esconder">Carrito de compras</span>
+          <span class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger" id="notificacionBadge">
+    0
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
        
       </div>
     </div>
