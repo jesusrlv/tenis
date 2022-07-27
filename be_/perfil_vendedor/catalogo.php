@@ -595,3 +595,5 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       alert (strMarca, strModelo, strColor, strMaterial, strTalla);
     } -->
   </script>
+
+  <!-- https://pressroom.hostalia.com/white-papers/selects-dependientes-php-jquery-ajax/ -->
