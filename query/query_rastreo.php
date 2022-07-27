@@ -6,25 +6,26 @@ include('qconn/qc.php');
         $busqueda = "";
         $busqueda = $_POST['busqueda'];
 
-        $sql_busqueda = "SELECT * FROM envios WHERE codigo_envio_interno ='$busqueda'";
+        // $sql_busqueda = "SELECT * FROM envios WHERE codigo_envio_interno ='$busqueda'";
+        $sql_busqueda = "SELECT * FROM venta_gral WHERE clave_rastreo_int ='$busqueda'";
         $resultado_sql_busqueda= $conn->query($sql_busqueda);
         // if ($resultado_sql_busqueda= $conn->query($sql_busqueda)){
-            $resultado_rows = mysqli_num_rows($resultado_sql_busqueda);
+        $resultado_rows = mysqli_num_rows($resultado_sql_busqueda);
         if($resultado_rows == 1){
             while($row_sql_envio = $resultado_sql_busqueda->fetch_assoc()){
                 echo '<tbody>
                 <tr>
-                <td class="table-primary">'.$row_sql_envio['fecha_registro'].'</td>
+                <td class="table-primary">'.$row_sql_envio['fecha_venta'].'</td>
                 <td class="table-primary"><a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-card-list h4"></i></a></td>
-                <td class="table-primary">'.$row_sql_envio['codigo_envio_interno'].'</td>';
-                if($row_sql_envio['codigo_envio_interno']==1){
-                    echo '<td class="table-primary"><i class="bi bi-check-circle-fill text-success"></i> En ruta</td>';
+                <td class="table-primary">'.$row_sql_envio['clave_rastreo_int'].'</td>';
+                if($row_sql_envio['entrega']==1){
+                    echo '<td class="table-primary"><span class="badge text-bg-warning"><i class="bi bi-check-circle-fill"></i> En ruta</span></td>';
                 }
-                if($row_sql_envio['codigo_envio_interno']==2){
-                    echo '<td class="table-primary"><i class="bi bi-check-circle-fill text-success"></i> Entregado</td>';
+                else if($row_sql_envio['entrega']==2){
+                    echo '<td class="table-primary"><span class="badge text-bg-warning"><i class="bi bi-check-circle-fill text-success"></i> Entregado</span></td>';
                 }
                 else{
-                    echo '<td class="table-primary"><span class="badge text-bg-warning"><i class="bi bi-exclamation-circle-fill"></i> No entregado</span></td>';
+                    echo '<td class="table-primary"><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill"></i> No entregado</span></td>';
                 }
                 echo '
                 </tr>
@@ -39,11 +40,16 @@ include('qconn/qc.php');
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">';
-                        $idPedido = $row_sql_envio['codigo_envio_interno'];
+                        $idPedido = $row_sql_envio['clave_rastreo_int'];
                         $sqlPedido = "SELECT * FROM venta_individual WHERE venta_gral = '$idPedido'";
                         $resultado_sqlPedido= $conn->query($sqlPedido);
+                        $x1 = 0;
                         while($row_sqlPedido = $resultado_sqlPedido->fetch_assoc()){
-                            echo '<p>'.$row_sqlPedido['producto'].' | '.$row_sqlPedido['fecha_venta'].'</p>';
+                            $x1++;
+                            echo '
+                            <div class="alert alert-primary" role="alert">
+                                '.$x1.' | '.$row_sqlPedido['producto'].' | '.$row_sqlPedido['fecha_venta'].'
+                            </div>';
                         }
 
                     echo '</div>

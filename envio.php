@@ -218,11 +218,15 @@
   var x = document.getElementById("valorrow").value;
     if (x == 1){
       // alert("El producto está en proceso de envío");
-      swal("Código localizado", "Tu envío se encuentra en camino", "success");
+      swal("Código localizado", "Tu envío se encuentra apartado", "warning");
       // $("#myModal").modal("show:true");
 
     }
-    if (x == 0){
+    else if (x == 2){
+      // alert("El producto no tiene código de rastreo");
+      swal("Error!", "Tu envío se encuentra en camino", "success");
+    }
+    else if (x == 0){
       // alert("El producto no tiene código de rastreo");
       swal("Error!", "No se encuentra el envío en el registro", "error");
     }
