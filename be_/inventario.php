@@ -139,7 +139,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Descripción</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Cantidad</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Venta</small></th>
@@ -154,7 +153,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<tr>';
                 echo'<td class="text-center">'.$x.'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['nombreP'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['descripcion'].'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['talla'].'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['cantidadP'].'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['cantidadV'].'</td>';
