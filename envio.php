@@ -126,7 +126,8 @@
     </div>
     <!-- consultas productos -->
     <!-- START THE FEATURETTES -->
-    <input type="text" value="<?php echo $resultado_rows ?>" id="valorrow" hidden>
+    <?php $entrega = $row_sql_envio['entrega'];?>
+    <input type="text" value="<?php echo $entrega ?>" id="valorrow" hidden>
     
 
     <hr class="featurette-divider">
@@ -135,8 +136,9 @@
 
     <div class="row featurette">
       <div class="col-md-7">
+      
         <h2 class="featurette-heading">Selecciona el calzado<span class="text-muted"> y agregalo al carrito.</span></h2>
-        <p class="lead">Shoes Store MX</p>
+        <p class="lead">Shoes Store MX<?php echo $entrega; ?></p>
       </div>
       <div class="col-md-5">
         <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
@@ -216,17 +218,17 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   var x = document.getElementById("valorrow").value;
-    if (x == 1){
+    if (x = 1){
       // alert("El producto está en proceso de envío");
-      swal("Código localizado", "Tu envío se encuentra apartado", "warning");
+      swal("Código localizado", "Revisa el estatus del envío", "success");
       // $("#myModal").modal("show:true");
 
     }
-    else if (x == 2){
+    else if (x = 2){
       // alert("El producto no tiene código de rastreo");
       swal("Error!", "Tu envío se encuentra en camino", "success");
     }
-    else if (x == 0){
+    else if (x = 0){
       // alert("El producto no tiene código de rastreo");
       swal("Error!", "No se encuentra el envío en el registro", "error");
     }
