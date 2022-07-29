@@ -7,24 +7,18 @@
 <?php
 include('../../query/qconn/qc.php');
 
-
-$id = $_POST['id'];
-$perfil = $_POST['perfil'];
-$password = $_POST['password'];
-$status = 1;
+$id = $_REQUEST['id'];
 
 
-    $sqlinsert= "INSERT INTO usr (usr,pwd,perfil,status_e) 
-    VALUES('$perfil','$password','$id','$status')";
-    $resultado2= $conn->query($sqlinsert);
-
+    $sqlDelete = "DELETE FROM usr WHERE id='$id'";
+    $resultado2= $conn->query($sqlDelete);
 
     if($resultado2){
         
         echo "<script type=\"text/javascript\">
         Swal.fire({
             icon: 'success',
-            title: 'Perfil registrado',
+            title: 'Perfil eliminado',
             text: 'Catálogo actualizado',
             footer: 'Ventas en línea</a>'
         }).then(function(){window.location='../alta_perfiles.php';});</script>";
@@ -32,7 +26,6 @@ $status = 1;
         else{
         echo 'No se registró producto';
         }
-
 ?>
 
 </body>

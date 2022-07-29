@@ -237,7 +237,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
-                    <a href="prcd/eliminar_catalogo.php?id='.$row_sql_entrega['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
+                    <a href="prcd/eliminar_perfil.php?id='.$row_sql_entrega['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
                   </div>
                 </div>
               </div>
@@ -372,7 +372,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
-                    <a href="prcd/eliminar_catalogo.php?id='.$row_sql_vendedor['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
+                    <a href="prcd/eliminar_perfil.php?id='.$row_sql_vendedor['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
                   </div>
                 </div>
               </div>
