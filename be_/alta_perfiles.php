@@ -126,7 +126,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     </div>
     <div class="col">
         <div class="input-group mb-4 justify-content-end">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar Entrega</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPerfilEntrega"><i class="bi bi-plus-circle-dotted"></i> Agregar Entrega</button>
         </div>
     </div>
   </div>
@@ -141,6 +141,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small>#</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Usuario</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Editar</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Estatus</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Eliminar</small></th>
         </tr>
       </thead>
@@ -155,6 +156,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql_entrega['usr'].'</td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_entrega['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
+
+            if ($row_sql_entrega['status_e']==1){ 
+              echo '<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#actualizarStatusE'.$row_sql_entrega['id'].'"><span class="badge bg-success text-light"><i class="bi bi-check-circle-fill"></i> Activo</span></a></td>';
+            }
+            else{
+              echo '<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#actualizarStatusE'.$row_sql_entrega['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-x-circle-fill"></i> Inactivo</span></a></td>';
+            }
+
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql_entrega['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-trash-fill"></i> Eliminar</span></a></td>';
             echo'</tr>';
 
@@ -163,7 +172,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar categoría</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Editar perfil entrega</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   
@@ -187,16 +196,44 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
               </div>
             </div>';
 
+            echo '<!-- Modal Status-->
+            <div class="modal fade bg-info" id="actualizarStatusE'.$row_sql_entrega['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> Actualizar estatus vendedor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <strong>¿Desea actualizar este perfil de vendedor?</strong>
+                    <form action="prcd/editar_status.php" method="post">
+                    <input name="estatus" value="'.$row_sql_entrega['id'].'" hidden>
+                    <select name="statusV" class="form-select mt-2" aria-label="Default select example" required>
+                      <option value="">Selecciona el estatus</option>
+                      <option value="0">Inactivo</option>
+                      <option value="1">Activo</option>
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Actualizar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ';
+
             echo '<!-- Modal Eliminar-->
             <div class="modal fade bg-danger" id="deleteArticulo'.$row_sql_entrega['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-trash-fill"></i> Eliminar categoría</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-trash-fill"></i> Eliminar perfil de entrega</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center">
-                    <strong>¿Desea eliminar esta categoría?</strong>
+                    <strong>¿Desea eliminar este perfil de entrega?</strong>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
@@ -223,17 +260,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         
         <div class="input-group mb-4 w-100">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-            <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput">
+            <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput2">
         </div>
     </div>
     <div class="col">
         <div class="input-group mb-4 justify-content-end">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar Vendedor</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarPerfilVendedor"><i class="bi bi-plus-circle-dotted"></i> Agregar Vendedor</button>
         </div>
     </div>
   </div>
-
-  
 
   <hr>
 <!-- table ventas -->
@@ -243,10 +278,11 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small>#</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Usuario</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Editar</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Estatus</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Eliminar</small></th>
         </tr>
       </thead>
-      <tbody id="myTable">
+      <tbody id="myTable2">
         
         <?php
         $x = 0;
@@ -257,6 +293,12 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql_vendedor['usr'].'</td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_vendedor['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
+            if ($row_sql_vendedor['status_e']==1){ 
+              echo '<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#actualizarStatusV'.$row_sql_vendedor['id'].'"><span class="badge bg-success text-light"><i class="bi bi-check-circle-fill"></i> Activo</span></a></td>';
+            }
+            else{
+              echo '<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#actualizarStatusV'.$row_sql_vendedor['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-x-circle-fill"></i> Inactivo</span></a></td>';
+            }
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql_vendedor['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-trash-fill"></i> Eliminar</span></a></td>';
             echo'</tr>';
 
@@ -265,7 +307,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar categoría</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Editar perfil de vendedor</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   
@@ -289,6 +331,34 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
               </div>
             </div>';
 
+            echo '<!-- Modal Status-->
+            <div class="modal fade bg-info" id="actualizarStatusV'.$row_sql_vendedor['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> Actualizar estatus vendedor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <strong>¿Desea actualizar este perfil de vendedor?</strong>
+                    <form action="prcd/editar_status.php" method="post">
+                    <input name="estatus" value="'.$row_sql_vendedor['id'].'" hidden>
+                    <select name="statusV" class="form-select mt-2" aria-label="Default select example" required>
+                      <option value="">Selecciona el estatus</option>
+                      <option value="0">Inactivo</option>
+                      <option value="1">Activo</option>
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
+                    <button type="submit" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Actualizar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ';
+
             echo '<!-- Modal Eliminar-->
             <div class="modal fade bg-danger" id="deleteArticulo'.$row_sql_vendedor['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
@@ -298,7 +368,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center">
-                    <strong>¿Desea eliminar esta categoría?</strong>
+                    <strong>¿Desea eliminar este perfil de vendedor?</strong>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
@@ -333,20 +403,58 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   </body>
 </html>
 
-<!-- Agregar producto -->
+<!-- Agregar perfil entrega -->
 <!-- Modal -->
-<div class="modal fade" id="agregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="agregarPerfilEntrega" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar categoría</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar perfil entrega</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="prcd/agregar_catalogo.php" method="post">
+      <form action="prcd/agregar_perfil.php" method="post">
+      <input type="text" name="id" hidden value="2">
+
       <div class="modal-body">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Nombre</span>
-            <input type="text" name="categoria" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <input type="text" name="perfil" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Contraseña</span>
+            <input type="password" name="password" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-cloud-upload-fill"></i> Cerrar</button>
+        <button type="submit" class="btn btn-primary"><i class="bi bi-x-square-fill"></i> Guardar</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Agregar producto -->
+
+<!-- Agregar perfil vendedor -->
+<!-- Modal -->
+<div class="modal fade" id="agregarPerfilVendedor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar perfil vendedor</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="prcd/agregar_perfil.php" method="post">
+        <input type="text" name="id" hidden value="3">
+      <div class="modal-body">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Nombre</span>
+            <input type="text" name="perfil" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Contraseña</span>
+            <input type="password" name="password" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
         </div>
         
       </div>
@@ -376,6 +484,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         $("#myInput").on("keyup", function () {
             var value = $(this).val().toLowerCase();
             $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    $(document).ready(function () {
+        $("#myInput2").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable2 tr").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
