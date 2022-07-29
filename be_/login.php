@@ -7,7 +7,7 @@ if (isset($_POST['usr']) && isset($_POST['pwd'])) {
     $id = $_POST['usr'];
     $pwd = $_POST['pwd'];
 
-    $sql = "SELECT * FROM usr WHERE usr = '$id' AND pwd ='$pwd'";   
+    $sql = "SELECT * FROM usr WHERE usr = '$id' AND pwd ='$pwd' AND status_e = 1";   
     $resultado_sql = $conn->query($sql);
     if($row_sql=mysqli_fetch_array($resultado_sql)){
    
