@@ -208,6 +208,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
           <script>
               $(document).ready(function(e){
+
                 $("#marca").change(function(){
                   var parametros= "marcaID="+$("#marca").val();
                     
@@ -222,9 +223,29 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                           $("#modelo").html(response);
                         }
                       });
+                });
 
+                $("#modelo").change(function(c){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
                     
+                  // var parametros2= "modeloID="+$("#modelo").val();
+                    
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataModelo.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#color").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#color").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
 
+                      });
                 });
 
               });
@@ -240,14 +261,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" >
           <!-- <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" onchange="showUser(this.value)"> -->
             <!-- <option selected>Color predominante</option> -->
+            
             <option value="">Color predominante</option>
 
             <?php
-              $sqlColor ="SELECT * FROM color";
-              $resultado_sqlColor = $conn->query($sqlColor);
-              while($row_sqlColor = $resultado_sqlColor->fetch_assoc()){
-                echo '<option value="'.$row_sqlColor['color'].'">'.$row_sqlColor['color'].'</option>';
-              }
+              // $sqlColor ="SELECT * FROM color";
+              // $resultado_sqlColor = $conn->query($sqlColor);
+              // while($row_sqlColor = $resultado_sqlColor->fetch_assoc()){
+              //   echo '<option value="'.$row_sqlColor['color'].'">'.$row_sqlColor['color'].'</option>';
+              // }
             ?>
             
           </select>
