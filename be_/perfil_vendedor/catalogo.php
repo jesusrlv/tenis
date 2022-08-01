@@ -188,7 +188,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar2()">
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo" disabled="disabled">
-            <!-- <option selected>Modelo</option> -->
+            <option selected>Modelo</option>
+            <option value="">Sin categoría</option>
             <?php
               // $sqlModelo ="SELECT * FROM modelo";
               // $resultado_sqlModelo = $conn->query($sqlModelo);
