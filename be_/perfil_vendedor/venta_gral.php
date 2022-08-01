@@ -172,12 +172,13 @@ else {
               if(!$row_sql['clave_rastreo_ext']){
               echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-exclamation-circle-fill"></i> Pendiente</button></td>';
               
-            }
-            else{
-              echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_int'].'" style="text-decoration: none;"><i class="bi bi-check-circle-fill text-success"></i> '.$row_sql['clave_rastreo_int'].'</a></td>';
-            }
-            // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
-            echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
+              }
+              else{
+                echo'<td class="text-center"><button type="button" class="btn btn-success btn-sm"><i class="bi bi-check-circle-fill"></i> Entregado</button></td>';
+                // echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_int'].'" style="text-decoration: none;"><i class="bi bi-check-circle-fill text-success"></i> '.$row_sql['clave_rastreo_int'].'</a></td>';
+              }
+              // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
+              echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
             echo'</tr>';
           }
         ?>

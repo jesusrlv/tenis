@@ -173,18 +173,11 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <select class="form-select" aria-label="Example select with button addon" id="marca" name="marca" disabled="disabled" required>
             <option selected>Marca</option>
             <?php
-              // $sqlMarca ="SELECT * FROM marca";
-              // $resultado_sqlMarca = $conn->query($sqlMarca);
-              // while($row_sqlMarca = $resultado_sqlMarca->fetch_assoc()){
-              //   echo '<option value="'.$row_sqlMarca['marca'].'">'.$row_sqlMarca['marca'].'</option>';
-              // }
-            ?>
-            <?php
-          $sqlSearch = "SELECT DISTINCT nombre FROM producto";
-          $resultSearch= $conn->query($sqlSearch);
-          while($rowSearch = $resultSearch->fetch_array()){
-            echo '<option value="'.$rowSearch['nombre'].'">'.$rowSearch['nombre'].'</option>';
-          }
+              $sqlSearch = "SELECT DISTINCT nombre FROM producto";
+              $resultSearch= $conn->query($sqlSearch);
+              while($rowSearch = $resultSearch->fetch_array()){
+                echo '<option value="'.$rowSearch['nombre'].'">'.$rowSearch['nombre'].'</option>';
+              }
           ?>
             
           </select>
@@ -195,42 +188,46 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar2()">
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo" disabled="disabled">
-            <option selected>Modelo</option>
+            <!-- <option selected>Modelo</option> -->
             <?php
               // $sqlModelo ="SELECT * FROM modelo";
               // $resultado_sqlModelo = $conn->query($sqlModelo);
               // while($row_sqlModelo = $resultado_sqlModelo->fetch_assoc()){
               //   echo '<option value="'.$row_sqlModelo['modelo'].'">'.$row_sqlModelo['modelo'].'</option>';
               // }
-              $sqlModelo = "SELECT DISTINCT descripcion FROM producto";
-              $resultado_sqlModelo= $conn->query($sqlModelo);
-              while($row_sqlModelo = $resultado_sqlModelo->fetch_array()){
-                echo '<option value="'.$row_sqlModelo['descripcion'].'">'.$row_sqlModelo['descripcion'].'</option>';
-              }
+
+
+
+              // $sqlModelo = "SELECT DISTINCT descripcion FROM producto";
+              // $resultado_sqlModelo= $conn->query($sqlModelo);
+              // while($row_sqlModelo = $resultado_sqlModelo->fetch_array()){
+              //   echo '<option value="'.$row_sqlModelo['descripcion'].'">'.$row_sqlModelo['descripcion'].'</option>';
+              // }
             ?>
 
-<script>
-    $(document).ready(function(){
-    $('#marca').on('change',function(){
-    var marcaID = $(this).val();
-    if(provinciaID){
-    $.ajax({
-    type:'POST',
-    url:'ajaxData.php',
-    data:'id_provincia='+provinciaID,
-    success:function(html){
-    $('#municipio').html(html);
-    }
-    });
+          <script>
+              $(document).ready(function(e){
+                $("#marca").change(function(){
+                  var parametros= "marcaID="+$("#marca").val();
+                    
+                      $.ajax({
+                        data: parametros,
+                        url:'ajaxData.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#modelo").html("Procesando, espere por favor...");
+                        },
+                        success:function(response){
+                          $("#modelo").html(response);
+                        }
+                      });
 
-    }else{
-    $('#municipio').html('<option value=””>Selecciona una provincia primero</option>');
-    }
+                    
 
-    });
+                });
 
-    });
-  </script>
+              });
+            </script>
 
           </select>
         </div>
@@ -243,6 +240,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <!-- <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" onchange="showUser(this.value)"> -->
             <!-- <option selected>Color predominante</option> -->
             <option value="">Color predominante</option>
+
             <?php
               $sqlColor ="SELECT * FROM color";
               $resultado_sqlColor = $conn->query($sqlColor);
@@ -250,6 +248,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                 echo '<option value="'.$row_sqlColor['color'].'">'.$row_sqlColor['color'].'</option>';
               }
             ?>
+            
           </select>
         </div>
       <!-- divisor -->
