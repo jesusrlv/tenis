@@ -248,6 +248,48 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       });
                 });
 
+                $("#modelo").change(function(d){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
+                                        
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataColor.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#material").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#material").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
+
+                      });
+                });
+
+                $("#modelo").change(function(f){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
+                                        
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataTalla.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#talla").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#talla").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
+
+                      });
+                });
+
               });
             </script>
 
@@ -258,7 +300,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar3()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" >
+          <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" >
           <!-- <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" onchange="showUser(this.value)"> -->
             <!-- <option selected>Color predominante</option> -->
             
@@ -282,11 +324,11 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <select class="form-select" aria-label="Example select with button addon" id="material" name="material" disabled="disabled">
             <option selected>Material</option>
             <?php
-              $sqlMaterial ="SELECT * FROM material";
-              $resultado_sqlMaterial = $conn->query($sqlMaterial);
-              while($row_sqlMaterial = $resultado_sqlMaterial->fetch_assoc()){
-                echo '<option value="'.$row_sqlMaterial['material'].'">'.$row_sqlMaterial['material'].'</option>';
-              }
+              // $sqlMaterial ="SELECT * FROM material";
+              // $resultado_sqlMaterial = $conn->query($sqlMaterial);
+              // while($row_sqlMaterial = $resultado_sqlMaterial->fetch_assoc()){
+              //   echo '<option value="'.$row_sqlMaterial['material'].'">'.$row_sqlMaterial['material'].'</option>';
+              // }
             ?>
           </select>
         </div>
@@ -298,11 +340,11 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <select class="form-select" aria-label="Example select with button addon" id="talla" name="talla" disabled="disabled">
             <option selected>Talla</option>
             <?php
-              $sqlTalla ="SELECT * FROM talla_catalogo";
-              $resultado_sqlTalla = $conn->query($sqlTalla);
-              while($row_sqlTalla = $resultado_sqlTalla->fetch_assoc()){
-                echo '<option value="'.$row_sqlTalla['talla'].'">'.$row_sqlTalla['talla'].' | '.$row_sqlTalla['tipo'].'</option>';
-              }
+              // $sqlTalla ="SELECT * FROM talla_catalogo";
+              // $resultado_sqlTalla = $conn->query($sqlTalla);
+              // while($row_sqlTalla = $resultado_sqlTalla->fetch_assoc()){
+              //   echo '<option value="'.$row_sqlTalla['talla'].'">'.$row_sqlTalla['talla'].' | '.$row_sqlTalla['tipo'].'</option>';
+              // }
             ?>
           </select>
         </div>
