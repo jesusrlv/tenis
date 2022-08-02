@@ -161,7 +161,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" id="checkbox1" value="" aria-label="Checkbox for following text input" onclick="habilitar1()">
+            <input class="form-check-input mt-0" type="checkbox" id="checkbox1" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar1()">
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="marca" name="marca" disabled="disabled" required>
             <option selected>Marca</option>
@@ -178,7 +178,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <!-- divisor -->
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar2()">
+            <input class="form-check-input mt-0" type="checkbox" value="1" name="count[]" aria-label="Checkbox for following text input" onclick="habilitar2()">
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo" disabled="disabled">
             <option selected>Modelo</option>
@@ -189,7 +189,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <!-- divisor -->
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar3()">
+            <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar3()">
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" >
        
@@ -200,7 +200,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <!-- divisor -->
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar4()">
+            <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar4()">
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="material" name="material" disabled="disabled">
             <option selected>Material</option>
@@ -210,7 +210,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <!-- divisor -->
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar5()">
+            <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar5()">
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="talla" name="talla" disabled="disabled">
             <option selected>Talla</option>

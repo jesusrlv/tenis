@@ -1,58 +1,78 @@
 <?php
 if(isset($_POST)){
-  
+  $val=0;
+  foreach ( $_POST['count'] as $value ) {
+    $val++;
+    
+}
+echo $val;
   
 include('../../query/qconn/qc.php');
 
-if(isset($_POST['marca']) && isset($_POST['modelo']) && isset($_POST['color']) && isset($_POST['material']) && isset($_POST['talla'])){
+if($val == 1){
+  if(isset($_POST['marca'])){
+
+    
+    $marca = $_POST['marca'];
+
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca') " ;
+
+  }
+}
+else if($val == 2){
+  if((isset($_POST['marca'])) && (isset($_POST['modelo']))){
+    
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo') " ;
+
+  }
+}
+else if($val == 3){
+  if((isset($_POST['marca'])) && (isset($_POST['modelo'])) && (isset($_POST['color']))){
+    
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $color = $_POST['color']; 
+
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '$color') " ;
+
+  }
+}
+else if($val == 4){
+  if((isset($_POST['marca'])) && (isset($_POST['modelo'])) && (isset($_POST['color'])) && (isset($_POST['material']))){
   
-  $marca = $_POST['marca'];
-  $modelo = $_POST['modelo'];
-  $color = $_POST['color']; 
-  $material = $_POST['material'];
-  $talla = $_POST['talla'];
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $color = $_POST['color']; 
+    $material = $_POST['material'];
 
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo' AND color LIKE %'$color'% AND material LIKE %'$material'% AND talla LIKE %'$talla'%) " ;
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE %'$color'% AND material LIKE %'$material'%) " ;
 
+  } 
+}
+else if($val == 5){
+  if((isset($_POST['marca'])) && (isset($_POST['modelo'])) && (isset($_POST['color'])) && (isset($_POST['material'])) && (isset($_POST['talla']))){
+    
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $color = $_POST['color']; 
+    $material = $_POST['material'];
+    $talla = $_POST['talla'];
+
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE %'$color'% AND material LIKE %'$material'% AND talla LIKE %'$talla'%) " ;
+
+  }
 }
 
-else if(isset($_POST['marca']) && isset($_POST['modelo']) && isset($_POST['color']) && isset($_POST['material'])){
-  
-  $marca = $_POST['marca'];
-  $modelo = $_POST['modelo'];
-  $color = $_POST['color']; 
-  $material = $_POST['material'];
 
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo' AND color LIKE %'$color'% AND material LIKE %'$material'%) " ;
 
-}
 
-else if(isset($_POST['marca']) && isset($_POST['modelo']) && isset($_POST['color'])){
-  
-  $marca = $_POST['marca'];
-  $modelo = $_POST['modelo'];
-  $color = $_POST['color']; 
 
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo' AND color LIKE %'$color'%) " ;
 
-}
 
-else if(isset($_POST['marca']) && isset($_POST['modelo'])){
-  
-  $marca = $_POST['marca'];
-  $modelo = $_POST['modelo'];
 
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo') " ;
-
-}
-
-else if(isset($_POST['marca'])){
-  
-  $marca = $_POST['marca'];
-
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca') " ;
-
-}
 
 
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
