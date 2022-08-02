@@ -1,61 +1,61 @@
 <?php
 if(isset($_POST)){
-  
-  
+
 include('../../query/qconn/qc.php');
+// if(isset($_POST['queryFilter'])){
+//   $queryMarca = "Nike";
+    // if (isset($_POST['marca'])){
+    //     $marca = $_POST['marca'];
+    //     $queryMarca = "Nike";
+    // }
+    // else{
+    //     $marca = "";
+    //     $queryMarca = "";
+    // }
 
-if(isset($_POST['marca']) && isset($_POST['modelo']) && isset($_POST['color']) && isset($_POST['material']) && isset($_POST['talla'])){
-  
-  $marca = $_POST['marca'];
-  $modelo = $_POST['modelo'];
-  $color = $_POST['color']; 
-  $material = $_POST['material'];
-  $talla = $_POST['talla'];
+    // if (isset($_POST['modelo'])){
+    //     $modelo = $_POST['modelo'];
+    //     $queryModelo= "AND ".$modelo."= modelo";
+    // }
+    // else{
+    //     $modelo = "";
+    //     $queryModelo = "";
+    // }
 
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo' AND color LIKE %'$color'% AND material LIKE %'$material'% AND talla LIKE %'$talla'%) " ;
-
-}
-
-else if(isset($_POST['marca']) && isset($_POST['modelo']) && isset($_POST['color']) && isset($_POST['material'])){
-  
-  $marca = $_POST['marca'];
-  $modelo = $_POST['modelo'];
-  $color = $_POST['color']; 
-  $material = $_POST['material'];
-
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo' AND color LIKE %'$color'% AND material LIKE %'$material'%) " ;
-
-}
-
-else if(isset($_POST['marca']) && isset($_POST['modelo']) && isset($_POST['color'])){
-  
-  $marca = $_POST['marca'];
-  $modelo = $_POST['modelo'];
-  $color = $_POST['color']; 
-
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo' AND color LIKE %'$color'%) " ;
-
-}
-
-else if(isset($_POST['marca']) && isset($_POST['modelo'])){
-  
-  $marca = $_POST['marca'];
-  $modelo = $_POST['modelo'];
-
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND modelo = '$modelo') " ;
-
-}
-
-else if(isset($_POST['marca'])){
-  
-  $marca = $_POST['marca'];
-
-  $Query = "SELECT * FROM producto WHERE (nombre = '$marca') " ;
-
-}
-
-
-    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
+    // if (isset($_POST['color'])){
+    //     $color = $_POST['color']; 
+    //     $queryColor= "AND ".$color."= color";
+    // }
+    // else{
+    //     $color = "";
+    //     $queryColor = "";
+    // }
+    // if (isset($_POST['material'])){
+    //     $material = $_POST['material'];
+    //     $queryMaterial= "AND ".$material."= material";
+    // }
+    // else{
+    //     $material = "";
+    //     $queryMaterial = "";
+    // }
+    // if (isset($_POST['talla'])){
+    //     $talla = $_POST['talla'];
+    //     $queryTalla= "AND ".$talla."= talla";
+    // }
+    // else{
+    //     $talla = "";
+    //     $queryTalla = "";
+    // }
+    // $Query = "SELECT * FROM producto WHERE ".$queryMarca." ". $queryModelo." ". $queryColor." ". $queryMaterial." ".$queryTalla." ORDER BY id";
+    
+    $marca = $_POST['marca'];
+    $modelo = $_POST['modelo'];
+    $color = $_POST['color']; 
+    $material = $_POST['material'];
+    $talla = $_POST['talla'];
+    
+    // $Query = "SELECT * FROM producto WHERE modelo == '$modelo' OR marca == '$marca' OR color LIKE '$color' OR material == '$material' OR talla LIKE '$talla'";
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
     $resultado_Query = $conn->query($Query);
 
     if($resultado_Query = $conn->query($Query)){

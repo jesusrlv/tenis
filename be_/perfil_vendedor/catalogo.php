@@ -71,24 +71,21 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       }
 
       #hidden:active {
-        /* border: 1px solid #ffc107; */
-        /* border-color:#ffc107; */
+     
         box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
         transform: scale(1.03);
         transition: width 0.8s, height 0.8s, transform 0.3s;
         
       }
       #hidden:hover {
-        /* border: 1px solid #ffc107; */
-        /* border-color:#ffc107; */
+    
         box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
         transform: scale(1.03);
         transition: width 0.8s, height 0.8s, transform 0.3s;
         
       }
       #hidden:visited {
-        /* border: 1px solid #ffc107; */
-        /* border-color:#ffc107; */
+    
         background-color: yellow;
       }
     </style>
@@ -97,7 +94,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     
     $id_catalogo = $_REQUEST['id'];
     require('query/query_ini.php');
-    // require('query/query_catalogo.php');
     ?>
 
     <!-- Custom styles for this template -->
@@ -161,10 +157,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
   <p class="">
-    <!-- <form action="../prcd/filtro.php" method="POST" name="form1" id="form1"> -->
     <form id="form1">
-
-     
 
         <div class="input-group mb-3 w-50">
           <div class="input-group-text">
@@ -190,108 +183,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo" disabled="disabled">
             <option selected>Modelo</option>
             <option value="">Sin categoría</option>
-            <?php
-              // $sqlModelo ="SELECT * FROM modelo";
-              // $resultado_sqlModelo = $conn->query($sqlModelo);
-              // while($row_sqlModelo = $resultado_sqlModelo->fetch_assoc()){
-              //   echo '<option value="'.$row_sqlModelo['modelo'].'">'.$row_sqlModelo['modelo'].'</option>';
-              // }
-
-
-
-              // $sqlModelo = "SELECT DISTINCT descripcion FROM producto";
-              // $resultado_sqlModelo= $conn->query($sqlModelo);
-              // while($row_sqlModelo = $resultado_sqlModelo->fetch_array()){
-              //   echo '<option value="'.$row_sqlModelo['descripcion'].'">'.$row_sqlModelo['descripcion'].'</option>';
-              // }
-            ?>
-
-          <script>
-              $(document).ready(function(e){
-
-                $("#marca").change(function(){
-                  var parametros= "marcaID="+$("#marca").val();
-                    
-                      $.ajax({
-                        data: parametros,
-                        url:'ajaxData.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#modelo").html("Procesando, espere por favor...");
-                        },
-                        success:function(response){
-                          $("#modelo").html(response);
-                        }
-                      });
-                });
-
-                $("#modelo").change(function(c){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                    
-                  // var parametros2= "modeloID="+$("#modelo").val();
-                    
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataModelo.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#color").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#color").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-                $("#modelo").change(function(d){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                                        
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataColor.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#material").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#material").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-                $("#modelo").change(function(f){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                                        
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataTalla.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#talla").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#talla").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-              });
-            </script>
 
           </select>
         </div>
@@ -301,18 +192,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar3()">
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" >
-          <!-- <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" onchange="showUser(this.value)"> -->
-            <!-- <option selected>Color predominante</option> -->
-            
+       
             <option value="">Color predominante</option>
-
-            <?php
-              // $sqlColor ="SELECT * FROM color";
-              // $resultado_sqlColor = $conn->query($sqlColor);
-              // while($row_sqlColor = $resultado_sqlColor->fetch_assoc()){
-              //   echo '<option value="'.$row_sqlColor['color'].'">'.$row_sqlColor['color'].'</option>';
-              // }
-            ?>
             
           </select>
         </div>
@@ -323,13 +204,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="material" name="material" disabled="disabled">
             <option selected>Material</option>
-            <?php
-              // $sqlMaterial ="SELECT * FROM material";
-              // $resultado_sqlMaterial = $conn->query($sqlMaterial);
-              // while($row_sqlMaterial = $resultado_sqlMaterial->fetch_assoc()){
-              //   echo '<option value="'.$row_sqlMaterial['material'].'">'.$row_sqlMaterial['material'].'</option>';
-              // }
-            ?>
+         
           </select>
         </div>
       <!-- divisor -->
@@ -339,13 +214,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="talla" name="talla" disabled="disabled">
             <option selected>Talla</option>
-            <?php
-              // $sqlTalla ="SELECT * FROM talla_catalogo";
-              // $resultado_sqlTalla = $conn->query($sqlTalla);
-              // while($row_sqlTalla = $resultado_sqlTalla->fetch_assoc()){
-              //   echo '<option value="'.$row_sqlTalla['talla'].'">'.$row_sqlTalla['talla'].' | '.$row_sqlTalla['tipo'].'</option>';
-              // }
-            ?>
+            
           </select>
         </div>
         <button class="btn btn-primary" type="submit" id="smt"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
@@ -355,60 +224,22 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   
     <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
 
-      <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="mostrarTodo()" checked>
-      <label class="btn btn-outline-primary" for="btnradio1">Todos</label> -->
-
-
 <!-- código consulta -->
 
 </head>
 <body>
 
-<!-- <form>
-<select name="users" onchange="showUser(this.value)">
-  <option value="">Select a person:</option>
-  <option value="1">Peter Griffin</option>
-  <option value="2">Lois Griffin</option>
-  <option value="3">Joseph Swanson</option>
-  <option value="4">Glenn Quagmire</option>
-  </select>
-</form> -->
+
 <br>
 
 <!-- codigo -->
      
-<?php
-    // $sum = 1;
-    // include('query/query_categorias.php');
-    // include('prcd/filtros.php');
-    // echo '
-    
-
-    // <form action="#" method="get">
-    // <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
-    //   <option selected>Selecciona categoría</option>
-    //   <option value="0" onclick="mostrarTodo()">Todo</option>';
-    // while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
-    //   $sum++;
-      // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
-      //<input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
-      //<label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
-    //   echo'
-    //     <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
-    //   ';
-    // }
-    // echo '</select>
-    // </form>';
-?>
     </div>
     
   </div>
   
   
     <span id="txtHint"><b>Aquí debe aparecer la información...</b></span>
-    <!-- <div id="txtHint"><b>Aquí debe aparecer la información...</b></div> -->
-
-
 
     <!-- Three columns of text below the carousel -->
     <!-- consultas productos -->
@@ -473,9 +304,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   function mensajeAgregado(){
-      // swal("Correcto", "Tu producto ha sido agregado al carrito de compras", "success");
-
-      // document.getElementById('offcanvasRight').show;
+      
       swal({
         title: "Correcto",
         text: "Tu producto ha sido agregado al carrito de compras",
@@ -491,24 +320,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
    
 </script>
 
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
 <script>
   x=0;
   function cambio(x){
-    // alert(x);
-    // document.getElementById('hidden'+x).style.visibility = 'hidden';
     
-    // z = document.getElementById('hidden'+x);
-    //  z.style.visibility = 'hidden';
-
-//     var divsToHide = document.getElementsById('hidden'+x); 
-//       for(var i = 0; i < divsToHide.length; i++){
-//           if(document.getElementById('q'+i).style.display!='none')
-//             {
-//             document.getElementById('q'+i).style.display='none'
-//             }
-//         }
-// }
   const div=document.querySelectorAll('#hidden');
   for(let i=0;i<div.length;i++){
     const styles = window.getComputedStyle(div[i]);
@@ -522,12 +337,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           // div[i].style.visibility='hidden'; 
           div[i].style.display = 'none'; 
         }
-        // if(styles.visibility=='visible'){
-        // div[i].style.visibility='collapse';
-        // }
-        // else{
-        // div[i].style.visibility='visible';
-        // }
         
   }
 // https://codepen.io/letstacle/pen/qBmoZoB
@@ -545,7 +354,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
 <script>
   var x = document.getElementById('checkbox1');
-  // if (checked = x.checked){
   if (x.checked == true){
     document.getElementById("marca").disabled=false;
   }
@@ -555,7 +363,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
   var x2 = document.getElementById('checkbox2');
   if (x2.checked == true){
-  // if (x2.checked == true){
     document.getElementById("modelo").disabled=false;
   }
   else{
@@ -563,7 +370,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   }
 
   var x3 = document.getElementById('checkbox3');
-  // if (checked = x.checked){
   if (x3.checked == true){
     document.getElementById("color").disabled=false;
   }
@@ -572,7 +378,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   }
 
   var x4 = document.getElementById('checkbox4');
-  // if (checked = x.checked){
   if (x4.checked == true){
     document.getElementById("material").disabled=false;
   }
@@ -581,7 +386,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   }
 
   var x5 = document.getElementById('checkbox5');
-  // if (checked = x.checked){
   if (x5.checked == true){
     document.getElementById("talla").disabled=false;
   }
@@ -625,7 +429,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
      
 </style>
 
-<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
         <script>
           $(document).ready(function(){
           var form=$("#form1");
@@ -647,17 +450,90 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           });
 
         </script>
-        <!-- valida -->
-  <!-- <script type="text/javascript">
-    function submit(){
-      let strMarca = document.getElementById('marca').value;
-      let strModelo = document.getElementById('modelo').value;
-      let strColor = document.getElementById('color').value;
-      let strMaterial = document.getElementById('material').value;
-      let strTalla = document.getElementById('talla').value;
 
-      alert (strMarca, strModelo, strColor, strMaterial, strTalla);
-    } -->
-  </script>
+<script>
+              $(document).ready(function(e){
+
+                $("#marca").change(function(){
+                  var parametros= "marcaID="+$("#marca").val();
+                    
+                      $.ajax({
+                        data: parametros,
+                        url:'ajaxData.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#modelo").html("Procesando, espere por favor...");
+                        },
+                        success:function(response){
+                          $("#modelo").html(response);
+                        }
+                      });
+                });
+
+                $("#modelo").change(function(c){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
+                                        
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataModelo.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#color").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#color").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
+
+                      });
+                });
+
+                $("#modelo").change(function(d){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
+                                        
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataColor.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#material").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#material").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
+
+                      });
+                });
+
+                $("#modelo").change(function(f){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
+                                        
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataTalla.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#talla").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#talla").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
+
+                      });
+                });
+
+              });
+</script>
 
   <!-- https://pressroom.hostalia.com/white-papers/selects-dependientes-php-jquery-ajax/ -->

@@ -10,9 +10,6 @@
         $resultadoModelo = $conn->query($sqlModelo);
         echo '<option selected value="">Color predominante</option>';
         echo '<option value="0">Sin categoría</option>';
-        // while ($row_sqlModelo = $resultadoModelo->fetch_assoc()){
-        //     echo '<option value="'.$row_sqlModelo['color'].'">'.$row_sqlModelo['color'].'</option>';
-        // }
         $row_sqlModelo = $resultadoModelo->fetch_assoc();
         $valueColor = explode(',',$row_sqlModelo['color']);
         for ($x = 0; $x < count($valueColor); $x++) {    

@@ -8,9 +8,6 @@
         $resultadoModelo = $conn->query($sqlModelo);
         echo '<option selected value="">Material</option>';
         echo '<option value="0">Sin categoría</option>';
-        // while ($row_sqlModelo = $resultadoModelo->fetch_assoc()){
-        //     echo '<option value="'.$row_sqlModelo['color'].'">'.$row_sqlModelo['color'].'</option>';
-        // }
         $row_sqlModelo = $resultadoModelo->fetch_assoc();
         $valueMaterial = explode(',',$row_sqlModelo['material']);
         for ($x = 0; $x < count($valueMaterial); $x++) {    
