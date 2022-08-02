@@ -1,18 +1,16 @@
 <?php
 if(isset($_POST)){
+  include('../../query/qconn/qc.php');
+
   $val=0;
   foreach ( $_POST['count'] as $value ) {
     $val++;
-    
 }
 echo $val;
-  
-include('../../query/qconn/qc.php');
 
 if($val == 1){
   if(isset($_POST['marca'])){
 
-    
     $marca = $_POST['marca'];
 
     $Query = "SELECT * FROM producto WHERE (nombre = '$marca') " ;
@@ -35,8 +33,15 @@ else if($val == 3){
     $marca = $_POST['marca'];
     $modelo = $_POST['modelo'];
     $color = $_POST['color']; 
+    echo $color;
+   
 
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '$color') " ;
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%')";
+    echo $Query;
+    if(!$Query)
+{
+   die("database query fail!" . mysqli_error($conn));
+}
 
   }
 }
@@ -48,7 +53,10 @@ else if($val == 4){
     $color = $_POST['color']; 
     $material = $_POST['material'];
 
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE %'$color'% AND material LIKE %'$material'%) " ;
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%" . $color . "%' AND material LIKE '%" . $material . "%') " ;
+    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%' AND material LIKE '%$material%') " ;
+
+    echo $Query;
 
   } 
 }
@@ -61,17 +69,10 @@ else if($val == 5){
     $material = $_POST['material'];
     $talla = $_POST['talla'];
 
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE %'$color'% AND material LIKE %'$material'% AND talla LIKE %'$talla'%) " ;
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%$color%' AND material LIKE '%$material%' AND talla LIKE '%$talla%') " ;
 
   }
 }
-
-
-
-
-
-
-
 
 
 
@@ -81,7 +82,7 @@ else if($val == 5){
     if($resultado_Query = $conn->query($Query)){
   // echo $resultado_Query;
    $row = $resultado_Query->fetch_assoc();
-  //  echo $Query;
+  //  echo $row['talla'];
   } else {
      printf("Error: %s\n", $conn->error);
  }

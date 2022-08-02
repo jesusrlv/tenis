@@ -191,7 +191,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar3()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" >
+          <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled">
        
             <option value="">Color predominante</option>
             
