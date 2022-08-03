@@ -36,9 +36,15 @@ else if($val == 3){
     echo $color;
    
 
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '$color%')";
+    $Query = ("SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%$color%')");
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%')";
     echo $Query;
+      if ($Query){
+        echo "Consulta Correcta";
+      }
+      else{
+        die("database query fail!" . mysqli_error($conn));
+      }
 //     if(!$Query)
 // {
 //    die("database query fail!" . mysqli_error($conn));
@@ -73,8 +79,6 @@ else if($val == 5){
 
   }
 }
-
-
 
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
     $resultado_Query = $conn->query($Query);
