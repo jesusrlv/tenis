@@ -1,25 +1,25 @@
 <?php
 session_start();
 
-if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
-  if($_SESSION['perfil']==3){
+// if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
+//   if($_SESSION['perfil']==3){
 
-  }
-  else{
-    echo '<script>
-    alert "1";<script>';
-    header('Location: prcd/sort.php');
-    die();
-  }
+//   }
+//   else{
+//     echo '<script>
+//     alert "1";<script>';
+//     header('Location: prcd/sort.php');
+//     die();
+//   }
   
-} 
-else {
-  // En caso contrario redirigimos el visitante a otra página
-  echo '<script>
-  alert "2";<script>';
-  header('Location: prcd/sort.php');
-  die();
-}
+// } 
+// else {
+//   // En caso contrario redirigimos el visitante a otra página
+//   echo '<script>
+//   alert "2";<script>';
+//   header('Location: prcd/sort.php');
+//   die();
+// }
 
 // variables de sesión
 
