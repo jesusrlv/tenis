@@ -138,14 +138,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Descripción</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Precio</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Total vendido</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i> Tallas</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-activity"></i> Acción</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i> Dar de baja</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i><br>Producto</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Descripción</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Cantidad</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Total vendido</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Tallas</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Color</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Acción</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i><br>Dar de baja</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -159,10 +159,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
             echo'<td class="text-center">'.$row_sql['descripcion'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['precio'].'</td>';
             echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
             echo'<td class="text-center">'.$row_sql['total_vendido'].'</td>';
             echo'<td class="text-center"><a href="tallas.php?id='.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Tallas</span></a></td>';
+            echo'<td class="text-center"><a href="color.php?id='.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Color</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-warning text-dark"><i class="bi bi-trash-fill"></i> Dar de baja</span></a></td>';
             echo'</tr>';
@@ -206,6 +206,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <div class="mb-3">
                       <hr>
                       <span class="text-secondary">Tallas disponibles:</span>
+                      <ul>';
+                        $sqlTallaDisp = "SELECT * FROM talla WHERE id_ext = '".$row_sql['id']."'";
+                        $resultadoTallaDisp = $conn->query($sqlTallaDisp);
+                        while ($row_sqlTallaDisp = $resultadoTallaDisp->fetch_assoc()){
+                          echo '<li>'.$row_sqlTallaDisp['talla'].' | '.$row_sqlTallaDisp['cantidad'].'</li>';
+                        }
+                      echo '</ul>
+                      <hr>
+                      <span class="text-secondary">Colores disponibles:</span>
                        
 
                     </div>
@@ -262,6 +271,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <div class="mb-3">
                       <hr>
                       <span class="text-secondary">Tallas disponibles:</span>
+                     
 
                     </div>
                   </div>
