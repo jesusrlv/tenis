@@ -36,7 +36,7 @@ else if($val == 3){
     echo $color;
    
 
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE ('%$color%'))";
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '$color%')";
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%')";
     echo $Query;
 //     if(!$Query)
