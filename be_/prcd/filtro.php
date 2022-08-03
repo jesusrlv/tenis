@@ -96,7 +96,7 @@ else if($val == 5){
         echo '
           <div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
           <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'" onclick="escala()">
-            <div class="card text-center text-dark" style="width: 100%;">
+            <div class="card text-center text-dark" style="width: 100%;" id="card_tamano">
               <div class="card-header bg-primary text-light">
                   <small><i class="bi bi-cart-plus"></i></small>
                 </div>

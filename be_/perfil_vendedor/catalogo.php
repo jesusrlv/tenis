@@ -61,6 +61,9 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         #selector1{
           width:50%;
         }
+        /* #card_tamano{
+            height:350px;
+          } */
       }
       /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
       /* CELULAR */
@@ -83,6 +86,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           #selector1{
             width:100%;
           }
+          /* #card_tamano{
+            height:175px;
+          } */
+          
       }
         
     </style>
