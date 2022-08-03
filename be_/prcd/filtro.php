@@ -103,18 +103,18 @@ else if($val == 5){
                 <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top img-fluid" style="width:100%; max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
                 <div class="card-body text-start bg-primary text-light">
-                  <span class="card-title"><small><strong>'.$row_sql_catalogo['nombre'].'</strong></small></span><br>
-                  <span class="card-title"><small>'.$row_sql_catalogo['descripcion'].'</small></span><br>
+                  <span class="card-title" id="titulo_card"><small><strong>'.$row_sql_catalogo['nombre'].'</strong></small></span><br>
+                  <span class="card-title" id="titulo_card2"><small>'.$row_sql_catalogo['descripcion'].'</small></span><br>
                   ';
                   // explode
                     $valueColores = explode(',',$row_sql_catalogo['color']);
                     for ($x = 0; $x < count($valueColores); $x++) {    
-                        echo '<span class="badge text-bg-light">'.$valueColores[$x].'</span> '.PHP_EOL;
+                        echo '<span class="badge text-bg-light" id="titulo_card3">'.$valueColores[$x].'</span> '.PHP_EOL;
                       }
                   // explode
           
         echo'
-                  <span class="card-title text-light"><small>$__.__</small></span>
+                  
                   <hr>
                   
                 </div>

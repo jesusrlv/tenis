@@ -134,6 +134,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   <hr>
 
     <!-- table ventas -->
+    <div class="table-responsive">
+
     <table class="table  table-light table-striped mb-3 table-hover align-middle">
       <thead class="text-center table-dark align-middle">
         <tr>
@@ -161,6 +163,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         ?>
       </tbody>
     </table>
+    </div>
     <!-- table ventas -->
 
   </div><!-- /.container -->

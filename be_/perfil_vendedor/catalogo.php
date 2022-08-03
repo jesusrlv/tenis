@@ -51,7 +51,41 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
     <!-- Bootstrap core CSS -->
     <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <style>
+      /* normal web */
+      
+      
+      /* On screens that are 992px wide or less, go from four columns to two columns */
+      /* tablets, celular horizontal y otros dispositivos */
+      @media screen and (max-width: 2000px) {
+        #selector1{
+          width:50%;
+        }
+      }
+      /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+      /* CELULAR */
+      @media screen and (max-width: 600px) {
+          #esconder {
+              display: none;
+              }
+          #titulo_card{
+            font-size:14px;
+          }
+          #titulo_card2{
+            font-size:12px;
+          }
+          #titulo_card3{
+            font-size:8px;
+          }
+          #texto_titulo{
+            font-size:18px;
+          }
+          #selector1{
+            width:100%;
+          }
+      }
+        
+    </style>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -92,7 +126,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
     <?php
     
-    $id_catalogo = $_REQUEST['id'];
+    // $id_catalogo = $_REQUEST['id'];
     require('query/query_ini.php');
     ?>
 
@@ -104,7 +138,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX | <?php echo $nombre_sess ?></a>
+    <a class="navbar-brand" href="#" id="texto_titulo"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX | <?php echo $nombre_sess ?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -159,7 +193,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   <p class="">
     <form id="form1">
 
-        <div class="input-group mb-3 w-50">
+        <div class="input-group mb-3" id="selector1">
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" id="checkbox1" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar1()">
           </div>
@@ -176,7 +210,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           </select>
         </div>
       <!-- divisor -->
-        <div class="input-group mb-3 w-50">
+        <div class="input-group mb-3" id="selector1">
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" value="1" name="count[]" aria-label="Checkbox for following text input" onclick="habilitar2()">
           </div>
@@ -187,7 +221,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           </select>
         </div>
       <!-- divisor -->
-        <div class="input-group mb-3 w-50">
+        <div class="input-group mb-3" id="selector1">
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar3()">
           </div>
@@ -198,7 +232,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           </select>
         </div>
       <!-- divisor -->
-        <div class="input-group mb-3 w-50">
+        <div class="input-group mb-3" id="selector1">
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar4()">
           </div>
@@ -208,7 +242,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           </select>
         </div>
       <!-- divisor -->
-        <div class="input-group mb-3 w-50">
+        <div class="input-group mb-3" id="selector1">
           <div class="input-group-text">
             <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar5()">
           </div>
@@ -410,24 +444,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   }
 </script>
 
-<style>
-  /* normal web */
-  
-  
-  /* On screens that are 992px wide or less, go from four columns to two columns */
-  /* tablets, celular horizontal y otros dispositivos */
-  @media screen and (max-width: 992px) {
-    
-  }
-  /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
-  /* CELULAR */
-  @media screen and (max-width: 600px) {
-    #esconder {
-        display: none;
-        }
-    }
-     
-</style>
+
 
         <script>
           $(document).ready(function(){
