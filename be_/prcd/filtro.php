@@ -36,13 +36,13 @@ else if($val == 3){
     echo $color;
    
 
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%')";
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE ('%$color%'))";
+    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%')";
     echo $Query;
-    if(!$Query)
-{
-   die("database query fail!" . mysqli_error($conn));
-}
-
+//     if(!$Query)
+// {
+//    die("database query fail!" . mysqli_error($conn));
+// }
   }
 }
 else if($val == 4){
@@ -53,7 +53,7 @@ else if($val == 4){
     $color = $_POST['color']; 
     $material = $_POST['material'];
 
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%" . $color . "%' AND material LIKE '%" . $material . "%') " ;
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%$color%' AND material LIKE '%$material%')";
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%' AND material LIKE '%$material%') " ;
 
     echo $Query;
@@ -103,7 +103,17 @@ else if($val == 5){
                 <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 500px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
                 <div class="card-body text-start bg-primary text-light">
-                  <span class="card-title"><small>'.$row_sql_catalogo['nombre'].'</small></span><br>
+                  <span class="card-title"><small><strong>'.$row_sql_catalogo['nombre'].'</strong></small></span><br>
+                  <span class="card-title"><small>'.$row_sql_catalogo['descripcion'].'</small></span><br>
+                  ';
+                  // explode
+                    $valueColores = explode(',',$row_sql_catalogo['color']);
+                    for ($x = 0; $x < count($valueColores); $x++) {    
+                        echo '<span class="badge text-bg-light">'.$valueColores[$x].'</span> '.PHP_EOL;
+                      }
+                  // explode
+          
+        echo'
                   <span class="card-title text-light"><small>$__.__</small></span>
                   <hr>
                   
@@ -139,6 +149,7 @@ else if($val == 5){
                 }
               </script>
               ';
+
               echo '
               
               <select class="form-select" id="valor" onchange="valorID(this.value)">
