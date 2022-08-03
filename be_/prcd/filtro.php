@@ -100,7 +100,7 @@ else if($val == 5){
               <div class="card-header bg-primary text-light">
                   <small><i class="bi bi-cart-plus"></i></small>
                 </div>
-                <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="width:100% max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
+                <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="width:100%; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
                 <div class="card-body text-start bg-primary text-light">
                   <span class="card-title"><small><strong>'.$row_sql_catalogo['nombre'].'</strong></small></span><br>
