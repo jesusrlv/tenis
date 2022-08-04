@@ -40,7 +40,8 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     
     <!-- ajax -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
@@ -234,11 +235,54 @@ session_start();
           Modelo - Talla
         </label>
       </div>
+      <!-- divisor -->
+      <div class="input-group mb-3" id="selector1">
+          <div class="input-group-text bg-primary text-light">
+            <i class="bi bi-filter-circle-fill"></i>          
+          </div>
+          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo">
+            <option selected>Selecciona el tipo de filtro ...</option>
+            <option value="">Sin categoría</option>
+            <option value="1">a. Marca - Color</option>
+            <option value="2">b. Modelo - Color </option>
+            <option value="3">c. Marca - Material</option>
+            <option value="4">d. Modelo - Material</option>
+            <option value="5">e. Marca - Talla</option>
+            <option value="6">f. Modelo - Talla</option>
+
+          </select>
+        </div>
     <hr class="w-50">
 
     <p class="">
    
     <form id="form1">
+
+    <!-- entran los dos filtros -->
+    <!-- divisor -->
+    <div class="input-group mb-3" id="selector1">
+          <div class="input-group-text bg-primary text-light">
+            <i class="bi bi-1-circle-fill"></i>          
+          </div>
+          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo">
+            <option selected>Filtro 1 ...</option>
+            <option value="">Sin categoría</option>
+
+          </select>
+        </div>
+
+        <!-- divisor -->
+      <div class="input-group mb-3" id="selector1">
+          <div class="input-group-text bg-primary text-light">
+            <i class="bi bi-2-circle-fill"></i>          
+          </div>
+          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo">
+            <option selected>Filtro 2 ...</option>
+            <option value="">Sin categoría</option>
+            
+          </select>
+        </div>
+    <!-- entran los dos filtros -->
 
         <div class="input-group mb-3" id="selector1">
           <div class="input-group-text">
