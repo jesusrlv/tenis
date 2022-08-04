@@ -195,49 +195,9 @@ session_start();
 
 
   <div class="container marketing" style="background-color:#f7f7f7;">
-  <p class=" pt-4"><strong>Seleccione tipo de filtro...</strong></p>
+  <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
-    <hr class="w-50">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-          Marca - Color
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Modelo - Color
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Marca - Material
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Modelo - Material
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Marca - Talla
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Modelo - Talla
-        </label>
-      </div>
-    <hr class="w-50">
-
-    <p class="">
-   
+  <p class="">
     <form id="form1">
 
         <div class="input-group mb-3" id="selector1">
