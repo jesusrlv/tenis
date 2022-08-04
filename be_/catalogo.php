@@ -205,16 +205,28 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     </div>
                     <div class="mb-3">
                       <hr>
-                      <span class="text-secondary">Tallas disponibles:</span>
-                      <ul>';
+                      <span class="text-secondary mb-3"><strong>Tallas disponibles:</strong></span>
+                      ';
                         $sqlTallaDisp = "SELECT * FROM talla WHERE id_ext = '".$row_sql['id']."'";
                         $resultadoTallaDisp = $conn->query($sqlTallaDisp);
                         while ($row_sqlTallaDisp = $resultadoTallaDisp->fetch_assoc()){
-                          echo '<li>'.$row_sqlTallaDisp['talla'].' | '.$row_sqlTallaDisp['cantidad'].'</li>';
+                          echo '
+                          <div class="alert alert-primary text-center" role="alert">
+                            <strong>Talla:</strong> '.$row_sqlTallaDisp['talla'].' | <strong>Cantidad:</strong> '.$row_sqlTallaDisp['cantidad'].'
+                          </div>';
                         }
-                      echo '</ul>
+                      echo '
                       <hr>
-                      <span class="text-secondary">Colores disponibles:</span>
+                      <span class="text-secondary"><strong>Colores disponibles:</strong></span>';
+                      $sqlColorDisp = "SELECT * FROM color_inventario WHERE id_ext = '".$row_sql['id']."'";
+                      $resultadoColorDisp = $conn->query($sqlColorDisp);
+                      while ($row_sqlColorDisp = $resultadoColorDisp->fetch_assoc()){
+                        echo '
+                        <div class="alert alert-primary text-center" role="alert">
+                          <strong>Color:</strong> '.$row_sqlColorDisp['color'].' | <strong>Cantidad:</strong> '.$row_sqlColorDisp['cantidad'].'
+                        </div>';
+                      }
+                    echo '
                        
 
                     </div>
