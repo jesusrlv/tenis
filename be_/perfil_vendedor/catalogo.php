@@ -199,42 +199,7 @@ session_start();
   <p class=" pt-4"><strong>Seleccione tipo de filtro...</strong></p>
   <div class="container mb-4">
     <hr class="w-50">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-          Marca - Color
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Modelo - Color
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Marca - Material
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Modelo - Material
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Marca - Talla
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-          Modelo - Talla
-        </label>
-      </div>
+      
     <form id="form1">
       <!-- divisor -->
       <div class="input-group mb-3" id="selector1">
@@ -285,65 +250,8 @@ session_start();
           </select>
         </div>
     <!-- entran los dos filtros -->
-
-        <div class="input-group mb-3" id="selector1">
-          <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" id="checkbox1" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar1()">
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="marca" name="marca" disabled="disabled" required>
-            <option selected>Marca</option>
-            <?php
-              $sqlSearch = "SELECT DISTINCT nombre FROM producto";
-              $resultSearch= $conn->query($sqlSearch);
-              while($rowSearch = $resultSearch->fetch_array()){
-                echo '<option value="'.$rowSearch['nombre'].'">'.$rowSearch['nombre'].'</option>';
-              }
-          ?>
-            
-          </select>
-        </div>
-      <!-- divisor -->
-        <div class="input-group mb-3" id="selector1">
-          <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" value="1" name="count[]" aria-label="Checkbox for following text input" onclick="habilitar2()">
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo" disabled="disabled">
-            <option selected>Modelo</option>
-            <option value="">Sin categoría</option>
-
-          </select>
-        </div>
-      <!-- divisor -->
-        <div class="input-group mb-3" id="selector1">
-          <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar3()">
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled">
-       
-            <option value="">Color predominante</option>
-            
-          </select>
-        </div>
-      <!-- divisor -->
-        <div class="input-group mb-3" id="selector1">
-          <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar4()">
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="material" name="material" disabled="disabled">
-            <option selected>Material</option>
-         
-          </select>
-        </div>
-      <!-- divisor -->
-        <div class="input-group mb-3" id="selector1">
-          <div class="input-group-text">
-            <input class="form-check-input mt-0" type="checkbox" name="count[]" value="1" aria-label="Checkbox for following text input" onclick="habilitar5()">
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="talla" name="talla" disabled="disabled">
-            <option selected>Talla</option>
-            
-          </select>
-        </div>
+    <hr class="w-50">
+        
         <button class="btn btn-primary" type="submit" id="smt"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
         
     </form>

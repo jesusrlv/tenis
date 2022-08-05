@@ -459,7 +459,7 @@ session_start();
           $("#form1").submit(function(event){
           $.ajax({
                   type:"POST",
-                  url:"../prcd/filtro.php",
+                  url:"../prcd/RESP_filtro2.php",
                   data:form.serialize(),
                   dataType: "html",
                   async:false,

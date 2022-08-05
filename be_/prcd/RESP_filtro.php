@@ -58,13 +58,7 @@ include('../../query/qconn/qc.php');
     $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
     $resultado_Query = $conn->query($Query);
 
-    if($resultado_Query = $conn->query($Query)){
-  // echo $resultado_Query;
-   $row = $resultado_Query->fetch_assoc();
-  //  echo $Query;
-  } else {
-     printf("Error: %s\n", $conn->error);
- }
+    
  echo '<div class="row row-cols-2 g-2">';
     while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
         

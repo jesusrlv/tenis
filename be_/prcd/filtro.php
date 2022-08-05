@@ -10,11 +10,9 @@ if($val == 1){
     $marca = $_POST['filtro1'];
     $color = $_POST['filtro2'];
 
-    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca') " ;
-    $Query = "SELECT producto.id, producto.nombre, producto.catalogo, producto.imagen, producto.descripcion, producto.precio_prov, color_inventario.color
+    $Query = "SELECT producto.id as id, producto.nombre as nombre, producto.catalogo as catalogo, producto.imagen as imagen, producto.descripcion as descripcion, producto.precio_prov as precio_prov, producto.precio as precio, color_inventario.color as color, color_inventario.id_ext as id_ext
     FROM producto
     INNER JOIN color_inventario ON producto.id = color_inventario.id_ext WHERE producto.nombre = '$marca' AND color_inventario.color = '$color'";
-echo $Query;
 
   }
 }
@@ -84,13 +82,7 @@ else if($val == 5){
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
     $resultado_Query = $conn->query($Query);
 
-    if($resultado_Query = $conn->query($Query)){
-  // echo $resultado_Query;
-   $row = $resultado_Query->fetch_assoc();
-  //  echo $row['talla'];
-  } else {
-     printf("Error: %s\n", $conn->error);
- }
+    
  echo '<div class="row row-cols-2 g-2">';
     while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
         
@@ -112,10 +104,10 @@ else if($val == 5){
                   <span class="card-title" id="titulo_card2"><small>'.$row_sql_catalogo['descripcion'].'</small></span><br>
                   ';
                   // explode
-                    $valueColores = explode(',',$row_sql_catalogo['color']);
-                    for ($x = 0; $x < count($valueColores); $x++) {    
-                        echo '<span class="badge text-bg-light" id="titulo_card3">'.$valueColores[$x].'</span> '.PHP_EOL;
-                      }
+                    // $valueColores = explode(',',$row_sql_catalogo['color']);
+                    // for ($x = 0; $x < count($valueColores); $x++) {    
+                    //     echo '<span class="badge text-bg-light" id="titulo_card3">'.$valueColores[$x].'</span> '.PHP_EOL;
+                    //   }
                   // explode
           
         echo'
