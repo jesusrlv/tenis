@@ -240,15 +240,19 @@ session_start();
           <div class="input-group-text bg-primary text-light">
             <i class="bi bi-filter-circle-fill"></i>          
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo">
+          <select class="form-select" aria-label="Example select with button addon" id="filter" name="filter">
             <option selected>Selecciona el tipo de filtro ...</option>
             <option value="">Sin categoría</option>
             <option value="1">a. Marca - Color</option>
-            <option value="2">b. Modelo - Color </option>
-            <option value="3">c. Marca - Material</option>
-            <option value="4">d. Modelo - Material</option>
-            <option value="5">e. Marca - Talla</option>
+            <option value="2">b. Marca - Material</option>
+            <option value="3">c. Marca - Talla</option>
+            <option value="4">d. Modelo - Color </option>
+            <option value="5">e. Modelo - Material</option>
             <option value="6">f. Modelo - Talla</option>
+            <option disabled>__________________</option>
+            <option value="7">g. Color - Talla</option>
+            <option value="8">h. Color - Material</option>
+            <option value="8">i. Talla - Material</option>
 
           </select>
         </div>
@@ -264,7 +268,7 @@ session_start();
           <div class="input-group-text bg-primary text-light">
             <i class="bi bi-1-circle-fill"></i>          
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo">
+          <select class="form-select" aria-label="Example select with button addon" id="filtro1" name="filtro1">
             <option selected>Filtro 1 ...</option>
             <option value="">Sin categoría</option>
 
@@ -276,7 +280,7 @@ session_start();
           <div class="input-group-text bg-primary text-light">
             <i class="bi bi-2-circle-fill"></i>          
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo">
+          <select class="form-select" aria-label="Example select with button addon" id="filtro2" name="filtro2">
             <option selected>Filtro 2 ...</option>
             <option value="">Sin categoría</option>
             
@@ -642,6 +646,41 @@ session_start();
                 });
 
               });
+</script>
+
+<script>
+  $(document).ready(function(){
+    $("#filter").change(function(){
+                  var filtro= $("#filter").val();
+                    
+                      $.ajax({
+                        data: {"filtro":filtro},
+                        url:'ajaxFiltro.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#filtro1").html("Procesando, espere por favor...");
+                        },
+                        success:function(response){
+                          $("#filtro1").html(response);
+                        }
+                      });
+                });
+    $("#filter").change(function(){
+                  var filtro= $("#filter").val();
+                    
+                      $.ajax({
+                        data: {"filtro":filtro},
+                        url:'ajaxFiltro2.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#filtro2").html("Procesando, espere por favor...");
+                        },
+                        success:function(response){
+                          $("#filtro2").html(response);
+                        }
+                      });
+                });
+  });
 </script>
 
   <!-- https://pressroom.hostalia.com/white-papers/selects-dependientes-php-jquery-ajax/ -->
