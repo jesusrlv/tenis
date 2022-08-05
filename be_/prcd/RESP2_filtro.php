@@ -2,19 +2,18 @@
 if(isset($_POST)){
   include('../../query/qconn/qc.php');
 
-  $val = $_POST['filter'];
+  $val=0;
+  foreach ( $_POST['count'] as $value ) {
+    $val++;
+}
+echo $val;
 
 if($val == 1){
-  if(isset($_POST['filtro1']) && isset($_POST['filtro2'])){
+  if(isset($_POST['marca'])){
 
-    $marca = $_POST['filtro1'];
-    $color = $_POST['filtro2'];
+    $marca = $_POST['marca'];
 
-    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca') " ;
-    $Query = "SELECT producto.id, producto.nombre, producto.catalogo, producto.imagen, producto.descripcion, producto.precio_prov, color_inventario.color
-    FROM producto
-    INNER JOIN color_inventario ON producto.id = color_inventario.id_ext WHERE producto.nombre = '$marca' AND color_inventario.color = '$color'";
-echo $Query;
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca') " ;
 
   }
 }

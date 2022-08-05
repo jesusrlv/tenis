@@ -235,6 +235,7 @@ session_start();
           Modelo - Talla
         </label>
       </div>
+    <form id="form1">
       <!-- divisor -->
       <div class="input-group mb-3" id="selector1">
           <div class="input-group-text bg-primary text-light">
@@ -252,16 +253,13 @@ session_start();
             <option disabled>__________________</option>
             <option value="7">g. Color - Talla</option>
             <option value="8">h. Color - Material</option>
-            <option value="8">i. Talla - Material</option>
+            <option value="9">i. Talla - Material</option>
 
           </select>
         </div>
     <hr class="w-50">
-
     <p class="">
    
-    <form id="form1">
-
     <!-- entran los dos filtros -->
     <!-- divisor -->
     <div class="input-group mb-3" id="selector1">
@@ -539,9 +537,7 @@ session_start();
   }
 </script>
 
-
-
-        <script>
+<script>
           $(document).ready(function(){
           var form=$("#form1");
           $("#form1").submit(function(event){
