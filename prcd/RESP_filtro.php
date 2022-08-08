@@ -1,88 +1,77 @@
 <?php
 if(isset($_POST)){
-  include('../query/qconn/qc.php');
 
-  $val = $_POST['filter'];
+// $id = $_GET[''];
+// $marca = $_POST['marca'];
+// $modelo = $_POST['modelo'];
+// $color = $_POST['color'];
+// $material = $_POST['material'];
+// $talla = $_POST['talla'];
+include('../query/qconn/qc.php');
+// if(isset($_POST['queryFilter'])){
+//   $queryMarca = "Nike";
+    // if (isset($_POST['marca'])){
+    //     $marca = $_POST['marca'];
+    //     $queryMarca = "Nike";
+    // }
+    // else{
+    //     $marca = "";
+    //     $queryMarca = "";
+    // }
 
-if($val == 1){
-  if(isset($_POST['filtro1']) && isset($_POST['filtro2'])){
+    // if (isset($_POST['modelo'])){
+    //     $modelo = $_POST['modelo'];
+    //     $queryModelo= "AND ".$modelo."= modelo";
+    // }
+    // else{
+    //     $modelo = "";
+    //     $queryModelo = "";
+    // }
 
-    $marca = $_POST['filtro1'];
-    $color = $_POST['filtro2'];
-
-    $Query = "SELECT producto.id as id, producto.nombre as nombre, producto.catalogo as catalogo, producto.imagen as imagen, producto.descripcion as descripcion, producto.precio_prov as precio_prov, producto.precio as precio, color_inventario.color as color, color_inventario.id_ext as id_ext
-    FROM producto
-    INNER JOIN color_inventario ON producto.id = color_inventario.id_ext WHERE producto.nombre = '$marca' AND color_inventario.color = '$color'";
-
-  }
-}
-else if($val == 2){
-  if((isset($_POST['marca'])) && (isset($_POST['modelo']))){
+    // if (isset($_POST['color'])){
+    //     $color = $_POST['color']; 
+    //     $queryColor= "AND ".$color."= color";
+    // }
+    // else{
+    //     $color = "";
+    //     $queryColor = "";
+    // }
+    // if (isset($_POST['material'])){
+    //     $material = $_POST['material'];
+    //     $queryMaterial= "AND ".$material."= material";
+    // }
+    // else{
+    //     $material = "";
+    //     $queryMaterial = "";
+    // }
+    // if (isset($_POST['talla'])){
+    //     $talla = $_POST['talla'];
+    //     $queryTalla= "AND ".$talla."= talla";
+    // }
+    // else{
+    //     $talla = "";
+    //     $queryTalla = "";
+    // }
+    // $Query = "SELECT * FROM producto WHERE ".$queryMarca." ". $queryModelo." ". $queryColor." ". $queryMaterial." ".$queryTalla." ORDER BY id";
     
     $marca = $_POST['marca'];
-    $modelo = $_POST['modelo'];
-
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo') " ;
-
-  }
-}
-else if($val == 3){
-  if((isset($_POST['marca'])) && (isset($_POST['modelo'])) && (isset($_POST['color']))){
-    
-    $marca = $_POST['marca'];
-    $modelo = $_POST['modelo'];
-    $color = $_POST['color']; 
-    echo $color;
-   
-
-    $Query = ("SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%$color%')");
-    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%')";
-    echo $Query;
-      if ($Query){
-        echo "Consulta Correcta";
-      }
-      else{
-        die("database query fail!" . mysqli_error($conn));
-      }
-//     if(!$Query)
-// {
-//    die("database query fail!" . mysqli_error($conn));
-// }
-  }
-}
-else if($val == 4){
-  if((isset($_POST['marca'])) && (isset($_POST['modelo'])) && (isset($_POST['color'])) && (isset($_POST['material']))){
-  
-    $marca = $_POST['marca'];
-    $modelo = $_POST['modelo'];
-    $color = $_POST['color']; 
-    $material = $_POST['material'];
-
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%$color%' AND material LIKE '%$material%')";
-    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%' AND material LIKE '%$material%') " ;
-
-    echo $Query;
-
-  } 
-}
-else if($val == 5){
-  if((isset($_POST['marca'])) && (isset($_POST['modelo'])) && (isset($_POST['color'])) && (isset($_POST['material'])) && (isset($_POST['talla']))){
-    
-    $marca = $_POST['marca'];
+    // echo $marca;
     $modelo = $_POST['modelo'];
     $color = $_POST['color']; 
     $material = $_POST['material'];
     $talla = $_POST['talla'];
-
-    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%$color%' AND material LIKE '%$material%' AND talla LIKE '%$talla%') " ;
-
-  }
-}
-
-    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
+    
+    // $Query = "SELECT * FROM producto WHERE modelo == '$modelo' OR marca == '$marca' OR color LIKE '$color' OR material == '$material' OR talla LIKE '$talla'";
+    $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material = '$material' OR talla LIKE '$talla') " ;
     $resultado_Query = $conn->query($Query);
 
-    
+    if($resultado_Query = $conn->query($Query)){
+  // echo $resultado_Query;
+   $row = $resultado_Query->fetch_assoc();
+  //  echo $Query;
+  } else {
+     printf("Error: %s\n", $conn->error);
+ }
  echo '<div class="row row-cols-2 g-2">';
     while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
         
@@ -93,26 +82,15 @@ else if($val == 5){
         echo '
           <div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
           <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'" onclick="escala()">
-            <div class="card text-center text-dark" style="width: 100%;" id="card_tamano">
+            <div class="card text-center text-dark" style="width: 100%;">
               <div class="card-header bg-primary text-light">
                   <small><i class="bi bi-cart-plus"></i></small>
                 </div>
-                <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top img-fluid" style="width:100%; max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
+                <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="card-img-top" style="max-width: 500px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
                 <div class="card-body text-start bg-primary text-light">
-                  <span class="card-title" id="titulo_card"><small><strong>'.$row_sql_catalogo['nombre'].'</strong></small></span><br>
-                  <span class="card-title" id="titulo_card2"><small>'.$row_sql_catalogo['descripcion'].'</small></span><br>
-                  <span class="card-title" id="titulo_card2"><small>'.$row_sql_catalogo['precio'].'</small></span><br>
-                  ';
-                  // explode
-                    // $valueColores = explode(',',$row_sql_catalogo['color']);
-                    // for ($x = 0; $x < count($valueColores); $x++) {    
-                    //     echo '<span class="badge text-bg-light" id="titulo_card3">'.$valueColores[$x].'</span> '.PHP_EOL;
-                    //   }
-                  // explode
-          
-        echo'
-                  
+                  <span class="card-title"><small>'.$row_sql_catalogo['nombre'].'</small></span><br>
+                  <span class="card-title text-light"><small>$'.$row_sql_catalogo['precio'].'</small></span>
                   <hr>
                   
                 </div>
@@ -133,21 +111,13 @@ else if($val == 5){
             <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['imagen'].'" class="img-fluid" alt="...">
             <hr>
               <div class="alert alert-primary">
-                <p class="mt-2 text-center">Producto: '.$row_sql_catalogo['nombre'].'</p>
-                <p class="mt-2 text-center">Precio: '.$row_sql_catalogo['precio'].'</p>
+                <p class="mt-2 text-center">'.$row_sql_catalogo['nombre'].'</p>
+                <p class="mt-1 text-center">$'.$row_sql_catalogo['precio'].'</p>
              
               <p class="mt-1 text-secondary"><small>Talla:</small></p>
               <div class="container">';
               $sqlMedida = "SELECT * FROM talla_catalogo ORDER BY id ASC";
               $resultadoMedida = $conn->query($sqlMedida);
-              echo '
-              <script>
-                function valor'.$row_sql_catalogo['id'].'(){
-                  alert('.$row_sql_catalogo['precio_prov'].');
-                }
-              </script>
-              ';
-
               echo '
               
               <select class="form-select" id="valor" onchange="valorID(this.value)">

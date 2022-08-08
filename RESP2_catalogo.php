@@ -1,26 +1,3 @@
-<?php
-session_start();
-
-// if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
-//   if($_SESSION['perfil']==3){
-
-//   }
-//   else{
-//     header('Location: prcd/sort.php');
-//     die();
-//   }
-  
-// } else {
-//   // En caso contrario redirigimos el visitante a otra página
-
-//   header('Location: prcd/sort.php');
-//   die();
-// }
-
-// variables de sesión
-
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -30,14 +7,13 @@ session_start();
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Shoes Store MX · Catálogo</title>
-    <link rel="icon" type="image/png" href="../../assets/brand/img/cel.ico">
+    <link rel="icon" type="image/png" href="assets/brand/img/cel.ico">
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     
     <!-- ajax -->
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
@@ -47,49 +23,8 @@ session_start();
     <script src="query/compra.js"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      /* normal web */
-      
-      
-      /* On screens that are 992px wide or less, go from four columns to two columns */
-      /* tablets, celular horizontal y otros dispositivos */
-      @media screen and (max-width: 2000px) {
-        #selector1{
-          width:50%;
-        }
-        /* #card_tamano{
-            height:350px;
-          } */
-      }
-      /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
-      /* CELULAR */
-      @media screen and (max-width: 600px) {
-          #esconder {
-              display: none;
-              }
-          #titulo_card{
-            font-size:14px;
-          }
-          #titulo_card2{
-            font-size:12px;
-          }
-          #titulo_card3{
-            font-size:8px;
-          }
-          #texto_titulo{
-            font-size:18px;
-          }
-          #selector1{
-            width:100%;
-          }
-          /* #card_tamano{
-            height:175px;
-          } */
-          
-      }
-        
-    </style>
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -109,29 +44,33 @@ session_start();
       }
 
       #hidden:active {
-     
+        /* border: 1px solid #ffc107; */
+        /* border-color:#ffc107; */
         box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
         transform: scale(1.03);
         transition: width 0.8s, height 0.8s, transform 0.3s;
         
       }
       #hidden:hover {
-    
+        /* border: 1px solid #ffc107; */
+        /* border-color:#ffc107; */
         box-shadow: 0 10px 20px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.06);
         transform: scale(1.03);
         transition: width 0.8s, height 0.8s, transform 0.3s;
         
       }
       #hidden:visited {
-    
+        /* border: 1px solid #ffc107; */
+        /* border-color:#ffc107; */
         background-color: yellow;
       }
     </style>
 
     <?php
     
-    // $id_catalogo = $_REQUEST['id'];
+    $id_catalogo = $_REQUEST['id'];
     require('query/query_ini.php');
+    // require('query/query_catalogo.php');
     ?>
 
     <!-- Custom styles for this template -->
@@ -177,8 +116,8 @@ session_start();
 
 <div class="mt-5 pt-2 mb-3">
   <h1 class="text-center">
-    <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
-    <p class="m-0 p-0"><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="assets/brand/img/letras_verdes.png" alt="" width="270"></p>
   </h1>
 </div>
   <!-- Marketing messaging and featurettes
@@ -188,62 +127,103 @@ session_start();
 
 
   <div class="container marketing" style="background-color:#f7f7f7;">
-  <p class=" pt-4"><strong>Seleccione tipo de filtro...</strong></p>
+  <p class=" pt-4"><strong>Categorías</strong></p>
   <div class="container mb-4">
-    <hr class="w-50">
-      
+  <p class="">
+    <!-- <form action="../prcd/filtro.php" method="POST" name="form1" id="form1"> -->
     <form id="form1">
-      <!-- divisor -->
-      <div class="input-group mb-3" id="selector1">
-          <div class="input-group-text bg-primary text-light">
-            <i class="bi bi-filter-circle-fill"></i>          
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="filter" name="filter">
-            <option selected>Selecciona el tipo de filtro ...</option>
-            <option value="">Sin categoría</option>
-            <option value="1">a. Marca - Color</option>
-            <option value="2">b. Marca - Material</option>
-            <option value="3">c. Marca - Talla</option>
-            <option value="4">d. Modelo - Color </option>
-            <option value="5">e. Modelo - Material</option>
-            <option value="6">f. Modelo - Talla</option>
-            <option disabled>__________________</option>
-            <option value="7">g. Color - Talla</option>
-            <option value="8">h. Color - Material</option>
-            <option value="9">i. Talla - Material</option>
 
-          </select>
-        </div>
-    <hr class="w-50">
-    <p class="">
-   
-    <!-- entran los dos filtros -->
-    <!-- divisor -->
-    <div class="input-group mb-3" id="selector1">
-          <div class="input-group-text bg-primary text-light">
-            <i class="bi bi-1-circle-fill"></i>          
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="filtro1" name="filtro1">
-            <option selected>Filtro 1 ...</option>
-            <option value="">Sin categoría</option>
+     
 
-          </select>
-        </div>
-
-        <!-- divisor -->
-      <div class="input-group mb-3" id="selector1">
-          <div class="input-group-text bg-primary text-light">
-            <i class="bi bi-2-circle-fill"></i>          
+        <div class="input-group mb-3 w-50">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" id="checkbox1" value="" aria-label="Checkbox for following text input" onclick="habilitar1()">
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="filtro2" name="filtro2">
-            <option selected>Filtro 2 ...</option>
-            <option value="">Sin categoría</option>
+          <select class="form-select" aria-label="Example select with button addon" id="marca" name="marca" disabled="disabled" required>
+            <option selected>Marca</option>
+            <?php
+              // $sqlMarca ="SELECT * FROM marca";
+              // $resultado_sqlMarca = $conn->query($sqlMarca);
+              // while($row_sqlMarca = $resultado_sqlMarca->fetch_assoc()){
+              //   echo '<option value="'.$row_sqlMarca['marca'].'">'.$row_sqlMarca['marca'].'</option>';
+              // }
+            ?>
+            <?php
+          $sqlSearch = "SELECT DISTINCT nombre FROM producto";
+          $resultSearch= $conn->query($sqlSearch);
+          while($rowSearch = $resultSearch->fetch_array()){
+            echo '<option value="'.$rowSearch['nombre'].'">'.$rowSearch['nombre'].'</option>';
+          }
+          ?>
             
           </select>
         </div>
-    <!-- entran los dos filtros -->
-    <hr class="w-50">
-        
+      <!-- divisor -->
+        <div class="input-group mb-3 w-50">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar2()">
+          </div>
+          <select class="form-select" aria-label="Example select with button addon" id="modelo" name="modelo" disabled="disabled">
+            <option selected>Modelo</option>
+            <?php
+              $sqlModelo ="SELECT * FROM modelo";
+              $resultado_sqlModelo = $conn->query($sqlModelo);
+              while($row_sqlModelo = $resultado_sqlModelo->fetch_assoc()){
+                echo '<option value="'.$row_sqlModelo['modelo'].'">'.$row_sqlModelo['modelo'].'</option>';
+              }
+            ?>
+          </select>
+        </div>
+      <!-- divisor -->
+        <div class="input-group mb-3 w-50">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar3()">
+          </div>
+          <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" >
+          <!-- <select class="form-select" aria-label="Example select with button addon" id="color" name="color" disabled="disabled" name="users" onchange="showUser(this.value)"> -->
+            <!-- <option selected>Color predominante</option> -->
+            <option value="">Color predominante</option>
+            <?php
+              $sqlColor ="SELECT * FROM color";
+              $resultado_sqlColor = $conn->query($sqlColor);
+              while($row_sqlColor = $resultado_sqlColor->fetch_assoc()){
+                echo '<option value="'.$row_sqlColor['color'].'">'.$row_sqlColor['color'].'</option>';
+              }
+            ?>
+          </select>
+        </div>
+      <!-- divisor -->
+        <div class="input-group mb-3 w-50">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar4()">
+          </div>
+          <select class="form-select" aria-label="Example select with button addon" id="material" name="material" disabled="disabled">
+            <option selected>Material</option>
+            <?php
+              $sqlMaterial ="SELECT * FROM material";
+              $resultado_sqlMaterial = $conn->query($sqlMaterial);
+              while($row_sqlMaterial = $resultado_sqlMaterial->fetch_assoc()){
+                echo '<option value="'.$row_sqlMaterial['material'].'">'.$row_sqlMaterial['material'].'</option>';
+              }
+            ?>
+          </select>
+        </div>
+      <!-- divisor -->
+        <div class="input-group mb-3 w-50">
+          <div class="input-group-text">
+            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input" onclick="habilitar5()">
+          </div>
+          <select class="form-select" aria-label="Example select with button addon" id="talla" name="talla" disabled="disabled">
+            <option selected>Talla</option>
+            <?php
+              $sqlTalla ="SELECT * FROM talla_catalogo";
+              $resultado_sqlTalla = $conn->query($sqlTalla);
+              while($row_sqlTalla = $resultado_sqlTalla->fetch_assoc()){
+                echo '<option value="'.$row_sqlTalla['talla'].'">'.$row_sqlTalla['talla'].' | '.$row_sqlTalla['tipo'].'</option>';
+              }
+            ?>
+          </select>
+        </div>
         <button class="btn btn-primary" type="submit" id="smt"><i class="bi bi-filter-circle-fill"></i> Filtro</button>
         
     </form>
@@ -251,22 +231,60 @@ session_start();
   
     <div class="btn-group btn-group-sm" role="group" aria-label="Basic radio toggle button group">
 
+      <!-- <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="mostrarTodo()" checked>
+      <label class="btn btn-outline-primary" for="btnradio1">Todos</label> -->
+
+
 <!-- código consulta -->
 
 </head>
 <body>
 
-
+<!-- <form>
+<select name="users" onchange="showUser(this.value)">
+  <option value="">Select a person:</option>
+  <option value="1">Peter Griffin</option>
+  <option value="2">Lois Griffin</option>
+  <option value="3">Joseph Swanson</option>
+  <option value="4">Glenn Quagmire</option>
+  </select>
+</form> -->
 <br>
 
 <!-- codigo -->
      
+<?php
+    // $sum = 1;
+    // include('query/query_categorias.php');
+    // include('prcd/filtros.php');
+    // echo '
+    
+
+    // <form action="#" method="get">
+    // <select class="form-select" aria-label="Seleccion" style="cursor:pointer;" data-native-menu="false">
+    //   <option selected>Selecciona categoría</option>
+    //   <option value="0" onclick="mostrarTodo()">Todo</option>';
+    // while($row_sqlCategorias = $resultado_sqlCategorias->fetch_assoc()){
+    //   $sum++;
+      // AQUÍ QUEDA LO DEL MOVER EL ONCLICK
+      //<input type="radio" class="btn-check" name="btnradio" id="btnradio'.$sum.'" autocomplete="off" onclick="cambio('.$row_sqlCategorias['id'].')">
+      //<label class="btn btn-outline-primary" for="btnradio'.$sum.'">'.$row_sqlCategorias['nombre_catalogo'].'</label>
+    //   echo'
+    //     <option value="'.$sum.'" onclick="cambio('.$row_sqlCategorias['id'].')">'.$row_sqlCategorias['nombre_catalogo'].'</option>
+    //   ';
+    // }
+    // echo '</select>
+    // </form>';
+?>
     </div>
     
   </div>
   
   
     <span id="txtHint"><b>Aquí debe aparecer la información...</b></span>
+    <!-- <div id="txtHint"><b>Aquí debe aparecer la información...</b></div> -->
+
+
 
     <!-- Three columns of text below the carousel -->
     <!-- consultas productos -->
@@ -287,13 +305,13 @@ session_start();
   <footer class="footer mt-auto py-3">
     <p class="float-end"><a href="#">Regresar arriba</a></p>
     <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
-    <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
+    <p><strong>DEV:</strong> © 2022 <a href="#" target="_blank">Nexus Technology and Consulting</a>.</p>
   </footer>
   
 </main>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
       
   </body>
@@ -331,7 +349,9 @@ session_start();
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   function mensajeAgregado(){
-      
+      // swal("Correcto", "Tu producto ha sido agregado al carrito de compras", "success");
+
+      // document.getElementById('offcanvasRight').show;
       swal({
         title: "Correcto",
         text: "Tu producto ha sido agregado al carrito de compras",
@@ -347,10 +367,24 @@ session_start();
    
 </script>
 
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
 <script>
   x=0;
   function cambio(x){
+    // alert(x);
+    // document.getElementById('hidden'+x).style.visibility = 'hidden';
     
+    // z = document.getElementById('hidden'+x);
+    //  z.style.visibility = 'hidden';
+
+//     var divsToHide = document.getElementsById('hidden'+x); 
+//       for(var i = 0; i < divsToHide.length; i++){
+//           if(document.getElementById('q'+i).style.display!='none')
+//             {
+//             document.getElementById('q'+i).style.display='none'
+//             }
+//         }
+// }
   const div=document.querySelectorAll('#hidden');
   for(let i=0;i<div.length;i++){
     const styles = window.getComputedStyle(div[i]);
@@ -364,6 +398,12 @@ session_start();
           // div[i].style.visibility='hidden'; 
           div[i].style.display = 'none'; 
         }
+        // if(styles.visibility=='visible'){
+        // div[i].style.visibility='collapse';
+        // }
+        // else{
+        // div[i].style.visibility='visible';
+        // }
         
   }
 // https://codepen.io/letstacle/pen/qBmoZoB
@@ -381,6 +421,7 @@ session_start();
 
 <script>
   var x = document.getElementById('checkbox1');
+  // if (checked = x.checked){
   if (x.checked == true){
     document.getElementById("marca").disabled=false;
   }
@@ -390,6 +431,7 @@ session_start();
 
   var x2 = document.getElementById('checkbox2');
   if (x2.checked == true){
+  // if (x2.checked == true){
     document.getElementById("modelo").disabled=false;
   }
   else{
@@ -397,6 +439,7 @@ session_start();
   }
 
   var x3 = document.getElementById('checkbox3');
+  // if (checked = x.checked){
   if (x3.checked == true){
     document.getElementById("color").disabled=false;
   }
@@ -405,6 +448,7 @@ session_start();
   }
 
   var x4 = document.getElementById('checkbox4');
+  // if (checked = x.checked){
   if (x4.checked == true){
     document.getElementById("material").disabled=false;
   }
@@ -413,6 +457,7 @@ session_start();
   }
 
   var x5 = document.getElementById('checkbox5');
+  // if (checked = x.checked){
   if (x5.checked == true){
     document.getElementById("talla").disabled=false;
   }
@@ -437,7 +482,27 @@ session_start();
   }
 </script>
 
-<script>
+<style>
+  /* normal web */
+  
+  
+  /* On screens that are 992px wide or less, go from four columns to two columns */
+  /* tablets, celular horizontal y otros dispositivos */
+  @media screen and (max-width: 992px) {
+    
+  }
+  /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+  /* CELULAR */
+  @media screen and (max-width: 600px) {
+    #esconder {
+        display: none;
+        }
+    }
+     
+</style>
+
+<!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+        <script>
           $(document).ready(function(){
           var form=$("#form1");
           $("#form1").submit(function(event){
@@ -458,125 +523,15 @@ session_start();
           });
 
         </script>
+        <!-- valida -->
+  <!-- <script type="text/javascript">
+    function submit(){
+      let strMarca = document.getElementById('marca').value;
+      let strModelo = document.getElementById('modelo').value;
+      let strColor = document.getElementById('color').value;
+      let strMaterial = document.getElementById('material').value;
+      let strTalla = document.getElementById('talla').value;
 
-<script>
-              $(document).ready(function(e){
-
-                $("#marca").change(function(){
-                  var parametros= "marcaID="+$("#marca").val();
-                    
-                      $.ajax({
-                        data: parametros,
-                        url:'ajaxData.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#modelo").html("Procesando, espere por favor...");
-                        },
-                        success:function(response){
-                          $("#modelo").html(response);
-                        }
-                      });
-                });
-
-                $("#modelo").change(function(c){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                                        
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataModelo.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#color").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#color").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-                $("#modelo").change(function(d){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                                        
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataColor.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#material").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#material").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-                $("#modelo").change(function(f){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                                        
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataTalla.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#talla").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#talla").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-              });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $("#filter").change(function(){
-                  var filtro= $("#filter").val();
-                    
-                      $.ajax({
-                        data: {"filtro":filtro},
-                        url:'ajaxFiltro.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#filtro1").html("Procesando, espere por favor...");
-                        },
-                        success:function(response){
-                          $("#filtro1").html(response);
-                        }
-                      });
-                });
-    $("#filter").change(function(){
-                  var filtro= $("#filter").val();
-                    
-                      $.ajax({
-                        data: {"filtro":filtro},
-                        url:'ajaxFiltro2.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#filtro2").html("Procesando, espere por favor...");
-                        },
-                        success:function(response){
-                          $("#filtro2").html(response);
-                        }
-                      });
-                });
-  });
-</script>
-
-  <!-- https://pressroom.hostalia.com/white-papers/selects-dependientes-php-jquery-ajax/ -->
+      alert (strMarca, strModelo, strColor, strMaterial, strTalla);
+    } -->
+  </script>
