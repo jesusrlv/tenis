@@ -221,7 +221,7 @@ session_start();
     <!-- divisor -->
     <div class="input-group mb-3" id="selector1">
           <div class="input-group-text bg-primary text-light">
-            <i class="bi bi-1-circle-fill"></i>          
+          <i class="bi bi-1-square-fill"></i>          
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="filtro1" name="filtro1">
             <option selected>Filtro 1 ...</option>
@@ -233,7 +233,7 @@ session_start();
         <!-- divisor -->
       <div class="input-group mb-3" id="selector1">
           <div class="input-group-text bg-primary text-light">
-            <i class="bi bi-2-circle-fill"></i>          
+          <i class="bi bi-2-square-fill"></i>          
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="filtro2" name="filtro2">
             <option selected>Filtro 2 ...</option>

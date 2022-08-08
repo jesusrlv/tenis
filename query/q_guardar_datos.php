@@ -49,7 +49,7 @@ $valor = $_POST['valor'];
 
 foreach($nombreproducto as $key => $arreglo)
 {
-    $resta = $resta - 1;
+    // $resta = $resta - 1;
     $talla1 = $talla[$key];
     $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla,entrega) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1','$entrega')";
     $resultado= $conn->query($sql);
@@ -66,9 +66,9 @@ if($resultado_general){
     
     try {
         //Server settings
-        $mail->SMTPDebug = 0;                                       // Enable verbose debug output
+        $mail->SMTPDebug = 1;                                       // Enable verbose debug output
         $mail->isSMTP();                                            // Set mailer to use SMTP
-        $mail->Host       = 'smtp.titan.email ';  // Specify main and backup SMTP servers
+        $mail->Host       = 'smtp.titan.email';  // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
         $mail->Username   = 'tienda@shoesstoremxa.com';                     // SMTP username
         $mail->Password   = 'qy7hJGSyhz3hiJe';                               // SMTP password
