@@ -12,7 +12,7 @@
                 echo '<option value="'.$row_sql['color'].'">'.$row_sql['color'].'</option>';
             }
         }
-        else if(($id==2) OR ($id==4) OR ($id==8) OR ($id==9)){
+        else if(($id==2) OR ($id==5) OR ($id==8) OR ($id==9)){
             $sqlFiltro = "SELECT * FROM material";
             $resultadoFiltro = $conn->query($sqlFiltro);
             echo '<option selected value="">Material</option>';
