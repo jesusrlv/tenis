@@ -129,6 +129,7 @@ else {
           <th scope="col" class="h6"><small><i class="bi bi-box-seam"></i><br>Estatus<br>apartado</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-truck"></i><br>Marcar<br>entrega</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i><br>Detalles</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i><br>Vendedor</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -226,6 +227,16 @@ else {
             }
             // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
+            $idVendedor = $row_sql['vendedor'];
+            $sqlVendedor = "SELECT * FROM usr WHERE id = '$idVendedor'";
+            $resultadoVendedor = $conn->query($sqlVendedor);
+            $rowVendedor = $resultadoVendedor->fetch_assoc();
+            if(!empty($row_sql['vendedor'])){
+              echo'<td class="text-center"><small>'.$rowVendedor['usr'].'</small></td>';
+            }
+            else{
+              echo'<td class="text-center"><small>Venta externa</small></td>';
+            }
             echo'</tr>';
           }
         ?>
