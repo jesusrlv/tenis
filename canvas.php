@@ -17,7 +17,7 @@
                 <p id="compracarrito"></p>
                 <!-- <hr class="w-100 justify-aligment-center"> -->
             <!-- </form> -->
-            <button class="btn btn-primary w-100 mb-1" type="button" id="btncerrar" onclick="cambiarHidden()"><i class="bi bi-cart-plus"></i> Pagar carrito</button>
+            <button class="btn btn-primary w-100 mb-1" type="button" id="btncerrar" onclick="cambiarHidden()"><i class="bi bi-cart-plus"></i> Completar datos envío</button>
                 
                 <div class="col-12">
                   <div class="alert alert-primary" role="alert">
@@ -72,6 +72,10 @@
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
               <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email" REQUIRED>
             </div>
+            <div class="mb-3">
+              <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
+              <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email" REQUIRED>
+            </div>
             <!-- <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-credit-card-2-back"></i> Tarjeta para pago</small></label>
               
@@ -90,6 +94,8 @@
               </div> -->
             </div>
             <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cart-plus"></i> Realizar pedido</button>  
+            <hr>
+            <p class="mt-3 text-center"><a href="privacidad/" style="text-decoration: none;" target="_blank"><i class="bi bi-shield-fill-check"></i><small> Política de privacidad</small></a></p>
           </form>
           </div>
           
