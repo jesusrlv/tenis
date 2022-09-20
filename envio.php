@@ -128,10 +128,8 @@
     </div>
     <!-- consultas productos -->
     <!-- START THE FEATURETTES -->
-    <?php $entrega = $row_sql_envio['entrega'];?>
     <input type="text" value="<?php echo $entrega ?>" id="valorrow" hidden>
     
-
     <hr class="featurette-divider">
     <h2 class="mb-5 bg-light p-5 text-center featurette-heading"><i class="bi bi-info-circle-fill"></i> Cómo hacer pedidos <span class="text-muted">por medio de la app.
     </span></h2>
@@ -181,6 +179,7 @@
     <footer class="footer mt-auto py-3">
       <p class="float-end p-3"><a href="#">Regresar arriba</a></p>
       <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
+      <p><a href="privacidad/" style="text-decoration: none;"><i class="bi bi-shield-fill-check"></i> Política de privacidad</a></p>
     </footer>
   </div><!-- /.container -->
   
@@ -216,22 +215,3 @@
   </div>
 </div>
 <!-- modal de descripción del producto -->
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
-  var x = document.getElementById("valorrow").value;
-    if (x = 1){
-      // alert("El producto está en proceso de envío");
-      swal("Código localizado", "Revisa el estatus del envío", "success");
-      // $("#myModal").modal("show:true");
-
-    }
-    else if (x = 2){
-      // alert("El producto no tiene código de rastreo");
-      swal("Error!", "Tu envío se encuentra en camino", "success");
-    }
-    else if (x = 0){
-      // alert("El producto no tiene código de rastreo");
-      swal("Error!", "No se encuentra el envío en el registro", "error");
-    }
-</script>

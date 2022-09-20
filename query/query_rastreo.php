@@ -58,7 +58,12 @@ include('qconn/qc.php');
                     </div>
                     </div>
                 </div>
-                </div>';
+                </div>
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                <script>
+                swal("Código localizado", "Revisa el estatus del envío", "success");
+                </script>
+                ';
             }
         }
         elseif($resultado_rows == 0){
@@ -66,10 +71,14 @@ include('qconn/qc.php');
             echo '<tbody>
             <tr>
             <th scope="row" class="table-dark">Sin datos</th>
-            <td colspan="5" class="table-danger">Sin datos de envío</td>
+            <td colspan="5" class="table-danger">No hay datos de envío</td>
             
             </tr>
         </tbody>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+        swal("Error!", "No se encuentra el envío en el registro", "error");
+        </script>
         ';
     
         }
