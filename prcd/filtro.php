@@ -37,13 +37,13 @@ else if($val == 3){
 
     $Query = ("SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%$color%')");
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%')";
-    echo $Query;
-      if ($Query){
-        echo "Consulta Correcta";
-      }
-      else{
-        die("database query fail!" . mysqli_error($conn));
-      }
+    // echo $Query;
+    //   if ($Query){
+    //     echo "Consulta Correcta";
+    //   }
+    //   else{
+    //     die("database query fail!" . mysqli_error($conn));
+    //   }
 //     if(!$Query)
 // {
 //    die("database query fail!" . mysqli_error($conn));
@@ -61,7 +61,7 @@ else if($val == 4){
     $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%$color%' AND material LIKE '%$material%')";
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' AND descripcion = '$modelo' AND color LIKE '%".$color."%' AND material LIKE '%$material%') " ;
 
-    echo $Query;
+    // echo $Query;
 
   } 
 }
@@ -80,15 +80,18 @@ else if($val == 5){
 }
 
     // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
-    $resultado_Query = $conn->query($Query);
+    if (empty($Query)){
+      echo'
+      <script>
+        alert("No se encontró producto");
+      </script>
+      ';
+    }
+    else{
+      $resultado_Query = $conn->query($Query);
+    
+    
 
-    // if (empty($Query)){
-    //   echo'
-    //   <script>
-    //     alert("No se encontró producto");
-    //   </script>
-    //   ';
-    // }
 
     
  echo '<div class="row row-cols-2 g-2">';
@@ -194,6 +197,7 @@ else if($val == 5){
       </div>
       <!-- modal de descripción del producto -->';
     }
+  }
 
     echo '</div>';
   

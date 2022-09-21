@@ -79,8 +79,16 @@ else if($val == 5){
   }
 }
 
-    // $Query = "SELECT * FROM producto WHERE (nombre = '$marca' OR modelo = '$modelo' OR color LIKE '$color' OR material LIKE '$material' OR talla LIKE '$talla') " ;
-    $resultado_Query = $conn->query($Query);
+if (empty($Query)){
+  echo'
+  <script>
+    alert("No se encontró producto");
+  </script>
+  ';
+}
+else{
+
+$resultado_Query = $conn->query($Query);
 
     
  echo '<div class="row row-cols-2 g-2">';
@@ -185,6 +193,7 @@ else if($val == 5){
       </div>
       <!-- modal de descripción del producto -->';
     }
+  }
 
     echo '</div>';
   
