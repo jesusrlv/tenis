@@ -4,6 +4,7 @@ img
 /qconn/
 qc.php
 .DS_Store
+assets/brand/img/.DS_Store
 
 
 # https://stackoverflow.com/questions/25436312/gitignore-not-working
