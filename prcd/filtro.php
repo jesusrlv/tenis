@@ -7,37 +7,38 @@ if(isset($_POST)){
 if($val == 1){
   
     $marca = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE marca = '$marca'";
+    $Query = "SELECT * FROM tenis WHERE marca = '$marca' limit 10";
   
 }
 else if($val == 2){
   
     $modelo = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE marca = '$modelo'";
+    $Query = "SELECT * FROM tenis WHERE modelo = '$modelo' limit 10";
 
 }
 else if($val == 3){
   
     $color = $_POST['filtro']; 
-    $Query = "SELECT * FROM tenis WHERE marca = '$color'"; 
+    $Query = "SELECT * FROM tenis WHERE color  = '$color' limit 10"; 
   
 }
 else if($val == 4){
   
     $material = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE marca = '$material'";
+    $Query = "SELECT * FROM tenis WHERE material = '$material' limit 10";
 
 }
 else if($val == 5){
     
     $talla = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE marca = '$talla'";
+    $Query = "SELECT * FROM tenis WHERE talla = '$talla' limit 10";
 
 }
     if (empty($Query)){
       echo'
       <script>
         alert("No se encontró producto");
+        console.log("No se encontró producto");
       </script>
       ';
     }
@@ -59,20 +60,14 @@ else if($val == 5){
               <div class="card-header bg-primary text-light">
                   <small><i class="bi bi-cart-plus"></i></small>
                 </div>
-                <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="card-img-top img-fluid" style="width:100%; max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
+                <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="card-img-top img-fluid" style="width:100%; max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
                 <div class="card-body text-start bg-primary text-light">
                   <span class="card-title" id="titulo_card"><small><strong>'.$row_sql_catalogo['marca'].'</strong></small></span><br>
                   <span class="card-title" id="titulo_card2"><small>'.$row_sql_catalogo['modelo'].'</small></span><br>
                   <span class="card-title" id="titulo_card2"><small>'.$row_sql_catalogo['precio_general'].'</small></span><br>
                   ';
-                  // explode
-                    // $valueColores = explode(',',$row_sql_catalogo['color']);
-                    // for ($x = 0; $x < count($valueColores); $x++) {    
-                    //     echo '<span class="badge text-bg-light" id="titulo_card3">'.$valueColores[$x].'</span> '.PHP_EOL;
-                    //   }
-                  // explode
-          
+                
         echo'
                   
                   <hr>
@@ -92,7 +87,7 @@ else if($val == 5){
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="img-fluid" alt="...">
+            <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="img-fluid" alt="...">
             <hr>
               <div class="alert alert-primary">
                 <p class="mt-2 text-center">Producto: '.$row_sql_catalogo['marca'].'</p>
@@ -151,30 +146,6 @@ else if($val == 5){
   }
 
     echo '</div>';
-  
-  // function consultaTalla(){
-  //   include('../../query/qconn/qc.php');
-    
-  //   $sqlMedida = "SELECT * FROM talla_catalogo ORDER BY id ASC";
-  //   $resultadoMedida = $conn->query($sqlMedida);
-  //   echo '
-    
-  //   <select class="form-select" id="valor" onchange="valorID(this.value)">
-  //     <option selected>Selecciona una talla</option>
-  //   ';
-  //     while ($rowMedida = $resultadoMedida->fetch_assoc()){
-  //       echo '<option value="'.$rowMedida['talla'].'"> '.$rowMedida['tipo'].'</option>';
-  //     }
-  //       echo '</select>';
-  //       echo'
-  //       <script>
-  //         function valorID(val){
-  //           window.marks= val;
-         
-  //         }
-  //       </script>
-  //       ';
-  // }
 
 }
 ?>

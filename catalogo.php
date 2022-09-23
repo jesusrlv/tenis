@@ -364,61 +364,61 @@
 </script>
 
 <script>
-  var x = document.getElementById('checkbox1');
-  if (x.checked == true){
-    document.getElementById("marca").disabled=false;
-  }
-  else{
-    document.getElementById("marca").disabled=true;
-  }
+  // var x = document.getElementById('checkbox1');
+  // if (x.checked == true){
+  //   document.getElementById("marca").disabled=false;
+  // }
+  // else{
+  //   document.getElementById("marca").disabled=true;
+  // }
 
-  var x2 = document.getElementById('checkbox2');
-  if (x2.checked == true){
-    document.getElementById("modelo").disabled=false;
-  }
-  else{
-    document.getElementById("modelo").disabled=true;
-  }
+  // var x2 = document.getElementById('checkbox2');
+  // if (x2.checked == true){
+  //   document.getElementById("modelo").disabled=false;
+  // }
+  // else{
+  //   document.getElementById("modelo").disabled=true;
+  // }
 
-  var x3 = document.getElementById('checkbox3');
-  if (x3.checked == true){
-    document.getElementById("color").disabled=false;
-  }
-  else{
-    document.getElementById("color").disabled=true;
-  }
+  // var x3 = document.getElementById('checkbox3');
+  // if (x3.checked == true){
+  //   document.getElementById("color").disabled=false;
+  // }
+  // else{
+  //   document.getElementById("color").disabled=true;
+  // }
 
-  var x4 = document.getElementById('checkbox4');
-  if (x4.checked == true){
-    document.getElementById("material").disabled=false;
-  }
-  else{
-    document.getElementById("material").disabled=true;
-  }
+  // var x4 = document.getElementById('checkbox4');
+  // if (x4.checked == true){
+  //   document.getElementById("material").disabled=false;
+  // }
+  // else{
+  //   document.getElementById("material").disabled=true;
+  // }
 
-  var x5 = document.getElementById('checkbox5');
-  if (x5.checked == true){
-    document.getElementById("talla").disabled=false;
-  }
-  else{
-    document.getElementById("talla").disabled=true;
-  }
+  // var x5 = document.getElementById('checkbox5');
+  // if (x5.checked == true){
+  //   document.getElementById("talla").disabled=false;
+  // }
+  // else{
+  //   document.getElementById("talla").disabled=true;
+  // }
   
-  function habilitar1(){
-    document.getElementById("marca").disabled=false;
-  }
-  function habilitar2(){
-    document.getElementById("modelo").disabled=false;
-  }
-  function habilitar3(){
-    document.getElementById("color").disabled=false;
-  }
-  function habilitar4(){
-    document.getElementById("material").disabled=false;
-  }
-  function habilitar5(){
-    document.getElementById("talla").disabled=false;
-  }
+  // function habilitar1(){
+  //   document.getElementById("marca").disabled=false;
+  // }
+  // function habilitar2(){
+  //   document.getElementById("modelo").disabled=false;
+  // }
+  // function habilitar3(){
+  //   document.getElementById("color").disabled=false;
+  // }
+  // function habilitar4(){
+  //   document.getElementById("material").disabled=false;
+  // }
+  // function habilitar5(){
+  //   document.getElementById("talla").disabled=false;
+  // }
 </script>
 
 <script>
