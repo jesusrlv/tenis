@@ -1,5 +1,28 @@
+<?php
+session_start();
+
+// if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
+//   if($_SESSION['perfil']==3){
+
+//   }
+//   else{
+//     header('Location: prcd/sort.php');
+//     die();
+//   }
+  
+// } else {
+//   // En caso contrario redirigimos el visitante a otra página
+
+//   header('Location: prcd/sort.php');
+//   die();
+// }
+
+// variables de sesión
+
+?>
+
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +30,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Shoes Store MX · Catálogo</title>
-    <link rel="icon" type="image/png" href="assets/brand/img/cel.ico">
+    <link rel="icon" type="image/png" href="../../assets/brand/img/cel.ico">
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -22,24 +45,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- ajax -->
     <script src="query/compra.js"></script>
-    <script src="js/script.js"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       /* normal web */
-      .selector1{
-          width:50%;
-        }
       
       
       /* On screens that are 992px wide or less, go from four columns to two columns */
       /* tablets, celular horizontal y otros dispositivos */
       @media screen and (max-width: 2000px) {
-        .selector1{
+        #selector1{
           width:50%;
         }
-        
+        /* #card_tamano{
+            height:350px;
+          } */
       }
       /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
       /* CELULAR */
@@ -59,9 +80,12 @@
           #texto_titulo{
             font-size:18px;
           }
-          .selector1{
+          #selector1{
             width:100%;
           }
+          /* #card_tamano{
+            height:175px;
+          } */
           
       }
         
@@ -103,6 +127,12 @@
         background-color: yellow;
       }
     </style>
+
+    <?php
+    
+    // $id_catalogo = $_REQUEST['id'];
+    require('query/query_ini.php');
+    ?>
 
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
@@ -147,8 +177,8 @@
 
 <div class="mt-5 pt-2 mb-3">
   <h1 class="text-center">
-    <p class="m-0 p-0"><img src="assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
-    <p class="m-0 p-0"><img src="assets/brand/img/letras_verdes.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"></p>
   </h1>
 </div>
   <!-- Marketing messaging and featurettes
@@ -164,17 +194,23 @@
       
     <form id="form1">
       <!-- divisor -->
-      <div class="input-group mb-3 selector1">
+      <div class="input-group mb-3" id="selector1">
           <div class="input-group-text bg-primary text-light">
             <i class="bi bi-filter-circle-fill"></i>          
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="filter" name="filter" onchange="inputFiltro()" required>
-            <option value="">Selecciona el tipo de filtro ...</option>
-            <option value="1">a. Marca</option>
-            <option value="2">b. Modelo</option>
-            <option value="3">c. Color</option>
-            <option value="4">d. Material</option>
-            <option value="5">e. Talla</option>
+          <select class="form-select" aria-label="Example select with button addon" id="filter" name="filter">
+            <option selected>Selecciona el tipo de filtro ...</option>
+            <option value="">Sin categoría</option>
+            <option value="1">a. Marca - Color</option>
+            <option value="2">b. Marca - Material</option>
+            <option value="3">c. Marca - Talla</option>
+            <option value="4">d. Modelo - Color </option>
+            <option value="5">e. Modelo - Material</option>
+            <option value="6">f. Modelo - Talla</option>
+            <option disabled>__________________</option>
+            <option value="7">g. Color - Talla</option>
+            <option value="8">h. Color - Material</option>
+            <option value="9">i. Talla - Material</option>
 
           </select>
         </div>
@@ -183,45 +219,24 @@
    
     <!-- entran los dos filtros -->
     <!-- divisor -->
-    <div class="input-group mb-3 selector1" id="marcaH" hidden>
+    <div class="input-group mb-3" id="selector1">
           <div class="input-group-text bg-primary text-light">
-          <i class="bi bi-search"></i>            
+          <i class="bi bi-1-square-fill"></i>          
           </div>
-          <input type="text" class="form-control" placeholder="Marca..." aria-label="Username" aria-describedby="basic-addon1" id="marca">
-        </div>
-
-    <div class="input-group mb-3 selector1" id="modeloH" hidden>
-          <div class="input-group-text bg-primary text-light">
-          <i class="bi bi-search"></i>            
-          </div>
-          <input type="text" class="form-control" placeholder="Modelo..." aria-label="Username" aria-describedby="basic-addon1" id="modelo">
-        </div>
-
-        <!-- divisor -->
-      <div class="input-group mb-3 selector1" id="colorH" hidden>
-          <div class="input-group-text bg-primary text-light">
-          <i class="bi bi-search"></i>          
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="color">
-            <option value="">Color ...</option>
+          <select class="form-select" aria-label="Example select with button addon" id="filtro1" name="filtro1">
+            <option selected>Filtro 1 ...</option>
             <option value="">Sin categoría</option>
-            
+
           </select>
         </div>
 
-        <div class="input-group mb-3 selector1" id="materialH" hidden>
+        <!-- divisor -->
+      <div class="input-group mb-3" id="selector1">
           <div class="input-group-text bg-primary text-light">
-          <i class="bi bi-search"></i>            
+          <i class="bi bi-2-square-fill"></i>          
           </div>
-          <input type="text" class="form-control" placeholder="Material..." aria-label="Username" aria-describedby="basic-addon1" id="material">
-        </div>
-
-        <div class="input-group mb-3 selector1" id="tallaH" hidden>
-          <div class="input-group-text bg-primary text-light">
-          <i class="bi bi-search"></i>          
-          </div>
-          <select class="form-select" aria-label="Example select with button addon" id="talla">
-            <option value="">Talla ...</option>
+          <select class="form-select" aria-label="Example select with button addon" id="filtro2" name="filtro2">
+            <option selected>Filtro 2 ...</option>
             <option value="">Sin categoría</option>
             
           </select>
@@ -251,12 +266,14 @@
   </div>
   
   
-    <span id="txtHint"><b>Información...</b></span>
+    <span id="txtHint"><b>Aquí debe aparecer la información...</b></span>
 
     <!-- Three columns of text below the carousel -->
     <!-- consultas productos -->
     <div class="row row-cols-2 g-2">
-      
+      <?php
+        // require('query/query_catalogo.php');
+      ?>
     </div><!--row-->
     <!-- consultas productos -->
     <!-- START THE FEATURETTES -->
@@ -270,14 +287,14 @@
   <footer class="footer mt-auto py-3">
     <p class="float-end"><a href="#">Regresar arriba</a></p>
     <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
-    <p><strong>DEV:</strong> © 2022 <a href="#" target="_blank">Nexus Technology and Consulting</a>.</p>
+    <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
     <p><a href="privacidad/" style="text-decoration: none;"><i class="bi bi-shield-fill-check"></i> Política de privacidad</a></p>
   </footer>
   
 </main>
 
 
-    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
       
   </body>
@@ -444,123 +461,123 @@
         </script>
 
 <script>
-              // $(document).ready(function(e){
+              $(document).ready(function(e){
 
-              //   $("#marca").change(function(){
-              //     var parametros= "marcaID="+$("#marca").val();
+                $("#marca").change(function(){
+                  var parametros= "marcaID="+$("#marca").val();
                     
-              //         $.ajax({
-              //           data: parametros,
-              //           url:'ajaxData.php',
-              //           type:'POST',
-              //           beforeSend: function(){
-              //             $("#modelo").html("Procesando, espere por favor...");
-              //           },
-              //           success:function(response){
-              //             $("#modelo").html(response);
-              //           }
-              //         });
-              //   });
+                      $.ajax({
+                        data: parametros,
+                        url:'ajaxData.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#modelo").html("Procesando, espere por favor...");
+                        },
+                        success:function(response){
+                          $("#modelo").html(response);
+                        }
+                      });
+                });
 
-              //   $("#modelo").change(function(c){
-              //     var parametros1= $("#marca").val();
-              //     var parametros2= $("#modelo").val();
+                $("#modelo").change(function(c){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
                                         
-              //         $.ajax({
-              //           data: {"uno": parametros1, "dos": parametros2},
-              //           url:'ajaxDataModelo.php',
-              //           type:'POST',
-              //           beforeSend: function(){
-              //             $("#color").html("Procesando, espere por favor...");
-              //           },
-              //           success:function(responseColor){
-              //             $("#color").html(responseColor);
-              //           },
-              //           error: function (responseColor) {
-              //             console.log(responseColor.responseText);
-              //           }
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataModelo.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#color").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#color").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
 
-              //         });
-              //   });
+                      });
+                });
 
-              //   $("#modelo").change(function(d){
-              //     var parametros1= $("#marca").val();
-              //     var parametros2= $("#modelo").val();
+                $("#modelo").change(function(d){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
                                         
-              //         $.ajax({
-              //           data: {"uno": parametros1, "dos": parametros2},
-              //           url:'ajaxDataColor.php',
-              //           type:'POST',
-              //           beforeSend: function(){
-              //             $("#material").html("Procesando, espere por favor...");
-              //           },
-              //           success:function(responseColor){
-              //             $("#material").html(responseColor);
-              //           },
-              //           error: function (responseColor) {
-              //             console.log(responseColor.responseText);
-              //           }
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataColor.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#material").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#material").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
 
-              //         });
-              //   });
+                      });
+                });
 
-              //   $("#modelo").change(function(f){
-              //     var parametros1= $("#marca").val();
-              //     var parametros2= $("#modelo").val();
+                $("#modelo").change(function(f){
+                  var parametros1= $("#marca").val();
+                  var parametros2= $("#modelo").val();
                                         
-              //         $.ajax({
-              //           data: {"uno": parametros1, "dos": parametros2},
-              //           url:'ajaxDataTalla.php',
-              //           type:'POST',
-              //           beforeSend: function(){
-              //             $("#talla").html("Procesando, espere por favor...");
-              //           },
-              //           success:function(responseColor){
-              //             $("#talla").html(responseColor);
-              //           },
-              //           error: function (responseColor) {
-              //             console.log(responseColor.responseText);
-              //           }
+                      $.ajax({
+                        data: {"uno": parametros1, "dos": parametros2},
+                        url:'ajaxDataTalla.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#talla").html("Procesando, espere por favor...");
+                        },
+                        success:function(responseColor){
+                          $("#talla").html(responseColor);
+                        },
+                        error: function (responseColor) {
+                          console.log(responseColor.responseText);
+                        }
 
-              //         });
-              //   });
+                      });
+                });
 
-              // });
+              });
 </script>
 
 <script>
-  // $(document).ready(function(){
-  //   $("#filter").change(function(){
-  //                 var filtro= $("#filter").val();
+  $(document).ready(function(){
+    $("#filter").change(function(){
+                  var filtro= $("#filter").val();
                     
-  //                     $.ajax({
-  //                       data: {"filtro":filtro},
-  //                       url:'ajaxFiltro.php',
-  //                       type:'POST',
-  //                       beforeSend: function(){
-  //                         $("#filtro1").html("Procesando, espere por favor...");
-  //                       },
-  //                       success:function(response){
-  //                         $("#filtro1").html(response);
-  //                       }
-  //                     });
-  //               });
-  //   $("#filter").change(function(){
-  //                 var filtro= $("#filter").val();
+                      $.ajax({
+                        data: {"filtro":filtro},
+                        url:'ajaxFiltro.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#filtro1").html("Procesando, espere por favor...");
+                        },
+                        success:function(response){
+                          $("#filtro1").html(response);
+                        }
+                      });
+                });
+    $("#filter").change(function(){
+                  var filtro= $("#filter").val();
                     
-  //                     $.ajax({
-  //                       data: {"filtro":filtro},
-  //                       url:'ajaxFiltro2.php',
-  //                       type:'POST',
-  //                       beforeSend: function(){
-  //                         $("#filtro2").html("Procesando, espere por favor...");
-  //                       },
-  //                       success:function(response){
-  //                         $("#filtro2").html(response);
-  //                       }
-  //                     });
-  //               });
-  // });
+                      $.ajax({
+                        data: {"filtro":filtro},
+                        url:'ajaxFiltro2.php',
+                        type:'POST',
+                        beforeSend: function(){
+                          $("#filtro2").html("Procesando, espere por favor...");
+                        },
+                        success:function(response){
+                          $("#filtro2").html(response);
+                        }
+                      });
+                });
+  });
 </script>
 
   <!-- https://pressroom.hostalia.com/white-papers/selects-dependientes-php-jquery-ajax/ -->
