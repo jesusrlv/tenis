@@ -3,48 +3,54 @@ if(isset($_POST)){
   include('../query/qconn/qc.php');
 
   $val = $_POST['filter'];
+  $limit = 12;
 
 if($val == 1){
   
     $marca = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE marca = '$marca' limit 10";
+    $Query = "SELECT * FROM tenis WHERE marca = '$marca'";
   
 }
 else if($val == 2){
   
     $modelo = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE modelo = '$modelo' limit 10";
+    $Query = "SELECT * FROM tenis WHERE modelo = '$modelo'";
 
 }
 else if($val == 3){
   
     $color = $_POST['filtro']; 
-    $Query = "SELECT * FROM tenis WHERE color  = '$color' limit 10"; 
+    $Query = "SELECT * FROM tenis WHERE color  = '$color'"; 
   
 }
 else if($val == 4){
   
     $material = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE material = '$material' limit 10";
+    $Query = "SELECT * FROM tenis WHERE material = '$material'";
 
 }
 else if($val == 5){
     
     $talla = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE talla = '$talla' limit 10";
+    $Query = "SELECT * FROM tenis WHERE talla = '$talla'";
 
 }
-    if (empty($Query)){
-      echo'
-      <script>
-        alert("No se encontró producto");
-        console.log("No se encontró producto");
-      </script>
-      ';
-    }
-    else{
+  
       $resultado_Query = $conn->query($Query);
-    
+      $no_resultados = mysqli_num_rows($resultado_Query);
+      echo $no_resultados'<br>';
+      
+
+      echo $no_paginacion = ceil($no_resultados/$limit);
+
+      if ($no_resultados == 0){
+        echo'
+          <script>
+            alert("No se encontró producto");
+            console.log("No se encontró producto");
+          </script>
+          ';
+      }
   
  echo '<div class="row row-cols-2 g-2">';
     while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
@@ -143,7 +149,7 @@ else if($val == 5){
       </div>
       <!-- modal de descripción del producto -->';
     }
-  }
+  
 
     echo '</div>';
 

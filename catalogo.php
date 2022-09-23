@@ -247,7 +247,16 @@
 <!-- codigo -->
      
     </div>
-    
+    <nav aria-label="...">
+  <ul class="pagination pagination-lg">
+    <li class="page-item active" aria-current="page">
+      <span class="page-link">1</span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+  </ul>
+</nav>
+
   </div>
   
   
@@ -430,7 +439,7 @@
                   url:"prcd/filtro.php",
                   data:form.serialize(),
                   dataType: "html",
-                  async:false,
+                  // async:false,
                   cache: false,
                     success: function(data) {
                       $("#txtHint").html(data);                  

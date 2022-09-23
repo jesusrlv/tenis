@@ -72,10 +72,10 @@
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
               <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email" REQUIRED>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
               <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email" REQUIRED>
-            </div>
+            </div> -->
             <!-- <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-credit-card-2-back"></i> Tarjeta para pago</small></label>
               
