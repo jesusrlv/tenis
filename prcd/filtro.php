@@ -43,12 +43,22 @@ else if($val == 5){
       
 
       echo $no_paginacion = ceil($no_resultados/$limit);
+      
+      if (!isset($_GET['page'])){
+        $page = 1;
+      }
+      else{
+        $page = $_GET['page'];
+      }
+
+      echo $this_page_first_result = ($page-1)*$no_resultados;
+
       echo '
       <nav aria-label="...">
         <ul class="pagination pagination-lg">
       ';
       for($page = 1;$page<=$no_paginacion;$page++){
-        echo '<li class="page-item active" aria-current="page"><a class="page-link" href="#">'.$page.'</a></li>';
+        echo '<li class="page-item active" aria-current=""><a class="page-link" href="filtro.php?page='.$page.'" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</a></li>';
       }
       echo '</ul>
        </nav>';

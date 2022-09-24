@@ -251,7 +251,7 @@
 
   </div>
   
-  
+    <div id="pagination_link"></div>
     <span id="txtHint"><b>Información...</b></span>
 
     <!-- Three columns of text below the carousel -->
@@ -441,6 +441,38 @@
                   event.preventDefault();
           });
           });
+
+        </script>
+
+<!-- ajax paginación -->
+<script>
+  function valorP(value){
+          $(document).ready(function(){
+          var valorPag = value;
+          var filter=$("input[name='filter']").val;
+          var filtro=$("input[name='filtro']").val;
+          // $("#form1").submit(function(event){
+          $.ajax({
+                  type:"POST",
+                  url:"prcd/filtro.php",
+                  // data:form.serialize(),
+                  data:{
+                    'valorPag': valorPag,
+                    'filter': filter,
+                    'filtro': filtro
+                  },
+                  dataType: "html",
+                  cache: false,
+                    success: function(data) {
+                      $("#txtHint").html(data);                  
+                    }               
+                  });
+                  
+                  event.preventDefault();
+          // });
+          });
+
+        }
 
         </script>
 
