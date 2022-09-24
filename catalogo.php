@@ -446,9 +446,10 @@
 
 <!-- ajax paginación -->
 <script>
-  function valorP(value){
+  var valorPag;
+  function valorP(valorPagina){
           $(document).ready(function(){
-          var valorPag = value;
+          var valorPag = valorPagina;
           var filter=$("input[name='filter']").val;
           var filtro=$("input[name='filtro']").val;
           // $("#form1").submit(function(event){

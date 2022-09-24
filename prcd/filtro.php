@@ -3,7 +3,23 @@ if(isset($_POST)){
   include('../query/qconn/qc.php');
 
   $val = $_POST['filter'];
+  $pag =1;
+  $inicio = 0;
   $limit = 12;
+
+  if(isset($_POST['valorPag'])){
+    if($_POST['valorPag'] > 1){
+      $inicio = (($_POST['valorPag'] - 1) * $limit);
+      $pag = $_POST['valorPag'];
+    }
+    else{ 
+      $inicio = 0;
+    }
+  }
+  
+  // 0 - 11
+  // 12 -24
+
 
 if($val == 1){
   
@@ -35,20 +51,21 @@ else if($val == 5){
     $Query = "SELECT * FROM tenis WHERE talla = '$talla'";
 
 }
-  
+      $filtroQuery = $Query . ' LIMIT ' . $inicio . ',' . $limit . '';
+      $resultado_FiltroQuery = $conn->query($filtroQuery);
       $resultado_Query = $conn->query($Query);
       $no_resultados = mysqli_num_rows($resultado_Query);
-      echo $no_resultados;
+      echo '# de resultados' . $no_resultados;
       echo '<br>';
       
 
-      echo $no_paginacion = ceil($no_resultados/$limit);
+      echo '# de botones  ' . $no_paginacion = ceil($no_resultados/$limit);
       
       if (!isset($_GET['page'])){
         $page = 1;
       }
       else{
-        $page = $_GET['page'];
+        $page = $pag;
       }
 
       echo $this_page_first_result = ($page-1)*$no_resultados;
@@ -58,7 +75,7 @@ else if($val == 5){
         <ul class="pagination pagination-lg">
       ';
       for($page = 1;$page<=$no_paginacion;$page++){
-        echo '<li class="page-item active" aria-current=""><a class="page-link" href="filtro.php?page='.$page.'" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</a></li>';
+        echo '<li class="page-item active" aria-current=""><a class="page-link" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</a></li>';
       }
       echo '</ul>
        </nav>';
@@ -74,7 +91,8 @@ else if($val == 5){
       }
   
  echo '<div class="row row-cols-2 g-2">';
-    while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
+    // while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
+    while($row_sql_catalogo = $resultado_FiltroQuery  ->fetch_assoc()){
         
       $x1 = 1;
       $x2 = $row_sql_catalogo['marca'];
