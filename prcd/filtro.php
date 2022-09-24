@@ -38,10 +38,21 @@ else if($val == 5){
   
       $resultado_Query = $conn->query($Query);
       $no_resultados = mysqli_num_rows($resultado_Query);
-      echo $no_resultados'<br>';
+      echo $no_resultados;
+      echo '<br>';
       
 
       echo $no_paginacion = ceil($no_resultados/$limit);
+      echo '
+      <nav aria-label="...">
+        <ul class="pagination pagination-lg">
+      ';
+      for($page = 1;$page<=$no_paginacion;$page++){
+        echo '<li class="page-item active" aria-current="page"><a class="page-link" href="#">'.$page.'</a></li>';
+      }
+      echo '</ul>
+       </nav>';
+
 
       if ($no_resultados == 0){
         echo'
