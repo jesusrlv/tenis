@@ -365,64 +365,6 @@
 </script>
 
 <script>
-  // var x = document.getElementById('checkbox1');
-  // if (x.checked == true){
-  //   document.getElementById("marca").disabled=false;
-  // }
-  // else{
-  //   document.getElementById("marca").disabled=true;
-  // }
-
-  // var x2 = document.getElementById('checkbox2');
-  // if (x2.checked == true){
-  //   document.getElementById("modelo").disabled=false;
-  // }
-  // else{
-  //   document.getElementById("modelo").disabled=true;
-  // }
-
-  // var x3 = document.getElementById('checkbox3');
-  // if (x3.checked == true){
-  //   document.getElementById("color").disabled=false;
-  // }
-  // else{
-  //   document.getElementById("color").disabled=true;
-  // }
-
-  // var x4 = document.getElementById('checkbox4');
-  // if (x4.checked == true){
-  //   document.getElementById("material").disabled=false;
-  // }
-  // else{
-  //   document.getElementById("material").disabled=true;
-  // }
-
-  // var x5 = document.getElementById('checkbox5');
-  // if (x5.checked == true){
-  //   document.getElementById("talla").disabled=false;
-  // }
-  // else{
-  //   document.getElementById("talla").disabled=true;
-  // }
-  
-  // function habilitar1(){
-  //   document.getElementById("marca").disabled=false;
-  // }
-  // function habilitar2(){
-  //   document.getElementById("modelo").disabled=false;
-  // }
-  // function habilitar3(){
-  //   document.getElementById("color").disabled=false;
-  // }
-  // function habilitar4(){
-  //   document.getElementById("material").disabled=false;
-  // }
-  // function habilitar5(){
-  //   document.getElementById("talla").disabled=false;
-  // }
-</script>
-
-<script>
           $(document).ready(function(){
           var form=$("#form1");
           $("#form1").submit(function(event){
@@ -447,16 +389,14 @@
 <!-- ajax paginación -->
 <script>
   var valorPag;
-  function valorP(valorP){
-          $(document).ready(function(){
-          var valorPag = valorP;
-          var filter=$("input[name='filter']").val;
-          var filtro=$("input[name='filtro']").val;
-          // $("#form1").submit(function(event){
+  function valorP(valorPg){
+    var valorPag = valorPg;
+    var filter= document.querySelector("[name='filter']").value;
+    var filtro= document.querySelector("[name='filtro']").value;
+         
           $.ajax({
                   type:"POST",
                   url:"prcd/filtro.php",
-                  // data:form.serialize(),
                   data:{
                     valorPag:valorPag,
                     filter:filter,
@@ -470,131 +410,7 @@
                   });
                   
                   event.preventDefault();
-          // });
-          });
 
         }
 
         </script>
-
-<script>
-              // $(document).ready(function(e){
-
-              //   $("#marca").change(function(){
-              //     var parametros= "marcaID="+$("#marca").val();
-                    
-              //         $.ajax({
-              //           data: parametros,
-              //           url:'ajaxData.php',
-              //           type:'POST',
-              //           beforeSend: function(){
-              //             $("#modelo").html("Procesando, espere por favor...");
-              //           },
-              //           success:function(response){
-              //             $("#modelo").html(response);
-              //           }
-              //         });
-              //   });
-
-              //   $("#modelo").change(function(c){
-              //     var parametros1= $("#marca").val();
-              //     var parametros2= $("#modelo").val();
-                                        
-              //         $.ajax({
-              //           data: {"uno": parametros1, "dos": parametros2},
-              //           url:'ajaxDataModelo.php',
-              //           type:'POST',
-              //           beforeSend: function(){
-              //             $("#color").html("Procesando, espere por favor...");
-              //           },
-              //           success:function(responseColor){
-              //             $("#color").html(responseColor);
-              //           },
-              //           error: function (responseColor) {
-              //             console.log(responseColor.responseText);
-              //           }
-
-              //         });
-              //   });
-
-              //   $("#modelo").change(function(d){
-              //     var parametros1= $("#marca").val();
-              //     var parametros2= $("#modelo").val();
-                                        
-              //         $.ajax({
-              //           data: {"uno": parametros1, "dos": parametros2},
-              //           url:'ajaxDataColor.php',
-              //           type:'POST',
-              //           beforeSend: function(){
-              //             $("#material").html("Procesando, espere por favor...");
-              //           },
-              //           success:function(responseColor){
-              //             $("#material").html(responseColor);
-              //           },
-              //           error: function (responseColor) {
-              //             console.log(responseColor.responseText);
-              //           }
-
-              //         });
-              //   });
-
-              //   $("#modelo").change(function(f){
-              //     var parametros1= $("#marca").val();
-              //     var parametros2= $("#modelo").val();
-                                        
-              //         $.ajax({
-              //           data: {"uno": parametros1, "dos": parametros2},
-              //           url:'ajaxDataTalla.php',
-              //           type:'POST',
-              //           beforeSend: function(){
-              //             $("#talla").html("Procesando, espere por favor...");
-              //           },
-              //           success:function(responseColor){
-              //             $("#talla").html(responseColor);
-              //           },
-              //           error: function (responseColor) {
-              //             console.log(responseColor.responseText);
-              //           }
-
-              //         });
-              //   });
-
-              // });
-</script>
-
-<script>
-  // $(document).ready(function(){
-  //   $("#filter").change(function(){
-  //                 var filtro= $("#filter").val();
-                    
-  //                     $.ajax({
-  //                       data: {"filtro":filtro},
-  //                       url:'ajaxFiltro.php',
-  //                       type:'POST',
-  //                       beforeSend: function(){
-  //                         $("#filtro1").html("Procesando, espere por favor...");
-  //                       },
-  //                       success:function(response){
-  //                         $("#filtro1").html(response);
-  //                       }
-  //                     });
-  //               });
-  //   $("#filter").change(function(){
-  //                 var filtro= $("#filter").val();
-                    
-  //                     $.ajax({
-  //                       data: {"filtro":filtro},
-  //                       url:'ajaxFiltro2.php',
-  //                       type:'POST',
-  //                       beforeSend: function(){
-  //                         $("#filtro2").html("Procesando, espere por favor...");
-  //                       },
-  //                       success:function(response){
-  //                         $("#filtro2").html(response);
-  //                       }
-  //                     });
-  //               });
-  // });
-</script>
-
-  <!-- https://pressroom.hostalia.com/white-papers/selects-dependientes-php-jquery-ajax/ -->

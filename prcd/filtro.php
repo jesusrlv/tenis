@@ -51,6 +51,13 @@ else if($val == 5){
     $Query = "SELECT * FROM tenis WHERE talla = '$talla'";
 
 }
+echo'
+  <script>
+  console.log('.$_POST['valorPag'].');
+  console.log('.$val.');
+  console.log('.$_POST['filtro'].');
+  
+  </script>';
       $filtroQuery = $Query . ' LIMIT ' . $inicio . ',' . $limit . '';
       $resultado_FiltroQuery = $conn->query($filtroQuery);
       $resultado_Query = $conn->query($Query);
