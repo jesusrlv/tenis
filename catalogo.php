@@ -204,7 +204,15 @@
           </div>
           <select class="form-select" aria-label="Example select with button addon" id="color">
             <option value="">Color ...</option>
-            <option value="">Sin categoría</option>
+            
+            <?php+
+            include('query/query_color.php');
+            while($rowColor = $resultado_sqlColor->fetch_assoc()){
+              echo'
+              <option value="'.$rowColor['color'].'">'.$rowColor['color'].'</option>
+              ';
+            }
+            ?>
             
           </select>
         </div>

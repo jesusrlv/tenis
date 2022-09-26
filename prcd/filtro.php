@@ -51,22 +51,28 @@ else if($val == 5){
     $Query = "SELECT * FROM tenis WHERE talla = '$talla'";
 
 }
-echo'
-  <script>
-  console.log('.$_POST['valorPag'].');
-  console.log('.$val.');
-  console.log('.$_POST['filtro'].');
+// echo'
+//   <script>
+//   console.log('.$_POST['valorPag'].');
+//   console.log('.$val.');
+//   console.log('.$_POST['filtro'].');
   
-  </script>';
+//   </script>';
+
       $filtroQuery = $Query . ' LIMIT ' . $inicio . ',' . $limit . '';
       $resultado_FiltroQuery = $conn->query($filtroQuery);
       $resultado_Query = $conn->query($Query);
       $no_resultados = mysqli_num_rows($resultado_Query);
-      echo '# de resultados' . $no_resultados;
+      echo '
+      <div class="alert alert-primary text-center" role="alert">
+        <strong>Número de coincidencias de resultados:</strong> ' . $no_resultados . ' tipos de calzado.
+      </div>  
+      <hr>';
       echo '<br>';
       
 
-      echo '# de botones  ' . $no_paginacion = ceil($no_resultados/$limit);
+      // echo '# de botones  ' . $no_paginacion = ceil($no_resultados/$limit);
+      $no_paginacion = ceil($no_resultados/$limit);
       
       if (!isset($_GET['page'])){
         $page = 1;
@@ -75,14 +81,15 @@ echo'
         $page = $pag;
       }
 
-      echo $this_page_first_result = ($page-1)*$no_resultados;
+      // echo $this_page_first_result = ($page-1)*$no_resultados;
+      $this_page_first_result = ($page-1)*$no_resultados;
 
       echo '
       <nav aria-label="...">
         <ul class="pagination pagination-lg">
       ';
       for($page = 1;$page<=$no_paginacion;$page++){
-        echo '<li class="page-item active" aria-current=""><a class="page-link" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</a></li>';
+        echo '<li class="page-item active" aria-current=""><button class="page-link" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</button></li>';
       }
       echo '</ul>
        </nav>';
@@ -115,10 +122,15 @@ echo'
                 <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="card-img-top img-fluid" style="width:100%; max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
                 <div class="card-body text-start bg-primary text-light">
-                  <span class="card-title" id="titulo_card"><small><strong>'.$row_sql_catalogo['marca'].'</strong></small></span><br>
-                  <span class="card-title" id="titulo_card2"><small>'.$row_sql_catalogo['modelo'].'</small></span><br>
-                  <span class="card-title" id="titulo_card2"><small>'.$row_sql_catalogo['precio_general'].'</small></span><br>
+                  <span class="card-title" id="titulo_card"><small><strong>Marca: '.$row_sql_catalogo['marca'].'</strong></small></span><br>
+                  <span class="card-title" id="titulo_card2"><small><strong>Modelo: </strong>'.$row_sql_catalogo['modelo'].'</small></span><br>
+                  <span class="card-title" id="titulo_card2"><small><strong>Material: </strong>'.$row_sql_catalogo['material'].'</small></span><br>
+                  <span class="card-title" id="titulo_card2"><small><strong>Tipo: </strong>'.$row_sql_catalogo['tipo'].'</small></span><br>
+                  <span class="card-title" id="titulo_card2"><small><strong>Color: </strong>'.$row_sql_catalogo['color'].'</small></span><br>
+                  <span class="card-title" id="titulo_card2"><small><strong>Talla: </strong>'.$row_sql_catalogo['talla'].'</small></span><br>
+                  <span class="card-title" id="titulo_card2"><small><strong>Precio general: </strong>'.$row_sql_catalogo['precio_general'].'</small></span><br>
                   ';
+                  
                 
         echo'
                   
