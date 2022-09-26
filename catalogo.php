@@ -447,9 +447,9 @@
 <!-- ajax paginación -->
 <script>
   var valorPag;
-  function valorP(valorPagina){
+  function valorP(valorP){
           $(document).ready(function(){
-          var valorPag = valorPagina;
+          var valorPag = valorP;
           var filter=$("input[name='filter']").val;
           var filtro=$("input[name='filtro']").val;
           // $("#form1").submit(function(event){
@@ -458,9 +458,9 @@
                   url:"prcd/filtro.php",
                   // data:form.serialize(),
                   data:{
-                    'valorPag': valorPag,
-                    'filter': filter,
-                    'filtro': filtro
+                    valorPag:valorPag,
+                    filter:filter,
+                    filtro:filtro
                   },
                   dataType: "html",
                   cache: false,
