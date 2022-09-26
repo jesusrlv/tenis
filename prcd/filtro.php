@@ -65,7 +65,7 @@ else if($val == 5){
       $no_resultados = mysqli_num_rows($resultado_Query);
       echo '
       <div class="alert alert-primary text-center" role="alert">
-        <strong>Número de coincidencias de resultados:</strong> ' . $no_resultados . ' tipos de calzado.
+        <strong><i class="bi bi-list-ol"></i> Número de coincidencias de resultados:</strong> ' . $no_resultados . ' tipos de calzado.
       </div>  
       <hr>';
       echo '<br>';
