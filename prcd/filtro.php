@@ -4,7 +4,7 @@ if(isset($_POST)){
 
   $val = $_POST['filter'];
   $pag =1;
-  $inicio = 0;
+  
   $limit = 12;
 
   if(isset($_POST['valorPag'])){
@@ -15,6 +15,9 @@ if(isset($_POST)){
     else{ 
       $inicio = 0;
     }
+  }
+  else{
+    $inicio = 0;
   }
   
   // 0 - 11
@@ -63,9 +66,10 @@ else if($val == 5){
       $resultado_FiltroQuery = $conn->query($filtroQuery);
       $resultado_Query = $conn->query($Query);
       $no_resultados = mysqli_num_rows($resultado_Query);
+      $indice_final = $no_resultados + 1;
       echo '
       <div class="alert alert-primary text-center" role="alert">
-        <strong><i class="bi bi-list-ol"></i> Número de coincidencias de resultados:</strong> ' . $no_resultados . ' tipos de calzado.
+        <strong><i class="bi bi-list-ol"></i> Número de coincidencias de resultados:</strong> ' . $indice_final . ' tipos de calzado.
       </div>  
       <hr>';
       echo '<br>';
