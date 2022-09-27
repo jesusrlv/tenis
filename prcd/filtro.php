@@ -1,7 +1,7 @@
 <?php
-if(isset($_POST)){
-  include('../query/qconn/qc.php');
-
+include('../query/qconn/qc.php');
+if(isset($_POST['filter']) && isset($_POST['filtro'])){
+  
   $val = $_POST['filter'];
   $pag =1;
   
@@ -19,39 +19,40 @@ if(isset($_POST)){
   else{
     $inicio = 0;
   }
-  
-  // 0 - 11
-  // 12 -24
-
 
 if($val == 1){
   
     $marca = $_POST['filtro'];
     $Query = "SELECT * FROM tenis WHERE marca = '$marca'";
+    
   
 }
 else if($val == 2){
   
     $modelo = $_POST['filtro'];
     $Query = "SELECT * FROM tenis WHERE modelo = '$modelo'";
+   
 
 }
 else if($val == 3){
   
     $color = $_POST['filtro']; 
     $Query = "SELECT * FROM tenis WHERE color  = '$color'"; 
+    
   
 }
 else if($val == 4){
   
     $material = $_POST['filtro'];
     $Query = "SELECT * FROM tenis WHERE material = '$material'";
+    
 
 }
 else if($val == 5){
     
     $talla = $_POST['filtro'];
     $Query = "SELECT * FROM tenis WHERE talla = '$talla'";
+   
 
 }
 // echo'
@@ -215,6 +216,13 @@ else if($val == 5){
 
     echo '</div>';
 
+}
+else{
+  echo'
+  <script>
+    alert("Selecciona los filtros de búsqueda");
+  </script>
+  ';
 }
 ?>
 

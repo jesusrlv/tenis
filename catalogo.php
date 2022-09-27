@@ -205,7 +205,7 @@
           <select class="form-select" aria-label="Example select with button addon" id="color">
             <option value="">Color ...</option>
             
-            <?php+
+            <?php
             include('query/query_color.php');
             while($rowColor = $resultado_sqlColor->fetch_assoc()){
               echo'
@@ -272,8 +272,6 @@
 
     <hr class="featurette-divider">
    
-
-
   <!-- FOOTER -->
   <!-- <footer class="container"> -->
   <footer class="footer mt-auto py-3">
