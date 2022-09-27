@@ -216,7 +216,13 @@ else if($val == 5){
               echo '</div>
             </div>
             </div> <!--fin div de alert-->
-            <div class="modal-footer">
+            <p><strong>Modelos similares</strong></p>';
+
+            $modelo = $row_sql_catalogo['modelo'];
+            $similares ="SELECT * FROM tenis WHERE modelo ='$modelo' limit 3";
+            $resultadoModelo =  $conn->query($similares);
+
+            echo' <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>';
               ?>
               <button type="button" class="btn btn-primary" onclick="mensajeAgregado(); agregarCarrito(<?php echo $row_sql_catalogo['id']?>,'<?php echo $x2?>',<?php echo $row_sql_catalogo['precio_general']?>, window.marks);" data-bs-dismiss="modal"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
