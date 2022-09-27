@@ -1,32 +1,5 @@
-<?php
-session_start();
-
-// if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
-//   if($_SESSION['perfil']==3){
-
-//   }
-//   else{
-//     header('Location: prcd/sort.php');
-//     die();
-//   }
-  
-// } else {
-//   // En caso contrario redirigimos el visitante a otra página
-
-//   header('Location: prcd/sort.php');
-//   die();
-// }
-
-// variables de sesión
-
-    $id_sess = $_SESSION['id'];
-    $nombre_sess = $_SESSION['usr'];
-    $perfil_sess = $_SESSION['perfil'];
-
-?>
-
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +7,7 @@ session_start();
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Shoes Store MX · Catálogo</title>
-    <link rel="icon" type="image/png" href="../assets/brand/img/cel.ico">
+    <link rel="icon" type="image/png" href="assets/brand/img/cel.ico">
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -49,22 +22,24 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- ajax -->
     <script src="query/compra.js"></script>
+    <script src="js/script.js"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
       /* normal web */
+      .selector1{
+          width:50%;
+        }
       
       
       /* On screens that are 992px wide or less, go from four columns to two columns */
       /* tablets, celular horizontal y otros dispositivos */
       @media screen and (max-width: 2000px) {
-        #selector1{
+        .selector1{
           width:50%;
         }
-        /* #card_tamano{
-            height:350px;
-          } */
+        
       }
       /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
       /* CELULAR */
@@ -84,12 +59,9 @@ session_start();
           #texto_titulo{
             font-size:18px;
           }
-          #selector1{
+          .selector1{
             width:100%;
           }
-          /* #card_tamano{
-            height:175px;
-          } */
           
       }
         
@@ -132,51 +104,41 @@ session_start();
       }
     </style>
 
-    <?php
-    
-    // $id_catalogo = $_REQUEST['id'];
-    // require('query/query_ini.php');
-    ?>
-
     <!-- Custom styles for this template -->
-    <link href="../carousel.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
   </head>
   <body>
     
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#" id="texto_titulo"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX | <?php echo $nombre_sess ?></a>
+    <a class="navbar-brand" href="#"><img src="assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="catalogo.php?id=1"><i class="bi bi-house-fill"></i> Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="venta_gral.php"><i class="bi bi-box-seam"></i> Mis pedidos</a>
-          </li>
-          <li class="nav-item">
-          <a href="../prcd/sort.php" class="nav-link active" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
-          </li>
-          <!--<li class="nav-item">
-            <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Tu pedido</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
-          </li> -->
-        </ul>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Tu pedido</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
+            </li>
+          </ul>
         
-        <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> <span id="esconder">Carrito de compras</span>
+      </div>
+      <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> <span id="esconder">Carrito de compras</span>
           <span class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger" id="notificacionBadge">
     0
           <span class="visually-hidden">unread messages</span>
         </span>
       </button>
-       
-      </div>
     </div>
   </nav>
 </header>
@@ -185,8 +147,8 @@ session_start();
 
 <div class="mt-5 pt-2 mb-3">
   <h1 class="text-center">
-    <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
-    <p class="m-0 p-0"><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="assets/brand/img/letras_verdes.png" alt="" width="270"></p>
   </h1>
 </div>
   <!-- Marketing messaging and featurettes
@@ -202,23 +164,17 @@ session_start();
       
     <form id="form1">
       <!-- divisor -->
-      <div class="input-group mb-3" id="selector1">
+      <div class="input-group mb-3 selector1">
           <div class="input-group-text bg-primary text-light">
             <i class="bi bi-filter-circle-fill"></i>          
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="filter" name="filter">
-            <option selected>Selecciona el tipo de filtro ...</option>
-            <option value="">Sin categoría</option>
-            <option value="1">a. Marca - Color</option>
-            <option value="2">b. Marca - Material</option>
-            <option value="3">c. Marca - Talla</option>
-            <option value="4">d. Modelo - Color </option>
-            <option value="5">e. Modelo - Material</option>
-            <option value="6">f. Modelo - Talla</option>
-            <option disabled>__________________</option>
-            <option value="7">g. Color - Talla</option>
-            <option value="8">h. Color - Material</option>
-            <option value="9">i. Talla - Material</option>
+          <select class="form-select" aria-label="Example select with button addon" id="filter" name="filter" onchange="inputFiltro()" required>
+            <option value="">Selecciona el tipo de filtro ...</option>
+            <option value="1">a. Marca</option>
+            <option value="2">b. Modelo</option>
+            <option value="3">c. Color</option>
+            <option value="4">d. Material</option>
+            <option value="5">e. Talla</option>
 
           </select>
         </div>
@@ -227,24 +183,53 @@ session_start();
    
     <!-- entran los dos filtros -->
     <!-- divisor -->
-    <div class="input-group mb-3" id="selector1">
+    <div class="input-group mb-3 selector1" id="marcaH" hidden>
           <div class="input-group-text bg-primary text-light">
-            <i class="bi bi-1-circle-fill"></i>          
+          <i class="bi bi-search"></i>            
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="filtro1" name="filtro1">
-            <option selected>Filtro 1 ...</option>
-            <option value="">Sin categoría</option>
+          <input type="text" class="form-control" placeholder="Marca..." aria-label="Username" aria-describedby="basic-addon1" id="marca">
+        </div>
 
-          </select>
+    <div class="input-group mb-3 selector1" id="modeloH" hidden>
+          <div class="input-group-text bg-primary text-light">
+          <i class="bi bi-search"></i>            
+          </div>
+          <input type="text" class="form-control" placeholder="Modelo..." aria-label="Username" aria-describedby="basic-addon1" id="modelo">
         </div>
 
         <!-- divisor -->
-      <div class="input-group mb-3" id="selector1">
+      <div class="input-group mb-3 selector1" id="colorH" hidden>
           <div class="input-group-text bg-primary text-light">
-            <i class="bi bi-2-circle-fill"></i>          
+          <i class="bi bi-search"></i>          
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="filtro2" name="filtro2">
-            <option selected>Filtro 2 ...</option>
+          <select class="form-select" aria-label="Example select with button addon" id="color">
+            <option value="">Color ...</option>
+            
+            <?php+
+            include('query/query_color.php');
+            while($rowColor = $resultado_sqlColor->fetch_assoc()){
+              echo'
+              <option value="'.$rowColor['color'].'">'.$rowColor['color'].'</option>
+              ';
+            }
+            ?>
+            
+          </select>
+        </div>
+
+        <div class="input-group mb-3 selector1" id="materialH" hidden>
+          <div class="input-group-text bg-primary text-light">
+          <i class="bi bi-search"></i>            
+          </div>
+          <input type="text" class="form-control" placeholder="Material..." aria-label="Username" aria-describedby="basic-addon1" id="material">
+        </div>
+
+        <div class="input-group mb-3 selector1" id="tallaH" hidden>
+          <div class="input-group-text bg-primary text-light">
+          <i class="bi bi-search"></i>          
+          </div>
+          <select class="form-select" aria-label="Example select with button addon" id="talla">
+            <option value="">Talla ...</option>
             <option value="">Sin categoría</option>
             
           </select>
@@ -271,17 +256,16 @@ session_start();
      
     </div>
     
+
   </div>
   
-  
-    <span id="txtHint"><b>Aquí debe aparecer la información...</b></span>
+    <div id="pagination_link"></div>
+    <span id="txtHint"><b>Información...</b></span>
 
     <!-- Three columns of text below the carousel -->
     <!-- consultas productos -->
     <div class="row row-cols-2 g-2">
-      <?php
-        // require('query/query_catalogo.php');
-      ?>
+      
     </div><!--row-->
     <!-- consultas productos -->
     <!-- START THE FEATURETTES -->
@@ -295,13 +279,14 @@ session_start();
   <footer class="footer mt-auto py-3">
     <p class="float-end"><a href="#">Regresar arriba</a></p>
     <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
-    <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
+    <p><strong>DEV:</strong> © 2022 <a href="#" target="_blank">Nexus Technology and Consulting</a>.</p>
+    <p><a href="privacidad/" style="text-decoration: none;"><i class="bi bi-shield-fill-check"></i> Política de privacidad</a></p>
   </footer>
   
 </main>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
       
   </body>
@@ -388,73 +373,15 @@ session_start();
 </script>
 
 <script>
-  var x = document.getElementById('checkbox1');
-  if (x.checked == true){
-    document.getElementById("marca").disabled=false;
-  }
-  else{
-    document.getElementById("marca").disabled=true;
-  }
-
-  var x2 = document.getElementById('checkbox2');
-  if (x2.checked == true){
-    document.getElementById("modelo").disabled=false;
-  }
-  else{
-    document.getElementById("modelo").disabled=true;
-  }
-
-  var x3 = document.getElementById('checkbox3');
-  if (x3.checked == true){
-    document.getElementById("color").disabled=false;
-  }
-  else{
-    document.getElementById("color").disabled=true;
-  }
-
-  var x4 = document.getElementById('checkbox4');
-  if (x4.checked == true){
-    document.getElementById("material").disabled=false;
-  }
-  else{
-    document.getElementById("material").disabled=true;
-  }
-
-  var x5 = document.getElementById('checkbox5');
-  if (x5.checked == true){
-    document.getElementById("talla").disabled=false;
-  }
-  else{
-    document.getElementById("talla").disabled=true;
-  }
-  
-  function habilitar1(){
-    document.getElementById("marca").disabled=false;
-  }
-  function habilitar2(){
-    document.getElementById("modelo").disabled=false;
-  }
-  function habilitar3(){
-    document.getElementById("color").disabled=false;
-  }
-  function habilitar4(){
-    document.getElementById("material").disabled=false;
-  }
-  function habilitar5(){
-    document.getElementById("talla").disabled=false;
-  }
-</script>
-
-<script>
           $(document).ready(function(){
           var form=$("#form1");
           $("#form1").submit(function(event){
           $.ajax({
                   type:"POST",
-                  url:"../prcd/filtro.php",
+                  url:"prcd/filtro.php",
                   data:form.serialize(),
                   dataType: "html",
-                  async:false,
+                  // async:false,
                   cache: false,
                     success: function(data) {
                       $("#txtHint").html(data);                  
@@ -467,124 +394,31 @@ session_start();
 
         </script>
 
+<!-- ajax paginación -->
 <script>
-              $(document).ready(function(e){
+  var valorPag;
+  function valorP(valorPg){
+    var valorPag = valorPg;
+    var filter= document.querySelector("[name='filter']").value;
+    var filtro= document.querySelector("[name='filtro']").value;
+         
+          $.ajax({
+                  type:"POST",
+                  url:"prcd/filtro.php",
+                  data:{
+                    valorPag:valorPag,
+                    filter:filter,
+                    filtro:filtro
+                  },
+                  dataType: "html",
+                  cache: false,
+                    success: function(data) {
+                      $("#txtHint").html(data);                  
+                    }               
+                  });
+                  
+                  event.preventDefault();
 
-                $("#marca").change(function(){
-                  var parametros= "marcaID="+$("#marca").val();
-                    
-                      $.ajax({
-                        data: parametros,
-                        url:'ajaxData.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#modelo").html("Procesando, espere por favor...");
-                        },
-                        success:function(response){
-                          $("#modelo").html(response);
-                        }
-                      });
-                });
+        }
 
-                $("#modelo").change(function(c){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                                        
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataModelo.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#color").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#color").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-                $("#modelo").change(function(d){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                                        
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataColor.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#material").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#material").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-                $("#modelo").change(function(f){
-                  var parametros1= $("#marca").val();
-                  var parametros2= $("#modelo").val();
-                                        
-                      $.ajax({
-                        data: {"uno": parametros1, "dos": parametros2},
-                        url:'ajaxDataTalla.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#talla").html("Procesando, espere por favor...");
-                        },
-                        success:function(responseColor){
-                          $("#talla").html(responseColor);
-                        },
-                        error: function (responseColor) {
-                          console.log(responseColor.responseText);
-                        }
-
-                      });
-                });
-
-              });
-</script>
-
-<script>
-  $(document).ready(function(){
-    $("#filter").change(function(){
-                  var filtro= $("#filter").val();
-                    
-                      $.ajax({
-                        data: {"filtro":filtro},
-                        url:'ajaxFiltro.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#filtro1").html("Procesando, espere por favor...");
-                        },
-                        success:function(response){
-                          $("#filtro1").html(response);
-                        }
-                      });
-                });
-    $("#filter").change(function(){
-                  var filtro= $("#filter").val();
-                    
-                      $.ajax({
-                        data: {"filtro":filtro},
-                        url:'ajaxFiltro2.php',
-                        type:'POST',
-                        beforeSend: function(){
-                          $("#filtro2").html("Procesando, espere por favor...");
-                        },
-                        success:function(response){
-                          $("#filtro2").html(response);
-                        }
-                      });
-                });
-  });
-</script>
-
-  <!-- https://pressroom.hostalia.com/white-papers/selects-dependientes-php-jquery-ajax/ -->
+        </script>
