@@ -216,11 +216,24 @@ else if($val == 5){
               echo '</div>
             </div>
             </div> <!--fin div de alert-->
-            <p><strong>Modelos similares</strong></p>';
+            <p class="ms-2"><strong>Modelos similares</strong></p>';
 
             $modelo = $row_sql_catalogo['modelo'];
             $similares ="SELECT * FROM tenis WHERE modelo ='$modelo' limit 3";
             $resultadoModelo =  $conn->query($similares);
+            echo'<div class="row w-100">';
+            while ($rowModelo = $resultadoModelo->fetch_assoc()){
+              echo '
+              <div class="col-sm">
+                <div class="card" style="width: 9rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text"><small>Some quick example text ...</small></p>
+                    </div>
+                </div>
+              </div>';
+            }
+            echo'</div>';
 
             echo' <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>';
