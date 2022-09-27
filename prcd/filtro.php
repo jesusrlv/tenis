@@ -90,14 +90,16 @@ else if($val == 5){
       $this_page_first_result = ($page-1)*$no_resultados;
 
       echo '
-      <nav aria-label="...">
-        <ul class="pagination pagination-lg">
+      <div class="btn-toolbar text-center mb-4" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+         
       ';
       for($page = 1;$page<=$no_paginacion;$page++){
-        echo '<li class="page-item active" aria-current=""><button class="page-link" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</button></li>';
+        echo '
+        <button type="button" class="btn btn-primary" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</button>';
       }
-      echo '</ul>
-       </nav>';
+      echo '</div>
+      </div>';
 
 
       if ($no_resultados == 0){
@@ -159,8 +161,24 @@ else if($val == 5){
             <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="img-fluid" alt="...">
             <hr>
               <div class="alert alert-primary">
-                <p class="mt-2 text-center">Producto: '.$row_sql_catalogo['marca'].'</p>
-                <p class="mt-2 text-center">Precio: '.$row_sql_catalogo['precio_general'].'</p>
+              
+                <p class="mt-1 text-center"><strong>'.$row_sql_catalogo['marca'].'</strong></p>
+                <hr>
+              <small>
+                <p class="mt-1 text-left">Precio: '.$row_sql_catalogo['precio_general'].'</p>
+                <p class="text-left"><strong>Descripción del producto</strong></p>
+                <p class="text-left">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-primary">Modelo: '.$row_sql_catalogo['modelo'].'</li>
+                    <li class="list-group-item list-group-item-primary">Tipo: '.$row_sql_catalogo['tipo'].'</li>
+                    <li class="list-group-item list-group-item-primary">Color predominante: '.$row_sql_catalogo['color'].'</li>
+                    <li class="list-group-item list-group-item-primary">Colores secundarios: '.$row_sql_catalogo['color2'].' '.$row_sql_catalogo['color3'].' '.$row_sql_catalogo['color4'].' '.$row_sql_catalogo['color5'].'</li>
+                    <li class="list-group-item list-group-item-primary">Material: '.$row_sql_catalogo['precio_general'].'</li>
+                    <li class="list-group-item list-group-item-primary">Catálogo para: '.$row_sql_catalogo['hombre_mujer'].'</li>
+                    <li class="list-group-item list-group-item-primary">Formas: '.$row_sql_catalogo['formas'].'</li>
+                  </ul>
+                </p>
+              </small>
              
               <p class="mt-1 text-secondary"><small>Talla:</small></p>
               <div class="container">';
@@ -196,8 +214,6 @@ else if($val == 5){
             //   echo consultaTalla();
             
               echo '</div>
-              <p class="mt-3 text-secondary"><small>Descripción:</small></p>
-              <p class="mt-1 text-center">'.$row_sql_catalogo['marca'].'</p>
             </div>
             </div> <!--fin div de alert-->
             <div class="modal-footer">
