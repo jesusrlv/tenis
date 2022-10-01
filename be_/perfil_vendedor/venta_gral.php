@@ -108,7 +108,12 @@ session_start();
 
 <main>
   <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Venta <span class="text-muted">General</span></h2>
-
+<div class="mt-5 pt-2 mb-3">
+  <h1 class="text-center">
+    <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"></p>
+  </h1>
+</div>
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->

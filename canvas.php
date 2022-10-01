@@ -14,7 +14,7 @@
         <div class="row-12">
           <!-- <form action="query/q_guardar_datos.php" method="POST" class="" onchange="cambioInput()"> -->
           <form action="query/q_guardar_datos.php" method="POST" class="">
-                <p id="compracarrito"></p>
+            <p id="compracarrito"></p>
                 <!-- <hr class="w-100 justify-aligment-center"> -->
             <!-- </form> -->
             <button class="btn btn-primary w-100 mb-1" type="button" id="btncerrar" onclick="cambiarHidden()"><i class="bi bi-cart-plus"></i> Completar datos envío</button>

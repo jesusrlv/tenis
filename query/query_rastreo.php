@@ -7,7 +7,8 @@ include('qconn/qc.php');
         $busqueda = $_POST['busqueda'];
 
         // $sql_busqueda = "SELECT * FROM envios WHERE codigo_envio_interno ='$busqueda'";
-        $sql_busqueda = "SELECT * FROM venta_gral WHERE clave_rastreo_int ='$busqueda' AND apartado = 2";
+        // $sql_busqueda = "SELECT * FROM venta_gral WHERE clave_rastreo_int ='$busqueda' AND apartado = 2";
+        $sql_busqueda = "SELECT * FROM venta_gral WHERE clave_rastreo_int ='$busqueda'";
         $resultado_sql_busqueda= $conn->query($sql_busqueda);
         // if ($resultado_sql_busqueda= $conn->query($sql_busqueda)){
         $resultado_rows = mysqli_num_rows($resultado_sql_busqueda);
@@ -24,8 +25,8 @@ include('qconn/qc.php');
                 else if($row_sql_envio['entrega']==2){
                     echo '<td class="table-primary"><span class="badge text-bg-success"><i class="bi bi-check-circle-fill"></i> Entregado</span></td>';
                 }
-                else{
-                    echo '<td class="table-primary"><span class="badge text-bg-danger"><i class="bi bi-x-circle-fill"></i> No entregado</span></td>';
+                else if($row_sql_envio['entrega']==0){
+                    echo '<td class="table-primary"><span class="badge text-bg-warning"><i class="bi bi-send-exclamation-fill"></i> En ruta</span></td>';
                 }
                 echo '
                 </tr>

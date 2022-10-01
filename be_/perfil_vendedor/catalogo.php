@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+// if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
+//   if($_SESSION['perfil']==3){
+
+//   }
+//   else{
+//     echo '<script>
+//     alert "1";<script>';
+//     header('Location: prcd/sort.php');
+//     die();
+//   }
+  
+// } 
+// else {
+//   // En caso contrario redirigimos el visitante a otra página
+//   echo '<script>
+//   alert "2";<script>';
+//   header('Location: prcd/sort.php');
+//   die();
+// }
+
+// variables de sesión
+
+    $id_sess = $_SESSION['id'];
+    $nombre_sess = $_SESSION['usr'];
+    $perfil_sess = $_SESSION['perfil'];
+
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -22,7 +52,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- ajax -->
     <script src="query/compra.js"></script>
-    <script src="js/script.js"></script>
+    <script src="../../js/script.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -112,33 +142,37 @@
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX</a>
+    <a class="navbar-brand" href="#"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="30" height="24"> Shoes Store MX | <?php echo $nombre_sess ?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house-fill"></i> Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="catalogo.php?id=1"><i class="bi bi-box-seam"></i> Catálogo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Tu pedido</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
-            </li>
-          </ul>
+           <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="catalogo.php?id=1"><i class="bi bi-house-fill"></i> Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="venta_gral.php"><i class="bi bi-box-seam"></i> Mis pedidos</a>
+          </li>
+          <li class="nav-item">
+          <a href="../prcd/sort.php" class="nav-link active" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Tu pedido</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
+          </li> -->
+        </ul>
         
-      </div>
-      <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> <span id="esconder">Carrito de compras</span>
+        <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> <span id="esconder">Carrito de compras</span>
           <span class="position-absolute top-100 start-0 translate-middle badge rounded-pill bg-danger" id="notificacionBadge">
     0
           <span class="visually-hidden">unread messages</span>
         </span>
       </button>
+       
+      </div>
     </div>
   </nav>
 </header>
@@ -147,8 +181,8 @@
 
 <div class="mt-5 pt-2 mb-3">
   <h1 class="text-center">
-    <p class="m-0 p-0"><img src="assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
-    <p class="m-0 p-0"><img src="assets/brand/img/letras_verdes.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
+    <p class="m-0 p-0"><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"></p>
   </h1>
 </div>
   <!-- Marketing messaging and featurettes
@@ -378,7 +412,7 @@
           $("#form1").submit(function(event){
           $.ajax({
                   type:"POST",
-                  url:"prcd/filtro.php",
+                  url:"../../prcd/filtro.php",
                   data:form.serialize(),
                   dataType: "html",
                   // async:false,
@@ -404,7 +438,7 @@
          
           $.ajax({
                   type:"POST",
-                  url:"prcd/filtro.php",
+                  url:"../../prcd/filtro.php",
                   data:{
                     valorPag:valorPag,
                     filter:filter,

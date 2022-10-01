@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST)){
-  include('../query/qconn/qc.php');
+  include('query/qconn/qc.php');
 
   $val = $_POST['filter'];
   $pag =1;

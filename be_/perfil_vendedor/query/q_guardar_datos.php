@@ -54,9 +54,10 @@ $valor = $_POST['valor'];
 
 foreach($nombreproducto as $key => $arreglo)
 {
-    $resta = $resta - 1;
+    // $resta = $resta - 1;
     $talla1 = $talla[$key];
-    $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1')";
+    // $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1')";
+    $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla,entrega) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1','$entrega')";
     $resultado= $conn->query($sql);
     
 }
@@ -115,7 +116,7 @@ if($resultado_general){
     Swal.fire({
         icon: 'success',
         title: 'Compra realizada',
-        text: 'Revisa tu correo con la información',
+        text: 'utf8_encode(Revisa tu correo con la información)',
         footer: 'Ventas en línea</a>'
     }).then(function(){window.location='../catalogo.php?id=1';});</script>";
     }
