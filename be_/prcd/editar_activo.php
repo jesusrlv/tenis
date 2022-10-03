@@ -10,7 +10,7 @@ include('../../query/qconn/qc.php');
 $id = $_REQUEST['id'];
 $activo = 0;
 
-    $sqlUpdate = "UPDATE producto SET activo='$activo' WHERE id='$id'";
+    $sqlUpdate = "UPDATE tenis SET estatus='$activo' WHERE id='$id'";
 
     $resultado2= $conn->query($sqlUpdate);
 

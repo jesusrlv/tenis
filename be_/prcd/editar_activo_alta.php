@@ -10,7 +10,7 @@ include('../../query/qconn/qc.php');
 $id = $_REQUEST['id'];
 $activo = 1;
 
-    $sqlUpdate = "UPDATE producto SET activo='$activo' WHERE id='$id'";
+    $sqlUpdate = "UPDATE tenis SET estatus='$activo' WHERE id='$id'";
     $resultado2= $conn->query($sqlUpdate);
 
     if($resultado2){
@@ -20,7 +20,7 @@ $activo = 1;
             icon: 'success',
             title: 'Producto dado de alta',
             text: 'Catálogo actualizado',
-            footer: 'Ventas en línea</a>'
+            footer: 'Shoes Store Mx</a>'
         }).then(function(){window.location='../catalogo.php';});</script>";
         }
         else{

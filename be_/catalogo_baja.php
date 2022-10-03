@@ -139,30 +139,33 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <table class="table  table-light table-striped mb-3 table-hover align-middle">
       <thead class="text-center table-dark align-middle">
         <tr>
-          <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Descripción</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Precio</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i> Total vendido</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-capslock-fill"></i> Dar de alta</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-trash-fill"></i> Eliminar</small></th>
-        
+        <th scope="col" class="h6"><small>#</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i><br>Marca</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Modelo</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Tipo</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Color</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Material</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>H/M</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Talla</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Acción</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i><br>Dar de baja</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
         
         <?php
         $x = 0;
-          while($row_sql = $resultado_sql_catalogo->fetch_assoc()){
+          while($row_sql = $sqlResultCatalgo->fetch_assoc()){
             $x++;
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
-            echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
-            echo'<td class="text-center">'.$row_sql['descripcion'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['precio'].'</td>';
-            echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center">'.$row_sql['total_vendido'].'</td>';
+            echo'<td class="text-center">'.$row_sql['marca'].'</td>';
+            echo'<td class="text-center">'.$row_sql['modelo'].'</td>';
+            echo'<td class="text-center">$'.$row_sql['tipo'].'</td>';
+            echo'<td class="text-center">'.$row_sql['color'].'</td>';
+            echo'<td class="text-center">'.$row_sql['material'].'</td>';
+            echo'<td class="text-center">'.$row_sql['hombre_mujer'].'</td>';
+            echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#editarArticulo'.$row_sql['id'].'"><span class="badge bg-info text-dark"><i class="bi bi-capslock-fill"></i> Dar de alta</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-trash-fill"></i> Eliminar</span></a></td>';
             echo'</tr>';

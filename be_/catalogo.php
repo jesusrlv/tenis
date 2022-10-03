@@ -109,9 +109,9 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-
-<? include('../query/query_catalogo_backend.php'); ?>
+  <!-- Wrap the rest of the page -->
+  
+<?php include('../query/query_catalogo_backend.php'); ?>
   
   <div class="container marketing mt-5 border-bottom">
 
@@ -137,13 +137,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <table class="table  table-light table-striped mb-3 table-hover align-middle">
       <thead class="text-center table-dark align-middle">
         <tr>
-          <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i><br>Producto</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Descripción</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Total vendido</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Tallas</small></th>
+        <th scope="col" class="h6"><small>#</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i><br>Marca</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Modelo</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Tipo</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Color</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Material</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>H/M</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Talla</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Acción</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i><br>Dar de baja</small></th>
         </tr>
@@ -152,17 +153,17 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         
         <?php
         $x = 0;
-          while($row_sql = $resultado_sql_catalogo->fetch_assoc()){
+          while($row_sql = $sqlResultCatalgo->fetch_assoc()){
             $x++;
-            $id_talla =$row_sql['id'];
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
-            echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
-            echo'<td class="text-center">'.$row_sql['descripcion'].'</td>';
-            echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center">'.$row_sql['total_vendido'].'</td>';
-            echo'<td class="text-center"><a href="tallas.php?id='.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Tallas</span></a></td>';
-            echo'<td class="text-center"><a href="color.php?id='.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Color</span></a></td>';
+            echo'<td class="text-center">'.$row_sql['marca'].'</td>';
+            echo'<td class="text-center">'.$row_sql['modelo'].'</td>';
+            echo'<td class="text-center">$'.$row_sql['tipo'].'</td>';
+            echo'<td class="text-center">'.$row_sql['color'].'</td>';
+            echo'<td class="text-center">'.$row_sql['material'].'</td>';
+            echo'<td class="text-center">'.$row_sql['hombre_mujer'].'</td>';
+            echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-warning text-dark"><i class="bi bi-trash-fill"></i> Dar de baja</span></a></td>';
             echo'</tr>';
@@ -181,55 +182,47 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <input name="id" value="'.$row_sql['id'].'" hidden>
 
                     <div class="text-center mb-3">
-                      <img src="../assets/brand/img/catalogo/'.$row_sql['imagen'].'" class="rounded" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
+                      <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="rounded" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
-                      <input type="text" name="nombre" class="form-control" value="'.$row_sql['nombre'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <input type="text" name="marca" class="form-control" value="'.$row_sql['marca'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Descripción</span>
-                      <input type="text" name="descripcion" class="form-control" value="'.$row_sql['descripcion'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <input type="text" name="modelo" class="form-control" value="'.$row_sql['modelo'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Precio</span>
-                      <input type="text" name="precio" class="form-control" value="'.$row_sql['precio'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <span class="input-group-text" id="basic-addon1">Tipo</span>
+                      <input type="text" name="tipo" class="form-control" value="'.$row_sql['tipo'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Cantidad</span>
-                      <input type="text" name="cantidad" class="form-control" value="'.$row_sql['cantidad'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
+                      <span class="input-group-text" id="basic-addon1">Color</span>
+                      <input type="text" name="color" class="form-control" value="'.$row_sql['color'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Total vendido</span>
-                      <input type="text" class="form-control" value="'.$row_sql['total_vendido'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
+                      <span class="input-group-text" id="basic-addon1">Formas</span>
+                      <input type="text" name="formas" class="form-control" value="'.$row_sql['formas'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
-                    <div class="mb-3">
-                      <hr>
-                      <span class="text-secondary mb-3"><strong>Tallas disponibles:</strong></span>
-                      ';
-                        $sqlTallaDisp = "SELECT * FROM talla WHERE id_ext = '".$row_sql['id']."'";
-                        $resultadoTallaDisp = $conn->query($sqlTallaDisp);
-                        while ($row_sqlTallaDisp = $resultadoTallaDisp->fetch_assoc()){
-                          echo '
-                          <div class="alert alert-primary text-center" role="alert">
-                            <strong>Talla:</strong> '.$row_sqlTallaDisp['talla'].' | <strong>Cantidad:</strong> '.$row_sqlTallaDisp['cantidad'].'
-                          </div>';
-                        }
-                      echo '
-                      <hr>
-                      <span class="text-secondary"><strong>Colores disponibles:</strong></span>';
-                      $sqlColorDisp = "SELECT * FROM color_inventario WHERE id_ext = '".$row_sql['id']."'";
-                      $resultadoColorDisp = $conn->query($sqlColorDisp);
-                      while ($row_sqlColorDisp = $resultadoColorDisp->fetch_assoc()){
-                        echo '
-                        <div class="alert alert-primary text-center" role="alert">
-                          <strong>Color:</strong> '.$row_sqlColorDisp['color'].' | <strong>Cantidad:</strong> '.$row_sqlColorDisp['cantidad'].'
-                        </div>';
-                      }
-                    echo '
-                       
-
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Material</span>
+                      <input type="text" name="material" class="form-control" value="'.$row_sql['material'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Hombre / Mujer</span>
+                      <input type="text" name="hombre_mujer" class="form-control" value="'.$row_sql['hombre_mujer'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Talla</span>
+                      <input type="text" name="talla" class="form-control" value="'.$row_sql['talla'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Precio General</span>
+                      <input type="text" name="precio_general" class="form-control" value="'.$row_sql['precio_general'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+                    
+                    
+                    
                   </div>
 
                  
@@ -258,28 +251,22 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <input name="id" value="'.$row_sql['id'].'" hidden>
 
                     <div class="text-center mb-3">
-                      <img src="../assets/brand/img/catalogo/'.$row_sql['imagen'].'" class="rounded" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
+                      <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="rounded" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
-                      <input type="text" name="nombre" class="form-control" value="'.$row_sql['nombre'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <input type="text" name="nombre" class="form-control" value="'.$row_sql['marca'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Descripción</span>
-                      <input type="text" name="descripcion" class="form-control" value="'.$row_sql['descripcion'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <input type="text" name="descripcion" class="form-control" value="'.$row_sql['modelo'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Precio</span>
-                      <input type="text" name="precio" class="form-control" value="'.$row_sql['precio'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <input type="text" name="precio" class="form-control" value="'.$row_sql['precio_general'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Cantidad</span>
-                      <input type="text" name="cantidad" class="form-control" value="'.$row_sql['cantidad'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
-                    </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Total vendido</span>
-                      <input type="text" class="form-control" value="'.$row_sql['total_vendido'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" READONLY>
-                    </div>
+                   
+                  
                     <div class="mb-3">
                       <hr>
                       <span class="text-secondary">Tallas disponibles:</span>
