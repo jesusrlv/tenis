@@ -12,7 +12,7 @@ $cantidad = $_POST['cantidad'];
 $id = $_POST['id'];
 $id_ext = $_POST['id_ext'];
 
-    $sqlUpdate = "UPDATE talla SET talla='$talla',cantidad='$cantidad' WHERE id='$id'";
+    $sqlUpdate = "UPDATE inventario SET talla='$talla',cantidad='$cantidad' WHERE id='$id'";
 
     $resultado= $conn->query($sqlUpdate);
 
@@ -21,10 +21,10 @@ $id_ext = $_POST['id_ext'];
         echo "<script type=\"text/javascript\">
         Swal.fire({
             icon: 'success',
-            title: 'Producto registrado',
+            title: 'Talla actualizada',
             text: 'Catálogo actualizado',
-            footer: 'Ventas en línea</a>'
-        }).then(function(){window.location='../tallas.php?id=".$id_ext."';});</script>";
+            footer: 'Shoes Store Mx'
+        }).then(function(){window.location='../tallas.php?talla=".$id_ext."';});</script>";
         }
         else{
         echo 'No se registró producto';

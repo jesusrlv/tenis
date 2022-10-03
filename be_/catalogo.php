@@ -145,6 +145,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Material</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>H/M</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Talla</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Tallas</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Acción</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i><br>Dar de baja</small></th>
         </tr>
@@ -159,11 +160,12 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql['marca'].'</td>';
             echo'<td class="text-center">'.$row_sql['modelo'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['tipo'].'</td>';
+            echo'<td class="text-center">'.$row_sql['tipo'].'</td>';
             echo'<td class="text-center">'.$row_sql['color'].'</td>';
             echo'<td class="text-center">'.$row_sql['material'].'</td>';
             echo'<td class="text-center">'.$row_sql['hombre_mujer'].'</td>';
             echo'<td class="text-center">'.$row_sql['talla'].'</td>';
+            echo'<td class="text-center"><a href="tallas.php?talla='.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Tallas</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-warning text-dark"><i class="bi bi-trash-fill"></i> Dar de baja</span></a></td>';
             echo'</tr>';

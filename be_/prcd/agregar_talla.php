@@ -12,7 +12,7 @@ $cantidad = $_POST['cantidad'];
 $id = $_POST['id'];
 
     // $sqlinsert= "UPDATE documentos SET link4='$ruta_pptx' WHERE id_usr='$curp'";
-    $sqlinsert= "INSERT INTO talla(talla,cantidad,id_ext) VALUES('$talla','$cantidad','$id')";
+    $sqlinsert= "INSERT INTO inventario(talla,cantidad,id_ext_tenis) VALUES('$talla','$cantidad','$id')";
     $resultado= $conn->query($sqlinsert);
 
 
@@ -24,7 +24,7 @@ $id = $_POST['id'];
             title: 'Producto registrado',
             text: 'Catálogo actualizado',
             footer: 'Ventas en línea</a>'
-        }).then(function(){window.location='../tallas.php?id=".$id."';});</script>";
+        }).then(function(){window.location='../tallas.php?talla=".$id."';});</script>";
         }
         else{
         echo 'No se registró producto';

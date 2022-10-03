@@ -146,7 +146,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <tbody id="myTable">
         
         <?php
-        $id_talla =$_REQUEST['id'];
+        $id_talla =$_REQUEST['talla'];
         include('../query/query_talla.php');
         $x = 0;
         while($row_sql = $resultado_sqlTalla->fetch_assoc()){
@@ -171,14 +171,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                   <div class="modal-body">
                     <form action="prcd/editar_talla.php" method="POST">
                       <input value="'.$row_sql['id'].'" name="id" hidden>
-                      <input value="'.$row_sql['id_ext'].'" name="id_ext" hidden>
+                      <input value="'.$row_sql['id_ext_tenis'].'" name="id_ext" hidden>
                       <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Talla</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['talla'].'" name="talla">
+                        <input type="number" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['talla'].'" name="talla">
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Cantidad</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['cantidad'].'" name="cantidad">
+                        <input type="number" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['cantidad'].'" name="cantidad">
                       </div>
                   </div>
                   <div class="modal-footer">
