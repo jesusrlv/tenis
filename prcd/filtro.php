@@ -182,7 +182,8 @@ else if($val == 5){
              
               <p class="mt-1 text-secondary"><small>Talla:</small></p>
               <div class="container">';
-              $sqlMedida = "SELECT * FROM talla ORDER BY id ASC";
+              $idTenis = $row_sql_catalogo['id'];
+              $sqlMedida = "SELECT * FROM inventario WHERE id_ext_tenis='$idTenis' AND cantidad > 0 ORDER BY id ASC";
               $resultadoMedida = $conn->query($sqlMedida);
               echo '
               <script>
