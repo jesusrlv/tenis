@@ -196,7 +196,32 @@ else if($val == 5){
               <p class="mt-1 text-center">'.$row_sql_catalogo['marca'].'</p>
             </div>
             </div> <!--fin div de alert-->
-            <div class="modal-footer">
+            <p class="ms-2"><strong>Modelos similares</strong></p>';
+
+            $modelo = $row_sql_catalogo['modelo'];
+            $similares ="SELECT * FROM tenis WHERE modelo ='$modelo' limit 3";
+            $resultadoModelo =  $conn->query($similares);
+            echo'
+            <div class="container-fluid align-items-center mb-2">
+            <div class="row row-cols-lg-auto g-4 align-items-center">';
+            while ($rowModelo = $resultadoModelo->fetch_assoc()){
+              echo '
+              <div class="col-4">
+                <div class="card" style="width: 8.1rem;">
+                  <img src="../assets/brand/img/catalogo/'.$rowModelo['img'].'" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <p class="card-text"><small>Marca: '.$rowModelo['marca'].'</small></p>
+                      <p class="card-text text-start"><small>Marca: '.$rowModelo['modelo'].'</small></p>
+                    </div>
+                </div>
+              </div>';
+            }
+            echo'
+            </div>
+            </div>';
+
+            
+            echo '<div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>';
               ?>
               <button type="button" class="btn btn-primary" onclick="mensajeAgregado(); agregarCarrito(<?php echo $row_sql_catalogo['id']?>,'<?php echo $x2?>',<?php echo $row_sql_catalogo['precio_general']?>, window.marks);" data-bs-dismiss="modal"><i class="bi bi-cart-plus"></i> Agregar al carrito</button>
