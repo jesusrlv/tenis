@@ -338,53 +338,63 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 <div class="modal fade" id="agregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-dark text-light">
         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar producto</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="prcd/agregar_categoria.php" method="post" enctype="multipart/form-data">
       <div class="modal-body">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nombre</span>
-            <input type="text" name="nombre" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag-plus"></i></span>
+            <input type="text" name="marca" class="form-control" placeholder="Marca" aria-label="..." aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Descripción</span>
-            <input type="text" name="descripcion" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag-plus"></i></span>
+            <input type="text" name="modelo" class="form-control" placeholder="Modelo" aria-label="..." aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Precio</span>
-            <input type="text" name="precio" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag-plus"></i></span>
+            <input type="text" name="tipo" class="form-control" placeholder="Tipo" aria-label="..." aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
-            <!-- <span class="input-group-text" id="basic-addon1">Imagen</span>
-            <input type="text" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1"> -->
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
+            <!-- <input type="text" name="color" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1"> -->
+            <select class="form-select" name="color" aria-label="Default select example">
+                <option selected>Selecciona color ...</option>
+                <? 
+                $sqlColor = "SELECT * FROM color";
+                $resultadoColor = $conn->query($sqlColor);
+                while($rowColor = $resultadoColor->fetch_assoc()){
+                  echo '<option value="'.$rowColor['color'].'">'.$rowColor['color'].'</option>';
+                }
+                ?>
+              </select>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-app-indicator"></i></span>
+            <input type="text" name="material" class="form-control" placeholder="Material" aria-label="..." aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-gender-ambiguous"></i></span>
+            <select class="form-select" name="color" aria-label="Default select example">
+                <option selected>Selecciona género para el calzado ...</option>
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+                <option value="Unisex">Unisex</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            
             <div class="input-group mb-1">
               <label class="input-group-text" for="inputGroupFile01"><i class="bi bi-image"></i></label>
               <input type="file" name="foto" class="form-control" id="inputGroupFile01">
             </div>
         </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Cantidad</span>
-            <input type="text" name="cantidad" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Tipo catálogo</span>
-              <select class="form-select" name="tipo_catalogo" aria-label="Default select example">
-                <option selected>Selecciona la categoría del producto</option>
-                <? 
-                $sqlCategoria = "SELECT * FROM catalogo";
-                $resultado_categoria_sql = $conn->query($sqlCategoria);
-                while($rowCategoria = $resultado_categoria_sql->fetch_assoc()){
-                  echo '<option value="'.$rowCategoria['id'].'">'.$rowCategoria['nombre_catalogo'].'</option>';
-                }
-                ?>
-              </select>
-        </div>
+        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-cloud-upload-fill"></i> Cerrar</button>
-        <button type="submit" class="btn btn-primary"><i class="bi bi-x-square-fill"></i> Guardar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
+        <button type="submit" class="btn btn-primary"><i class="bi bi-cloud-upload-fill"></i> Guardar</button>
       </form>
       </div>
     </div>

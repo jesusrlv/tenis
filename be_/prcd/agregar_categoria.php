@@ -7,12 +7,13 @@
 <?php
 include('../../query/qconn/qc.php');
 
-$nombre = $_POST['nombre'];
-$descripcion = $_POST['descripcion'];
-$precio = $_POST['precio'];
+$marca = $_POST['marca'];
+$modelo = $_POST['modelo'];
+$tipo = $_POST['tipo'];
 // $foto = $_POST['foto'];
-$cantidad = $_POST['cantidad'];
-$tipo_catalogo = $_POST['tipo_catalogo'];
+$color = $_POST['color'];
+$material = $_POST['material'];
+$hombre_mujer = $_POST['hombre_mujer'];
 $link= 'foto';
 $activo = 1;
 
