@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-09-2022 a las 01:16:29
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Tiempo de generación: 03-10-2022 a las 08:13:36
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -52,9 +51,38 @@ CREATE TABLE `inventario` (
   `id` int(11) NOT NULL,
   `id_ext_tenis` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `vendidos` int(11) NOT NULL,
-  `fecha` datetime NOT NULL
+  `talla` int(11) NOT NULL,
+  `color` int(11) DEFAULT NULL,
+  `venta_gral` int(11) DEFAULT NULL,
+  `venta_individual` int(11) DEFAULT NULL,
+  `fecha` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `inventario`
+--
+
+INSERT INTO `inventario` (`id`, `id_ext_tenis`, `cantidad`, `talla`, `color`, `venta_gral`, `venta_individual`, `fecha`) VALUES
+(1, 1, 3, 12, NULL, NULL, NULL, NULL),
+(2, 0, 5, 13, NULL, NULL, NULL, NULL),
+(3, 18, 4, 12, NULL, NULL, NULL, NULL),
+(4, 18, 4, 13, NULL, NULL, NULL, NULL),
+(5, 18, 4, 14, NULL, NULL, NULL, NULL),
+(6, 18, 8, 15, NULL, NULL, NULL, NULL),
+(7, 18, 7, 16, NULL, NULL, NULL, NULL),
+(8, 18, 0, 17, NULL, NULL, NULL, NULL),
+(9, 18, 9, 18, NULL, NULL, NULL, NULL),
+(10, 18, 1, 19, NULL, NULL, NULL, NULL),
+(11, 18, 5, 20, NULL, NULL, NULL, NULL),
+(12, 18, 5, 21, NULL, NULL, NULL, NULL),
+(13, 18, 3, 22, NULL, NULL, NULL, NULL),
+(14, 18, 1, 23, NULL, NULL, NULL, NULL),
+(15, 18, 8, 24, NULL, NULL, NULL, NULL),
+(16, 18, 1, 25, NULL, NULL, NULL, NULL),
+(17, 18, 1, 26, NULL, NULL, NULL, NULL),
+(18, 18, 1, 27, NULL, NULL, NULL, NULL),
+(19, 18, 5, 28, NULL, NULL, NULL, NULL),
+(20, 18, 9, 29, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -111,6 +139,36 @@ INSERT INTO `talla` (`id`, `talla`, `tipo`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tallaInv`
+--
+
+CREATE TABLE `tallaInv` (
+  `id` int(11) NOT NULL,
+  `talla` varchar(4) NOT NULL,
+  `id_ext` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tallaInv`
+--
+
+INSERT INTO `tallaInv` (`id`, `talla`, `id_ext`, `cantidad`) VALUES
+(1, 'Azul', 1, 4),
+(2, '27', 1, 12),
+(3, '12', 4, 30),
+(4, 'adul', 16, 9),
+(5, 'jove', 16, 10),
+(6, '10 b', 2, 3),
+(7, '10 n', 2, 0),
+(8, '', 2, 0),
+(9, '30', 16, 100),
+(10, '12', 368, 2),
+(11, '18', 368, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tenis`
 --
 
@@ -141,8 +199,8 @@ CREATE TABLE `tenis` (
 --
 
 INSERT INTO `tenis` (`id`, `clasificacion`, `tamanio`, `marca`, `modelo`, `tipo`, `color`, `color2`, `color3`, `color4`, `color5`, `formas`, `material`, `hombre_mujer`, `talla`, `img`, `precio_general`, `precio_prov`, `estatus`) VALUES
-(1, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'BLANCO', 'GRIS', '', '', '', '', 'VINIPIEL', 'UNISEX', 0, '1.png', 0, 0, 0),
-(2, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'BLANCO', 'ROJO', '', '', '', '', 'VINIPIEL', 'UNISEX', 0, '2.png', 0, 0, 0),
+(1, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'ROJO', 'GRIS', '', '', '', 'Sin formas 2', 'VINIPIEL', 'UNISEX', 0, '1.png', 0, 0, 1),
+(2, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'BLANCO', 'ROJO', '', '', '', '', 'VINIPIEL', 'UNISEX', 0, '2.png', 0, 0, 1),
 (3, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'BLANCO', 'ROSA PALO', '', '', '', '', 'VINIPIEL', 'MUJER', 0, '3.png', 0, 0, 0),
 (4, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'BLANCO', 'ROSA PALO', 'ORO', 'GRIS', '', '', 'VINIPIEL', 'MUJER', 0, '4.png', 0, 0, 0),
 (5, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'ROJO', 'BLANCO', 'NEGRO', '', '', '', 'VINIPIEL', 'HOMBRE', 0, '5.png', 0, 0, 0),
@@ -158,7 +216,7 @@ INSERT INTO `tenis` (`id`, `clasificacion`, `tamanio`, `marca`, `modelo`, `tipo`
 (15, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'ARCOIRIS', '', '', '', '', '', 'VINIPIEL', 'MUJER', 0, '15.png', 0, 0, 0),
 (16, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'BLANCO', 'ROSA PALO', 'NEGRO', '', '', '', 'VINIPIEL', 'MUJER', 0, '16.png', 0, 0, 0),
 (17, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'GRIS', 'BLANCO', 'NEGRO', '', '', '', 'VINIPIEL', 'UNISEX', 0, '17.png', 0, 0, 0),
-(18, 'TENIS', 'INFANTIL', 'PUMA', '', 'CHOCLO', 'BLANCO', 'GRIS', 'AZUL', 'ROJO', '', '', 'VINIPIEL', 'UNISEX', 0, '18.png', 0, 0, 0),
+(18, 'TENIS', 'INFANTIL', 'PUMA', '', 'CHOCLO', 'BLANCO', 'GRIS', 'AZUL', 'ROJO', '', '', 'VINIPIEL', 'UNISEX', 0, '18.png', 0, 0, 1),
 (19, 'TENIS', 'INFANTIL', 'NIKE', 'AF1', 'CHOCLO', 'BLANCO', 'MENTA', 'ORO', '', '', '', 'VINIPIEL', 'UNISEX', 0, '19.png', 0, 0, 0),
 (20, 'TENIS', 'INFANTIL', 'NIKE', 'RETRO 1', 'BOTA', 'BLANCO', 'NEGRO', 'ROJO', '', '', '', 'VINIPIEL', 'UNISEX', 0, '20.png', 0, 0, 0),
 (21, 'TENIS', 'INFANTIL', 'NIKE', 'RETRO 1', 'BOTA', 'BLANCO', 'GRIS', '', '', '', '', 'VINIPIEL', 'UNISEX', 0, '21.png', 0, 0, 0),
@@ -523,6 +581,19 @@ CREATE TABLE `usr` (
   `status_e` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `usr`
+--
+
+INSERT INTO `usr` (`id`, `usr`, `pwd`, `perfil`, `status_e`) VALUES
+(1, 'admin', '123456789', 1, 1),
+(2, 'admin2', '123456789', 2, 1),
+(3, 'admin3', '123456789', 3, 1),
+(4, 'ANiB', '123456789', 2, 1),
+(5, 'Rupe2', '123456789', 2, 1),
+(6, 'ANiB2', '', 3, 1),
+(7, 'Rupe', '123456789', 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -599,7 +670,11 @@ INSERT INTO `venta_gral` (`id`, `cantidad`, `precio`, `fecha_venta`, `nombre`, `
 (43, 1, 0, '2022-08-08 12:35:48', 'Jesus Rodolfo', 'Andador tulipanes 12 a', '9236222', 'jesusrlvrojo@gmail.com', NULL, NULL, NULL, NULL, 'ufiak4bsd', NULL, NULL, 1, NULL),
 (44, 1, 0, '2022-08-08 12:36:19', 'Jesus Rodolfo', 'Andador tulipanes 12 a', '9236222', 'jesusrlvrojo@gmail.com', NULL, NULL, NULL, NULL, 'dy8uuk8xp', NULL, NULL, 1, NULL),
 (45, 1, 0, '2022-08-08 12:46:39', 'Jesus Rodolfo', 'Andador tulipanes 12 a', '9236222', 'jesusrlvrojo@gmail.com', NULL, NULL, NULL, NULL, '721be1zym', NULL, NULL, 1, NULL),
-(46, 1, 0, '2022-09-23 18:11:08', 'Jesus Rodolfo', 'Andador tulipanes 12 a', '9236222', 'jesusrlvrojo@gmail.com', NULL, NULL, NULL, NULL, 'w3jc2kcrk', NULL, NULL, 1, NULL);
+(46, 1, 0, '2022-09-23 18:11:08', 'Jesus Rodolfo', 'Andador tulipanes 12 a', '9236222', 'jesusrlvrojo@gmail.com', NULL, NULL, NULL, NULL, 'w3jc2kcrk', NULL, NULL, 1, NULL),
+(47, 1, 0, '2022-10-01 16:29:31', 'iPhone 13', 'XXXXX', '999999', 'gold.axs.systems@gmail.com', NULL, NULL, NULL, NULL, 'e84wr16bs', NULL, NULL, 1, NULL),
+(48, 1, 0, '2022-10-01 16:32:16', 'Ana Elisa', 'XXXXX', '999999', 'dsda@sdfdsf.ghnfgf', NULL, NULL, NULL, NULL, '3hhqyry9i', NULL, NULL, 1, NULL),
+(49, 1, 0, '2022-10-01 16:51:22', 'Ana Elisa', 'XXXXX', '999999', 'aepbarbanosequemas@outlook.com', NULL, NULL, NULL, NULL, 'rhcrlnxn9', NULL, NULL, 1, NULL),
+(50, 1, 0, '2022-10-01 17:05:12', 'Ana Elisa', 'XXXXX', '999999', 'gold.axs.systems@gmail.com', NULL, NULL, NULL, NULL, '3l4ndtn5k', NULL, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -613,142 +688,145 @@ CREATE TABLE `venta_individual` (
   `fecha_venta` date NOT NULL,
   `venta_gral` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
   `talla` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `cantidad` int(11) DEFAULT NULL
+  `cantidad` int(11) DEFAULT NULL,
+  `entrega` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `venta_individual`
 --
 
-INSERT INTO `venta_individual` (`id`, `producto`, `fecha_venta`, `venta_gral`, `talla`, `cantidad`) VALUES
-(1, '0', '0000-00-00', '0', '', NULL),
-(2, '0', '0000-00-00', '0', '', NULL),
-(3, '0', '0000-00-00', '0', '', NULL),
-(4, '0', '2022-03-02', '0', '', NULL),
-(5, '0', '2022-03-02', '0', '', NULL),
-(6, '0', '2022-03-02', '0', '', NULL),
-(7, '0', '2022-03-02', '0', '', NULL),
-(8, '0', '2022-03-02', '0', '', NULL),
-(9, '0', '2022-03-02', '0', '', NULL),
-(10, '0', '2022-03-02', '0', '', NULL),
-(11, '0', '2022-03-02', '0', '', NULL),
-(12, '0', '2022-03-02', '0', '', NULL),
-(13, '0', '2022-03-02', '0', '', NULL),
-(14, '0', '2022-03-02', '0', '', NULL),
-(15, '0', '2022-03-02', '0', '', NULL),
-(16, '0', '2022-03-02', '1', '', NULL),
-(17, '0', '2022-03-02', '0', '', NULL),
-(18, 'Protector iPhone XS Max', '2022-03-02', '0', '', NULL),
-(19, 'Protector iPhone XS Max', '2022-03-02', '0', '', NULL),
-(20, 'Protector iPhone XS Max', '2022-03-02', 'g9vz8mhh3', '', NULL),
-(21, 'Protector iPhone XS Max', '2022-03-02', 'b2mqoil4w', '', NULL),
-(22, 'Protector iPhone XS Max', '2022-03-02', 'b2mqoil4w', '', NULL),
-(23, 'Mate 20 Lite', '2022-03-02', 'b2mqoil4w', '', NULL),
-(24, 'Samsung A10S', '2022-03-02', 'b2mqoil4w', '', NULL),
-(25, 'Protector iPhone XS Max', '2022-03-02', '8f3ak2ug8', '', NULL),
-(26, 'Protector iPhone XS Max', '2022-03-02', '8f3ak2ug8', '', NULL),
-(27, 'Mate 20 Lite', '2022-03-02', '8f3ak2ug8', '', NULL),
-(28, 'Samsung A10S', '2022-03-02', '8f3ak2ug8', '', NULL),
-(29, 'Protector iPhone XS Max', '2022-03-02', '99x8t9pvr', '', NULL),
-(30, 'Protector iPhone XS Max', '2022-03-02', '99x8t9pvr', '', NULL),
-(31, 'Mate 20 Lite', '2022-03-02', '99x8t9pvr', '', NULL),
-(32, 'Samsung A10S', '2022-03-02', '99x8t9pvr', '', NULL),
-(33, 'Protector iPhone XS Max', '2022-03-02', 'v5b9wrogc', '', NULL),
-(34, 'Protector iPhone XS Max', '2022-03-02', 'v5b9wrogc', '', NULL),
-(35, 'Mate 20 Lite', '2022-03-02', 'v5b9wrogc', '', NULL),
-(36, 'Samsung A10S', '2022-03-02', 'v5b9wrogc', '', NULL),
-(37, 'Mate 20 Lite', '2022-03-02', 'vudtv03fq', '', NULL),
-(38, 'Mate 20 Lite', '2022-03-02', 'vudtv03fq', '', NULL),
-(39, 'Protector Samsung S30/S21', '2022-03-02', 'vudtv03fq', '', NULL),
-(40, 'Protector iPhone XS Max', '2022-03-02', 'vudtv03fq', '', NULL),
-(41, 'Mate 20 Lite', '2022-03-02', '5cew07b0n', '', NULL),
-(42, 'Mate 20 Lite', '2022-03-02', '5cew07b0n', '', NULL),
-(43, 'Protector Samsung S30/S21', '2022-03-02', '5cew07b0n', '', NULL),
-(44, 'Protector iPhone XS Max', '2022-03-02', '5cew07b0n', '', NULL),
-(45, 'Mate 20 Lite', '2022-03-02', '77lz5ocv5', '', NULL),
-(46, 'Mate 20 Lite', '2022-03-02', '77lz5ocv5', '', NULL),
-(47, 'Protector Samsung S30/S21', '2022-03-02', '77lz5ocv5', '', NULL),
-(48, 'Protector iPhone XS Max', '2022-03-02', '77lz5ocv5', '', NULL),
-(49, 'Mate 20 Lite', '2022-03-02', 't3jxopyg7', '', NULL),
-(50, 'Mate 20 Lite', '2022-03-02', 't3jxopyg7', '', NULL),
-(51, 'Protector Samsung S30/S21', '2022-03-02', 't3jxopyg7', '', NULL),
-(52, 'Protector iPhone XS Max', '2022-03-02', 't3jxopyg7', '', NULL),
-(53, 'Protector Samsung S30/S21', '2022-03-02', 't3jxopyg7', '', NULL),
-(54, 'iPhone 11 (6.1)', '2022-03-15', '8moue73zq', '', NULL),
-(55, 'Protector Samsung S30/S21', '2022-03-15', '8moue73zq', '', NULL),
-(56, 'iPhone 7/8 Plus', '2022-03-15', '8moue73zq', '', NULL),
-(57, 'iPhone 11 (6.1)', '2022-03-15', '3myeslnks', '', NULL),
-(58, 'Protector Samsung S30/S21', '2022-03-15', '3myeslnks', '', NULL),
-(59, 'iPhone 7/8 Plus', '2022-03-15', '3myeslnks', '', NULL),
-(60, 'Protector Samsung S30/S21', '2022-03-30', 'v7q58lmqg', '', NULL),
-(61, 'iPhone 11 (6.1)', '2022-03-30', 'v7q58lmqg', '', NULL),
-(62, 'A51', '2022-03-30', 'v7q58lmqg', '', NULL),
-(63, 'Protector Samsung S30/S21', '2022-05-12', 'jw7nizkvp', '', NULL),
-(64, 'Mate 20 Lite', '2022-05-12', 'jw7nizkvp', '', NULL),
-(65, 'Protector Samsung S30/S21', '2022-05-12', 'emeeoygi2', '', NULL),
-(66, 'Mate 20 Lite', '2022-05-12', 'emeeoygi2', '', NULL),
-(67, 'Protector Samsung S30/S21', '2022-05-12', '17o2h8nkp', '', NULL),
-(68, 'Mate 20 Lite', '2022-05-12', '17o2h8nkp', '', NULL),
-(69, 'Protector Samsung S30/S21', '2022-05-12', '5mj5w2cui', 'Array', NULL),
-(70, 'Mate 20 Lite', '2022-05-12', '5mj5w2cui', 'Array', NULL),
-(71, 'Protector Samsung S30/S21', '2022-05-12', 'a5kv3ujdw', 'Array', NULL),
-(72, 'Mate 20 Lite', '2022-05-12', 'a5kv3ujdw', 'Array', NULL),
-(73, 'Protector Samsung S30/S21', '2022-05-12', 'c240kzw9t', '29', NULL),
-(74, 'Protector Samsung S30/S21', '2022-05-12', 'c240kzw9t', '29', NULL),
-(75, 'Mate 20 Lite', '2022-05-12', 'c240kzw9t', '29', NULL),
-(76, 'Mate 20 Lite', '2022-05-12', 'c240kzw9t', '29', NULL),
-(77, 'Protector Samsung S30/S21', '2022-05-13', 'yue7pfnqp', '29', NULL),
-(78, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '29', NULL),
-(79, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '27', NULL),
-(80, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '12', NULL),
-(81, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '29', NULL),
-(82, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '27', NULL),
-(83, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '12', NULL),
-(84, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '29', NULL),
-(85, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '27', NULL),
-(86, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '12', NULL),
-(87, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '29', NULL),
-(88, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '27', NULL),
-(89, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '12', NULL),
-(90, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '29', NULL),
-(91, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '27', NULL),
-(92, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '12', NULL),
-(93, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '29', NULL),
-(94, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '27', NULL),
-(95, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '12', NULL),
-(96, 'Protector Samsung S30/S21', '2022-05-17', 'w0wh8n0ul', '27', NULL),
-(97, 'Protector Samsung S30/S21', '2022-05-17', 'w0wh8n0ul', '12', NULL),
-(98, 'Mate 20 Lite', '2022-05-17', 'w0wh8n0ul', '27', NULL),
-(99, 'Mate 20 Lite', '2022-05-17', 'w0wh8n0ul', '12', NULL),
-(100, 'Protector Samsung S30/S21', '2022-05-31', 'vfhure3v3', '27', NULL),
-(101, 'Mate 20 Lite', '2022-05-31', 'vfhure3v3', '12', NULL),
-(102, 'Protector Samsung S30/S21', '2022-05-31', 'kx4ray8kl', 'undefined', NULL),
-(103, 'Protector Samsung S30/S21', '2022-05-31', 'kx4ray8kl', '29', NULL),
-(104, 'Protector Samsung S30/S21', '2022-05-31', 'pywsyyxw7', 'undefined', NULL),
-(105, 'Protector Samsung S30/S21', '2022-05-31', 'pywsyyxw7', '29', NULL),
-(106, 'Protector Samsung S30/S21', '2022-05-31', 'qrqwk8xnf', '27', NULL),
-(107, 'Mate 20 Lite', '2022-05-31', 'qrqwk8xnf', '12', NULL),
-(108, 'Mate 20 Lite', '2022-06-01', '34j3fsitu', '12', NULL),
-(109, 'NIKE AF1', '2022-06-07', 'o0555sz7d', '27', NULL),
-(110, 'NIKE AF1', '2022-06-07', 'o0555sz7d', '10 b', NULL),
-(111, 'NIKE AF1', '2022-06-07', 'o0555sz7d', '12', NULL),
-(112, 'NIKE AF1', '2022-06-14', '566h3dn0z', 'undefined', NULL),
-(113, 'NIKE AF1', '2022-06-14', 'gng58ts5m', 'undefined', NULL),
-(114, 'NIKE AF1', '2022-06-14', 'du8keddcv', '10 b', NULL),
-(115, 'NIKE AF1', '2022-06-14', 'du8keddcv', '27', NULL),
-(116, 'NIKE AF1', '2022-06-14', 'hory4tvdc', '10 b', NULL),
-(117, 'NIKE AF1', '2022-06-14', 'hory4tvdc', '27', NULL),
-(118, 'NIKE AF1', '2022-06-14', '2jdzd0jkn', '10 b', NULL),
-(119, 'NIKE AF1', '2022-06-14', '2jdzd0jkn', '27', NULL),
-(120, 'NIKE AF1', '2022-07-25', 'xbpuey6yi', '21', NULL),
-(121, 'NIKE AF1', '2022-07-25', 'xbpuey6yi', '21', NULL),
-(122, 'NIKE AF1', '2022-07-25', 'xbpuey6yi', '27', NULL),
-(123, 'PUMA ', '2022-07-26', 'e89aq6wzv', '21', NULL),
-(124, 'NIKE AF1', '2022-07-26', 'e89aq6wzv', '27', NULL),
-(125, 'VANS ', '2022-07-26', 'e89aq6wzv', '27', NULL),
-(126, 'NIKE RETRO 1', '2022-07-26', '4qeeesci7', '12', NULL),
-(127, 'CONVERSE ', '2022-07-26', '4qeeesci7', '27', NULL),
-(128, 'NIKE RUNNING', '2022-07-26', '9wzjvi9nc', '27', NULL);
+INSERT INTO `venta_individual` (`id`, `producto`, `fecha_venta`, `venta_gral`, `talla`, `cantidad`, `entrega`) VALUES
+(1, '0', '0000-00-00', '0', '', NULL, NULL),
+(2, '0', '0000-00-00', '0', '', NULL, NULL),
+(3, '0', '0000-00-00', '0', '', NULL, NULL),
+(4, '0', '2022-03-02', '0', '', NULL, NULL),
+(5, '0', '2022-03-02', '0', '', NULL, NULL),
+(6, '0', '2022-03-02', '0', '', NULL, NULL),
+(7, '0', '2022-03-02', '0', '', NULL, NULL),
+(8, '0', '2022-03-02', '0', '', NULL, NULL),
+(9, '0', '2022-03-02', '0', '', NULL, NULL),
+(10, '0', '2022-03-02', '0', '', NULL, NULL),
+(11, '0', '2022-03-02', '0', '', NULL, NULL),
+(12, '0', '2022-03-02', '0', '', NULL, NULL),
+(13, '0', '2022-03-02', '0', '', NULL, NULL),
+(14, '0', '2022-03-02', '0', '', NULL, NULL),
+(15, '0', '2022-03-02', '0', '', NULL, NULL),
+(16, '0', '2022-03-02', '1', '', NULL, NULL),
+(17, '0', '2022-03-02', '0', '', NULL, NULL),
+(18, 'Protector iPhone XS Max', '2022-03-02', '0', '', NULL, NULL),
+(19, 'Protector iPhone XS Max', '2022-03-02', '0', '', NULL, NULL),
+(20, 'Protector iPhone XS Max', '2022-03-02', 'g9vz8mhh3', '', NULL, NULL),
+(21, 'Protector iPhone XS Max', '2022-03-02', 'b2mqoil4w', '', NULL, NULL),
+(22, 'Protector iPhone XS Max', '2022-03-02', 'b2mqoil4w', '', NULL, NULL),
+(23, 'Mate 20 Lite', '2022-03-02', 'b2mqoil4w', '', NULL, NULL),
+(24, 'Samsung A10S', '2022-03-02', 'b2mqoil4w', '', NULL, NULL),
+(25, 'Protector iPhone XS Max', '2022-03-02', '8f3ak2ug8', '', NULL, NULL),
+(26, 'Protector iPhone XS Max', '2022-03-02', '8f3ak2ug8', '', NULL, NULL),
+(27, 'Mate 20 Lite', '2022-03-02', '8f3ak2ug8', '', NULL, NULL),
+(28, 'Samsung A10S', '2022-03-02', '8f3ak2ug8', '', NULL, NULL),
+(29, 'Protector iPhone XS Max', '2022-03-02', '99x8t9pvr', '', NULL, NULL),
+(30, 'Protector iPhone XS Max', '2022-03-02', '99x8t9pvr', '', NULL, NULL),
+(31, 'Mate 20 Lite', '2022-03-02', '99x8t9pvr', '', NULL, NULL),
+(32, 'Samsung A10S', '2022-03-02', '99x8t9pvr', '', NULL, NULL),
+(33, 'Protector iPhone XS Max', '2022-03-02', 'v5b9wrogc', '', NULL, NULL),
+(34, 'Protector iPhone XS Max', '2022-03-02', 'v5b9wrogc', '', NULL, NULL),
+(35, 'Mate 20 Lite', '2022-03-02', 'v5b9wrogc', '', NULL, NULL),
+(36, 'Samsung A10S', '2022-03-02', 'v5b9wrogc', '', NULL, NULL),
+(37, 'Mate 20 Lite', '2022-03-02', 'vudtv03fq', '', NULL, NULL),
+(38, 'Mate 20 Lite', '2022-03-02', 'vudtv03fq', '', NULL, NULL),
+(39, 'Protector Samsung S30/S21', '2022-03-02', 'vudtv03fq', '', NULL, NULL),
+(40, 'Protector iPhone XS Max', '2022-03-02', 'vudtv03fq', '', NULL, NULL),
+(41, 'Mate 20 Lite', '2022-03-02', '5cew07b0n', '', NULL, NULL),
+(42, 'Mate 20 Lite', '2022-03-02', '5cew07b0n', '', NULL, NULL),
+(43, 'Protector Samsung S30/S21', '2022-03-02', '5cew07b0n', '', NULL, NULL),
+(44, 'Protector iPhone XS Max', '2022-03-02', '5cew07b0n', '', NULL, NULL),
+(45, 'Mate 20 Lite', '2022-03-02', '77lz5ocv5', '', NULL, NULL),
+(46, 'Mate 20 Lite', '2022-03-02', '77lz5ocv5', '', NULL, NULL),
+(47, 'Protector Samsung S30/S21', '2022-03-02', '77lz5ocv5', '', NULL, NULL),
+(48, 'Protector iPhone XS Max', '2022-03-02', '77lz5ocv5', '', NULL, NULL),
+(49, 'Mate 20 Lite', '2022-03-02', 't3jxopyg7', '', NULL, NULL),
+(50, 'Mate 20 Lite', '2022-03-02', 't3jxopyg7', '', NULL, NULL),
+(51, 'Protector Samsung S30/S21', '2022-03-02', 't3jxopyg7', '', NULL, NULL),
+(52, 'Protector iPhone XS Max', '2022-03-02', 't3jxopyg7', '', NULL, NULL),
+(53, 'Protector Samsung S30/S21', '2022-03-02', 't3jxopyg7', '', NULL, NULL),
+(54, 'iPhone 11 (6.1)', '2022-03-15', '8moue73zq', '', NULL, NULL),
+(55, 'Protector Samsung S30/S21', '2022-03-15', '8moue73zq', '', NULL, NULL),
+(56, 'iPhone 7/8 Plus', '2022-03-15', '8moue73zq', '', NULL, NULL),
+(57, 'iPhone 11 (6.1)', '2022-03-15', '3myeslnks', '', NULL, NULL),
+(58, 'Protector Samsung S30/S21', '2022-03-15', '3myeslnks', '', NULL, NULL),
+(59, 'iPhone 7/8 Plus', '2022-03-15', '3myeslnks', '', NULL, NULL),
+(60, 'Protector Samsung S30/S21', '2022-03-30', 'v7q58lmqg', '', NULL, NULL),
+(61, 'iPhone 11 (6.1)', '2022-03-30', 'v7q58lmqg', '', NULL, NULL),
+(62, 'A51', '2022-03-30', 'v7q58lmqg', '', NULL, NULL),
+(63, 'Protector Samsung S30/S21', '2022-05-12', 'jw7nizkvp', '', NULL, NULL),
+(64, 'Mate 20 Lite', '2022-05-12', 'jw7nizkvp', '', NULL, NULL),
+(65, 'Protector Samsung S30/S21', '2022-05-12', 'emeeoygi2', '', NULL, NULL),
+(66, 'Mate 20 Lite', '2022-05-12', 'emeeoygi2', '', NULL, NULL),
+(67, 'Protector Samsung S30/S21', '2022-05-12', '17o2h8nkp', '', NULL, NULL),
+(68, 'Mate 20 Lite', '2022-05-12', '17o2h8nkp', '', NULL, NULL),
+(69, 'Protector Samsung S30/S21', '2022-05-12', '5mj5w2cui', 'Array', NULL, NULL),
+(70, 'Mate 20 Lite', '2022-05-12', '5mj5w2cui', 'Array', NULL, NULL),
+(71, 'Protector Samsung S30/S21', '2022-05-12', 'a5kv3ujdw', 'Array', NULL, NULL),
+(72, 'Mate 20 Lite', '2022-05-12', 'a5kv3ujdw', 'Array', NULL, NULL),
+(73, 'Protector Samsung S30/S21', '2022-05-12', 'c240kzw9t', '29', NULL, NULL),
+(74, 'Protector Samsung S30/S21', '2022-05-12', 'c240kzw9t', '29', NULL, NULL),
+(75, 'Mate 20 Lite', '2022-05-12', 'c240kzw9t', '29', NULL, NULL),
+(76, 'Mate 20 Lite', '2022-05-12', 'c240kzw9t', '29', NULL, NULL),
+(77, 'Protector Samsung S30/S21', '2022-05-13', 'yue7pfnqp', '29', NULL, NULL),
+(78, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '29', NULL, NULL),
+(79, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '27', NULL, NULL),
+(80, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '12', NULL, NULL),
+(81, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '29', NULL, NULL),
+(82, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '27', NULL, NULL),
+(83, 'Protector Samsung S30/S21', '2022-05-17', 'cf03poq8v', '12', NULL, NULL),
+(84, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '29', NULL, NULL),
+(85, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '27', NULL, NULL),
+(86, 'Mate 20 Lite', '2022-05-17', 'cf03poq8v', '12', NULL, NULL),
+(87, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '29', NULL, NULL),
+(88, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '27', NULL, NULL),
+(89, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '12', NULL, NULL),
+(90, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '29', NULL, NULL),
+(91, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '27', NULL, NULL),
+(92, 'Protector Samsung S30/S21', '2022-05-17', '21a0uhkkf', '12', NULL, NULL),
+(93, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '29', NULL, NULL),
+(94, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '27', NULL, NULL),
+(95, 'Mate 20 Lite', '2022-05-17', '21a0uhkkf', '12', NULL, NULL),
+(96, 'Protector Samsung S30/S21', '2022-05-17', 'w0wh8n0ul', '27', NULL, NULL),
+(97, 'Protector Samsung S30/S21', '2022-05-17', 'w0wh8n0ul', '12', NULL, NULL),
+(98, 'Mate 20 Lite', '2022-05-17', 'w0wh8n0ul', '27', NULL, NULL),
+(99, 'Mate 20 Lite', '2022-05-17', 'w0wh8n0ul', '12', NULL, NULL),
+(100, 'Protector Samsung S30/S21', '2022-05-31', 'vfhure3v3', '27', NULL, NULL),
+(101, 'Mate 20 Lite', '2022-05-31', 'vfhure3v3', '12', NULL, NULL),
+(102, 'Protector Samsung S30/S21', '2022-05-31', 'kx4ray8kl', 'undefined', NULL, NULL),
+(103, 'Protector Samsung S30/S21', '2022-05-31', 'kx4ray8kl', '29', NULL, NULL),
+(104, 'Protector Samsung S30/S21', '2022-05-31', 'pywsyyxw7', 'undefined', NULL, NULL),
+(105, 'Protector Samsung S30/S21', '2022-05-31', 'pywsyyxw7', '29', NULL, NULL),
+(106, 'Protector Samsung S30/S21', '2022-05-31', 'qrqwk8xnf', '27', NULL, NULL),
+(107, 'Mate 20 Lite', '2022-05-31', 'qrqwk8xnf', '12', NULL, NULL),
+(108, 'Mate 20 Lite', '2022-06-01', '34j3fsitu', '12', NULL, NULL),
+(109, 'NIKE AF1', '2022-06-07', 'o0555sz7d', '27', NULL, NULL),
+(110, 'NIKE AF1', '2022-06-07', 'o0555sz7d', '10 b', NULL, NULL),
+(111, 'NIKE AF1', '2022-06-07', 'o0555sz7d', '12', NULL, NULL),
+(112, 'NIKE AF1', '2022-06-14', '566h3dn0z', 'undefined', NULL, NULL),
+(113, 'NIKE AF1', '2022-06-14', 'gng58ts5m', 'undefined', NULL, NULL),
+(114, 'NIKE AF1', '2022-06-14', 'du8keddcv', '10 b', NULL, NULL),
+(115, 'NIKE AF1', '2022-06-14', 'du8keddcv', '27', NULL, NULL),
+(116, 'NIKE AF1', '2022-06-14', 'hory4tvdc', '10 b', NULL, NULL),
+(117, 'NIKE AF1', '2022-06-14', 'hory4tvdc', '27', NULL, NULL),
+(118, 'NIKE AF1', '2022-06-14', '2jdzd0jkn', '10 b', NULL, NULL),
+(119, 'NIKE AF1', '2022-06-14', '2jdzd0jkn', '27', NULL, NULL),
+(120, 'NIKE AF1', '2022-07-25', 'xbpuey6yi', '21', NULL, NULL),
+(121, 'NIKE AF1', '2022-07-25', 'xbpuey6yi', '21', NULL, NULL),
+(122, 'NIKE AF1', '2022-07-25', 'xbpuey6yi', '27', NULL, NULL),
+(123, 'PUMA ', '2022-07-26', 'e89aq6wzv', '21', NULL, NULL),
+(124, 'NIKE AF1', '2022-07-26', 'e89aq6wzv', '27', NULL, NULL),
+(125, 'VANS ', '2022-07-26', 'e89aq6wzv', '27', NULL, NULL),
+(126, 'NIKE RETRO 1', '2022-07-26', '4qeeesci7', '12', NULL, NULL),
+(127, 'CONVERSE ', '2022-07-26', '4qeeesci7', '27', NULL, NULL),
+(128, 'NIKE RUNNING', '2022-07-26', '9wzjvi9nc', '27', NULL, NULL),
+(129, 'NIKE', '2022-10-01', 'rhcrlnxn9', '18', NULL, 1),
+(130, 'NIKE', '2022-10-01', '3l4ndtn5k', '18', NULL, 1);
 
 --
 -- Índices para tablas volcadas
@@ -776,6 +854,12 @@ ALTER TABLE `pedidos`
 -- Indices de la tabla `talla`
 --
 ALTER TABLE `talla`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tallaInv`
+--
+ALTER TABLE `tallaInv`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -811,50 +895,46 @@ ALTER TABLE `venta_individual`
 --
 ALTER TABLE `color`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT de la tabla `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `talla`
 --
 ALTER TABLE `talla`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
+--
+-- AUTO_INCREMENT de la tabla `tallaInv`
+--
+ALTER TABLE `tallaInv`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT de la tabla `tenis`
 --
 ALTER TABLE `tenis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=368;
-
 --
 -- AUTO_INCREMENT de la tabla `usr`
 --
 ALTER TABLE `usr`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `venta_gral`
 --
 ALTER TABLE `venta_gral`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT de la tabla `venta_individual`
 --
 ALTER TABLE `venta_individual`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
