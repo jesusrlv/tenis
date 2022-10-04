@@ -145,7 +145,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Material</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>H/M</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Talla</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Tallas</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Acción</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i><br>Dar de baja</small></th>
         </tr>
@@ -164,7 +163,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$row_sql['color'].'</td>';
             echo'<td class="text-center">'.$row_sql['material'].'</td>';
             echo'<td class="text-center">'.$row_sql['hombre_mujer'].'</td>';
-            echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'<td class="text-center"><a href="tallas.php?talla='.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Tallas</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-warning text-dark"><i class="bi bi-trash-fill"></i> Dar de baja</span></a></td>';
@@ -174,11 +172,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <div class="modal-header bg-dark text-light">
-                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> Editar artículo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class=" w-100" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
+                  
+                  <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="w-100" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
                   
                   <form action="prcd/editar_categoria.php" method="post">
                   <div class="modal-body">
@@ -278,13 +273,17 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       <input type="text" name="material" class="form-control" value="'.$row_sql['material'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Hombre / Mujer</span>
-                      <input type="text" name="hombre_mujer" class="form-control" value="'.$row_sql['hombre_mujer'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-gender-ambiguous"></i></span>
+                      <select class="form-select" name="hombre_mujer" aria-label="Default select example" required>';
+                      ?>
+                          <option value="0">Selecciona ...</option>
+                          <option value="Hombre" <?php if($row_sql['hombre_mujer']=='Hombre'){echo 'selected="selected"';} ?> >Hombre</option>
+                          <option value="Mujer" <?php if($row_sql['hombre_mujer']=='Mujer'){echo 'selected="selected"';} ?> >Mujer</option>
+                          <option value="Unisex" <?php if($row_sql['hombre_mujer']=='Unisex'){echo 'selected="selected"';} ?> >Unisex</option>
+                      <?php
+                      echo '</select>
                     </div>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Talla</span>
-                      <input type="text" name="talla" class="form-control" value="'.$row_sql['talla'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
-                    </div>
+                    
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Precio General</span>
                       <input type="text" name="precio_general" class="form-control" value="'.$row_sql['precio_general'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">

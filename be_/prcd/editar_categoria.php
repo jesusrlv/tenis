@@ -12,18 +12,21 @@ $marca = $_POST['marca'];
 $modelo = $_POST['modelo'];
 $tipo = $_POST['tipo'];
 $color = $_POST['color'];
+$color2 = $_POST['color2'];
+$color3 = $_POST['color3'];
+$color4 = $_POST['color4'];
+$color5 = $_POST['color5'];
 $formas = $_POST['formas'];
 $material = $_POST['material'];
 $hombre_mujer = $_POST['hombre_mujer'];
-$talla = $_POST['talla'];
 $precio_general = $_POST['precio_general'];
 $link= 'foto';
     
-    $sqlUpdate = "UPDATE tenis SET marca='$marca',modelo='$modelo',tipo='$tipo',color='$color',formas='$formas',material='$material',hombre_mujer='$hombre_mujer',talla='$talla',precio_general='$precio_general' WHERE id='$id'";
+    $sqlUpdate = "UPDATE tenis SET marca='$marca',modelo='$modelo',tipo='$tipo',color='$color',formas='$formas',material='$material',hombre_mujer='$hombre_mujer',precio_general='$precio_general' WHERE id='$id'";
 
-    $resultado2= $conn->query($sqlUpdate);
+    $resultado = $conn->query($sqlUpdate);
 
-    if($resultado2){
+    if($resultado){
         
         echo "<script type=\"text/javascript\">
         Swal.fire({

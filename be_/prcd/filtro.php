@@ -115,27 +115,22 @@ else if($val == 5){
         echo '
           <div class="col-lg-4" id="hidden" >
           <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'" onclick="escala()">
-            <div class="card text-center text-dark" style="width: 100%;" id="card_tamano">
-              <div class="card-header bg-primary text-light">
-                  <small><i class="bi bi-cart-plus"></i></small>
-                </div>
+            <div class="card text-center text-dark" style="width: 100%; border-radius:3px" id="card_tamano">
+            
                 <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="card-img-top img-fluid" style="width:100%; max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
-                <div class="card-body text-start bg-primary text-light">
-                  <span class="card-title" id="titulo_card"><small><strong>Marca: '.$row_sql_catalogo['marca'].'</strong></small></span><br>
-                  <span class="card-title" id="titulo_card2"><small><strong>Modelo: </strong>'.$row_sql_catalogo['modelo'].'</small></span><br>
+                <div class="card-body text-center bg-primary text-light">
+                  <span class="card-title" id="titulo_card"><small><strong>'.$row_sql_catalogo['marca'].'</strong></small></span><br>
+                  <span class="card-title" id="titulo_card2"><small><strong></strong>'.$row_sql_catalogo['modelo'].'</small></span><br>
                   <span class="card-title" id="titulo_card2"><small><strong>Material: </strong>'.$row_sql_catalogo['material'].'</small></span><br>
                   <span class="card-title" id="titulo_card2"><small><strong>Tipo: </strong>'.$row_sql_catalogo['tipo'].'</small></span><br>
                   <span class="card-title" id="titulo_card2"><small><strong>Color: </strong>'.$row_sql_catalogo['color'].'</small></span><br>
-                  <span class="card-title" id="titulo_card2"><small><strong>Talla: </strong>'.$row_sql_catalogo['talla'].'</small></span><br>
-                  <span class="card-title" id="titulo_card2"><small><strong>Precio general: </strong>'.$row_sql_catalogo['precio_general'].'</small></span><br>
+                  <hr>
+                  <span class="card-title text-center" id="titulo_card2"><small><strong>Precio: </strong>'.$row_sql_catalogo['precio_general'].'</small></span><br>
                   ';
                   
                 
         echo'
-                  
-                  <hr>
-                  
                 </div>
               </div>
               </a>
