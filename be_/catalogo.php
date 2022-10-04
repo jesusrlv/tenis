@@ -174,24 +174,25 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar artículo</h5>
+                  <div class="modal-header bg-dark text-light">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-pencil-square"></i> Editar artículo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
+                  <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class=" w-100" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
                   
                   <form action="prcd/editar_categoria.php" method="post">
                   <div class="modal-body">
                     <input name="id" value="'.$row_sql['id'].'" hidden>
 
-                    <div class="text-center mb-3">
-                      <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="rounded" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
-                    </div>
+                    <!--<div class="text-center mb-3">
+                      <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="rounded w-100" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
+                    </div>-->
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Nombre</span>
+                      <span class="input-group-text" id="basic-addon1">Marca</span>
                       <input type="text" name="marca" class="form-control" value="'.$row_sql['marca'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Descripción</span>
+                      <span class="input-group-text" id="basic-addon1">Modelo</span>
                       <input type="text" name="modelo" class="form-control" value="'.$row_sql['modelo'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
@@ -199,8 +200,74 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       <input type="text" name="tipo" class="form-control" value="'.$row_sql['tipo'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Color</span>
-                      <input type="text" name="color" class="form-control" value="'.$row_sql['color'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
+                      <select class="form-select" name="color" aria-label="Default select example" required>
+                        <option value="'.$row_sql['color'].'" selected>'.$row_sql['color'].'</option>';
+                        
+                        $sqlColor = "SELECT * FROM color";
+                        $resultadoColor = $conn->query($sqlColor);
+                        while($rowColor = $resultadoColor->fetch_assoc()){
+                          echo '<option value="'.$rowColor['color'].'">'.$rowColor['color'].'</option>';
+                        }
+                        
+                        echo'
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
+                      <select class="form-select" name="color2" aria-label="Default select example" required>
+                        <option value="'.$row_sql['color2'].'" selected>'.$row_sql['color2'].'</option>';
+                        
+                        $sqlColor = "SELECT * FROM color";
+                        $resultadoColor = $conn->query($sqlColor);
+                        while($rowColor = $resultadoColor->fetch_assoc()){
+                          echo '<option value="'.$rowColor['color'].'">'.$rowColor['color'].'</option>';
+                        }
+                        
+                        echo'
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
+                      <select class="form-select" name="color3" aria-label="Default select example" required>
+                        <option value="'.$row_sql['color3'].'" selected>'.$row_sql['color3'].'</option>';
+                        
+                        $sqlColor = "SELECT * FROM color";
+                        $resultadoColor = $conn->query($sqlColor);
+                        while($rowColor = $resultadoColor->fetch_assoc()){
+                          echo '<option value="'.$rowColor['color'].'">'.$rowColor['color'].'</option>';
+                        }
+                        
+                        echo'
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
+                      <select class="form-select" name="color4" aria-label="Default select example" required>
+                        <option value="'.$row_sql['color4'].'" selected>'.$row_sql['color4'].'</option>';
+                        
+                        $sqlColor = "SELECT * FROM color";
+                        $resultadoColor = $conn->query($sqlColor);
+                        while($rowColor = $resultadoColor->fetch_assoc()){
+                          echo '<option value="'.$rowColor['color'].'">'.$rowColor['color'].'</option>';
+                        }
+                        
+                        echo'
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
+                      <select class="form-select" name="color5" aria-label="Default select example" required>
+                        <option value="'.$row_sql['color5'].'" selected>'.$row_sql['color5'].'</option>';
+                        
+                        $sqlColor = "SELECT * FROM color";
+                        $resultadoColor = $conn->query($sqlColor);
+                        while($rowColor = $resultadoColor->fetch_assoc()){
+                          echo '<option value="'.$rowColor['color'].'">'.$rowColor['color'].'</option>';
+                        }
+                        
+                        echo'
+                      </select>
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Formas</span>

@@ -412,7 +412,7 @@ session_start();
           $("#form1").submit(function(event){
           $.ajax({
                   type:"POST",
-                  url:"../../prcd/filtro.php",
+                  url:" ../prcd/filtro.php",
                   data:form.serialize(),
                   dataType: "html",
                   // async:false,
@@ -438,7 +438,7 @@ session_start();
          
           $.ajax({
                   type:"POST",
-                  url:"../../prcd/filtro.php",
+                  url:"../prcd/filtro.php",
                   data:{
                     valorPag:valorPag,
                     filter:filter,

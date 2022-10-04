@@ -67,10 +67,10 @@ else if($val == 5){
       $resultado_FiltroQuery = $conn->query($filtroQuery);
       $resultado_Query = $conn->query($Query);
       $no_resultados = mysqli_num_rows($resultado_Query);
-      $indice_final = $no_resultados + 1;
+      // $indice_final = $no_resultados + 1;
       echo '
       <div class="alert alert-primary text-center" role="alert">
-        <strong><i class="bi bi-list-ol"></i> Número de coincidencias de resultados:</strong> ' . $indice_final . ' tipos de calzado.
+        <strong><i class="bi bi-list-ol"></i> Número de coincidencias de resultados:</strong> ' . $no_resultados . ' tipos de calzado.
       </div>  
       <hr>';
       echo '<br>';
@@ -218,23 +218,24 @@ else if($val == 5){
             </div>
             </div> <!--fin div de alert-->
 
-            <div class="container-fluid>"
+            <div class="alert alert-light" role="alert">
+        
             <p class="ms-2"><strong>Modelos similares</strong></p>';
 
             $modelo = $row_sql_catalogo['modelo'];
             $similares ="SELECT * FROM tenis WHERE modelo ='$modelo' limit 3";
-            $resultadoModelo =  $conn->query($similares);
+            $resultadoModelo = $conn->query($similares);
             echo'
             <div class="container-fluid align-items-center mb-2">
-            <div class="row row-cols-lg-auto g-4 align-items-center">';
+            <div class="row row-cols-lg-auto g-2 align-items-center">';
             while ($rowModelo = $resultadoModelo->fetch_assoc()){
               echo '
               <div class="col-4">
                 <div class="card" style="width: 8.1rem;">
-                  <img src="../assets/brand/img/catalogo/'.$rowModelo['img'].'" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text"><small>Marca: '.$rowModelo['marca'].'</small></p>
-                      <p class="card-text text-start"><small>Marca: '.$rowModelo['modelo'].'</small></p>
+                  <img src="assets/brand/img/catalogo/'.$rowModelo['img'].'" class="card-img-top" alt="...">
+                    <div class="card-body bg-primary text-light">
+                      <p class="card-text"><small>Marca: '.$rowModelo['marca'].'</small><br>
+                      <small>Marca: '.$rowModelo['modelo'].'</small></p>
                     </div>
                 </div>
               </div>';
@@ -242,9 +243,8 @@ else if($val == 5){
             echo'
             </div>
             </div>
-            </div>
             
-            ';
+            </div>';
 
             echo' <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>';

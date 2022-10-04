@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST)){
-  include('query/qconn/qc.php');
+  include('../perfil_vendedor/query/qconn/qc.php');
 
   $val = $_POST['filter'];
   $pag =1;
@@ -119,7 +119,7 @@ else if($val == 5){
               <div class="card-header bg-primary text-light">
                   <small><i class="bi bi-cart-plus"></i></small>
                 </div>
-                <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="card-img-top img-fluid" style="width:100%; max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
+                <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="card-img-top img-fluid" style="width:100%; max-width: 700px; max-height: 150px; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
             
                 <div class="card-body text-start bg-primary text-light">
                   <span class="card-title" id="titulo_card"><small><strong>Marca: '.$row_sql_catalogo['marca'].'</strong></small></span><br>
@@ -146,16 +146,32 @@ else if($val == 5){
       <div class="modal fade" id="exampleModal'.$row_sql_catalogo['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-primary text-light">
               <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-cart-plus"></i> Descripción del producto</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <img src="assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="img-fluid" alt="...">
+            <img src="../../assets/brand/img/catalogo/'.$row_sql_catalogo['img'].'" class="img-fluid" alt="...">
             <hr>
-              <div class="alert alert-primary">
-                <p class="mt-2 text-center">Producto: '.$row_sql_catalogo['marca'].'</p>
-                <p class="mt-2 text-center">Precio: '.$row_sql_catalogo['precio_general'].'</p>
+            <div class="alert alert-primary">
+              
+            <p class="mt-1 text-center"><strong>'.$row_sql_catalogo['marca'].'</strong></p>
+            <hr>
+          <small>
+            <p class="mt-1 text-left">Precio: '.$row_sql_catalogo['precio_general'].'</p>
+            <p class="text-left"><strong>Descripción del producto</strong></p>
+            <p class="text-left">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-primary">Modelo: '.$row_sql_catalogo['modelo'].'</li>
+                <li class="list-group-item list-group-item-primary">Tipo: '.$row_sql_catalogo['tipo'].'</li>
+                <li class="list-group-item list-group-item-primary">Color predominante: '.$row_sql_catalogo['color'].'</li>
+                <li class="list-group-item list-group-item-primary">Colores secundarios: '.$row_sql_catalogo['color2'].' '.$row_sql_catalogo['color3'].' '.$row_sql_catalogo['color4'].' '.$row_sql_catalogo['color5'].'</li>
+                <li class="list-group-item list-group-item-primary">Material: '.$row_sql_catalogo['precio_general'].'</li>
+                <li class="list-group-item list-group-item-primary">Catálogo para: '.$row_sql_catalogo['hombre_mujer'].'</li>
+                <li class="list-group-item list-group-item-primary">Formas: '.$row_sql_catalogo['formas'].'</li>
+              </ul>
+            </p>
+          </small>
              
               <p class="mt-1 text-secondary"><small>Talla:</small></p>
               <div class="container">';
@@ -192,10 +208,12 @@ else if($val == 5){
             //   echo consultaTalla();
             
               echo '</div>
-              <p class="mt-3 text-secondary"><small>Descripción:</small></p>
-              <p class="mt-1 text-center">'.$row_sql_catalogo['marca'].'</p>
+              
             </div>
             </div> <!--fin div de alert-->
+
+            <div class="alert alert-light" role="alert">
+        
             <p class="ms-2"><strong>Modelos similares</strong></p>';
 
             $modelo = $row_sql_catalogo['modelo'];
@@ -203,13 +221,13 @@ else if($val == 5){
             $resultadoModelo =  $conn->query($similares);
             echo'
             <div class="container-fluid align-items-center mb-2">
-            <div class="row row-cols-lg-auto g-4 align-items-center">';
+            <div class="row row-cols-lg-auto g-2 align-items-center">';
             while ($rowModelo = $resultadoModelo->fetch_assoc()){
               echo '
               <div class="col-4">
                 <div class="card" style="width: 8.1rem;">
-                  <img src="../assets/brand/img/catalogo/'.$rowModelo['img'].'" class="card-img-top" alt="...">
-                    <div class="card-body">
+                  <img src="../../assets/brand/img/catalogo/'.$rowModelo['img'].'" class="card-img-top" alt="...">
+                    <div class="card-body bg-primary text-light">
                       <p class="card-text"><small>Marca: '.$rowModelo['marca'].'</small></p>
                       <p class="card-text text-start"><small>Marca: '.$rowModelo['modelo'].'</small></p>
                     </div>
@@ -218,6 +236,8 @@ else if($val == 5){
             }
             echo'
             </div>
+            </div>
+            
             </div>';
 
             
