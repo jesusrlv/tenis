@@ -93,18 +93,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Alta de <span class="text-muted">Perfiles</span></h2>
+  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-person-circle"></i> Alta de <span class="text-muted">Perfiles</span></h2>
 
   <div class="container">
-    <!-- <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bag-check-fill"></i> <strong>Productos activos</strong></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="catalogo_baja.php"><i class="bi bi-bag-x-fill"></i> Productos dados de baja</a>
-      </li>
-      
-    </ul> -->
+    
   </div>
 
   <!-- Marketing messaging and featurettes
@@ -116,7 +108,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   <div class="container marketing mt-5 border-bottom">
 
   <div class="row">
-  <p class="h3 mb-3">Perfil de Entrega</p>
+  <p class="h3 mb-3"><i class="bi bi-person-circle"></i> Perfil de Entrega</p>
     <div class="col">
         
         <div class="input-group mb-4 w-100">
@@ -258,7 +250,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   <div class="container marketing mt-5 border-bottom">
 
   <div class="row">
-  <p class="h3 mb-3">Perfil de Vendedor</p>
+  <p class="h3 mb-3"><i class="bi bi-person-bounding-box"></i> Perfil de Vendedor</p>
     <div class="col">
         
         <div class="input-group mb-4 w-100">

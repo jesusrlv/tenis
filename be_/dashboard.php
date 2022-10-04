@@ -109,8 +109,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <div class="card text-center text-light bg-dark" style="width: 100%;" id="hOver">
           <!-- <img src="assets/brand/img/cel4.jpg" class="card-img-top" alt="..."> -->
           <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-receipt-cutoff"></i> Ventas</h5>
-            <p class="card-text">Revisar las ventas realizadas en el sistema.</p>
+            <h5 class="card-title"><i class="bi bi-receipt-cutoff"></i> Pedidos</h5>
+            <p class="card-text">Revisar los pedidos realizados.</p>
             <a href="venta_gral.php" class="btn btn-outline-light"><i class="bi bi-box-arrow-right"></i> Acceder a la sección</a>
           </div>
         </div>
@@ -118,8 +118,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <div class="col-lg-6">
         <div class="card text-center text-light bg-dark" style="width: 100%;" id="hOver">
           <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-card-list"></i> Categorías</h5>
-            <p class="card-text">Revisar el estatus de los envíos por paquetería.</p>
+            <h5 class="card-title"><i class="bi bi-card-list"></i> Catálogo</h5>
+            <p class="card-text">Revisar el catálogo de colores.</p>
             <a href="categorias.php" class="btn btn-outline-light"><i class="bi bi-box-arrow-right"></i> Acceder a la sección</a>
           </div>
         </div>
@@ -129,8 +129,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <div class="card text-center text-light bg-dark" style="width: 100%;" id="hOver">
           <!-- <img src="assets/brand/img/cel5.jpg" class="card-img-top" alt="..."> -->
           <div class="card-body">
-            <h5 class="card-title"><i class="bi bi-cloud-plus-fill"></i> Cargar catálogo</h5>
-            <p class="card-text">Cargar catálogo de productos en el sistema.</p>
+            <h5 class="card-title"><i class="bi bi-cloud-plus-fill"></i> Cargar productos</h5>
+            <p class="card-text">Cargar productos en el sistema.</p>
             <a href="catalogo.php" class="btn btn-outline-light"><i class="bi bi-box-arrow-right"></i> Acceder a la sección</a>
           </div>
         </div>
@@ -175,7 +175,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <div class="container">
       <hr class="featurette-divider">
       <p class="float-end"><a href="#">Regresar arriba</a></p>
-    <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
     <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
     </div>
   </footer>
