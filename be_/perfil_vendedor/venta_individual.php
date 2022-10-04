@@ -103,7 +103,7 @@ session_start();
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Venta <span class="text-muted">Individual</span></h2>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Perfil <span class="text-muted">Vendedor</span></h2>
 
   <!-- Marketing messaging and featurettes
   ================================================== -->

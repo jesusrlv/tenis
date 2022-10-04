@@ -179,6 +179,8 @@ session_start();
 
 <main class="bg-light">
 
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Perfil <span class="text-muted">Vendedor</span></h2>
+
 <div class="mt-5 pt-2 mb-3">
   <h1 class="text-center">
     <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
