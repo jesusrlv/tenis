@@ -93,18 +93,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </header>
 
 <main>
-  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Categorías <span class="text-muted">Productos</span></h2>
+  <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><i class="bi bi-box-seam"></i> Catálogo <span class="text-muted">Sistema</span></h2>
 
   <div class="container">
-    <!-- <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bag-check-fill"></i> <strong>Productos activos</strong></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="catalogo_baja.php"><i class="bi bi-bag-x-fill"></i> Productos dados de baja</a>
-      </li>
-      
-    </ul> -->
+   
   </div>
 
   <!-- Marketing messaging and featurettes
@@ -124,7 +116,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     </div>
     <div class="col">
         <div class="input-group mb-4 justify-content-end">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar categoría</button>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar color</button>
         </div>
     </div>
   </div>
@@ -135,12 +127,13 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
     <!-- table ventas -->
     <div class="table-responsive">
+    <p class="h3 mb-5"><i class="bi bi-palette"></i> Colores</p>
 
     <table class="table  table-light table-striped mb-3 table-hover align-middle">
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Nombre</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Color</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Editar</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Eliminar</small></th>
         </tr>
@@ -149,18 +142,18 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         
         <?php
         $x = 0;
-          while($row_sql = $resultado_sql_catalogo->fetch_assoc()){
+          while($rowColores = $resultadoColores->fetch_assoc()){
             $x++;
-            $id_talla =$row_sql['id'];
+            $id_talla =$rowColores['id'];
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
-            echo'<td class="text-center">'.$row_sql['nombre_catalogo'].'</td>';
-            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
-            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-trash-fill"></i> Eliminar</span></a></td>';
+            echo'<td class="text-center">'.$rowColores['color'].'</td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$rowColores['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$rowColores['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-trash-fill"></i> Eliminar</span></a></td>';
             echo'</tr>';
 
             echo'<!-- Modal Actualizar-->
-            <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal'.$rowColores['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -170,11 +163,11 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                   
                   <form action="prcd/editar_catalogo.php" method="post">
                   <div class="modal-body">
-                    <input name="id" value="'.$row_sql['id'].'" hidden>
+                    <input name="id" value="'.$rowColores['id'].'" hidden>
 
                     <div class="input-group mb-3">
-                      <span class="input-group-text" id="basic-addon1">Nombre</span>
-                      <input type="text" name="catalogo" class="form-control" value="'.$row_sql['nombre_catalogo'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <span class="input-group-text" id="basic-addon1">Color</span>
+                      <input type="text" name="color" class="form-control" value="'.$rowColores['color'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
             
                   </div>
@@ -189,7 +182,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             </div>';
 
             echo '<!-- Modal Eliminar-->
-            <div class="modal fade bg-danger" id="deleteArticulo'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade bg-danger" id="deleteArticulo'.$rowColores['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -197,11 +190,11 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body text-center">
-                    <strong>¿Desea eliminar esta categoría?</strong>
+                    <strong>¿Desea eliminar este color?</strong>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
-                    <a href="prcd/eliminar_catalogo.php?id='.$row_sql['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
+                    <a href="prcd/eliminar_catalogo.php?id='.$rowColores['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
                   </div>
                 </div>
               </div>
@@ -238,14 +231,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar categoría</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar color</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="prcd/agregar_catalogo.php" method="post">
       <div class="modal-body">
         <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nombre</span>
-            <input type="text" name="categoria" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette"></i></span>
+            <input type="text" name="color" class="form-control" placeholder="Color" aria-label="Color" aria-describedby="basic-addon1">
         </div>
         
       </div>

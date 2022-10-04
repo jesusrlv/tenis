@@ -10,17 +10,17 @@ include('../../query/qconn/qc.php');
 $id = $_REQUEST['id'];
 
 
-    $sqlDelete = "DELETE FROM catalogo WHERE id='$id'";
-    $resultado2= $conn->query($sqlDelete);
+    $sqlDelete = "DELETE FROM color WHERE id='$id'";
+    $resultado = $conn->query($sqlDelete);
 
-    if($resultado2){
+    if($resultado){
         
         echo "<script type=\"text/javascript\">
         Swal.fire({
             icon: 'success',
-            title: 'Producto eliminado',
+            title: 'Color eliminado',
             text: 'Catálogo actualizado',
-            footer: 'Ventas en línea</a>'
+            footer: 'Shoes Store Mx'
         }).then(function(){window.location='../categorias.php';});</script>";
         }
         else{

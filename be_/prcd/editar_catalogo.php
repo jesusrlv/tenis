@@ -8,20 +8,20 @@
 include('../../query/qconn/qc.php');
 
 $id = $_POST['id'];
-$catalogo = $_POST['catalogo'];
+$color = $_POST['color'];
 
-    $sqlUpdate = "UPDATE catalogo SET nombre_catalogo='$catalogo' WHERE id='$id'";
+    $sqlUpdate = "UPDATE color SET color='$color' WHERE id='$id'";
 
-    $resultado2= $conn->query($sqlUpdate);
+    $resultado = $conn->query($sqlUpdate);
 
-    if($resultado2){
+    if($resultado){
         
         echo "<script type=\"text/javascript\">
         Swal.fire({
             icon: 'success',
             title: 'Elemento del catálogo actualizado',
             text: 'Catálogo actualizado',
-            footer: 'Ventas en línea</a>'
+            footer: 'Shoes Store Mx'
         }).then(function(){window.location='../categorias.php';});</script>";
         }
         else{

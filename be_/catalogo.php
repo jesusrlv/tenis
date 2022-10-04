@@ -195,6 +195,21 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       <input type="text" name="tipo" class="form-control" value="'.$row_sql['tipo'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Clasificación</span>
+                      <input type="text" name="clasificacion" class="form-control" value="'.$row_sql['clasificacion'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"><i class="bi bi-aspect-ratio"></i></span>
+                      <select class="form-select" name="tamanio" aria-label="Default select example" required>';
+                      ?>
+                          <option value="0">Selecciona tamaño...</option>
+                          <option value="Adulto" <?php if($row_sql['tamanio']=='Adulto'){echo 'selected="selected"';} ?> >Adulto</option>
+                          <option value="Infantil" <?php if($row_sql['tamanio']=='Infantil'){echo 'selected="selected"';} ?> >Infantil</option>
+                      <?php
+                      echo '</select>
+                    </div>
+                    <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
                       <select class="form-select" name="color" aria-label="Default select example" required>
                         <option value="'.$row_sql['color'].'" selected>'.$row_sql['color'].'</option>';
@@ -210,7 +225,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
-                      <select class="form-select" name="color2" aria-label="Default select example" required>
+                      <select class="form-select" name="color2" aria-label="Default select example">
+                        <option value="">Sin color</option>
                         <option value="'.$row_sql['color2'].'" selected>'.$row_sql['color2'].'</option>';
                         
                         $sqlColor = "SELECT * FROM color";
@@ -224,7 +240,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
-                      <select class="form-select" name="color3" aria-label="Default select example" required>
+                      <select class="form-select" name="color3" aria-label="Default select example">
+                        <option value="">Sin color</option>
                         <option value="'.$row_sql['color3'].'" selected>'.$row_sql['color3'].'</option>';
                         
                         $sqlColor = "SELECT * FROM color";
@@ -238,7 +255,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
-                      <select class="form-select" name="color4" aria-label="Default select example" required>
+                      <select class="form-select" name="color4" aria-label="Default select example">
+                        <option value="">Sin color</option>
                         <option value="'.$row_sql['color4'].'" selected>'.$row_sql['color4'].'</option>';
                         
                         $sqlColor = "SELECT * FROM color";
@@ -252,7 +270,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
-                      <select class="form-select" name="color5" aria-label="Default select example" required>
+                      <select class="form-select" name="color5" aria-label="Default select example">
+                        <option value="">Sin color</option>
                         <option value="'.$row_sql['color5'].'" selected>'.$row_sql['color5'].'</option>';
                         
                         $sqlColor = "SELECT * FROM color";
@@ -423,6 +442,18 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             <input type="text" name="tipo" class="form-control" placeholder="Tipo" aria-label="..." aria-describedby="basic-addon1" required>
         </div>
         <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag-plus"></i></span>
+            <input type="text" name="clasificacion" class="form-control" placeholder="Clasificación" aria-label="..." aria-describedby="basic-addon1" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag-plus"></i></span>
+            <select class="form-select" name="tamanio" aria-label="Default select example" required>
+                <option value="" selected>Selecciona el tamaño para el calzado ...</option>
+                <option value="Adulto">Adulto</option>
+                <option value="Infantil">Infantil</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
             <select class="form-select" name="color" aria-label="Default select example" required>
                 <option value="" selected>Selecciona color predominante ...</option>
@@ -438,7 +469,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
             <select class="form-select" name="color2" aria-label="Default select example">
-                <option selected>Selecciona color secundario (opcional) ...</option>
+                <option value="">Selecciona color secundario (opcional) ...</option>
                 <? 
                 $sqlColor = "SELECT * FROM color";
                 $resultadoColor = $conn->query($sqlColor);
@@ -451,7 +482,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
             <select class="form-select" name="color3" aria-label="Default select example">
-                <option selected>Selecciona tercer color (opcional) ...</option>
+                <option value="">Selecciona tercer color (opcional) ...</option>
                 <? 
                 $sqlColor = "SELECT * FROM color";
                 $resultadoColor = $conn->query($sqlColor);
@@ -464,7 +495,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
             <select class="form-select" name="color4" aria-label="Default select example">
-                <option selected>Selecciona cuarto color (opcional) ...</option>
+                <option value="">Selecciona cuarto color (opcional) ...</option>
                 <? 
                 $sqlColor = "SELECT * FROM color";
                 $resultadoColor = $conn->query($sqlColor);
@@ -477,7 +508,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-palette-fill"></i></span>
             <select class="form-select" name="color5" aria-label="Default select example">
-                <option selected>Selecciona quinto color (opcional) ...</option>
+                <option value="">Selecciona quinto color (opcional) ...</option>
                 <? 
                 $sqlColor = "SELECT * FROM color";
                 $resultadoColor = $conn->query($sqlColor);
