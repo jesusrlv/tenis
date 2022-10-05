@@ -47,7 +47,8 @@ $entrega = 1;
 
 $total_precio = $_POST['total_precio']; // para ambos datos
 
-$nombreproducto = $_POST['nombreproducto'];
+// $nombreproducto = $_POST['nombreproducto'];
+$nombreproducto = $_POST['id'];
 $valor = $_POST['valor'];
 
 // venta individual
