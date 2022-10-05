@@ -95,18 +95,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 <main>
 <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Inventario <span class="text-muted">Productos</span></h2>
 
-  <!-- <div class="container">
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bag-check-fill"></i> <strong>Productos activos</strong></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="catalogo_baja.php"><i class="bi bi-bag-x-fill"></i> Productos dados de baja</a>
-      </li>
-      
-    </ul>
-  </div> -->
-
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -143,7 +131,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Venta</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Venta General</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
