@@ -128,24 +128,30 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Venta General</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Marca</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Modelo</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Tipo</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Color</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> H/M</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Cantidad</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Talla</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
         
         <?php
         $x = 0;
-          while($row_sqlInv = $sqlResult->fetch_assoc()){
+          while($row_sqlInv = $sqlResultCatalgo->fetch_assoc()){
             $x++;
             echo'<tr>';
                 echo'<td class="text-center">'.$x.'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['nombreP'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['marca'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['modelo'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['tipo'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['color'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['hombremujer'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['cantidad'].'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['talla'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['cantidadP'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['cantidadV'].'</td>';
             echo'</tr>';
           }
         ?>
