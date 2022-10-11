@@ -67,17 +67,17 @@ if($resultado_general){
     
     try {
         //Server settings
-        $mail->SMTPDebug = 1;                                       // Enable verbose debug output
+        $mail->SMTPDebug = 0;                                       // Enable verbose debug output
         $mail->isSMTP();                                            // Set mailer to use SMTP
-        $mail->Host       = 'smtp.titan.email';  // Specify main and backup SMTP servers
+        $mail->Host       = '';  // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'tienda@shoesstoremxa.com';                     // SMTP username
-        $mail->Password   = 'qy7hJGSyhz3hiJe';                               // SMTP password
-        $mail->SMTPSecure = 'TLS';                                  // Enable TLS encryption, `ssl` also accepted
-        $mail->Port       = 587;                                    // TCP port to connect to
+        $mail->Username   = '';                     // SMTP username
+        $mail->Password   = '';                               // SMTP password
+        $mail->SMTPSecure = '';                                  // Enable TLS encryption, `ssl` also accepted
+        $mail->Port       = ;                                  // TCP port to connect to
     
         //Recipients
-        $mail->setFrom('tienda@shoesstoremxa.com', 'Tienda ShoesStoreMXA');
+        $mail->setFrom('ventas@shoesstoremxa.com', 'Tienda ShoesStoreMXA');
         $mail->addAddress($email, $nombre_completo);     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
@@ -95,7 +95,7 @@ if($resultado_general){
         $mail->Body    = 'Tu pedido ha sido realizado
         <p> El pedido a través de shoesstoremxa.com fue completado exitosamente.</p>
         Tu código de rastreo es el siguiente:'.$codigo.' lo puedes consultar en http://www.shoesstoremxa.com/tenis/envio.php' ;
-        $mail->AltBody = 'Mensaje expediente completo';
+        $mail->AltBody = 'Tú pedido se ha realizado exitosamente';
     
         $mail->send();
         // echo 'Message has been sent';
@@ -112,7 +112,7 @@ if($resultado_general){
         icon: 'success',
         title: 'Compra realizada',
         text: 'Revisa tu correo con la información',
-        footer: 'Ventas en línea</a>'
+        footer: 'Shoes Store MX'
     }).then(function(){window.location='../envio.php';});</script>";
     }
     else{
