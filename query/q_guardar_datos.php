@@ -69,12 +69,13 @@ if($resultado_general){
         //Server settings
         $mail->SMTPDebug = 0;                                       // Enable verbose debug output
         $mail->isSMTP();                                            // Set mailer to use SMTP
-        $mail->Host       = '';  // Specify main and backup SMTP servers
+        $mail->Host       = 'mail.shoesstoremxa.com';  // Specify main and backup SMTP servers
+        // $mail->Host       = 'mx100.hostgator.mx';  // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = '';                     // SMTP username
-        $mail->Password   = '';                               // SMTP password
-        $mail->SMTPSecure = '';                                  // Enable TLS encryption, `ssl` also accepted
-        $mail->Port       = ;                                  // TCP port to connect to
+        $mail->Username   = 'ventas@shoesstoremxa.com';                     // SMTP username
+        $mail->Password   = 'JsHxj71Ooc7H';                               // SMTP password
+        $mail->SMTPSecure = 'TLS';                                  // Enable TLS encryption, `ssl` also accepted
+        $mail->Port       = 587;                                  // TCP port to connect to
     
         //Recipients
         $mail->setFrom('ventas@shoesstoremxa.com', 'Tienda ShoesStoreMXA');
@@ -110,7 +111,7 @@ if($resultado_general){
     echo "<script type=\"text/javascript\">
     Swal.fire({
         icon: 'success',
-        title: 'Compra realizada',
+        title: 'Pedido realizado',
         text: 'Revisa tu correo con la información',
         footer: 'Shoes Store MX'
     }).then(function(){window.location='../envio.php';});</script>";
