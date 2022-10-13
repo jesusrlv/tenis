@@ -1,4 +1,5 @@
 <html>
+<meta charset="utf-8">
     <header>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </header>
@@ -16,7 +17,7 @@ $x = 2;
 $persona_envia = $_POST['persona_envia']; //llega por SESSION
 $id_int = $_POST['clave_rastreo_int'];
 
-    $sql_insert = "INSERT INTO envios(fecha_registro,id_envio,codigo_envio_interno,entrega) VALUES('$fecha_sistema','$persona_envia','$id_int','$x')";
+    $sql_insert = "INSERT INTO pedidos(fecha_pedido,id_envio,codigo_envio_interno,entrega) VALUES('$fecha_sistema','$persona_envia','$id_int','$x')";
     $resultado_sql2 = $conn->query($sql_insert);
     // $row_sql_insert = $resultado_sql2->fetch_assoc();
 
@@ -28,9 +29,13 @@ $id_int = $_POST['clave_rastreo_int'];
         echo "<script type=\"text/javascript\">
         Swal.fire({
             icon: 'success',
+            imageUrl: '../assets/brand/img/logo_store_shoes_sin_fondo.png',
+            imageHeight: 200,
+            imageAlt: 'Shoes Store Mx',
             title: 'Actualización realizada',
             text: 'La clave de rastreo ha sido actualizada',
-            footer: 'Ventas en línea</a>'
+            confirmButtonColor: '#3085d6',
+            footer: 'Shoes Store Mx'
         }).then(function(){window.location='../be_/perfil_entrega/venta_gral.php';});</script>";
         }
         else{
