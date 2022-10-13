@@ -28,8 +28,12 @@ $id_ext = $_POST['id_ext'];
         echo "<script type=\"text/javascript\">
         Swal.fire({
             icon: 'success',
+            imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+            imageHeight: 200,
+            imageAlt: 'Shoes Store Mx',
             title: 'Talla actualizada',
             text: 'Catálogo actualizado',
+            confirmButtonColor: '#3085d6',
             footer: 'Shoes Store Mx'
         }).then(function(){window.location='../tallas.php?talla=".$id_ext."';});</script>";
         }
