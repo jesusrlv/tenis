@@ -1,8 +1,15 @@
 <html>
+<meta charset="utf-8">
     <header>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </header>
 <body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap');
+    body{
+        font-family: 'Montserrat', sans-serif;
+    }
+</style>
 
 <?php
 include('../../query/qconn/qc.php');
@@ -64,7 +71,7 @@ $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
             icon: 'success',
             title: 'Producto registrado',
             text: 'Catálogo actualizado',
-            footer: 'Ventas en línea</a>'
+            footer: 'Shoes Store Mx'
         }).then(function(){window.location='../catalogo.php';});</script>";
         }
         else{

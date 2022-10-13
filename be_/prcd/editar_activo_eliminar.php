@@ -1,8 +1,15 @@
 <html>
+<meta charset="utf-8">
     <header>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </header>
 <body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&display=swap');
+    body{
+        font-family: 'Montserrat', sans-serif;
+    }
+</style>
 
 <?php
 include('../../query/qconn/qc.php');
@@ -28,7 +35,7 @@ $activo = 0;
             icon: 'success',
             title: 'Producto eliminado',
             text: 'Catálogo actualizado',
-            footer: 'Ventas en línea</a>'
+            footer: 'Shoes Store Mx'
         }).then(function(){window.location='../catalogo_baja.php';});</script>";
         }
         else{
