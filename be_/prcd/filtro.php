@@ -24,31 +24,31 @@ if(isset($_POST)){
 if($val == 1){
   
     $marca = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE marca = '$marca'";
+    $Query = "SELECT * FROM tenis WHERE marca = '$marca' estatus = 1";
   
 }
 else if($val == 2){
   
     $modelo = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE modelo = '$modelo'";
+    $Query = "SELECT * FROM tenis WHERE modelo = '$modelo' estatus = 1";
 
 }
 else if($val == 3){
   
     $color = $_POST['filtro']; 
-    $Query = "SELECT * FROM tenis WHERE color  = '$color'"; 
+    $Query = "SELECT * FROM tenis WHERE color  = '$color' estatus = 1"; 
   
 }
 else if($val == 4){
   
     $material = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE material = '$material'";
+    $Query = "SELECT * FROM tenis WHERE material = '$material' estatus = 1";
 
 }
 else if($val == 5){
     
     $talla = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE talla = '$talla'";
+    $Query = "SELECT * FROM tenis WHERE talla = '$talla' estatus = 1";
 
 }
 // echo'
