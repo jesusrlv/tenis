@@ -107,7 +107,7 @@ else {
   <form action="venta_gral_fecha.php" method="POST">
   <div class="input-group mb-4 w-50">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week"></i></span>
-    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha">
+    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha">
     <button type="submit" class="btn btn-primary">Buscar</button>
   </div>
   </form>
