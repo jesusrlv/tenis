@@ -96,15 +96,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 <h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Tallas <span class="text-muted">Disponibles</span></h2>
 
   <div class="container">
-    <!-- <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bag-check-fill"></i> <strong>Productos activos</strong></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="catalogo_baja.php"><i class="bi bi-bag-x-fill"></i> Productos dados de baja</a>
-      </li>
-      
-    </ul> -->
+    
   </div>
 
   <!-- Marketing messaging and featurettes
@@ -141,6 +133,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up"></i> Talla</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-pencil-square"></i> Editar</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-trash-fill"></i> Eliminar</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -157,6 +150,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
             echo'<td class="text-center"><a data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i></a></td>';
+            echo'<td class="text-center"><a data-bs-toggle="modal" data-bs-target="#modalEliminar'.$row_sql['id'].'"><i class="bi bi-trash-fill"></i></a></td>';
             echo'</tr>';
             
             echo'
@@ -184,6 +178,33 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                   <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Actualizar</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ';
+            
+            echo'
+            <!-- Modal -->
+            <div class="modal fade bg-danger" id="modalEliminar'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-trash-fill"></i> Eliminar talla</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="prcd/editar_talla.php" method="POST">
+                      <input value="'.$row_sql['id'].'" name="id" hidden>
+                      <input value="'.$row_sql['id_ext_tenis'].'" name="id_ext" hidden>
+                     <div class="container">
+                      <p class="text-center">¿Deseas eliminar la talla?</p>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
                     </form>
                   </div>
                 </div>
