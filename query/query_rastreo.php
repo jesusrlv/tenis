@@ -37,23 +37,38 @@ include('qconn/qc.php');
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Lista de pedido</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-card-checklist"></i>     Lista de pedido</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">';
+                    <div class="modal-body">
+                    <div class="alert alert-primary" role="alert">
+                    <ol>
+                    ';
                         $idPedido = $row_sql_envio['clave_rastreo_int'];
                         $sqlPedido = "SELECT * FROM venta_individual WHERE venta_gral = '$idPedido'";
                         $resultado_sqlPedido= $conn->query($sqlPedido);
                         $x1 = 0;
+                        
                         while($row_sqlPedido = $resultado_sqlPedido->fetch_assoc()){
                             $x1++;
-                            echo '
-                            <div class="alert alert-primary" role="alert">
-                                '.$x1.' | '.$row_sqlPedido['producto'].' | '.$row_sqlPedido['fecha_venta'].'
-                            </div>';
+                            $producto = $row_sqlPedido['producto'];
+                            $sqlProducto = "SELECT * FROM tenis WHERE id = '$producto'";
+                            $resultadoProducto= $conn->query($sqlProducto);
+                            $rowProducto = $resultadoProducto->fetch_assoc();
+
+                            echo '<li><small><strong>Marca:</strong> '.$rowProducto['marca'].' | '.$row_sqlPedido['fecha_venta'].'<br>
+                            <strong>Modelo</strong>: '.$rowProducto['modelo'].'<br>
+                            <strong>Tipo:</strong> '.$rowProducto['tipo'].'<br>
+                            <strong>Color Predominante:</strong> '.$rowProducto['color'].'
+                            </small>
+                            </li>
+                                <hr>';
                         }
 
-                    echo '</div>
+                    echo '
+                    </ol>
+                    </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                     </div>
