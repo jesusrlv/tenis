@@ -124,10 +124,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         $x = 0;
           while($row_sql = $resultado_sql->fetch_assoc()){
             $x++;
+            $producto = $row_sql['producto'];
+            $sqlProducto = "SELECT * FROM tenis WHERE id = '$producto'";
+            $resultadoProducto= $conn->query($sqlProducto);
+            $rowProducto = $resultadoProducto->fetch_assoc();
             echo'<tr>';
             echo'<td>'.$x.'</td>';
             echo'<td>'.$row_sql['fecha_venta'].'</td>';
-            echo'<td class="text-center">'.$row_sql['producto'].'</td>';
+            echo'<td class="text-center">'.$rowProducto['marca'].' '.$rowProducto['modelo'].' '.$rowProducto['tipo'].' '.$rowProducto['color'].'</td>';
             echo'<td class="text-center">'.$row_sql['talla'].'</td>';
             echo'</tr>';
           }
