@@ -195,9 +195,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form action="prcd/editar_talla.php" method="POST">
+                    <form action="prcd/eliminar_talla.php" method="POST">
                       <input value="'.$row_sql['id'].'" name="id" hidden>
                       <input value="'.$row_sql['id_ext_tenis'].'" name="id_ext" hidden>
+                      <input value="'.$row_sql['talla'].'" name="talla" hidden>
                      <div class="container">
                       <p class="text-center">¿Deseas eliminar la talla?</p>
                      </div>

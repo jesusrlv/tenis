@@ -15,13 +15,16 @@
 include('../../query/qconn/qc.php');
 
 $talla = $_POST['talla'];
-$cantidad = $_POST['cantidad'];
+// $cantidad = $_POST['cantidad'];
 $id = $_POST['id'];
 $id_ext = $_POST['id_ext'];
 
-    $sqlUpdate = "UPDATE inventario SET talla='$talla',cantidad='$cantidad' WHERE id='$id'";
+    // $sqlUpdate = "UPDATE inventario SET talla='$talla',cantidad='$cantidad' WHERE id='$id'";
 
-    $resultado= $conn->query($sqlUpdate);
+    // $resultado= $conn->query($sqlUpdate);
+
+    $sqlDelete = "DELETE FROM inventario WHERE id_ext_tenis='$id_ext' AND talla='$talla'";
+    $resultado = $conn->query($sqlDelete);
 
     if($resultado){
         
@@ -31,7 +34,7 @@ $id_ext = $_POST['id_ext'];
             imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
             imageHeight: 200,
             imageAlt: 'Shoes Store Mx',
-            title: 'Talla actualizada',
+            title: 'Talla eliminada',
             text: 'Catálogo actualizado',
             confirmButtonColor: '#3085d6',
             footer: 'Shoes Store Mx'
