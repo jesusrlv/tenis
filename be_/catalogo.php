@@ -447,6 +447,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag-plus"></i></span>
+            <input type="text" name="precio_general" class="form-control" placeholder="Precio general" aria-label="..." aria-describedby="basic-addon1" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag-plus"></i></span>
+            <input type="text" name="precio_prov" class="form-control" placeholder="Precio proveedor" aria-label="..." aria-describedby="basic-addon1" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-bag-plus"></i></span>
             <select class="form-select" name="tamanio" aria-label="Default select example" required>
                 <option value="" selected>Selecciona el tamaño para el calzado ...</option>
                 <option value="Adulto">Adulto</option>

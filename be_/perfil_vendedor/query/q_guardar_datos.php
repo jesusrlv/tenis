@@ -116,9 +116,13 @@ if($resultado_general){
     echo "<script type=\"text/javascript\">
     Swal.fire({
         icon: 'success',
-        title: 'Compra realizada',
-        text: 'utf8_encode(Revisa tu correo con la información)',
-        footer: 'Ventas en línea</a>'
+        imageUrl: '../../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+        imageHeight: 200,
+        imageAlt: 'Shoes Store Mx',
+        title: 'Pedido realizado',
+        text: 'Revisa tu correo con la información',
+        confirmButtonColor: '#3085d6',
+        footer: 'Shoes Store MX'
     }).then(function(){window.location='../catalogo.php?id=1';});</script>";
     }
     else{

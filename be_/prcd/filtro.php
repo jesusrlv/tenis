@@ -164,6 +164,13 @@ else if($val == 5){
                 <li class="list-group-item list-group-item-primary">Material: '.$row_sql_catalogo['precio_general'].'</li>
                 <li class="list-group-item list-group-item-primary">Catálogo para: '.$row_sql_catalogo['hombre_mujer'].'</li>
                 <li class="list-group-item list-group-item-primary">Formas: '.$row_sql_catalogo['formas'].'</li>
+                <li class="list-group-item list-group-item-primary"><a onclick="prov()"><i class="bi bi-info-circle-fill"></i></a></li>
+                <script>
+                  function prov(){
+                  alert('.$row_sql_catalogo['precio_prov'].')
+                  }
+                </script>
+
               </ul>
             </p>
           </small>
