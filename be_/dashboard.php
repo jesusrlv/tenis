@@ -157,6 +157,16 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         </div>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-6">
+        <div class="card text-center text-light bg-dark" style="width: 100%;" id="hOver">
+          <!-- <img src="assets/brand/img/cel5.jpg" class="card-img-top" alt="..."> -->
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-journal"></i> Reportes</h5>
+            <p class="card-text">Reportes <strong>Vendedores</strong> y <strong>Entregas</strong>.</p>
+            <a href="reporte_perfiles.php" class="btn btn-outline-light"><i class="bi bi-box-arrow-right"></i> Acceder a la sección</a>
+          </div>
+        </div>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-6">
         <div class="card text-center text-light bg-primary" style="width: 100%;" id="hOver">
           <!-- <img src="assets/brand/img/cel5.jpg" class="card-img-top" alt="..."> -->
           <div class="card-body">
