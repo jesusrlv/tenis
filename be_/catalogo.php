@@ -307,6 +307,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       <span class="input-group-text" id="basic-addon1">Precio General</span>
                       <input type="text" name="precio_general" class="form-control" value="'.$row_sql['precio_general'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Precio proveedor</span>
+                      <input type="text" name="precio_prov" class="form-control" value="'.$row_sql['precio_prov'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
                     
                     
                     

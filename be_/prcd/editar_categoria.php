@@ -29,9 +29,10 @@ $formas = $_POST['formas'];
 $material = $_POST['material'];
 $hombre_mujer = $_POST['hombre_mujer'];
 $precio_general = $_POST['precio_general'];
+$precio_prov = $_POST['precio_prov'];
 $link= 'foto';
     
-    $sqlUpdate = "UPDATE tenis SET marca='$marca',modelo='$modelo',tipo='$tipo',clasificacion='$clasificacion',tamanio='$tamanio',color='$color',color2='$color2',color3='$color3',color4='$color4',color5='$color5',formas='$formas',material='$material',hombre_mujer='$hombre_mujer',precio_general='$precio_general' WHERE id='$id'";
+    $sqlUpdate = "UPDATE tenis SET marca='$marca',modelo='$modelo',tipo='$tipo',clasificacion='$clasificacion',tamanio='$tamanio',color='$color',color2='$color2',color3='$color3',color4='$color4',color5='$color5',formas='$formas',material='$material',hombre_mujer='$hombre_mujer',precio_general='$precio_general',precio_prov='$precio_prov' WHERE id='$id'";
 
     $resultado = $conn->query($sqlUpdate);
 
