@@ -9,7 +9,7 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
     
     //mes y año actual venta Admin
     $sql = "SELECT * FROM venta_gral WHERE YEAR(fecha_venta) = YEAR(CURRENT_DATE()) 
-    AND MONTH(fecha_venta)  = MONTH(CURRENT_DATE()) ORDER BY id DESC";
+    AND MONTH(fecha_venta)  = MONTH(CURRENT_DATE()) AND vendedor = '$idReporte' ORDER BY id DESC";
     $resultado_sql = $conn->query($sql);
     // $row_sql = $resultado_sql->fetch_assoc();
 
@@ -19,7 +19,7 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
         $annio = substr($fechaBusqueda, 0, 4);
         $mes = substr($fechaBusqueda, 5, 2); 
         $sqlBusqueda = "SELECT * FROM venta_gral WHERE YEAR(fecha_venta) = $annio 
-        AND MONTH(fecha_venta)  = $mes ORDER BY id DESC";
+        AND MONTH(fecha_venta)  = $mes AND vendedor = '$idReporte' ORDER BY id DESC";
         $resultadoBusqueda = $conn->query($sqlBusqueda);
     }
 
