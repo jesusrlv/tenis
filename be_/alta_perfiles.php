@@ -170,13 +170,13 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   
-                  <form action="prcd/editar_catalogo.php" method="post">
+                  <form action="prcd/editar_catalogo_usuarios.php" method="post">
                   <div class="modal-body">
                     <input name="id" value="'.$row_sql_entrega['id'].'" hidden>
 
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
-                      <input type="text" name="catalogo" class="form-control" value="'.$row_sql_entrega['usr'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <input type="text" name="usr" class="form-control" value="'.$row_sql_entrega['usr'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
             
                   </div>
@@ -308,13 +308,13 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   
-                  <form action="prcd/editar_catalogo.php" method="post">
+                  <form action="prcd/editar_catalogo_usuarios.php" method="post">
                   <div class="modal-body">
                     <input name="id" value="'.$row_sql_vendedor['id'].'" hidden>
 
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
-                      <input type="text" name="catalogo" class="form-control" value="'.$row_sql_vendedor['usr'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                      <input type="text" name="usr" class="form-control" value="'.$row_sql_vendedor['usr'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
             
                   </div>
