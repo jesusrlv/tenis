@@ -20,10 +20,7 @@
             <span class="text-center" style="width:15%"><small>Talla</small></span>
             <span class="text-center" style="width:8%"><small><i class="bi bi-x-circle-fill text-white"></i></small></span>
           </div>  
-          
             <p id="compracarrito"></p>
-                <!-- <hr class="w-100 justify-aligment-center"> -->
-            <!-- </form> -->
             <button class="btn btn-primary w-100 mb-1" type="button" id="btncerrar" onclick="cambiarHidden()"><i class="bi bi-cart-plus"></i> Completar datos envío</button>
                 
                 <div class="col-12">
@@ -32,10 +29,8 @@
                     <hr>
                     <strong>Total: </strong><span id="totalSpans" name=""></span>
                   </div>
-                    <!-- <input type="text" id="inputsval" name="num_prod"> -->
                     <input hidden name="total_precio" id="inputsval" type="text" class="form-control w-50" placeholder="" aria-label="Username" aria-describedby="basic-addon1" READONLY>
                     <input hidden name="num_prod" id="totalprice" type="text" class="form-control w-50" placeholder="" aria-label="Username" aria-describedby="basic-addon1" READONLY>
-                    <!-- <input type="text" id="totalprice" name="total_precio"> -->
                 </div>
         </div>
 
@@ -56,8 +51,14 @@
             </div>
             <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
-              <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email" REQUIRED>
+              <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email">
             </div>
+            <div class="alert alert-danger" role="alert">
+              <p class="text-center"><strong>¡ATENCIÓN!</strong></p>  
+              <hr>
+              Un asesor se pondrá en contacto contigo para realizar la entrega.
+            </div>  
+
             </div>
             <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cart-plus"></i> Realizar pedido</button>  
             <hr>
