@@ -12,11 +12,14 @@
   <div class="offcanvas-body border-bottom">
   
         <div class="row-12">
-          <!-- <form action="query/q_guardar_datos.php" method="POST" class="" onchange="cambioInput()"> -->
           <form action="query/q_guardar_datos.php" method="POST" class="">
-                <p id="compracarrito"></p>
-                <!-- <hr class="w-100 justify-aligment-center"> -->
-            <!-- </form> -->
+          <div class="input-group input-group-sm mb-1 border rounded  ">
+            <span class="text-center" style="width:61%"><small>Producto</small></span>
+            <span class="text-center" style="width:16%"><small>Precio</small></span>
+            <span class="text-center" style="width:15%"><small>Talla</small></span>
+            <span class="text-center" style="width:8%"><small><i class="bi bi-x-circle-fill text-white"></i></small></span>
+          </div>
+            <p id="compracarrito"></p>
             <button class="btn btn-primary w-100 mb-1" type="button" id="btncerrar" onclick="cambiarHidden()"><i class="bi bi-cart-plus"></i> Pagar carrito</button>
                 
                 <div class="col-12">
@@ -25,32 +28,9 @@
                     <hr>
                     <strong>Total: </strong><span id="totalSpans" name=""></span>
                   </div>
-                    <!-- <input type="text" id="inputsval" name="num_prod"> -->
                     <input hidden name="total_precio" id="inputsval" type="text" class="form-control w-50" placeholder="" aria-label="Username" aria-describedby="basic-addon1" READONLY>
                     <input hidden name="num_prod" id="totalprice" type="text" class="form-control w-50" placeholder="" aria-label="Username" aria-describedby="basic-addon1" READONLY>
-                    <!-- <input type="text" id="totalprice" name="total_precio"> -->
                 </div>
-
-                <script>
-                  // function valores(){
-                  //   var x = document.getElementById('contadorInputs').value;
-                  //   var y = document.getElementById('totalSpans').value;
-
-                  //   document.getElementById('inputsval').value = x;
-                  //   document.getElementById('totalprice').value = y;
-                  // }
-
-                </script>
-
-               
-                  
-                <!-- <div class="col-12 mt-0">
-                  <div class="alert alert-primary" role="alert">
-                    <strong>Total: </strong><span id="totalSpans"></span>
-                  </div>
-                </div> -->
-                <!-- <div class="4">
-                </div> -->
         </div>
 
         <div class="row-12 border-top mt-3" id="cambiohidden">

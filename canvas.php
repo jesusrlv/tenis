@@ -14,6 +14,13 @@
         <div class="row-12">
           <!-- <form action="query/q_guardar_datos.php" method="POST" class="" onchange="cambioInput()"> -->
           <form action="query/q_guardar_datos.php" method="POST" class="">
+          <div class="input-group input-group-sm mb-1 border rounded  ">
+            <span class="text-center" style="width:61%"><small>Producto</small></span>
+            <span class="text-center" style="width:16%"><small>Precio</small></span>
+            <span class="text-center" style="width:15%"><small>Talla</small></span>
+            <span class="text-center" style="width:8%"><small><i class="bi bi-x-circle-fill text-white"></i></small></span>
+          </div>  
+          
             <p id="compracarrito"></p>
                 <!-- <hr class="w-100 justify-aligment-center"> -->
             <!-- </form> -->
@@ -30,27 +37,6 @@
                     <input hidden name="num_prod" id="totalprice" type="text" class="form-control w-50" placeholder="" aria-label="Username" aria-describedby="basic-addon1" READONLY>
                     <!-- <input type="text" id="totalprice" name="total_precio"> -->
                 </div>
-
-                <script>
-                  // function valores(){
-                  //   var x = document.getElementById('contadorInputs').value;
-                  //   var y = document.getElementById('totalSpans').value;
-
-                  //   document.getElementById('inputsval').value = x;
-                  //   document.getElementById('totalprice').value = y;
-                  // }
-
-                </script>
-
-               
-                  
-                <!-- <div class="col-12 mt-0">
-                  <div class="alert alert-primary" role="alert">
-                    <strong>Total: </strong><span id="totalSpans"></span>
-                  </div>
-                </div> -->
-                <!-- <div class="4">
-                </div> -->
         </div>
 
         <div class="row-12 border-top mt-3" id="cambiohidden">
@@ -72,26 +58,6 @@
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
               <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email" REQUIRED>
             </div>
-            <!-- <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
-              <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email" REQUIRED>
-            </div> -->
-            <!-- <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-credit-card-2-back"></i> Tarjeta para pago</small></label>
-              
-              <input type="text" id="tarjeta2" READONLY HIDDEN> -->
-              
-              <!-- <div class="input-group">
-                <input type="text" class="form-control" style="width:57%" id="tarjetaNum" maxlength ="16" name="tarjeta" placeholder="XXXX-XXXX-XXXX-XXXX" onkeypress="ValidaSoloNumeros()">
-                <input type="text" class="form-control" style="width:43%" width="28" id="tipoTarjeta" readonly>
-              </div> -->
-              <!-- <input type="text" class="form-control w-100" id="formGroupExampleInput" placeholder="Nombre en tarjeta..." name="nombre_tarjeta"> -->
-              
-              <!-- <div class="input-group">
-              <input type="text" class="form-control w-40" id="formGroupExampleInput" placeholder="Expira Mes..." name="expira_mes" maxlength="2" onkeypress="ValidaSoloNumeros()">
-              <input type="text" class="form-control w-40" id="formGroupExampleInput" placeholder="Expira Año..." name="expira_annio" maxlength="2" onkeypress="ValidaSoloNumeros()">
-              <input type="password" class="form-control w-20" id="formGroupExampleInput" placeholder="NIP..." maxlength="3" name="ccc" onkeypress="ValidaSoloNumeros()">
-              </div> -->
             </div>
             <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cart-plus"></i> Realizar pedido</button>  
             <hr>
