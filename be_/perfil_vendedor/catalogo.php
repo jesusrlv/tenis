@@ -157,12 +157,6 @@ session_start();
           <li class="nav-item">
           <a href="../prcd/sort.php" class="nav-link active" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
           </li>
-          <!--<li class="nav-item">
-            <a class="nav-link" href="envio.php"><i class="bi bi-geo-fill"></i> Tu pedido</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="be_/"><i class="bi bi-journal-code"></i> Be_</a>
-          </li> -->
         </ul>
         
         <button class="btn btn-outline-light position-relative" type="buton" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"><i class="bi bi-cart-plus"></i> <span id="esconder">Carrito de compras</span>
@@ -179,7 +173,11 @@ session_start();
 
 <main class="bg-light">
 
-<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Perfil <span class="text-muted">Vendedor</span></h2>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"><br> Perfil <span class="text-muted">Vendedor</span>
+<br><small>
+Bienvenido<span class="text-muted"> <?php echo $nombre_sess?>
+    </small>
+</h2>
 
 <div class="mt-5 pt-2 mb-3">
   <h1 class="text-center">
