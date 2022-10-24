@@ -49,7 +49,7 @@
               <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Teléfono..." name="tel" onkeypress="ValidaSoloNumeros()" REQUIRED>
             </div>
             <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico</small></label>
+              <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico (opcional)</small></label>
               <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email">
             </div>
 
