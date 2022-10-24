@@ -133,7 +133,7 @@ else if($val == 5){
                 <span class="card-title" id="titulo_card2"><small><strong>Tipo: </strong>'.$row_sql_catalogo['tipo'].'</small></span><br>
                 <span class="card-title" id="titulo_card2"><small><strong>Color: </strong>'.$row_sql_catalogo['color'].'</small></span><br>
                 <hr>
-                <span class="card-title text-center" id="titulo_card2"><small><strong>Precio: </strong>'.$row_sql_catalogo['precio_general'].'</small></span><br>
+                <span class="card-title text-center" id="titulo_card2"></span><br>
                   ';
                   
                 
@@ -160,7 +160,7 @@ else if($val == 5){
                 <p class="mt-1 text-center"><strong>'.$row_sql_catalogo['marca'].'</strong></p>
                 <hr>
               <small>
-                <p class="mt-1 text-left">Precio: '.$row_sql_catalogo['precio_general'].'</p>
+                
                 <p class="text-left"><strong>Descripción del producto</strong></p>
                 <p class="text-left">
                   <ul class="list-group list-group-flush">
