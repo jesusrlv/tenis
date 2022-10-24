@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-10-2022 a las 22:46:18
+-- Tiempo de generación: 24-10-2022 a las 22:48:09
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -617,7 +617,7 @@ CREATE TABLE `venta_gral` (
   `nombre` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `direccion` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `telefono` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tarjeta` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   `nombre_tarjeta` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `expira_mes` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
