@@ -110,7 +110,7 @@ else {
   <form action="reporte_venta_fecha.php" method="POST">
   <div class="input-group mb-4 w-50">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week"></i></span>
-    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha">
+    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha" required >
     <input type="text" value="<?php echo $idReporte?>" name="id" hidden>
     <button type="submit" class="btn btn-primary">Buscar</button>
   </div>
@@ -180,7 +180,9 @@ else {
     </table>
     </div>
     <!-- table ventas -->
-
+    <div class="d-grid gap-2">
+     <a href="reporte_perfiles.php" class="btn btn-primary" type="button">Regresar</a>
+    </div>
   </div><!-- /.container -->
 
   <!-- FOOTER -->

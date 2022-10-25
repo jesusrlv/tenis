@@ -107,7 +107,16 @@ session_start();
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 <? include('query/query_ventas.php'); ?>
-  <div class="container marketing mt-5 border-bottom">
+  <div class="container marketing mt-5">
+
+  <form action="venta_gral_fecha.php" method="POST">
+  <div class="input-group mb-4 w-50">
+    <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week"></i></span>
+    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha" required >
+    <input type="text" value="<?php echo $idReporte ?>" name="id" hidden>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+  </div>
+  </form>
 
   <div class="input-group mb-4 w-50">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
@@ -178,7 +187,7 @@ session_start();
         ?>
       </tbody>
     </table>
-    <!-- table ventas -->
+    <!-- table ventas --> 
 
   </div><!-- /.container -->
 
