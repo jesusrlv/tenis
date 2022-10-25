@@ -16,8 +16,9 @@ include('../../query/qconn/qc.php');
 
 $id = $_POST['id'];
 $usr = $_POST['usr'];
+$pwd = $_POST['pwd'];
 
-    $sqlUpdate = "UPDATE usr SET usr='$usr' WHERE id='$id'";
+    $sqlUpdate = "UPDATE usr SET usr='$usr',pwd='$pwd' WHERE id='$id'";
 
     $resultado = $conn->query($sqlUpdate);
 

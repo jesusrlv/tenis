@@ -178,6 +178,22 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
                       <input type="text" name="usr" class="form-control" value="'.$row_sql_entrega['usr'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                      <input type="password" name="pwd" class="form-control" value="'.$row_sql_entrega['pwd'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" id="passHidden'.$row_sql_entrega['id'].'">
+                      <button type="button" class="btn btn-warning" onclick="myFunction'.$row_sql_entrega['id'].'()"><i class="bi bi-eye-fill"></i></button>
+                    </div>
+
+                    <script>
+                      function myFunction'.$row_sql_entrega['id'].'() {
+                        var x = document.getElementById("passHidden'.$row_sql_entrega['id'].'");
+                        if (x.type === "password") {
+                          x.type = "text";
+                        } else {
+                          x.type = "password";
+                        }
+                      }
+                    </script>
             
                   </div>
                   <div class="modal-footer">
@@ -316,6 +332,22 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
                       <input type="text" name="usr" class="form-control" value="'.$row_sql_vendedor['usr'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Contraseña</span>
+                      <input type="password" name="pwd" class="form-control" value="'.$row_sql_vendedor['pwd'].'" placeholder="" aria-label="" aria-describedby="basic-addon1" id="passHidden2'.$row_sql_vendedor['id'].'">
+                      <button type="button" class="btn btn-warning" onclick="myFunction2'.$row_sql_vendedor['id'].'()"><i class="bi bi-eye-fill"></i></button>
+                    </div>
+
+                    <script>
+                      function myFunction2'.$row_sql_vendedor['id'].'() {
+                        var x = document.getElementById("passHidden2'.$row_sql_vendedor['id'].'");
+                        if (x.type === "password") {
+                          x.type = "text";
+                        } else {
+                          x.type = "password";
+                        }
+                      }
+                    </script>
             
                   </div>
                   <div class="modal-footer">
@@ -495,3 +527,22 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         });
     });
   </script>
+
+<script>
+ function myFunction() {
+  var x = document.getElementById("passHidden");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+} 
+ function myFunction2() {
+  var x = document.getElementById("passHidden2");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+} 
+</script>
