@@ -53,10 +53,11 @@
               <label for="formGroupExampleInput" class="form-label"><small><i class="bi bi-envelope-fill"></i> Correo electrónico (opcional)</small></label>
               <input type="email" class="form-control" id="formGroupExampleInput" placeholder="Correo electrónico..." name="email">
             </div>
-            <div class="alert alert-danger" role="alert">
-              <p class="text-center"><strong>¡ATENCIÓN!</strong></p>  
-              <hr>
-              Un asesor se pondrá en contacto contigo para realizar la entrega.
+            <div class="alert alert-danger border-danger" role="alert">
+              <p class="text-center h2"><i class="bi bi-exclamation-diamond-fill"></i></p>
+              <p class="text-center h2"><strong>¡ATENCIÓN!</strong></p>  
+                <hr class="bg-danger">
+                Un asesor se pondrá en contacto contigo para realizar la entrega.
             </div>  
 
             </div>

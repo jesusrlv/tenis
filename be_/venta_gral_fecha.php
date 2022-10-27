@@ -113,9 +113,20 @@ else {
   </form>
 
   <hr>
-  <div class="input-group mb-4 w-50">
+  <!-- <div class="input-group mb-4 w-50">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
     <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput">
+  </div> -->
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+        <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput">
+      </div>
+    </div>
+    <div class="col text-end">
+      <a href="excel_venta_gral_fecha.php?fechaBusqueda=<? echo $fechaBusqueda ?>&annio=<? echo $annio ?>&mes=<? echo $mes ?>" class="btn btn-outline-primary"><i class="bi bi-file-earmark-excel-fill"></i> Reporte Excel</a>
+    </div>
   </div>
 
   <hr>

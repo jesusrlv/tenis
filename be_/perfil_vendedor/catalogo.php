@@ -1,30 +1,16 @@
 <?php
 session_start();
 
-// if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
-//   if($_SESSION['perfil']==3){
-
-//   }
-//   else{
-//     echo '<script>
-//     alert "1";<script>';
-//     header('Location: prcd/sort.php');
-//     die();
-//   }
+  if($_SESSION['perfil']==3){
+  }
+  else{
+    header('Location: ../prcd/sort.php');
+    die();
+  }
   
-// } 
-// else {
-//   // En caso contrario redirigimos el visitante a otra página
-//   echo '<script>
-//   alert "2";<script>';
-//   header('Location: prcd/sort.php');
-//   die();
-// }
-
-// variables de sesión
-
     $id_sess = $_SESSION['id'];
     $nombre_sess = $_SESSION['usr'];
+    $nombre = $_SESSION['nombre'];
     $perfil_sess = $_SESSION['perfil'];
 
 ?>
@@ -173,18 +159,18 @@ session_start();
 
 <main class="bg-light">
 
-<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"><br> Perfil <span class="text-muted">Vendedor</span>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"><br><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"><br> Perfil <span class="text-muted">Vendedor</span>
 <br><small>
-Bienvenido<span class="text-muted"> <?php echo $nombre_sess?>
+Bienvenido<span class="text-muted"> <?php echo $nombre?>
     </small>
 </h2>
 
-<div class="mt-5 pt-2 mb-3">
+<!-- <div class="mt-5 pt-2 mb-3">
   <h1 class="text-center">
     <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
     <p class="m-0 p-0"><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"></p>
   </h1>
-</div>
+</div> -->
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
