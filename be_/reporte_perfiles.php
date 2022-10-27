@@ -147,7 +147,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql_entrega['usr'].'</td>';
-            echo'<td class="text-center"><a href="reporte_entrega.php?id='.$row_sql_entrega['id'].'"><span class="badge bg-warning text-dark"><i class="bi bi-journal"></i> Reporte</span></a></td>';
+            echo'<td class="text-center"><a href="reporte_entrega.php?id='.$row_sql_entrega['id'].'"  ><span class="badge bg-warning text-dark"><i class="bi bi-journal"></i> Reporte</span></a></td>';
 
            
           }
