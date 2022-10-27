@@ -23,7 +23,11 @@ if(isset($_POST['filter']) && isset($_POST['filtro'])){
 if($val == 1){
   
     $marca = $_POST['filtro'];
-    $Query = "SELECT * FROM tenis WHERE marca = '$marca' AND estatus = 1";
+    $talla = $_POST['talla'];
+    // $Query = "SELECT * FROM tenis WHERE marca = '$marca' AND estatus = 1";
+
+    $Query = "SELECT tenis.img as img, tenis.material as material, tenis.color2 as color2, tenis.color3 as color3, tenis.color4 as color4, tenis.color5 as color5, tenis.precio_general as precio_general, tenis.hombre_mujer as hombre_mujer, tenis.formas as formas, tenis.id as id, tenis.precio_prov as precio_prov, tenis.marca as marca, tenis.modelo as modelo, tenis.tipo as tipo, tenis.color as color, tenis.hombre_mujer as hombremujer, inventario.talla as talla FROM tenis INNER JOIN inventario ON tenis.id = inventario.id_ext_tenis WHERE tenis.marca = '$marca' AND inventario.talla = '$talla' AND tenis.estatus = 1";
+   
     
   
 }

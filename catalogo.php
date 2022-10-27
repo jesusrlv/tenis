@@ -227,7 +227,7 @@
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-grid-3x3-gap-fill"></i>          
           </div>
-          <select class="form-select" aria-label="Example select with button addon" id="talla">
+          <select class="form-select" aria-label="Example select with button addon" name="talla">
             <option value="">Talla ...</option>
             <option value="12">12</option>
             <option value="13">13</option>
