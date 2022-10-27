@@ -96,18 +96,18 @@ else {
 </header>
 
 <main>
-<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Venta <span class="text-muted">General</span></h2>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Reporte <span class="text-muted">Entregas</span></h2>
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 <? 
     $idReporte = $_REQUEST['id'];
-    include('../query/query_reporte_ventas.php'); 
+    include('../query/query_reporte_entregas.php'); 
 ?>
   <div class="container marketing mt-5 border-bottom">
 
-  <form action="reporte_venta_fecha.php" method="POST">
+  <form action="reporte_entrega_fecha.php" method="POST">
   <div class="input-group mb-4 w-50">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week"></i></span>
     <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha" required >
@@ -126,7 +126,7 @@ else {
       </div>
     </div>
     <div class="col text-end">
-      <a href="excel_reporte_venta.php?id=<?php echo $idReporte ?>" class="btn btn-outline-primary"><i class="bi bi-file-earmark-excel-fill"></i> Reporte Excel</a>
+      <a href="excel_reporte_entrega.php?id=<?php echo $idReporte ?>" class="btn btn-outline-primary"><i class="bi bi-file-earmark-excel-fill"></i> Reporte Excel</a>
     </div>
   </div>
   <hr>

@@ -102,22 +102,22 @@ else {
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 <? 
-    $idReporte = $_REQUEST['id'];
+    $idReporte = $_POST['id'];
     include('../query/query_reporte_ventas.php'); 
 ?>
   <div class="container marketing mt-5 border-bottom">
 
-  <form action="reporte_venta_fecha.php" method="POST">
+  <form action="reporte_entrega_fecha.php" method="POST">
   <div class="input-group mb-4 w-50">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week"></i></span>
     <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha" required >
-    <input type="text" value="<?php echo $idReporte?>" name="id" hidden>
+    <input type="text" value="<?php echo $idReporte ?>" name="id" hidden>
     <button type="submit" class="btn btn-primary">Buscar</button>
   </div>
   </form>
 
   <hr>
-  
+ 
   <div class="row">
     <div class="col">
       <div class="input-group">
@@ -126,7 +126,7 @@ else {
       </div>
     </div>
     <div class="col text-end">
-      <a href="excel_reporte_venta.php?id=<?php echo $idReporte ?>" class="btn btn-outline-primary"><i class="bi bi-file-earmark-excel-fill"></i> Reporte Excel</a>
+      <a href="excel_reporte_entrega_fecha.php?id=<?php echo $idReporte ?>&fecha=<?php echo $fechaBusqueda ?>" class="btn btn-outline-primary"><i class="bi bi-file-earmark-excel-fill"></i> Reporte Excel</a>
     </div>
   </div>
   <hr>
@@ -154,7 +154,7 @@ else {
         
         <?php
         $x = 0;
-          while($row_sql = $resultado_sql->fetch_assoc()){
+          while($row_sql = $resultadoBusqueda->fetch_assoc()){
             $x++;
             echo'<tr>';
             echo'<td class="text-center"><small>'.$x.'</small></td>';
@@ -166,9 +166,6 @@ else {
             echo'<td class="text-center"><small>'.$row_sql['telefono'].'</small></td>';
             echo'<td class="text-center"><small>'.$row_sql['email'].'</small></td>';
             echo'<td class="text-center"><small>'.$row_sql['clave_rastreo_int'].'</small></td>';
-              
-             
-            // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
             $idVendedor = $row_sql['vendedor'];
             $sqlVendedor = "SELECT * FROM usr WHERE id = '$idVendedor'";
@@ -212,7 +209,6 @@ else {
     border: 1px solid #ffc107;
     border-color:#ffc107;
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    /* transform: scale(1.01); */
     transition: width 0.8s, height 0.8s, transform 0.8s;
 }
 </style>

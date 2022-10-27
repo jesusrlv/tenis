@@ -17,11 +17,12 @@ $x = 2;
 $persona_envia = $_POST['persona_envia']; //llega por SESSION
 $id_int = $_POST['clave_rastreo_int'];
 
-    $sql_insert = "INSERT INTO pedidos(fecha_pedido,id_envio,codigo_envio_interno,entrega) VALUES('$fecha_sistema','$persona_envia','$id_int','$x')";
+    $sql_insert = "INSERT INTO pedidos(fecha_pedido,id_ext_tenis,id_ext_usr,estatus_entrega) VALUES('$fecha_sistema','$id_int','$persona_envia','$x')";
     $resultado_sql2 = $conn->query($sql_insert);
     // $row_sql_insert = $resultado_sql2->fetch_assoc();
 
-    $sql = "UPDATE venta_gral SET clave_rastreo_ext = '$id_int', entrega = '$x' WHERE clave_rastreo_int = '$id_int'";
+    // $sql = "UPDATE venta_gral SET clave_rastreo_ext = '$id_int', entrega = '$x' WHERE clave_rastreo_int = '$id_int'";
+    $sql = "UPDATE venta_gral SET entrega = '$x' WHERE clave_rastreo_int = '$id_int'";
     $resultado_sql = $conn->query($sql);
     // $row_sql = $resultado_sql->fetch_assoc();
     if($resultado_sql){

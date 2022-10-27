@@ -103,7 +103,7 @@ session_start();
   <form action="venta_gral_fecha.php" method="POST">
   <div class="input-group mb-4 w-50">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week"></i></span>
-    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha2">
+    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha2" required>
     <button type="submit" class="btn btn-primary">Buscar</button>
   </div>
   </form>
@@ -137,7 +137,7 @@ session_start();
         
         <?php
         $x = 0;
-          while($row_sql = $resultadoBusqueda->fetch_assoc()){
+          while($row_sql = $resultado_sql_entregas->fetch_assoc()){
             $x++;
             echo'<tr>';
             echo'<td>'.$x.'</td>';
@@ -182,7 +182,7 @@ session_start();
             </div>';
             }
             else{
-                echo'<td class="text-center"><span class="badge bg-success"><small><i class="bi bi-check-circle-fill"></i> '.$row_sql['fecha_entrega'].'</small></span>
+                echo'<td class="text-center"><span class="badge bg-success"><small><i class="bi bi-check-circle-fill"></i><br>Entregado</small></span>
                 </td>';
             }
             // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';

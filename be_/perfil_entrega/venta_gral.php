@@ -103,7 +103,7 @@ session_start();
   <form action="venta_gral_fecha.php" method="POST">
   <div class="input-group mb-4 w-50">
     <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar-week"></i></span>
-    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha2">
+    <input type="date" class="form-control" placeholder="Buscar por fecha" aria-label="Buscar por fecha" aria-describedby="basic-addon1" id="fecha" name="fecha2"required>
     <button type="submit" class="btn btn-primary">Buscar</button>
   </div>
   </form>
@@ -151,6 +151,7 @@ session_start();
             echo'<td class="text-center">'.$row_sql['clave_rastreo_int'].'</td>';
             if(!$row_sql['clave_rastreo_int']){
               echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
+              
               echo'<div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
