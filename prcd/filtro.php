@@ -34,6 +34,7 @@ if($val == 1){
 else if($val == 2){
   
     $modelo = $_POST['filtro'];
+    $talla = $_POST['talla'];
     // $Query = "SELECT * FROM tenis WHERE modelo = '$modelo' AND estatus = 1";
 
     $Query = "SELECT tenis.img as img, tenis.material as material, tenis.color2 as color2, tenis.color3 as color3, tenis.color4 as color4, tenis.color5 as color5, tenis.precio_general as precio_general, tenis.hombre_mujer as hombre_mujer, tenis.formas as formas, tenis.id as id, tenis.precio_prov as precio_prov, tenis.marca as marca, tenis.modelo as modelo, tenis.tipo as tipo, tenis.color as color, tenis.hombre_mujer as hombremujer, inventario.talla as talla FROM tenis INNER JOIN inventario ON tenis.id = inventario.id_ext_tenis WHERE tenis.modelo = '$modelo' AND inventario.talla = '$talla' AND tenis.estatus = 1";
@@ -43,6 +44,7 @@ else if($val == 2){
 else if($val == 3){
   
     $color = $_POST['filtro']; 
+    $talla = $_POST['talla'];
     // $Query = "SELECT * FROM tenis WHERE color  = '$color' AND estatus = 1"; 
 
     $Query = "SELECT tenis.img as img, tenis.material as material, tenis.color2 as color2, tenis.color3 as color3, tenis.color4 as color4, tenis.color5 as color5, tenis.precio_general as precio_general, tenis.hombre_mujer as hombre_mujer, tenis.formas as formas, tenis.id as id, tenis.precio_prov as precio_prov, tenis.marca as marca, tenis.modelo as modelo, tenis.tipo as tipo, tenis.color as color, tenis.hombre_mujer as hombremujer, inventario.talla as talla FROM tenis INNER JOIN inventario ON tenis.id = inventario.id_ext_tenis WHERE tenis.color = '$color' AND inventario.talla = '$talla' AND tenis.estatus = 1";
@@ -52,6 +54,7 @@ else if($val == 3){
 else if($val == 4){
   
     $material = $_POST['filtro'];
+    $talla = $_POST['talla'];
     // $Query = "SELECT * FROM tenis WHERE material = '$material' AND estatus = 1";
 
     $Query = "SELECT tenis.img as img, tenis.material as material, tenis.color2 as color2, tenis.color3 as color3, tenis.color4 as color4, tenis.color5 as color5, tenis.precio_general as precio_general, tenis.hombre_mujer as hombre_mujer, tenis.formas as formas, tenis.id as id, tenis.precio_prov as precio_prov, tenis.marca as marca, tenis.modelo as modelo, tenis.tipo as tipo, tenis.color as color, tenis.hombre_mujer as hombremujer, inventario.talla as talla FROM tenis INNER JOIN inventario ON tenis.id = inventario.id_ext_tenis WHERE tenis.material = '$material' AND inventario.talla = '$talla' AND tenis.estatus = 1";
@@ -100,16 +103,14 @@ else if($val == 4){
       $this_page_first_result = ($page-1)*$no_resultados;
 
       echo '
-      <div class="btn-toolbar text-center mb-4" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="btn-group me-2" role="group" aria-label="First group">
-         
+      <nav aria-label="...">
+        <ul class="pagination pagination-lg">
       ';
       for($page = 1;$page<=$no_paginacion;$page++){
-        echo '
-        <button type="button" class="btn btn-primary" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</button>';
+        echo '<li class="page-item active" aria-current=""><button class="page-link" id="valueAHref'.$page.'" onclick="valorP('.$page.')">'.$page.'</button></li>';
       }
-      echo '</div>
-      </div>';
+      echo '</ul>
+       </nav>';
 
 
       if ($no_resultados == 0){
