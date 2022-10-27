@@ -22,6 +22,15 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
         AND MONTH(fecha_venta)  = $mes AND vendedor = '$idReporte' ORDER BY id DESC";
         $resultadoBusqueda = $conn->query($sqlBusqueda);
     }
+    //fecha para excel
+    if(isset($_REQUEST['fecha'])){
+        $fechaBusqueda = $_REQUEST['fecha'];
+        $annio = substr($fechaBusqueda, 0, 4);
+        $mes = substr($fechaBusqueda, 5, 2); 
+        $sqlBusqueda = "SELECT * FROM venta_gral WHERE YEAR(fecha_venta) = $annio 
+        AND MONTH(fecha_venta)  = $mes AND vendedor = '$idReporte' ORDER BY id DESC";
+        $resultadoBusqueda = $conn->query($sqlBusqueda);
+    }
 
  
         //mes y año actual venta entregas
