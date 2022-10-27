@@ -103,7 +103,7 @@ else {
   <!-- Wrap the rest of the page in another container to center all the content. -->
 <? 
     $idReporte = $_POST['id'];
-    include('../query/query_reporte_ventas.php'); 
+    include('../query/query_reporte_entregas.php'); 
 ?>
   <div class="container marketing mt-5 border-bottom">
 
