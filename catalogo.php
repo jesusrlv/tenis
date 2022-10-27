@@ -227,7 +227,7 @@
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-grid-3x3-gap-fill"></i>          
           </div>
-          <select class="form-select" aria-label="Example select with button addon" name="talla">
+          <select class="form-select" aria-label="Example select with button addon" name="talla" required>
             <option value="">Talla ...</option>
             <option value="12">12</option>
             <option value="13">13</option>
@@ -416,6 +416,7 @@
     var valorPag = valorPg;
     var filter= document.querySelector("[name='filter']").value;
     var filtro= document.querySelector("[name='filtro']").value;
+    var talla= document.querySelector("[name='talla']").value;
          
           $.ajax({
                   type:"POST",
@@ -423,6 +424,7 @@
                   data:{
                     valorPag:valorPag,
                     filter:filter,
+                    talla:talla,
                     filtro:filtro
                   },
                   dataType: "html",

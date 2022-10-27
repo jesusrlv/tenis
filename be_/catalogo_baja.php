@@ -161,7 +161,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql['marca'].'</td>';
             echo'<td class="text-center">'.$row_sql['modelo'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['tipo'].'</td>';
+            echo'<td class="text-center">'.$row_sql['tipo'].'</td>';
             echo'<td class="text-center">'.$row_sql['color'].'</td>';
             echo'<td class="text-center">'.$row_sql['material'].'</td>';
             echo'<td class="text-center">'.$row_sql['hombre_mujer'].'</td>';
