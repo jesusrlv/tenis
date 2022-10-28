@@ -138,9 +138,7 @@ else {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i><br>Fecha<br>venta</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i><br>Precio</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-person-circle"></i><br>Nombre</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Dirección</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-telephone"></i><br>Teléfono</small></th>
@@ -154,7 +152,7 @@ else {
         
         <?php
         $x = 0;
-          while($row_sql = $resultadoBusqueda->fetch_assoc()){
+          while($row_sql = $resultado_sql->fetch_assoc()){
             $x++;
             echo'<tr>';
             echo'<td class="text-center"><small>'.$x.'</small></td>';
