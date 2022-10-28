@@ -15,7 +15,7 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
     
     $sqlReporteEntregas = "SELECT venta_gral.cantidad as cantidad, venta_gral.nombre as nombre, venta_gral.direccion as direccion, venta_gral.telefono as telefono, venta_gral.clave_rastreo_int as clave_rastreo_int, venta_gral.entrega as entrega, pedidos.estatus_entrega as estatus_entrega, pedidos.id_ext_usr as entrega FROM venta_gral INNER JOIN pedidos ON venta_gral.clave_rastreo_int = pedidos.id_ext_tenis WHERE YEAR(pedidos.fecha_pedido) = YEAR(CURRENT_DATE()) AND MONTH(pedidos.fecha_pedido) = MONTH(CURRENT_DATE())";
 
-    $resultado_sql = $conn->query($sql);
+    $resultado_sql = $conn->query($sqlReporteEntregas);
     // $row_sql = $resultado_sql->fetch_assoc();
 
     //por fecha

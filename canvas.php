@@ -63,7 +63,8 @@
             </div>
             <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cart-plus"></i> Realizar pedido</button>  
             <hr>
-            <p class="mt-3 text-center"><a href="privacidad/" style="text-decoration: none;" target="_blank"><i class="bi bi-shield-fill-check"></i><small> Política de privacidad</small></a></p>
+            <!-- <p class="mt-3 text-center"><a href="privacidad/" style="text-decoration: none;" target="_blank"><i class="bi bi-shield-fill-check"></i><small> Política de privacidad</small></a></p> -->
+            <p><strong>DEV:</strong> © 2022 Nexus Technology and Consulting.</p>
           </form>
           </div>
           
