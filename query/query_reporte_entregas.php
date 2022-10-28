@@ -10,7 +10,7 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
     //mes y año actual venta Admin
     // $sql = "SELECT * FROM venta_gral WHERE YEAR(fecha_venta) = YEAR(CURRENT_DATE()) 
     // AND MONTH(fecha_venta)  = MONTH(CURRENT_DATE()) AND vendedor = '$idReporte' ORDER BY id DESC";
-    $sql = "SELECT venta_gral.fecha_venta as fecha_venta, venta_gral.cantidad as cantidad FROM venta_gral WHERE YEAR(fecha_venta) = YEAR(CURRENT_DATE()) 
+    $sql = "SELECT venta_gral.fecha_venta as fecha_venta, venta_gral.cantidad as cantidad, venta_gral.precio as precio, venta_gral.nombre as nombre, venta_gral.direccion as direccion, venta_gral.telefono as telefono, venta_gral.email as email, venta_gral.clave_rastreo_int as clave_rastreo_int, venta_gral.entrega as entrega, pedidos.id_ext_tenis as id_ext_tenis, pedidos.id_ext_tenis as id_ext_tenis FROM venta_gral INNER JOIN pedidos WHERE YEAR(fecha_venta) = YEAR(CURRENT_DATE()) 
     AND MONTH(fecha_venta)  = MONTH(CURRENT_DATE()) AND vendedor = '$idReporte' ORDER BY id DESC";
 
     $resultado_sql = $conn->query($sql);
