@@ -152,7 +152,7 @@ else {
         
         <?php
         $x = 0;
-          while($row_sql = $resultado_sql->fetch_assoc()){
+          while($row_sql = $resultadoBusqueda->fetch_assoc()){
             $x++;
             echo'<tr>';
             echo'<td class="text-center"><small>'.$x.'</small></td>';

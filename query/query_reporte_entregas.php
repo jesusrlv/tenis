@@ -12,19 +12,24 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
     $rowQuery = $ResultadoQuery->fetch_assoc();
     $userQ = $rowQuery['usr'];
 
-    $sqlReporteEntregas = "SELECT venta_gral.cantidad as cantidad, venta_gral.nombre as nombre, venta_gral.direccion as direccion, venta_gral.telefono as telefono, venta_gral.clave_rastreo_int as clave_rastreo_int, venta_gral.entrega as entrega, pedidos.estatus_entrega as estatus_entrega, pedidos.id_ext_usr as entrega FROM venta_gral INNER JOIN pedidos ON venta_gral.clave_rastreo_int = pedidos.id_ext_tenis WHERE YEAR(pedidos.fecha_pedido) = YEAR(CURRENT_DATE()) AND MONTH(pedidos.fecha_pedido) = MONTH(CURRENT_DATE()) AND id_ext_usr =  '$userQ'";
-
+    $sqlReporteEntregas = "SELECT venta_gral.cantidad as cantidad, venta_gral.nombre as nombre, venta_gral.direccion as direccion, venta_gral.telefono as telefono, venta_gral.clave_rastreo_int as clave_rastreo_int, venta_gral.entrega as entrega, pedidos.estatus_entrega as estatus_entrega, pedidos.id_ext_usr as entrega FROM venta_gral INNER JOIN pedidos ON venta_gral.clave_rastreo_int = pedidos.id_ext_tenis WHERE YEAR(pedidos.fecha_pedido) = YEAR(CURRENT_DATE()) AND MONTH(pedidos.fecha_pedido) = MONTH(CURRENT_DATE()) AND pedidos.id_ext_usr =  '$userQ'";
     $resultado_sql = $conn->query($sqlReporteEntregas);
 
     //por fecha
     if(isset($_POST['fecha'])){
+        $idUsr = $_POST['id'];
+        $QueryUser ="SELECT * FROM usr WHERE id = '$idUsr'";
+        $ResultadoQuery = $conn->query($QueryUser);
+        $rowQuery = $ResultadoQuery->fetch_assoc();
+        $userQ = $rowQuery['usr'];
+
         $fechaBusqueda = $_POST['fecha'];
         $annio = substr($fechaBusqueda, 0, 4);
         $mes = substr($fechaBusqueda, 5, 2); 
-        $sqlBusqueda = "SELECT * FROM venta_gral WHERE YEAR(fecha_venta) = $annio 
-        AND MONTH(fecha_venta)  = $mes AND vendedor = '$idReporte' ORDER BY id DESC";
+        $sqlBusqueda = "SELECT venta_gral.cantidad as cantidad, venta_gral.nombre as nombre, venta_gral.direccion as direccion, venta_gral.telefono as telefono, venta_gral.clave_rastreo_int as clave_rastreo_int, venta_gral.entrega as entrega, pedidos.estatus_entrega as estatus_entrega, pedidos.id_ext_usr as entrega FROM venta_gral INNER JOIN pedidos ON venta_gral.clave_rastreo_int = pedidos.id_ext_tenis WHERE YEAR(pedidos.fecha_pedido) = $annio AND MONTH(pedidos.fecha_pedido) = $mes AND pedidos.id_ext_usr = '$userQ' ORDER BY pedidos.id DESC";
         $resultadoBusqueda = $conn->query($sqlBusqueda);
     }
+    
     //fecha para excel
     if(isset($_REQUEST['fecha'])){
         $fechaBusqueda = $_REQUEST['fecha'];
