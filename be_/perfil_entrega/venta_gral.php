@@ -36,7 +36,8 @@ session_start();
     <link rel="icon" type="image/png" href="../../assets/brand/img/cel.ico">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <!-- Bootstrap core CSS -->
@@ -114,7 +115,6 @@ session_start();
           <th scope="col" class="h6"><small>#</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-calendar2-week-fill"></i> Fecha venta</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-123"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Precio</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-person-circle"></i> Nombre</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Dirección</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-telephone"></i> Teléfono</small></th>
@@ -134,7 +134,6 @@ session_start();
             echo'<td>'.$x.'</td>';
             echo'<td>'.$row_sql['fecha_venta'].'</td>';
             echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['precio'].'</td>';
             echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
             echo'<td>'.$row_sql['direccion'].'</td>';
             echo'<td class="text-center">'.$row_sql['telefono'].'</td>';
@@ -142,26 +141,27 @@ session_start();
             echo'<td class="text-center">'.$row_sql['clave_rastreo_int'].'</td>';
             if(!$row_sql['entrega']){
               echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
-              
-              echo'<div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
-              <div class="modal-dialog">
+              echo'<div class="modal fade bg-warning" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-check-circle-fill"></i> Marcar entrega</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <form action="../../query/clave_rastreo_entrega.php" method="post">
-                  <div class="modal-body">
+                  <div class="modal-body text-center">
+                    <strong>
+                    ¿Deseas marcar el pedido como entregado?
+                    </strong>
                       
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" hidden>
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                       <input type="text" name="persona_envia" class="form-control" placeholder="Nombre persona que envía" value="'.$nombre_sess.'" aria-label="Nombre persona que envía" aria-describedby="basic-addon1" readonly>
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" hidden>
                       <span class="input-group-text bg-warning" id="basic-addon1"><i class="bi bi-send-fill"></i></span>
                       <input type="text" name="clave_rastreo_int" value="'.$row_sql['clave_rastreo_int'].'" class="form-control" placeholder="Costo de envío" aria-label="Costro de envío" aria-describedby="basic-addon1" READONLY>
                     </div>
-                    
                   </div>
                   
                   <div class="modal-footer">

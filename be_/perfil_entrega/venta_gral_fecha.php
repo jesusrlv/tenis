@@ -142,25 +142,27 @@ session_start();
             echo'<td class="text-center">'.$row_sql['clave_rastreo_int'].'</td>';
             if(!$row_sql['entrega']){
               echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
-              echo'<div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
-              <div class="modal-dialog">
+              echo'<div class="modal fade bg-warning" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-check-circle-fill"></i> Marcar entrega</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <form action="../../query/clave_rastreo_entrega.php" method="post">
-                  <div class="modal-body">
+                  <div class="modal-body text-center">
+                    <strong>
+                    ¿Deseas marcar el pedido como entregado?
+                    </strong>
                       
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" hidden>
                       <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
                       <input type="text" name="persona_envia" class="form-control" placeholder="Nombre persona que envía" value="'.$nombre_sess.'" aria-label="Nombre persona que envía" aria-describedby="basic-addon1" readonly>
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" hidden>
                       <span class="input-group-text bg-warning" id="basic-addon1"><i class="bi bi-send-fill"></i></span>
                       <input type="text" name="clave_rastreo_int" value="'.$row_sql['clave_rastreo_int'].'" class="form-control" placeholder="Costo de envío" aria-label="Costro de envío" aria-describedby="basic-addon1" READONLY>
                     </div>
-                    
                   </div>
                   
                   <div class="modal-footer">

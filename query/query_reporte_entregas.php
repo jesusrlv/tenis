@@ -5,7 +5,14 @@ date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
 
-    $sqlReporteEntregas = "SELECT venta_gral.cantidad as cantidad, venta_gral.nombre as nombre, venta_gral.direccion as direccion, venta_gral.telefono as telefono, venta_gral.clave_rastreo_int as clave_rastreo_int, venta_gral.entrega as entrega, pedidos.estatus_entrega as estatus_entrega, pedidos.id_ext_usr as entrega FROM venta_gral INNER JOIN pedidos ON venta_gral.clave_rastreo_int = pedidos.id_ext_tenis WHERE YEAR(pedidos.fecha_pedido) = YEAR(CURRENT_DATE()) AND MONTH(pedidos.fecha_pedido) = MONTH(CURRENT_DATE())";
+    $idUsr = $_REQUEST['id'];
+
+    $QueryUser ="SELECT * FROM usr WHERE id = '$idUsr'";
+    $ResultadoQuery = $conn->query($QueryUser);
+    $rowQuery = $ResultadoQuery->fetch_assoc();
+    $userQ = $rowQuery['usr'];
+
+    $sqlReporteEntregas = "SELECT venta_gral.cantidad as cantidad, venta_gral.nombre as nombre, venta_gral.direccion as direccion, venta_gral.telefono as telefono, venta_gral.clave_rastreo_int as clave_rastreo_int, venta_gral.entrega as entrega, pedidos.estatus_entrega as estatus_entrega, pedidos.id_ext_usr as entrega FROM venta_gral INNER JOIN pedidos ON venta_gral.clave_rastreo_int = pedidos.id_ext_tenis WHERE YEAR(pedidos.fecha_pedido) = YEAR(CURRENT_DATE()) AND MONTH(pedidos.fecha_pedido) = MONTH(CURRENT_DATE()) AND id_ext_usr =  '$userQ'";
 
     $resultado_sql = $conn->query($sqlReporteEntregas);
 
