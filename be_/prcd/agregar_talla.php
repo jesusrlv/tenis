@@ -18,7 +18,6 @@ $talla = $_POST['talla'];
 $cantidad = $_POST['cantidad'];
 $id = $_POST['id'];
 
-    // $sqlinsert= "UPDATE documentos SET link4='$ruta_pptx' WHERE id_usr='$curp'";
     $sqlinsert= "INSERT INTO inventario(talla,cantidad,id_ext_tenis) VALUES('$talla','$cantidad','$id')";
     $resultado= $conn->query($sqlinsert);
 

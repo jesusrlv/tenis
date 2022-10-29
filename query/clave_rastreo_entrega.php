@@ -17,7 +17,6 @@ $x = 1;
 $persona_envia = $_POST['persona_envia']; //llega por SESSION
 $id_int = $_POST['clave_rastreo_int'];
 
-    // $sql_insert = "INSERT INTO pedidos(fecha_pedido,id_ext_tenis,id_ext_usr,estatus_entrega) VALUES('$fecha_sistema','$id_int','$persona_envia','$x')";
     $sql_insert = "INSERT INTO pedidos(fecha_pedido,id_ext_tenis,id_ext_usr,estatus_entrega) VALUES('$fecha_sistema','$id_int','$persona_envia','$x')";
     $resultado_sql2 = $conn->query($sql_insert);
 

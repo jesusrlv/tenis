@@ -113,10 +113,7 @@ else {
   </form>
 
   <hr>
-  <!-- <div class="input-group mb-4 w-50">
-    <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-    <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput">
-  </div> -->
+  
   <div class="row">
     <div class="col">
       <div class="input-group">
@@ -155,7 +152,6 @@ else {
       <tbody id="myTable">
         
         <?php
-        // echo $fechaBusqueda;
         $x = 0;
           while($row_sql = $resultadoBusqueda->fetch_assoc()){
             $x++;
@@ -246,7 +242,6 @@ else {
             else{
               echo'<td class="text-center"><a href="revision_envio.php?id='.$row_sql['clave_rastreo_int'].'" style="text-decoration: none;"><i class="bi bi-check-circle-fill text-success"></i> '.$row_sql['clave_rastreo_int'].'</a></td>';
             }
-            // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
             $idVendedor = $row_sql['vendedor'];
             $sqlVendedor = "SELECT * FROM usr WHERE id = '$idVendedor'";
@@ -273,7 +268,6 @@ else {
     <div class="container">
       <hr class="featurette-divider">
       <p class="float-end"><a href="#">Regresar arriba</a></p>
-    <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
     <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
     </div>
   </footer>
@@ -289,7 +283,6 @@ else {
     border: 1px solid #ffc107;
     border-color:#ffc107;
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    /* transform: scale(1.01); */
     transition: width 0.8s, height 0.8s, transform 0.8s;
 }
 </style>

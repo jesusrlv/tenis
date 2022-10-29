@@ -41,13 +41,6 @@
       }
     </style>
 
-    <?php
-    
-    // $id_catalogo = $_REQUEST['id'];
-    // require('query/query_ini.php');
-    // require('query/query_catalogo.php');
-    ?>
-
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
   </head>
@@ -93,9 +86,7 @@
     <!-- Three columns of text below the carousel -->
     <!-- consultas productos -->
     <div class="row justify-content-center mb-3">
-      <?php
-        // require('query/query_catalogo.php');
-      ?>
+     
       <div class="col-6 text-center">
       <form action="envio.php" method="POST">
       <div class="input-group mb-3">
@@ -141,7 +132,6 @@
         <p class="lead">Shoes Store MX<?php echo $entrega; ?></p>
       </div>
       <div class="col-md-5">
-        <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
         <img src="assets/brand/img/portada_shoes_07.jpg" style="width: 500px; height: 375px; object-fit: cover; object-position:right; background-repeat: no-repeat;" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="">
       </div>
     </div>
@@ -167,7 +157,6 @@
         <p class="lead">Shoes Store MX</p>
       </div>
       <div class="col-md-5">
-        <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
         <img src="assets/brand/img/portada_shoes_09.jpg" style="width: 500px; height: 375px; object-fit: cover; object-position:right; background-repeat: no-repeat;" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="">
 
       </div>

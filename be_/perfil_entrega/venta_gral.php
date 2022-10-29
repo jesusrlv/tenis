@@ -72,16 +72,7 @@ session_start();
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <!-- <li class="nav-item">
-           <a class="nav-link" aria-current="page" href="dashboard.php"><i class="bi bi-house-fill"></i> Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="venta_gral.php"><i class="bi bi-receipt-cutoff"></i> Ventas</a>
-          </li>
           
-          <li class="nav-item">
-            <a class="nav-link" href="catalogo.php"><i class="bi bi-cloud-plus-fill"></i> Catálogo</a>
-          </li> -->
         </ul>
         <form class="d-flex">
           <a href="../prcd/sort.php" class="btn btn-outline-dark" type="submit"><i class="bi bi-door-open-fill"></i> Salir</a>
@@ -186,7 +177,6 @@ session_start();
               echo'<td class="text-center"><span class="badge bg-success"><i class="bi bi-check-circle-fill"></i><br>Entregado</span>
               </td>';
             }
-            // echo'<td class="text-center">'.$row_sql['clave_rastreo_ext'].'</td>';
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
             echo'</tr>';
           }
@@ -201,7 +191,6 @@ session_start();
   <!-- FOOTER -->
   <footer class="container mt-5">
     <p class="float-end"><a href="#">Regresar arriba</a></p>
-    <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
     <p>&copy; 2022 RedDeploy</p>
   </footer>
 </main>
@@ -216,7 +205,6 @@ session_start();
     border: 1px solid #ffc107;
     border-color:#ffc107;
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    /* transform: scale(1.01); */
     transition: width 0.8s, height 0.8s, transform 0.8s;
 }
 </style>
