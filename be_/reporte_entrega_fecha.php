@@ -138,14 +138,12 @@ else {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Cantidad</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-person-circle"></i><br>Nombre</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Dirección</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-telephone"></i><br>Teléfono</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-envelope"></i><br>Email</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-upc-scan"></i><br>Clave<br>interna<br>de rastreo</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i><br>Detalles</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i><br>Vendedor</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-info-circle"></i><br>Entregó</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -156,25 +154,22 @@ else {
             $x++;
             echo'<tr>';
             echo'<td class="text-center"><small>'.$x.'</small></td>';
-            echo'<td class="text-center"><small>'.$row_sql['fecha_venta'].'</small></td>';
-            echo'<td class="text-center"><small>'.$row_sql['cantidad'].'</small></td>';
-            echo'<td class="text-center"><small>$'.$row_sql['precio'].'</small></td>';
             echo'<td class="text-center"><small>'.$row_sql['nombre'].'</small></td>';
             echo'<td><small>'.$row_sql['direccion'].'</td>';
             echo'<td class="text-center"><small>'.$row_sql['telefono'].'</small></td>';
-            echo'<td class="text-center"><small>'.$row_sql['email'].'</small></td>';
             echo'<td class="text-center"><small>'.$row_sql['clave_rastreo_int'].'</small></td>';
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
-            $idVendedor = $row_sql['vendedor'];
-            $sqlVendedor = "SELECT * FROM usr WHERE id = '$idVendedor'";
-            $resultadoVendedor = $conn->query($sqlVendedor);
-            $rowVendedor = $resultadoVendedor->fetch_assoc();
-            if(!empty($row_sql['vendedor'])){
-              echo'<td class="text-center"><small>'.$rowVendedor['usr'].'</small></td>';
-            }
-            else{
-              echo'<td class="text-center"><small>Venta externa</small></td>';
-            }
+            $idVendedor = $row_sql['entrega'];
+            echo'<td class="text-center"><small>'.$row_sql['entrega'].'</small></td>';
+            // $sqlVendedor = "SELECT * FROM usr WHERE id = '$idVendedor'";
+            // $resultadoVendedor = $conn->query($sqlVendedor);
+            // $rowVendedor = $resultadoVendedor->fetch_assoc();
+            // if(!empty($row_sql['vendedor'])){
+            //   echo'<td class="text-center"><small>'.$rowVendedor['usr'].'</small></td>';
+            // }
+            // else{
+            //   echo'<td class="text-center"><small>Venta externa</small></td>';
+            // }
             echo'</tr>';
           }
         ?>
