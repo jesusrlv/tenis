@@ -6,11 +6,10 @@ include('qconn/qc.php');
         $busqueda = "";
         $busqueda = $_POST['busqueda'];
 
-        // $sql_busqueda = "SELECT * FROM envios WHERE codigo_envio_interno ='$busqueda'";
-        // $sql_busqueda = "SELECT * FROM venta_gral WHERE clave_rastreo_int ='$busqueda' AND apartado = 2";
+       
         $sql_busqueda = "SELECT * FROM venta_gral WHERE clave_rastreo_int ='$busqueda'";
         $resultado_sql_busqueda= $conn->query($sql_busqueda);
-        // if ($resultado_sql_busqueda= $conn->query($sql_busqueda)){
+
         $resultado_rows = mysqli_num_rows($resultado_sql_busqueda);
         if($resultado_rows == 1){
             while($row_sql_envio = $resultado_sql_busqueda->fetch_assoc()){
@@ -20,14 +19,12 @@ include('qconn/qc.php');
                 <td class="table-primary"><a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-card-list h4"></i></a></td>
                 <td class="table-primary">'.$row_sql_envio['clave_rastreo_int'].'</td>';
                 if($row_sql_envio['entrega']==1){
-                    echo '<td class="table-primary"><span class="badge text-bg-warning"><i class="bi bi-check-circle-fill"></i> En ruta</span></td>';
-                }
-                else if($row_sql_envio['entrega']==2){
                     echo '<td class="table-primary"><span class="badge text-bg-success"><i class="bi bi-check-circle-fill"></i> Entregado</span></td>';
                 }
-                else if($row_sql_envio['entrega']==0){
+                else{
                     echo '<td class="table-primary"><span class="badge text-bg-warning"><i class="bi bi-send-exclamation-fill"></i> En ruta</span></td>';
                 }
+                
                 echo '
                 </tr>
             </tbody>';
