@@ -43,7 +43,7 @@ $telefono = $_POST['tel'];
 $email = $_POST['email'];
 $talla = $_POST['talla'];
 $apartado = 1;
-$entrega = 1;
+// $entrega = 1;
 
 $total_precio = $_POST['total_precio']; // para ambos datos
 $nombreproducto = $_POST['id'];
