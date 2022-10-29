@@ -149,7 +149,7 @@ session_start();
             echo'<td class="text-center">'.$row_sql['telefono'].'</td>';
             echo'<td class="text-center">'.$row_sql['email'].'</td>';
             echo'<td class="text-center">'.$row_sql['clave_rastreo_int'].'</td>';
-            if($row_sql['entrega']==1){
+            if(!$row_sql['entrega']){
               echo'<td class="text-center"><button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-pencil-square"></i> Entrega</button></td>';
               echo'<div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel'.$row_sql['id'].'" aria-hidden="true">
               <div class="modal-dialog">

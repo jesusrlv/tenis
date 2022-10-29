@@ -44,7 +44,7 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
             $annio = substr($fechaBusqueda2, 0, 4);
             $mes = substr($fechaBusqueda2, 5, 2); 
             $sqlBusqueda = "SELECT * FROM venta_gral WHERE YEAR(fecha_venta) = $annio 
-            AND MONTH(fecha_venta)  = $mes ORDER BY entrega ASC";
+            AND MONTH(fecha_venta)  = $mes AND apartado = 2 ORDER BY entrega ASC";
             $resultado_sql_entregas = $conn->query($sqlBusqueda);
         }
 ?>
