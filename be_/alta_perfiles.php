@@ -133,6 +133,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Nombre</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Usuario</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Editar</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Estatus</small></th>
@@ -148,6 +149,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             $id_talla =$row_sql_entrega['id'];
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
+            echo'<td class="text-center">'.$row_sql_entrega['nombre'].'</td>';
             echo'<td class="text-center">'.$row_sql_entrega['usr'].'</td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_entrega['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
 
@@ -176,6 +178,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
+                      <input type="text" name="nombre" class="form-control" value="'.$row_sql_entrega['nombre'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Usuario</span>
                       <input type="text" name="usr" class="form-control" value="'.$row_sql_entrega['usr'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
@@ -289,6 +295,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Nombre</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Usuario</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Editar</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Estatus</small></th>
@@ -304,6 +311,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             $id_talla =$row_sql_vendedor['id'];
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
+            echo'<td class="text-center">'.$row_sql_vendedor['nombre'].'</td>';
             echo'<td class="text-center">'.$row_sql_vendedor['usr'].'</td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_vendedor['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
             if ($row_sql_vendedor['status_e']==1){ 
@@ -330,6 +338,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
+                      <input type="text" name="nombre" class="form-control" value="'.$row_sql_vendedor['nombre'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Usuario</span>
                       <input type="text" name="usr" class="form-control" value="'.$row_sql_vendedor['usr'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">

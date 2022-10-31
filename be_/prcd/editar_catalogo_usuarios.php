@@ -15,10 +15,11 @@
 include('../../query/qconn/qc.php');
 
 $id = $_POST['id'];
+$nombre = $_POST['nombre'];
 $usr = $_POST['usr'];
 $pwd = $_POST['pwd'];
 
-    $sqlUpdate = "UPDATE usr SET usr='$usr',pwd='$pwd' WHERE id='$id'";
+    $sqlUpdate = "UPDATE usr SET usr='$usr',pwd='$pwd',nombre='$nombre' WHERE id='$id'";
 
     $resultado = $conn->query($sqlUpdate);
 
