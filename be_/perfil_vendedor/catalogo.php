@@ -164,19 +164,9 @@ session_start();
 Bienvenido<span class="text-muted"> <?php echo $nombre?>
     </small>
 </h2>
-
-<!-- <div class="mt-5 pt-2 mb-3">
-  <h1 class="text-center">
-    <p class="m-0 p-0"><img src="../../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="270"></p>
-    <p class="m-0 p-0"><img src="../../assets/brand/img/letras_verdes.png" alt="" width="270"></p>
-  </h1>
-</div> -->
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
-
-
-
   <div class="container marketing" style="background-color:#f7f7f7;">
   <p class=" pt-4"><strong>Seleccione tipo de filtro...</strong></p>
   <div class="container mb-4">
@@ -207,7 +197,20 @@ Bienvenido<span class="text-muted"> <?php echo $nombre?>
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-search"></i>            
           </div>
-          <input type="text" class="form-control" placeholder="Marca..." aria-label="Username" aria-describedby="basic-addon1" id="marca">
+          <!-- <input type="text" class="form-control" placeholder="Marca..." aria-label="Username" aria-describedby="basic-addon1" id="marca"> -->
+          <select class="form-select" aria-label="Example select with button addon" id="marca">
+            <option value=""><i class="fa fa-cc-mastercard" aria-hidden="true"></i> ...</option>
+            
+            <?php
+            include('../../query/query_categorias_backend.php');
+            while($rowMarca = $resultadoMarcas->fetch_assoc()){
+              echo'
+              <option value="'.$rowMarca['marca'].'">'.$rowMarca['marca'].'</option>
+              ';
+            }
+            ?>
+            
+          </select>
         </div>
 
     <div class="input-group mb-3 selector1" id="modeloH" hidden>

@@ -185,7 +185,20 @@
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-search"></i>            
           </div>
-          <input type="text" class="form-control" placeholder="Marca..." aria-label="Username" aria-describedby="basic-addon1" id="marca">
+          <!-- <input type="text" class="form-control" placeholder="Marca..." aria-label="Username" aria-describedby="basic-addon1" id="marca"> -->
+        <select class="form-select" aria-label="Example select with button addon" id="marca">
+            <option value=""><i class="fa fa-cc-mastercard" aria-hidden="true"></i> ...</option>
+            
+            <?php
+            include('query/query_categorias_backend.php');
+            while($rowMarca = $resultadoMarcas->fetch_assoc()){
+              echo'
+              <option value="'.$rowMarca['marca'].'">'.$rowMarca['marca'].'</option>
+              ';
+            }
+            ?>
+            
+          </select>
         </div>
 
     <div class="input-group mb-3 selector1" id="modeloH" hidden>
