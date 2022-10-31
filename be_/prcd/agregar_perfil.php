@@ -16,13 +16,14 @@ include('../../query/qconn/qc.php');
 
 
 $id = $_POST['id'];
+$nombre = $_POST['nombre'];
 $perfil = $_POST['perfil'];
 $password = $_POST['password'];
 $status = 1;
 
 
-    $sqlinsert= "INSERT INTO usr (usr,pwd,perfil,status_e) 
-    VALUES('$perfil','$password','$id','$status')";
+    $sqlinsert= "INSERT INTO usr (usr,pwd,nombre,perfil,status_e) 
+    VALUES('$perfil','$password','.$nombre.','$id','$status')";
     $resultado2= $conn->query($sqlinsert);
 
 

@@ -448,11 +448,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <div class="modal-body">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Nombre</span>
-            <input type="text" name="perfil" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <input type="text" name="nombre" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Usuario</span>
+            <input type="text" name="perfil" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1" required>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Contraseña</span>
-            <input type="password" name="password" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <input type="password" name="password" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1" required>
         </div>
         
       </div>
@@ -480,11 +484,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <div class="modal-body">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Nombre</span>
-            <input type="text" name="perfil" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <input type="text" name="nombre" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1" required>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Usuario</span>
+            <input type="text" name="perfil" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1" required>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Contraseña</span>
-            <input type="password" name="password" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <input type="password" name="password" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1" required>
         </div>
         
       </div>
