@@ -72,7 +72,7 @@ else {
             echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
             echo'<td>'.$row_sql['direccion'].'</td>';
             echo'<td class="text-center">'.$row_sql['telefono'].'</td>';
-            echo'</tr>';
+             echo'</tr>';
           }
         ?>
       </tbody>

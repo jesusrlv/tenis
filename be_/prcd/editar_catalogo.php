@@ -14,8 +14,10 @@
 <?php
 include('../../query/qconn/qc.php');
 
-$id = $_POST['id'];
-$color = $_POST['color'];
+
+if(isset($_POST['color'])){
+    $id = $_POST['id'];
+    $color = $_POST['color'];
 
     $sqlUpdate = "UPDATE color SET color='$color' WHERE id='$id'";
 
@@ -38,9 +40,33 @@ $color = $_POST['color'];
         else{
         echo 'No se registró producto';
         }
-    
-    
+}
 
+else if(isset($_POST['marca'])){
+    $id = $_POST['id'];
+    $marca = $_POST['marca'];
+
+    $sqlUpdate = "UPDATE marcas SET marca='$marca' WHERE id='$id'";
+    $resultado = $conn->query($sqlUpdate);
+
+    if($resultado){
+        
+        echo "<script type=\"text/javascript\">
+        Swal.fire({
+            icon: 'success',
+            imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+            imageHeight: 200,
+            imageAlt: 'Shoes Store Mx',
+            title: 'Elemento del catálogo actualizado',
+            text: 'Catálogo actualizado',
+            confirmButtonColor: '#3085d6',
+            footer: 'Shoes Store Mx'
+        }).then(function(){window.location='../categorias.php';});</script>";
+        }
+        else{
+        echo 'No se registró producto';
+        }
+}
 
 
     

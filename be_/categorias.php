@@ -121,8 +121,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     </div>
   </div>
 
-  
-
   <hr>
 
     <!-- table ventas -->
@@ -194,7 +192,105 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
-                    <a href="prcd/eliminar_catalogo.php?id='.$rowColores['id'].'" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
+                    <a href="prcd/eliminar_catalogo.php?id='.$rowColores['id'].'&type=1" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            ';
+          }
+        ?>
+      </tbody>
+    </table>
+    </div>
+    <!-- table ventas -->
+
+  <hr>
+
+  <div class="row">
+    <div class="col">
+        <div class="input-group mb-4 w-100">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput2">
+        </div>
+    </div>
+    <div class="col">
+        <div class="input-group mb-4 justify-content-end">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarMarca"><i class="bi bi-plus-circle-dotted"></i> Agregar marca</button>
+        </div>
+    </div>
+  </div>
+
+    <!-- table ventas -->
+    <div class="table-responsive">
+    <p class="h3 mb-5"><i class="bi bi-back"></i> Marcas</p>
+
+    <table class="table table-light table-striped mb-3 table-hover align-middle">
+      <thead class="text-center table-dark align-middle">
+        <tr>
+          <th scope="col" class="h6"><small>#</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Marca</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Editar</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-tag"></i> Eliminar</small></th>
+        </tr>
+      </thead>
+      <tbody id="myTable2">
+        
+        <?php
+        $x = 0;
+          while($rowMarca = $resultadoMarcas->fetch_assoc()){
+            $x++;
+            $id_talla =$rowMarca['id'];
+            echo'<tr>';
+            echo'<td class="text-center">'.$x.'</td>';
+            echo'<td class="text-center">'.$rowMarca['marca'].'</td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2'.$rowMarca['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteMarca'.$rowMarca['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-trash-fill"></i> Eliminar</span></a></td>';
+            echo'</tr>';
+
+            echo'<!-- Modal Actualizar-->
+            <div class="modal fade" id="exampleModal2'.$rowMarca['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  
+                  <form action="prcd/editar_catalogo.php" method="post">
+                  <div class="modal-body">
+                    <input name="id" value="'.$rowMarca['id'].'" hidden>
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1">Marca</span>
+                      <input type="text" name="marca" class="form-control" value="'.$rowMarca['marca'].'" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    </div>
+            
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-save-fill"></i> Actualizar</button>
+                  </div>
+                 
+                  </form>
+                </div>
+              </div>
+            </div>';
+
+            echo '<!-- Modal Eliminar-->
+            <div class="modal fade bg-danger" id="deleteMarca'.$rowMarca['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-trash-fill"></i> Eliminar categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <strong>¿Desea eliminar esta marca?</strong>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">NO</button>
+                    <a href="prcd/eliminar_catalogo.php?id='.$rowMarca['id'].'&type=2" type="button" class="btn btn-danger"><i class="bi bi-arrow-down-circle-fill"></i> Eliminar</a>
                   </div>
                 </div>
               </div>
@@ -250,7 +346,35 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     </div>
   </div>
 </div>
+
 <!-- Agregar producto -->
+
+<!-- Agregar marca -->
+<!-- Modal -->
+<div class="modal fade" id="agregarMarca" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar marca</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="prcd/agregar_catalogo.php" method="post">
+      <div class="modal-body">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><i class="bi bi-back"></i></span>
+            <input type="text" name="marca" class="form-control" placeholder="Marca" aria-label="Marca" aria-describedby="basic-addon1">
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-cloud-upload-fill"></i> Cerrar</button>
+        <button type="submit" class="btn btn-primary"><i class="bi bi-x-square-fill"></i> Guardar</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Agregar marca -->
 
 
 <style>
@@ -268,6 +392,14 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         $("#myInput").on("keyup", function () {
             var value = $(this).val().toLowerCase();
             $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+    $(document).ready(function () {
+        $("#myInput2").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTable2 tr").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
