@@ -23,7 +23,7 @@ $id_ext = $_POST['id_ext'];
 
     // $resultado= $conn->query($sqlUpdate);
 
-    $sqlDelete = "DELETE FROM inventario WHERE id_ext_tenis='$id_ext' AND talla='$talla'";
+    $sqlDelete = "DELETE FROM inventario WHERE id_ext_tenis='$id_ext' AND talla='$talla' AND id='$id'";
     $resultado = $conn->query($sqlDelete);
 
     if($resultado){
