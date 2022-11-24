@@ -37,7 +37,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <link rel="icon" type="image/png" href="../assets/brand/img/cel.ico">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
     <!-- Bootstrap core CSS -->
@@ -138,13 +139,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Marca</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Modelo</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Tipo</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Color</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> H/M</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Talla</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Venta</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Fecha</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -156,13 +154,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             $x++;
             echo'<tr>';
                 echo'<td class="text-center">'.$x.'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['marca'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['modelo'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['tipo'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['color'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['hombremujer'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['cantidad'].'</td>';
+                $idProd = $row_sqlInv['producto'];
+                $queryProd = "SELECT * FROM tenis WHERE id = '$idProd'";
+                $resultProd = $conn->query($queryProd);
+                $rowProd = $resultProd->fetch_assoc();
+                echo'<td class="text-center">'.$rowProd['marca'].' '.$rowProd['modelo'].'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['talla'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['cuentaProd'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['fecha_venta'].'</td>';
+                
             echo'</tr>';
           }
         ?>

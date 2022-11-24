@@ -138,13 +138,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
           <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Marca</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Modelo</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Tipo</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Color</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> H/M</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Cantidad</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i> Talla</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Venta</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Fecha</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -154,14 +151,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           while($row_sqlInv = $sqlResultCatalgo->fetch_assoc()){
             $x++;
             echo'<tr>';
-                echo'<td class="text-center">'.$x.'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['marca'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['modelo'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['tipo'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['color'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['hombremujer'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['cantidad'].'</td>';
-                echo'<td class="text-center">'.$row_sqlInv['talla'].'</td>';
+              echo'<td class="text-center">'.$x.'</td>';
+              $idProd = $row_sqlInv['producto'];
+              $queryProd = "SELECT * FROM tenis WHERE id = '$idProd'";
+              $resultProd = $conn->query($queryProd);
+              $rowProd = $resultProd->fetch_assoc();
+              echo'<td class="text-center">'.$rowProd['marca'].' '.$rowProd['modelo'].'</td>';
+              echo'<td class="text-center">'.$row_sqlInv['talla'].'</td>';
+              echo'<td class="text-center">'.$row_sqlInv['cuentaProd'].'</td>';
+              echo'<td class="text-center">'.$row_sqlInv['fecha_venta'].'</td>';
             echo'</tr>';
           }
         ?>
