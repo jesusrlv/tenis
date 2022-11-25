@@ -22,6 +22,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     $id_sess = $_SESSION['id'];
     $nombre_sess = $_SESSION['usr'];
     $perfil_sess = $_SESSION['perfil'];
+    $fechaBusqueda = $_POST['fecha'];
 
 ?>
 
@@ -122,7 +123,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         </div>
     </div>
     <div class="col text-end">
-      <a href="excel_reporte_entrega_fecha.php?id=<?php echo $idReporte ?>&fecha=<?php echo $fechaBusqueda ?>" class="btn btn-outline-primary"><i class="bi bi-file-earmark-excel-fill"></i> Reporte Excel</a>
+      <a href="excel_inventario_fechas.php?fecha=<?php echo $fechaBusqueda ?>" class="btn btn-outline-primary"><i class="bi bi-file-earmark-excel-fill"></i> Reporte Excel</a>
     </div>
   </div>
 
