@@ -120,10 +120,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             <input type="text" class="form-control" placeholder="Filtrado" aria-label="Filtrado" aria-describedby="basic-addon1" id="myInput">
         </div>
     </div>
-    <div class="col">
-        <!-- <div class="input-group mb-4 justify-content-end">
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarProducto"><i class="bi bi-plus-circle-dotted"></i> Agregar producto</button>
-        </div> -->
+    <div class="col text-end">
+      <a href="excel_reporte_entrega_fecha.php?id=<?php echo $idReporte ?>&fecha=<?php echo $fechaBusqueda ?>" class="btn btn-outline-primary"><i class="bi bi-file-earmark-excel-fill"></i> Reporte Excel</a>
     </div>
   </div>
 
