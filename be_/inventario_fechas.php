@@ -141,6 +141,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small>#</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Inventario</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Venta</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Fecha</small></th>
         </tr>
@@ -160,6 +161,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                 $rowProd = $resultProd->fetch_assoc();
                 echo'<td class="text-center">'.$rowProd['marca'].' '.$rowProd['modelo'].'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['talla'].'</td>';
+                echo'<td class="text-center">'.$row_sqlInv['cantidad'].'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['cuentaProd'].'</td>';
                 echo'<td class="text-center">'.$row_sqlInv['fecha_venta'].'</td>';
                 
