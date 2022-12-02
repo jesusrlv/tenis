@@ -20,13 +20,26 @@ $id_ext = $_POST['id_ext'];
 $status_apartado = $_POST['status_apartado'];
 
 // consulta para rebajar inventario
+    if($status_apartado == 2){
+        $slqDescontar = "SELECT * FROM venta_individual WHERE venta_gral = '$id_ext'";
+        $resultadoContar= $conn->query($slqDescontar);
 
-    // $slqDescontar = "SELECT * FROM venta_gral individual WHERE $id_ext";
-    // $resultadoContar= $conn->query($slqDescontar);
+        while($rowContar = $resultadoContar->fetch_assoc()){
+            $menosInv = -1;
+            $contar = $rowContar['producto'];
 
-    // while($rowContar = $resultadoContar->fetch_assoc()){
-    //     $menosInv = 1;
-    // }
+            $restar = "SELECT * FROM inventario WHERE id = $contar";
+            $resultadoY= $conn->query($restar);
+            $rowRESTA = $resultadoY->fetch_assoc();
+
+            $num = $rowRESTA['cantidad'];
+            $restaTOTAL = $num + $menosInv;
+
+            $UpdateResta = "UPDATE inventario SET cantidad='$restaTOTAL' WHERE id='$contar'";
+            $resultadoRESTA= $conn->query($UpdateResta);
+
+        }
+    }
 
     
     $sqlUpdate = "UPDATE venta_gral SET apartado='$status_apartado' WHERE id='$id'";
