@@ -41,7 +41,6 @@ $status_apartado = $_POST['status_apartado'];
         }
     }
 
-    
     $sqlUpdate = "UPDATE venta_gral SET apartado='$status_apartado' WHERE id='$id'";
 
     $resultado2= $conn->query($sqlUpdate);
@@ -63,12 +62,6 @@ $status_apartado = $_POST['status_apartado'];
         else{
         echo 'No se registró producto';
         }
-    
-    
-
-
-
-    
 
 ?>
 
