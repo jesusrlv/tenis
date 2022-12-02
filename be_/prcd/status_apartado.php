@@ -16,7 +16,17 @@ session_start();
 include('../../query/qconn/qc.php');
 
 $id = $_POST['id'];
+$id_ext = $_POST['id_ext'];
 $status_apartado = $_POST['status_apartado'];
+
+// consulta para rebajar inventario
+
+    // $slqDescontar = "SELECT * FROM venta_gral individual WHERE $id_ext";
+    // $resultadoContar= $conn->query($slqDescontar);
+
+    // while($rowContar = $resultadoContar->fetch_assoc()){
+    //     $menosInv = 1;
+    // }
 
     
     $sqlUpdate = "UPDATE venta_gral SET apartado='$status_apartado' WHERE id='$id'";

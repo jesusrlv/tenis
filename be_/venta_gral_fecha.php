@@ -190,6 +190,7 @@ else {
                     <div class="modal-body">
                     <form action="prcd/status_apartado.php" method="POST">
                       <input name="id" value="'.$row_sql['id'].'" hidden>
+                      <input name="id_ext" value="'.$row_sql[' clave_rastreo_int '].'" hidden>
                       <select class="form-select" name="status_apartado" aria-label="Default select example" required>
                         <option value="">Selecciona...</option>
                         <option value="0">No aprobado</option>
