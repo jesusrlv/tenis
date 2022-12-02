@@ -15,13 +15,8 @@
 include('../../query/qconn/qc.php');
 
 $talla = $_POST['talla'];
-// $cantidad = $_POST['cantidad'];
 $id = $_POST['id'];
 $id_ext = $_POST['id_ext'];
-
-    // $sqlUpdate = "UPDATE inventario SET talla='$talla',cantidad='$cantidad' WHERE id='$id'";
-
-    // $resultado= $conn->query($sqlUpdate);
 
     $sqlDelete = "DELETE FROM inventario WHERE id_ext_tenis='$id_ext' AND talla='$talla' AND id='$id'";
     $resultado = $conn->query($sqlDelete);

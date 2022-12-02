@@ -21,7 +21,6 @@ $precio_general = $_POST['precio_general'];
 $precio_prov = $_POST['precio_prov'];
 $clasificacion = $_POST['clasificacion'];
 $tamanio = $_POST['tamanio'];
-// $foto = $_POST['foto'];
 $color = $_POST['color'];
 $color2 = $_POST['color2'];
 $color3 = $_POST['color3'];
@@ -60,7 +59,6 @@ $extension = pathinfo($archivo_ext, PATHINFO_EXTENSION);
     
     $ruta = $link.'_'.$codigo.'_'.$marca.'_'.$modelo.'.'.$extension;
 
-    // $sqlinsert= "UPDATE documentos SET link4='$ruta_pptx' WHERE id_usr='$curp'";
     $sqlinsert= "INSERT INTO tenis (marca,modelo,tipo,precio_general,precio_prov,clasificacion,tamanio,img,color,color2,color3,color4,color5,material,hombre_mujer) 
     VALUES('$marca','$modelo','$tipo','$precio_general','$precio_prov','$clasificacion','$tamanio','$ruta','$color','$color2','$color3','$color4','$color5','$material','$hombre_mujer')";
     $resultado= $conn->query($sqlinsert);

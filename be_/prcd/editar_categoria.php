@@ -53,12 +53,6 @@ $link= 'foto';
         else{
         echo 'No se registró producto';
         }
-    
-    
-
-
-
-    
 
 ?>
 

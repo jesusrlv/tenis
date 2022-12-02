@@ -225,7 +225,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <div class="container">
       <hr class="featurette-divider">
       <p class="float-end"><a href="#">Regresar arriba</a></p>
-    <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
     <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
     </div>
   </footer>
@@ -275,7 +274,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     border: 1px solid #ffc107;
     border-color:#ffc107;
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    /* transform: scale(1.01); */
     transition: width 0.8s, height 0.8s, transform 0.8s;
 }
 </style>

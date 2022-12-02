@@ -4,14 +4,11 @@ include('qconn/qc.php');
 date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, 'es_MX.UTF-8');
 $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
-
-    // $sql = "SELECT * FROM venta_gral ORDER BY id DESC LIMIT 30";
     
     //mes y año actual venta Admin
     $sql = "SELECT * FROM venta_gral WHERE YEAR(fecha_venta) = YEAR(CURRENT_DATE()) 
     AND MONTH(fecha_venta)  = MONTH(CURRENT_DATE()) AND vendedor = '$idReporte' ORDER BY id DESC";
     $resultado_sql = $conn->query($sql);
-    // $row_sql = $resultado_sql->fetch_assoc();
 
     //por fecha
     if(isset($_POST['fecha'])){

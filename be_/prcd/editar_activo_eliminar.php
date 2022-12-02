@@ -16,7 +16,6 @@ include('../../query/qconn/qc.php');
 
 $id = $_REQUEST['id'];
 $activo = 0;
-// $ruta = '../../assets/brand/img/catalogo/';
 
     $sqlFile ="SELECT * FROM producto WHERE id='$id'";
     $resultado= $conn->query($sqlFile);

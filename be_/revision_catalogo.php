@@ -107,7 +107,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
       <div class="col-lg-6">
         <div class="card text-center text-light bg-dark" style="width: 100%;" id="hOver">
-          <!-- <img src="assets/brand/img/cel4.jpg" class="card-img-top" alt="..."> -->
           <div class="card-body">
             <h5 class="card-title"><i class="bi bi-receipt-cutoff"></i> Ventas</h5>
             <p class="card-text">Revisar las ventas realizadas en el sistema.</p>
@@ -117,7 +116,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-6">
         <div class="card text-center text-light bg-dark" style="width: 100%;" id="hOver">
-          <!-- <img src="assets/brand/img/cel6.jpg" class="card-img-top" alt="..."> -->
           <div class="card-body">
             <h5 class="card-title"><i class="bi bi-geo-fill"></i> Envíos</h5>
             <p class="card-text">Revisar el estatus de los envíos por paquetería.</p>
@@ -127,7 +125,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-6">
         <div class="card text-center text-light bg-dark" style="width: 100%;" id="hOver">
-          <!-- <img src="assets/brand/img/cel5.jpg" class="card-img-top" alt="..."> -->
           <div class="card-body">
             <h5 class="card-title"><i class="bi bi-cloud-plus-fill"></i> Cargar catálogo</h5>
             <p class="card-text">Cargar catálogo de productos en el sistema.</p>
@@ -137,7 +134,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-6">
         <div class="card text-center text-light bg-primary" style="width: 100%;" id="hOver">
-          <!-- <img src="assets/brand/img/cel5.jpg" class="card-img-top" alt="..."> -->
           <div class="card-body">
             <h5 class="card-title"><i class="bi bi-door-open-fill"></i> Salir</h5>
             <p class="card-text">Salir del sistema.</p>
@@ -165,7 +161,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <div class="container">
       <hr class="featurette-divider">
       <p class="float-end"><a href="#">Regresar arriba</a></p>
-    <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
     <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
     </div>
   </footer>
@@ -183,7 +178,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     border: 1px solid #ffc107;
     border-color:#ffc107;
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    /* transform: scale(1.01); */
     transition: width 0.8s, height 0.8s, transform 0.8s;
 }
 </style>

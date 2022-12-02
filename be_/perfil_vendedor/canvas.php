@@ -85,7 +85,6 @@ function cambiarHidden(){
   // document.getElementById('btncerrar').style.visibility = 'hidden';
   document.getElementById('btncerrar').disabled = true;
   
-  // https://www.w3schools.com/jsref/prop_style_visibility.asp
 }
 
 //Función que permite solo Números
@@ -96,7 +95,6 @@ function ValidaSoloNumeros() {
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<!-- https://es.stackoverflow.com/questions/70426/buscar-numero-de-tarjeta-de-credito-en-un-input-o-textbox-posterior-a-esto-remo -->
 <script>
   function getCardType(cardNo) {
   var cards = {
@@ -133,8 +131,3 @@ $('input[id="tarjetaNum"]').on('change', function() {
   }      
 });
 </script>
-
-
-<!-- ejemplos de cards -->
-<!-- https://bbbootstrap.com/snippets/bootstrap-5-simple-information-card-85881560 -->
-<!-- https://bbbootstrap.com/ -->

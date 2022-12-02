@@ -45,7 +45,6 @@
    
     </header>
 <main class="form-signin">
-  <!-- <form action="login.php" method="POST" id="pwdForm"> -->
   <form action="login.php" method="POST">
 
   <img class="mb-4" src="../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="180" height="180">
@@ -67,60 +66,7 @@
 
   </form>
 </main>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-<script type="text/javascript">
-// $(document).ready(function() {
-//     $('#pwdForm').submit(function(e) {
-//         e.preventDefault();
-//         $.ajax({
-//             type: "POST",
-//             url: 'login.php',
-//             data: $(this).serialize(),
-//             success: function(response)
-//             {
-//                 var jsonData = JSON.parse(response);
- 
-                // user is logged in successfully in the back-end
-                // let's redirect
-                // if (jsonData.success == "1")
-                // {
-                    // location.href = 'my_profile.php';
-                //     Swal.fire({
-                //         icon: 'success',
-                //         title: 'Usuario administrador',
-                //         text: 'Credenciales correctas',
-                //         footer: 'VENTAS</a>'
-                //     }).then(function(){window.location='dashboard.php';});
-                // }
-                // else if (jsonData.success == "2")
-                // {
-                    // location.href = 'my_profile.php';
-                //     Swal.fire({
-                //         icon: 'success',
-                //         title: 'Usuario entregads',
-                //         text: 'Credenciales correctas',
-                //         footer: 'VENTAS</a>'
-                //     }).then(function(){window.location='perfil_entrega/venta_gral.php';});
-                // }
-                // else
-                // {
-                    // alert('Invalid Credentials!');
-                    // Swal.fire({
-                    //     icon: 'error',
-                    //     title: 'Datos incorrectos',
-                    //     text: 'Credenciales incorrectas',
-                        // footer: 'VENTAS</a>'
-                    // }).then(function(){window.location='index.php';});
-//                     });
-//                 }
-//            }
-//        });
-//      });
-// });
-</script>
-  <!-- script validate -->
-
     
   </body>
 </html>

@@ -49,15 +49,11 @@ $entrega = 1;
 
 $total_precio = $_POST['total_precio']; // para ambos datos
 
-// $nombreproducto = $_POST['nombreproducto'];
 $nombreproducto = $_POST['id'];
 $valor = $_POST['valor'];
 
-// venta individual
-
 foreach($nombreproducto as $key => $arreglo)
 {
-    // $resta = $resta - 1;
     $talla1 = $talla[$key];
     $sql = "INSERT INTO venta_individual(producto,fecha_venta,venta_gral,talla,entrega) VALUES('$arreglo','$fecha_sistema','$codigo','$talla1','$entrega')";
     $resultado= $conn->query($sql);
@@ -85,12 +81,6 @@ if($resultado_general){
     echo 'No se registró la actividad';
     }
 
-//  end of if
-
-// https://laracasts.com/index.php/index.php/discuss/channels/general-discussion/how-to-add-multiple-same-name-input-fields-in-one-form-into-database
-// https://www.sourcecodester.com/tutorials/php/13495/php-multiple-form-inputs.html
-
-// https://programacion.net/articulo/carrito_de_la_compra_integrado_con_paypal_mediante_php_1975
 ?>
 </body>
 </html>

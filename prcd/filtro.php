@@ -24,7 +24,6 @@ if($val == 1){
   
     $marca = $_POST['filtro'];
     $talla = $_POST['talla'];
-    // $Query = "SELECT * FROM tenis WHERE marca = '$marca' AND estatus = 1";
 
     $Query = "SELECT tenis.img as img, tenis.material as material, tenis.color2 as color2, tenis.color3 as color3, tenis.color4 as color4, tenis.color5 as color5, tenis.precio_general as precio_general, tenis.hombre_mujer as hombre_mujer, tenis.formas as formas, tenis.id as id, tenis.precio_prov as precio_prov, tenis.marca as marca, tenis.modelo as modelo, tenis.tipo as tipo, tenis.color as color, tenis.hombre_mujer as hombremujer, inventario.talla as talla FROM tenis INNER JOIN inventario ON tenis.id = inventario.id_ext_tenis WHERE tenis.marca = '$marca' AND inventario.talla = '$talla' AND tenis.estatus = 1";
    
@@ -35,7 +34,6 @@ else if($val == 2){
   
     $modelo = $_POST['filtro'];
     $talla = $_POST['talla'];
-    // $Query = "SELECT * FROM tenis WHERE modelo = '$modelo' AND estatus = 1";
 
     $Query = "SELECT tenis.img as img, tenis.material as material, tenis.color2 as color2, tenis.color3 as color3, tenis.color4 as color4, tenis.color5 as color5, tenis.precio_general as precio_general, tenis.hombre_mujer as hombre_mujer, tenis.formas as formas, tenis.id as id, tenis.precio_prov as precio_prov, tenis.marca as marca, tenis.modelo as modelo, tenis.tipo as tipo, tenis.color as color, tenis.hombre_mujer as hombremujer, inventario.talla as talla FROM tenis INNER JOIN inventario ON tenis.id = inventario.id_ext_tenis WHERE tenis.modelo = '$modelo' AND inventario.talla = '$talla' AND tenis.estatus = 1";
    
@@ -45,7 +43,6 @@ else if($val == 3){
   
     $color = $_POST['filtro']; 
     $talla = $_POST['talla'];
-    // $Query = "SELECT * FROM tenis WHERE color  = '$color' AND estatus = 1"; 
 
     $Query = "SELECT tenis.img as img, tenis.material as material, tenis.color2 as color2, tenis.color3 as color3, tenis.color4 as color4, tenis.color5 as color5, tenis.precio_general as precio_general, tenis.hombre_mujer as hombre_mujer, tenis.formas as formas, tenis.id as id, tenis.precio_prov as precio_prov, tenis.marca as marca, tenis.modelo as modelo, tenis.tipo as tipo, tenis.color as color, tenis.hombre_mujer as hombremujer, inventario.talla as talla FROM tenis INNER JOIN inventario ON tenis.id = inventario.id_ext_tenis WHERE tenis.color = '$color' AND inventario.talla = '$talla' AND tenis.estatus = 1";
     
@@ -55,32 +52,16 @@ else if($val == 4){
   
     $material = $_POST['filtro'];
     $talla = $_POST['talla'];
-    // $Query = "SELECT * FROM tenis WHERE material = '$material' AND estatus = 1";
 
     $Query = "SELECT tenis.img as img, tenis.material as material, tenis.color2 as color2, tenis.color3 as color3, tenis.color4 as color4, tenis.color5 as color5, tenis.precio_general as precio_general, tenis.hombre_mujer as hombre_mujer, tenis.formas as formas, tenis.id as id, tenis.precio_prov as precio_prov, tenis.marca as marca, tenis.modelo as modelo, tenis.tipo as tipo, tenis.color as color, tenis.hombre_mujer as hombremujer, inventario.talla as talla FROM tenis INNER JOIN inventario ON tenis.id = inventario.id_ext_tenis WHERE tenis.material = '$material' AND inventario.talla = '$talla' AND tenis.estatus = 1";
     
 
 }
-// else if($val == 5){
-    
-//     $talla = $_POST['filtro'];
-//     $Query = "SELECT * FROM tenis WHERE talla = '$talla' AND estatus = 1";
-   
-
-// }
-// echo'
-//   <script>
-//   console.log('.$_POST['valorPag'].');
-//   console.log('.$val.');
-//   console.log('.$_POST['filtro'].');
-  
-//   </script>';
 
       $filtroQuery = $Query . ' LIMIT ' . $inicio . ',' . $limit . '';
       $resultado_FiltroQuery = $conn->query($filtroQuery);
       $resultado_Query = $conn->query($Query);
       $no_resultados = mysqli_num_rows($resultado_Query);
-      // $indice_final = $no_resultados + 1;
       echo '
       <div class="alert alert-primary text-center" role="alert">
         <strong><i class="bi bi-list-ol"></i> Número de coincidencias de resultados:</strong> ' . $no_resultados . ' tipos de calzado.
@@ -89,7 +70,6 @@ else if($val == 4){
       echo '<br>';
       
 
-      // echo '# de botones  ' . $no_paginacion = ceil($no_resultados/$limit);
       $no_paginacion = ceil($no_resultados/$limit);
       
       if (!isset($_GET['page'])){
@@ -99,7 +79,6 @@ else if($val == 4){
         $page = $pag;
       }
 
-      // echo $this_page_first_result = ($page-1)*$no_resultados;
       $this_page_first_result = ($page-1)*$no_resultados;
 
       echo '
@@ -123,13 +102,11 @@ else if($val == 4){
       }
   
  echo '<div class="row row-cols-2 g-2">';
-    // while($row_sql_catalogo = $resultado_Query->fetch_assoc()){
     while($row_sql_catalogo = $resultado_FiltroQuery  ->fetch_assoc()){
         
       $x1 = 1;
       $x2 = $row_sql_catalogo['marca'];
       $idConsultaTalla = $row_sql_catalogo['id'];
-    //  <div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
         echo '
           <div class="col-lg-4" id="hidden" >
           <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'" onclick="escala()">
@@ -217,9 +194,6 @@ else if($val == 4){
                   </script>
                   ';
             
-            //   echo consultaTalla($idConsultaTalla);
-            //   echo consultaTalla();
-            
               echo '</div>
             </div>
             </div> <!--fin div de alert-->
@@ -277,6 +251,3 @@ else{
   ';
 }
 ?>
-
-
-<!-- https://www.w3schools.com/php/php_ajax_database.asp -->

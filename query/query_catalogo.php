@@ -4,20 +4,13 @@ include('qconn/qc.php');
 
     $id_catalogo = $_REQUEST['id'];
 
-    // $sql_catalogo = "SELECT * FROM producto WHERE catalogo ='$id_catalogo' AND activo = 1";
     $sql_catalogo = "SELECT * FROM producto WHERE activo = 1";
-    $resultado_sql_catalogo= $conn->query($sql_catalogo);
-    // $row_sql_catalogo = $resultado_sql_catalogo->fetch_assoc();
-   
+    $resultado_sql_catalogo= $conn->query($sql_catalogo);   
 
     while($row_sql_catalogo = $resultado_sql_catalogo->fetch_assoc()){
-      // $x1 = $row_sql_catalogo['nombre'];
       $x1 = 1;
       $x2 = $row_sql_catalogo['nombre'];
       $idConsultaTalla = $row_sql_catalogo['id'];
-      // echo $x1;
-      // echo $x2;
-      //<button href="#" class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql_catalogo['id'].'"><i class="bi bi-cart-plus"></i> Carrito</button>
         echo '
         
           <div class="col-lg-4" id="hidden" value="'.$row_sql_catalogo['catalogo'].'">
@@ -96,6 +89,3 @@ include('qconn/qc.php');
         ';
   }
 ?>
-
-<!-- trabajar con iframe y js -->
-<!-- https://www.codegrepper.com/code-examples/javascript/frameworks/ionic/script+to+iframe -->

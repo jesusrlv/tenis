@@ -12,7 +12,6 @@
   <div class="offcanvas-body border-bottom">
   
         <div class="row-12">
-          <!-- <form action="query/q_guardar_datos.php" method="POST" class="" onchange="cambioInput()"> -->
           <form action="query/q_guardar_datos.php" method="POST" class="">
           <div class="input-group input-group-sm mb-1 border rounded  ">
             <span class="text-center" style="width:61%"><small>Producto</small></span>
@@ -63,7 +62,6 @@
             </div>
             <button type="submit" class="btn btn-primary w-100"><i class="bi bi-cart-plus"></i> Realizar pedido</button>  
             <hr>
-            <!-- <p class="mt-3 text-center"><a href="privacidad/" style="text-decoration: none;" target="_blank"><i class="bi bi-shield-fill-check"></i><small> Política de privacidad</small></a></p> -->
             <p><strong>DEV:</strong> © 2022 Nexus Technology and Consulting.</p>
           </form>
           </div>
@@ -84,10 +82,7 @@
   document.getElementById('cambiohidden').style.visibility = 'hidden';
 function cambiarHidden(){
   document.getElementById('cambiohidden').style.visibility = 'visible';
-  // document.getElementById('btncerrar').style.visibility = 'hidden';
   document.getElementById('btncerrar').disabled = true;
-  
-  // https://www.w3schools.com/jsref/prop_style_visibility.asp
 }
 
 //Función que permite solo Números
@@ -98,7 +93,6 @@ function ValidaSoloNumeros() {
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<!-- https://es.stackoverflow.com/questions/70426/buscar-numero-de-tarjeta-de-credito-en-un-input-o-textbox-posterior-a-esto-remo -->
 <script>
   function getCardType(cardNo) {
   var cards = {
@@ -116,7 +110,6 @@ function ValidaSoloNumeros() {
   return undefined;
 }
 
-// $('input').on('change', function() {
 $('input[id="tarjetaNum"]').on('change', function() {
   var tarjeta = $(this).val().trim();
 
@@ -129,14 +122,8 @@ $('input[id="tarjetaNum"]').on('change', function() {
   if (!cardType) {
     alert('tarjeta invalida');
   } else {
-    // alert('tarjeta tipo:' + cardType);
     document.getElementById('tipoTarjeta').value = cardType;
     $(this).val(Array(value.length-4).join("X")+value.substring(value.length-4));
   }      
 });
 </script>
-
-
-<!-- ejemplos de cards -->
-<!-- https://bbbootstrap.com/snippets/bootstrap-5-simple-information-card-85881560 -->
-<!-- https://bbbootstrap.com/ -->

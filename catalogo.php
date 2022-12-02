@@ -9,16 +9,11 @@
     <title>Shoes Store MX · Catálogo</title>
     <link rel="icon" type="image/png" href="assets/brand/img/cel.ico">
 
-    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         
     <!-- ajax -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
-    <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- ajax -->
     <script src="query/compra.js"></script>
@@ -172,7 +167,6 @@
             <option value="2">b. Modelo</option>
             <option value="3">c. Color</option>
             <option value="4">d. Material</option>
-            <!-- <option value="5">e. Talla</option> -->
 
           </select>
         </div>
@@ -185,7 +179,6 @@
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-search"></i>            
           </div>
-          <!-- <input type="text" class="form-control" placeholder="Marca..." aria-label="Username" aria-describedby="basic-addon1" id="marca"> -->
         <select class="form-select" aria-label="Example select with button addon" id="marca">
             <option value=""><i class="fa fa-cc-mastercard" aria-hidden="true"></i> ...</option>
             
@@ -235,7 +228,6 @@
           <input type="text" class="form-control" placeholder="Material..." aria-label="Username" aria-describedby="basic-addon1" id="material">
         </div>
         <hr class="w-50">
-        <!-- <div class="input-group mb-3 selector1" id="tallaH"> -->
         <div class="input-group mb-3 selector1" id="">
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-grid-3x3-gap-fill"></i>          
@@ -306,7 +298,6 @@
   <!-- <footer class="container"> -->
   <footer class="footer mt-auto py-3">
     <p class="float-end"><a href="#">Regresar arriba</a></p>
-    <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
     <p><strong>DEV:</strong> © 2022 <a href="#" target="_blank">Nexus Technology and Consulting</a>.</p>
     <p><a href="privacidad/" style="text-decoration: none;"><i class="bi bi-shield-fill-check"></i> Política de privacidad</a></p>
   </footer>
@@ -348,7 +339,6 @@
   require('canvas.php');
 ?>
 
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   function mensajeAgregado(){
@@ -376,25 +366,20 @@
   for(let i=0;i<div.length;i++){
     const styles = window.getComputedStyle(div[i]);
       var xyz = (div[i]).getAttribute('value');
-      // alert(xyz)
         if(xyz == x){
-          // div[i].style.visibility='visible';
           div[i].style.display = 'initial';
         }
         else{
-          // div[i].style.visibility='hidden'; 
           div[i].style.display = 'none'; 
         }
         
   }
-// https://codepen.io/letstacle/pen/qBmoZoB
   }
 
   function mostrarTodo(){
     const div2=document.querySelectorAll('#hidden');
       for(let i=0;i<div2.length;i++){
         const styles = window.getComputedStyle(div2[i]);
-        // div2[i].style.visibility='visible';
         div2[i].style.display = 'initial';
       }
     } 
@@ -409,7 +394,6 @@
                   url:"prcd/filtro.php",
                   data:form.serialize(),
                   dataType: "html",
-                  // async:false,
                   cache: false,
                     success: function(data) {
                       $("#txtHint").html(data);                  

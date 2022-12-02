@@ -149,7 +149,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         
         <?php
         $x = 0;
-        //   while($row_sqlInv = $sqlResultCatalgo->fetch_assoc()){
           while($row_sqlInv = $resultadoBusqueda->fetch_assoc()){
             $x++;
             echo'<tr>';
@@ -179,7 +178,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <div class="container">
       <hr class="featurette-divider">
       <p class="float-end"><a href="#">Regresar arriba</a></p>
-    <!-- <p>&copy; 2022 RedDeploy &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
     <p><strong>DEV:</strong> © 2022 <a href="https://direccioneszac.net/red_deploy/" target="_blank">Nexus Technology and Consulting</a>.</p>
     </div>
   </footer>
@@ -214,8 +212,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             <input type="text" name="precio" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
-            <!-- <span class="input-group-text" id="basic-addon1">Imagen</span>
-            <input type="text" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1"> -->
+            
             <div class="input-group mb-1">
               <label class="input-group-text" for="inputGroupFile01"><i class="bi bi-image"></i></label>
               <input type="file" name="foto" class="form-control" id="inputGroupFile01">
@@ -249,13 +246,11 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </div>
 <!-- Agregar producto -->
 
-
 <style>
   #hOver:hover {
     border: 1px solid #ffc107;
     border-color:#ffc107;
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    /* transform: scale(1.01); */
     transition: width 0.8s, height 0.8s, transform 0.8s;
 }
 </style>

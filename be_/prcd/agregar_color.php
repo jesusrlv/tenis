@@ -18,7 +18,6 @@ $color = $_POST['talla'];
 $cantidad = $_POST['cantidad'];
 $id = $_POST['id'];
 
-    // $sqlinsert= "UPDATE documentos SET link4='$ruta_pptx' WHERE id_usr='$curp'";
     $sqlinsert= "INSERT INTO color_inventario(color,cantidad,id_ext) VALUES('$color','$cantidad','$id')";
     $resultado= $conn->query($sqlinsert);
 

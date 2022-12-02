@@ -161,15 +161,6 @@ else {
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
             $idVendedor = $row_sql['entrega'];
             echo'<td class="text-center"><small>'.$row_sql['entrega'].'</small></td>';
-            // $sqlVendedor = "SELECT * FROM usr WHERE id = '$idVendedor'";
-            // $resultadoVendedor = $conn->query($sqlVendedor);
-            // $rowVendedor = $resultadoVendedor->fetch_assoc();
-            // if(!empty($row_sql['vendedor'])){
-            //   echo'<td class="text-center"><small>'.$rowVendedor['usr'].'</small></td>';
-            // }
-            // else{
-            //   echo'<td class="text-center"><small>Venta externa</small></td>';
-            // }
             echo'</tr>';
           }
         ?>

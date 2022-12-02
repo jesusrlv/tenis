@@ -31,7 +31,6 @@
             }
         }
         else{
-            // echo 'no hay datos';
             echo '<script>alert("No hay datos");';
         }
     }

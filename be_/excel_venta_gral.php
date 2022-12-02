@@ -58,7 +58,6 @@ else {
           <th scope="col" class="h6">#</th>
           <th scope="col" class="h6"><i class="bi bi-calendar2-week-fill"></i><br>Fecha<br>venta</th>
           <th scope="col" class="h6"><i class="bi bi-123"></i><br>Cantidad</th>
-          <th scope="col" class="h6"><i class="bi bi-tag"></i><br>Precio</th>
           <th scope="col" class="h6"><i class="bi bi-person-circle"></i><br>Nombre</th>
           <th scope="col" class="h6"><i class="bi bi-card-text"></i><br>Dirección</th>
           <th scope="col" class="h6"><i class="bi bi-telephone"></i><br>Teléfono</th>
@@ -79,7 +78,6 @@ else {
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center">'.$row_sql['fecha_venta'].'</td>';
             echo'<td class="text-center">'.$row_sql['cantidad'].'</td>';
-            echo'<td class="text-center">$'.$row_sql['precio'].'</td>';
             echo'<td class="text-center">'.$row_sql['nombre'].'</td>';
             echo'<td>'.$row_sql['direccion'].'</td>';
             echo'<td class="text-center">'.$row_sql['telefono'].'</td>';

@@ -161,15 +161,6 @@ else {
             echo'<td class="text-center"><a href="venta_individual.php?venta='.$row_sql['clave_rastreo_int'].'" type="button" class="btn btn-primary btn-sm"><i class="bi bi-clipboard"></i> Detalles</a></td>';
             $idVendedor = $row_sql['entrega'];
             echo'<td class="text-center"><small>'.$row_sql['entrega'].'</small></td>';
-            // $sqlVendedor = "SELECT * FROM usr WHERE id = '$idVendedor'";
-            // $resultadoVendedor = $conn->query($sqlVendedor);
-            // $rowVendedor = $resultadoVendedor->fetch_assoc();
-            // if(!empty($row_sql['vendedor'])){
-            //   echo'<td class="text-center"><small>'.$rowVendedor['usr'].'</small></td>';
-            // }
-            // else{
-            //   echo'<td class="text-center"><small>Venta externa</small></td>';
-            // }
             echo'</tr>';
           }
         ?>
@@ -202,7 +193,6 @@ else {
     border: 1px solid #ffc107;
     border-color:#ffc107;
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-    /* transform: scale(1.01); */
     transition: width 0.8s, height 0.8s, transform 0.8s;
 }
 </style>

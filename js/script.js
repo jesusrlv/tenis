@@ -10,17 +10,14 @@ function inputFiltro(){
         document.getElementById("modeloH").hidden = true;
         document.getElementById("colorH").hidden = true;
         document.getElementById("materialH").hidden = true;
-        // document.getElementById("tallaH").hidden = true;
 
         document.getElementById("modelo").removeAttribute("name");
         document.getElementById("color").removeAttribute("name");
         document.getElementById("material").removeAttribute("name");
-        // document.getElementById("talla").removeAttribute("name");
 
         document.getElementById("modelo").required = false;
         document.getElementById("color").required = false;
         document.getElementById("material").required = false;
-        // document.getElementById("talla").required = false;
 
     }
 
@@ -32,17 +29,14 @@ function inputFiltro(){
         document.getElementById("marcaH").hidden = true;
         document.getElementById("colorH").hidden = true;
         document.getElementById("materialH").hidden = true;
-        // document.getElementById("tallaH").hidden = true;
 
         document.getElementById("marca").removeAttribute("name");
         document.getElementById("color").removeAttribute("name");
         document.getElementById("material").removeAttribute("name");
-        // document.getElementById("talla").removeAttribute("name");
 
         document.getElementById("marca").required = false;
         document.getElementById("color").required = false;
         document.getElementById("material").required = false;
-        // document.getElementById("talla").required = false;
 
     }
 
@@ -54,17 +48,14 @@ function inputFiltro(){
         document.getElementById("marcaH").hidden = true;
         document.getElementById("modeloH").hidden = true;
         document.getElementById("materialH").hidden = true;
-        // document.getElementById("tallaH").hidden = true;
 
         document.getElementById("marca").removeAttribute("name");
         document.getElementById("modelo").removeAttribute("name");
         document.getElementById("material").removeAttribute("name");
-        // document.getElementById("talla").removeAttribute("name");
 
         document.getElementById("modelo").required = false;
         document.getElementById("modelo").required = false;
         document.getElementById("material").required = false;
-        // document.getElementById("talla").required = false;
 
     }
 
@@ -76,38 +67,15 @@ function inputFiltro(){
         document.getElementById("marcaH").hidden = true;
         document.getElementById("modeloH").hidden = true;
         document.getElementById("colorH").hidden = true;
-        // document.getElementById("tallaH").hidden = true;
 
         document.getElementById("marca").removeAttribute("name");
         document.getElementById("modelo").removeAttribute("name");
         document.getElementById("color").removeAttribute("name");
-        // document.getElementById("talla").removeAttribute("name");
 
         document.getElementById("modelo").required = false;
         document.getElementById("color").required = false;
         document.getElementById("color").required = false;
-        // document.getElementById("talla").required = false;
 
     }
 
-    // else if(valor == 5){
-    //     document.getElementById("talla").setAttribute("name","filtro");
-    //     document.getElementById("talla").required = true;document.getElementById("tallaH").hidden = false;
-
-    //     document.getElementById("marcaH").hidden = true;
-    //     document.getElementById("modeloH").hidden = true;
-    //     document.getElementById("colorH").hidden = true;
-    //     document.getElementById("materialH").hidden = true;
-
-    //     document.getElementById("marca").removeAttribute("name");
-    //     document.getElementById("modelo").removeAttribute("name");
-    //     document.getElementById("color").removeAttribute("name");
-    //     document.getElementById("material").removeAttribute("name");
-
-    //     document.getElementById("modelo").required = false;
-    //     document.getElementById("color").required = false;
-    //     document.getElementById("material").required = false;
-    //     document.getElementById("material").required = false;
-
-    // }
 }
