@@ -198,7 +198,20 @@
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-search"></i>            
           </div>
-          <input type="text" class="form-control" placeholder="Modelo..." aria-label="Username" aria-describedby="basic-addon1" id="modelo">
+          <!-- <input type="text" class="form-control" placeholder="Modelo..." aria-label="Username" aria-describedby="basic-addon1" id="modelo"> -->
+          <select class="form-select" aria-label="Example select with button addon" id="modelo">
+            <option value=""><i class="fa fa-cc-mastercard" aria-hidden="true"></i> ...</option>
+            
+            <?php
+            include('query/query_categorias_backend.php');
+            while($rowModelo = $resultadoModelo->fetch_assoc()){
+              echo'
+              <option value="'.$rowModelo['modelo'].'">'.$rowModelo['modelo'].'</option>
+              ';
+            }
+            ?>
+            
+          </select>
         </div>
 
         <!-- divisor -->
@@ -225,7 +238,20 @@
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-search"></i>            
           </div>
-          <input type="text" class="form-control" placeholder="Material..." aria-label="Username" aria-describedby="basic-addon1" id="material">
+          <!-- <input type="text" class="form-control" placeholder="Material..." aria-label="Username" aria-describedby="basic-addon1" id="material"> -->
+          <select class="form-select" aria-label="Example select with button addon" id="material">
+            <option value=""><i class="fa fa-cc-mastercard" aria-hidden="true"></i> ...</option>
+            
+            <?php
+            include('query/query_categorias_backend.php');
+            while($rowMaterial = $resultadoMaterial->fetch_assoc()){
+              echo'
+              <option value="'.$rowMaterial['material'].'">'.$rowMaterial['material'].'</option>
+              ';
+            }
+            ?>
+            
+          </select>
         </div>
         <hr class="w-50">
         <div class="input-group mb-3 selector1" id="">

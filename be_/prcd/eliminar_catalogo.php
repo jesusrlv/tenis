@@ -64,6 +64,52 @@ if($tipo == 2){
         echo 'No se registró producto';
         }
 }
+if($tipo == 3){
+    $id = $_REQUEST['id'];
+    $sqlDelete = "DELETE FROM modelo WHERE id='$id'";
+    $resultado = $conn->query($sqlDelete);
+
+    if($resultado){
+        
+        echo "<script type=\"text/javascript\">
+        Swal.fire({
+            icon: 'success',
+            imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+            imageHeight: 200,
+            imageAlt: 'Shoes Store Mx',
+            title: 'Modelo eliminada',
+            text: 'Catálogo actualizado',
+            confirmButtonColor: '#3085d6',
+            footer: 'Shoes Store Mx'
+        }).then(function(){window.location='../categorias.php';});</script>";
+        }
+        else{
+        echo 'No se registró producto';
+        }
+}
+if($tipo == 4){
+    $id = $_REQUEST['id'];
+    $sqlDelete = "DELETE FROM material WHERE id='$id'";
+    $resultado = $conn->query($sqlDelete);
+
+    if($resultado){
+        
+        echo "<script type=\"text/javascript\">
+        Swal.fire({
+            icon: 'success',
+            imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+            imageHeight: 200,
+            imageAlt: 'Shoes Store Mx',
+            title: 'Material eliminada',
+            text: 'Catálogo actualizado',
+            confirmButtonColor: '#3085d6',
+            footer: 'Shoes Store Mx'
+        }).then(function(){window.location='../categorias.php';});</script>";
+        }
+        else{
+        echo 'No se registró producto';
+        }
+}
 ?>
 
 </body>

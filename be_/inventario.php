@@ -139,7 +139,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Producto</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Talla</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Inventario</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Venta</small></th>
+          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> No. Venta</small></th>
           <th scope="col" class="h6"><small<i class="bi bi-card-text"></i> Fecha</small></th>
         </tr>
       </thead>

@@ -68,6 +68,58 @@ else if(isset($_POST['marca'])){
         }
 }
 
+else if(isset($_POST['modelo'])){
+    $id = $_POST['id'];
+    $modelo = $_POST['modelo'];
+
+    $sqlUpdate = "UPDATE modelo SET modelo='$modelo' WHERE id='$id'";
+    $resultado = $conn->query($sqlUpdate);
+
+    if($resultado){
+        
+        echo "<script type=\"text/javascript\">
+        Swal.fire({
+            icon: 'success',
+            imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+            imageHeight: 200,
+            imageAlt: 'Shoes Store Mx',
+            title: 'Elemento del catálogo actualizado',
+            text: 'Catálogo actualizado',
+            confirmButtonColor: '#3085d6',
+            footer: 'Shoes Store Mx'
+        }).then(function(){window.location='../categorias.php';});</script>";
+        }
+        else{
+        echo 'No se registró producto';
+        }
+}
+
+else if(isset($_POST['material'])){
+    $id = $_POST['id'];
+    $material = $_POST['material'];
+
+    $sqlUpdate = "UPDATE material SET material='$material' WHERE id='$id'";
+    $resultado = $conn->query($sqlUpdate);
+
+    if($resultado){
+        
+        echo "<script type=\"text/javascript\">
+        Swal.fire({
+            icon: 'success',
+            imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+            imageHeight: 200,
+            imageAlt: 'Shoes Store Mx',
+            title: 'Elemento del catálogo actualizado',
+            text: 'Catálogo actualizado',
+            confirmButtonColor: '#3085d6',
+            footer: 'Shoes Store Mx'
+        }).then(function(){window.location='../categorias.php';});</script>";
+        }
+        else{
+        echo 'No se registró producto';
+        }
+}
+
 
     
 

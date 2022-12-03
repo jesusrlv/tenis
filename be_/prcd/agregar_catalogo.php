@@ -66,6 +66,64 @@ else if(isset($_POST['marca'])){
 
 }
 
+else if(isset($_POST['modelo'])){
+
+    $modelo = $_POST['modelo'];
+
+        $sqlinsert= "INSERT INTO modelo (modelo) 
+        VALUES('$modelo')";
+        $resultado = $conn->query($sqlinsert);
+
+
+        if($resultado){
+            
+            echo "<script type=\"text/javascript\">
+            Swal.fire({
+                icon: 'success',
+                imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+                imageHeight: 200,
+                imageAlt: 'Shoes Store Mx',
+                title: 'Catálogo actualizado',
+                text: 'Modelo agregada',
+                confirmButtonColor: '#3085d6',
+                footer: 'Shoes Store Mx'
+            }).then(function(){window.location='../categorias.php';});</script>";
+            }
+            else{
+            echo 'No se registró producto';
+            }
+
+}
+
+else if(isset($_POST['material'])){
+
+    $material = $_POST['material'];
+
+        $sqlinsert= "INSERT INTO material (material) 
+        VALUES('$material')";
+        $resultado = $conn->query($sqlinsert);
+
+
+        if($resultado){
+            
+            echo "<script type=\"text/javascript\">
+            Swal.fire({
+                icon: 'success',
+                imageUrl: '../../assets/brand/img/logo_store_shoes_sin_fondo.png',
+                imageHeight: 200,
+                imageAlt: 'Shoes Store Mx',
+                title: 'Catálogo actualizado',
+                text: 'Material agregada',
+                confirmButtonColor: '#3085d6',
+                footer: 'Shoes Store Mx'
+            }).then(function(){window.location='../categorias.php';});</script>";
+            }
+            else{
+            echo 'No se registró producto';
+            }
+
+}
+
 
 ?>
 

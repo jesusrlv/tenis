@@ -120,8 +120,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         </div>
     </div>
   </div>
+  <?php
+    $id_talla =$_REQUEST['talla'];
+    $producto ="SELECT * FROM tenis WHERE id = '$id_talla'";
+    $sqlResultproducto = $conn->query($producto);
+    $rowProducto = $sqlResultproducto->fetch_assoc();
 
-  
+  ?>
+
+  <h4>Producto: <span class="text-muted"><? echo $rowProducto['marca'].' '.$rowProducto['modelo'].' '.$rowProducto['tipo']?> </span></h4>
 
   <hr>
 
@@ -139,7 +146,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <tbody id="myTable">
         
         <?php
-        $id_talla =$_REQUEST['talla'];
+        
         include('../query/query_talla.php');
         $x = 0;
         while($row_sql = $resultado_sqlTalla->fetch_assoc()){

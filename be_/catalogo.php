@@ -138,7 +138,8 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       <thead class="text-center table-dark align-middle">
         <tr>
         <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i><br>Marca</small></th>
+          <th scope="col" class="h6"><small><i class="bi bi-image"></i></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Marca</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Modelo</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Tipo</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Color</small></th>
@@ -157,6 +158,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             $x++;
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#img'.$row_sql['id'].'"><img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="img-thumbnail" style="width:30px" alt="..."></a></td>';
             echo'<td class="text-center">'.$row_sql['marca'].'</td>';
             echo'<td class="text-center">'.$row_sql['modelo'].'</td>';
             echo'<td class="text-center">'.$row_sql['tipo'].'</td>';
@@ -167,6 +169,19 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><span class="badge bg-primary"><i class="bi bi-pencil-square"></i> Editar</span></a></td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-warning text-dark"><i class="bi bi-trash-fill"></i> Dar de baja</span></a></td>';
             echo'</tr>';
+
+            echo'<!-- Modal imagen-->
+            <div class="modal fade" id="img'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  
+                  <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="w-100" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
+                  
+                </div>  
+              </div>  
+            </div>  
+                  ';
+
 
             echo'<!-- Modal Actualizar-->
             <div class="modal fade" id="exampleModal'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

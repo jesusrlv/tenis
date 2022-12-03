@@ -25,16 +25,11 @@ session_start();
     <title>Shoes Store MX · Catálogo</title>
     <link rel="icon" type="image/png" href="../../assets/brand/img/cel.ico">
 
-    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     
     <!-- ajax -->
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
-    <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- ajax -->
     <script src="query/compra.js"></script>
@@ -184,7 +179,6 @@ Bienvenido<span class="text-muted"> <?php echo $nombre?>
             <option value="2">b. Modelo</option>
             <option value="3">c. Color</option>
             <option value="4">d. Material</option>
-            <option value="5">e. Talla</option>
 
           </select>
         </div>
@@ -197,7 +191,6 @@ Bienvenido<span class="text-muted"> <?php echo $nombre?>
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-search"></i>            
           </div>
-          <!-- <input type="text" class="form-control" placeholder="Marca..." aria-label="Username" aria-describedby="basic-addon1" id="marca"> -->
           <select class="form-select" aria-label="Example select with button addon" id="marca">
             <option value=""><i class="fa fa-cc-mastercard" aria-hidden="true"></i> ...</option>
             
@@ -213,11 +206,24 @@ Bienvenido<span class="text-muted"> <?php echo $nombre?>
           </select>
         </div>
 
-    <div class="input-group mb-3 selector1" id="modeloH" hidden>
+        <div class="input-group mb-3 selector1" id="modeloH" hidden>
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-search"></i>            
           </div>
-          <input type="text" class="form-control" placeholder="Modelo..." aria-label="Username" aria-describedby="basic-addon1" id="modelo">
+          <!-- <input type="text" class="form-control" placeholder="Modelo..." aria-label="Username" aria-describedby="basic-addon1" id="modelo"> -->
+          <select class="form-select" aria-label="Example select with button addon" id="modelo">
+            <option value=""><i class="fa fa-cc-mastercard" aria-hidden="true"></i> ...</option>
+            
+            <?php
+            include('query/query_categorias_backend.php');
+            while($rowModelo = $resultadoModelo->fetch_assoc()){
+              echo'
+              <option value="'.$rowModelo['modelo'].'">'.$rowModelo['modelo'].'</option>
+              ';
+            }
+            ?>
+            
+          </select>
         </div>
 
         <!-- divisor -->
@@ -228,7 +234,7 @@ Bienvenido<span class="text-muted"> <?php echo $nombre?>
           <select class="form-select" aria-label="Example select with button addon" id="color">
             <option value="">Color ...</option>
             
-            <?php+
+            <?php
             include('query/query_color.php');
             while($rowColor = $resultado_sqlColor->fetch_assoc()){
               echo'
@@ -244,7 +250,20 @@ Bienvenido<span class="text-muted"> <?php echo $nombre?>
           <div class="input-group-text bg-primary text-light">
           <i class="bi bi-search"></i>            
           </div>
-          <input type="text" class="form-control" placeholder="Material..." aria-label="Username" aria-describedby="basic-addon1" id="material">
+          <!-- <input type="text" class="form-control" placeholder="Material..." aria-label="Username" aria-describedby="basic-addon1" id="material"> -->
+          <select class="form-select" aria-label="Example select with button addon" id="material">
+            <option value=""><i class="fa fa-cc-mastercard" aria-hidden="true"></i> ...</option>
+            
+            <?php
+            include('query/query_categorias_backend.php');
+            while($rowMaterial = $resultadoMaterial->fetch_assoc()){
+              echo'
+              <option value="'.$rowMaterial['material'].'">'.$rowMaterial['material'].'</option>
+              ';
+            }
+            ?>
+            
+          </select>
         </div>
 
         <div class="input-group mb-3 selector1" id="">

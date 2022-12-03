@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 header("Pragma: public");
 header("Expires: 0");
 $filename = "SHOESSTOREMX_reporte_ventas_vendedor.xls";
@@ -12,27 +14,7 @@ echo "
     <html xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:x=\"urn:schemas-microsoft-com:office:excel\" xmlns=\"http://www.w3.org/TR/REC-html40\">
     <html>
     <head><meta http-equiv=\"Content-type\" content=\"text/html;charset=utf-8\" /></head>";
-session_start();
 
-if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
-  if($_SESSION['perfil']==1){
-
-  }
-  else{
-    echo '<script>
-    alert "1";<script>';
-    header('Location: prcd/sort.php');
-    die();
-  }
-  
-} 
-else {
-  // En caso contrario redirigimos el visitante a otra página
-  echo '<script>
-  alert "2";<script>';
-  header('Location: prcd/sort.php');
-  die();
-}
     date_default_timezone_set('America/Mexico_City');
     setlocale(LC_TIME, 'es_MX.UTF-8');
     $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
