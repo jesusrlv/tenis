@@ -169,7 +169,7 @@ else {
                 </small></td>';
               }
               elseif($row_sql['apartado']==2){
-                echo'<td class="text-center"><small><button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-check-circle-fill"></i> Aprobado</button></small></td>';
+                echo'<td class="text-center"><small><button type="button" class="btn btn-success btn-sm"><i class="bi bi-check-circle-fill"></i> Aprobado</button></small></td>';
               }
               else{
                 echo'<td class="text-center"><small><button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal'.$row_sql['id'].'"><i class="bi bi-x-circle-fill"></i> No aprobado</button></small></td>';
