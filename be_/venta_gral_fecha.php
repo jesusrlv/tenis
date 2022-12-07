@@ -154,7 +154,7 @@ else {
         <?php
         $x = 0;
           while($row_sql = $resultadoBusqueda->fetch_assoc()){
-            $x++;
+            $x++; 
             echo'<tr>';
             echo'<td class="text-center"><small>'.$x.'</small></td>';
             echo'<td class="text-center"><small>'.$row_sql['fecha_venta'].'</small></td>';
