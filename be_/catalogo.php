@@ -139,6 +139,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
         <tr>
         <th scope="col" class="h6"><small>#</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-image"></i></th>
+          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Folio</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Marca</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Modelo</small></th>
           <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Tipo</small></th>
@@ -159,6 +160,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#img'.$row_sql['id'].'"><img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="img-thumbnail" style="width:30px" alt="..."></a></td>';
+            echo'<td class="text-center">FOLIO-'.$row_sql['id'].'</td>';
             echo'<td class="text-center">'.$row_sql['marca'].'</td>';
             echo'<td class="text-center">'.$row_sql['modelo'].'</td>';
             echo'<td class="text-center">'.$row_sql['tipo'].'</td>';

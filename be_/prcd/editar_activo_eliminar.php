@@ -17,14 +17,14 @@ include('../../query/qconn/qc.php');
 $id = $_REQUEST['id'];
 $activo = 0;
 
-    $sqlFile ="SELECT * FROM producto WHERE id='$id'";
+    $sqlFile ="SELECT * FROM tenis WHERE id='$id'";
     $resultado= $conn->query($sqlFile);
-    $row_sqlFile = $resultado->fetch_assoc();
+    $row_sqlFile = $resultado->fetch_assoc();   
 
-    $file = '../../assets/brand/img/catalogo/'.$row_sqlFile['imagen'];
+    $file = '../../assets/brand/img/catalogo/'.$row_sqlFile['img'];
     unlink($file);
 
-    $sqlDelete = "DELETE FROM producto WHERE id='$id'";
+    $sqlDelete = "DELETE FROM tenis WHERE id='$id'";
     $resultado2= $conn->query($sqlDelete);
 
     if($resultado2){
@@ -42,7 +42,7 @@ $activo = 0;
         }).then(function(){window.location='../catalogo_baja.php';});</script>";
         }
         else{
-        echo 'No se registró producto';
+        echo 'No se realizó procedimiento';
         }
 ?>
 

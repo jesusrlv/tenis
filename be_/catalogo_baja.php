@@ -93,15 +93,15 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 </header>
 
 <main>
-<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Catálogo <span class="text-muted">Baja de Productos</span></h2>
+<h2 class="mb-5 bg-light p-5 text-center featurette-heading" style="margin:18px;"><img src="../assets/brand/img/logo_store_shoes_sin_fondo.png" alt="" width="72" height="72"> Catálogo <span class="text-muted">Productos</span></h2>
 
   <div class="container">
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="catalogo.php"><i class="bi bi-bag-check-fill"></i> Productos activos</a>
+        <a class="nav-link" aria-current="page" href="catalogo.php"><i class="bi bi-bag-check-fill"></i> <strong>Productos activos</strong></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#"><i class="bi bi-bag-x-fill"></i> <strong>Productos dados de baja</strong></a>
+        <a class="nav-link active" href=""><i class="bi bi-bag-x-fill"></i> Productos dados de baja</a>
       </li>
       
     </ul>
@@ -109,10 +109,10 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-
-<? include('../query/query_catalogo_backend_baja.php'); ?>
+  <!-- Wrap the rest of the page -->
   
+  <? include('../query/query_catalogo_backend_baja.php'); ?>
+
   <div class="container marketing mt-5 border-bottom">
 
   <div class="row">
@@ -129,8 +129,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     </div>
   </div>
 
-  
-
   <hr>
 
     <!-- table ventas -->
@@ -139,16 +137,18 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
     <table class="table  table-light table-striped mb-3 table-hover align-middle">
       <thead class="text-center table-dark align-middle">
         <tr>
-        <th scope="col" class="h6"><small>#</small></th>
-          <th scope="col" class="h6"><small<i class="bi bi-card-text"></i><br>Marca</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Modelo</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Tipo</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Color</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Material</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>H/M</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Talla</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Acción</small></th>
-          <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i><br>Dar de baja</small></th>
+            <th scope="col" class="h6"><small>#</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-image"></i></th>
+            <th scope="col" class="h6"><small<i class="bi bi-card-text"></i><br>Folio</small></th>
+            <th scope="col" class="h6"><small<i class="bi bi-card-text"></i><br>Marca</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-card-text"></i><br>Modelo</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-123"></i><br>Tipo</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Color</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Material</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>H/M</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-sort-numeric-up-alt"></i><br>Talla</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-activity"></i><br>Acción</small></th>
+            <th scope="col" class="h6"><small><i class="bi bi-radioactive"></i><br>Dar de baja</small></th>
         </tr>
       </thead>
       <tbody id="myTable">
@@ -159,6 +159,9 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             $x++;
             echo'<tr>';
             echo'<td class="text-center">'.$x.'</td>';
+            echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#img'.$row_sql['id'].'"><img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="img-thumbnail" style="width:30px" alt="..."></a></td>';
+
+            echo'<td class="text-center">FOLIO-'.$row_sql['id'].'</td>';
             echo'<td class="text-center">'.$row_sql['marca'].'</td>';
             echo'<td class="text-center">'.$row_sql['modelo'].'</td>';
             echo'<td class="text-center">'.$row_sql['tipo'].'</td>';
@@ -170,7 +173,17 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
             echo'<td class="text-center"><a href="#" data-bs-toggle="modal" data-bs-target="#deleteArticulo'.$row_sql['id'].'"><span class="badge bg-danger text-light"><i class="bi bi-trash-fill"></i> Eliminar</span></a></td>';
             echo'</tr>';
 
-            
+            echo'<!-- Modal imagen-->
+            <div class="modal fade" id="img'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  
+                  <img src="../assets/brand/img/catalogo/'.$row_sql['img'].'" class="w-100" alt="" style="width: 200px;object-fit: cover; object-position:center; background-repeat: no-repeat;">
+                  
+                </div>  
+              </div>  
+            </div>  
+                  ';
 
             echo '<!-- Modal Editar-->
             <div class="modal fade bg-info" id="editarArticulo'.$row_sql['id'].'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -234,66 +247,6 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
 
   </body>
 </html>
-
-<!-- Agregar producto -->
-<!-- Modal -->
-<div class="modal fade" id="agregarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar producto</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form action="prcd/agregar_categoria.php" method="post" enctype="multipart/form-data">
-      <div class="modal-body">
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Nombre</span>
-            <input type="text" name="nombre" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Descripción</span>
-            <input type="text" name="descripcion" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Precio</span>
-            <input type="text" name="precio" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <!-- <span class="input-group-text" id="basic-addon1">Imagen</span>
-            <input type="text" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1"> -->
-            <div class="input-group mb-1">
-              <label class="input-group-text" for="inputGroupFile01"><i class="bi bi-image"></i></label>
-              <input type="file" name="foto" class="form-control" id="inputGroupFile01">
-            </div>
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Cantidad</span>
-            <input type="text" name="cantidad" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Tipo catálogo</span>
-              <select class="form-select" name="tipo_catalogo" aria-label="Default select example">
-                <option selected>Selecciona la categoría del producto</option>
-                <? 
-                $sqlCategoria = "SELECT * FROM catalogo";
-                $resultado_categoria_sql = $conn->query($sqlCategoria);
-                while($rowCategoria = $resultado_categoria_sql->fetch_assoc()){
-                  echo '<option value="'.$rowCategoria['id'].'">'.$rowCategoria['nombre_catalogo'].'</option>';
-                }
-                ?>
-              </select>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-cloud-upload-fill"></i> Cerrar</button>
-        <button type="submit" class="btn btn-primary"><i class="bi bi-x-square-fill"></i> Guardar</button>
-      </form>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Agregar producto -->
-
 
 <style>
   #hOver:hover {
