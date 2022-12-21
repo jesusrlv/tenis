@@ -175,7 +175,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
                       <input value="'.$row_sql['id_ext_tenis'].'" name="id_ext" hidden>
                       <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Talla</span>
-                        <input type="number" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['talla'].'" name="talla">
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value="'.$row_sql['talla'].'" name="talla">
                       </div>
                       <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Cantidad</span>
@@ -261,7 +261,7 @@ if (isset($_SESSION['usr']) && isset($_SESSION['pwd'])) {
       
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Cantidad</span>
-            <input type="number" name="cantidad" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+            <input type="text" name="cantidad" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
         </div>
         
       </div>
